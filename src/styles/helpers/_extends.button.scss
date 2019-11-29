@@ -1,0 +1,56 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%button {
+
+	display: inline-block;
+	text-decoration: none;
+	cursor: pointer;
+	padding: 0.5em 2em;
+	border-top: none;
+	border-bottom: none;
+	border-right: none;
+	border-left: 5px solid;
+	background-color: #fff;
+	box-shadow: 0 0 0.5em rgba( 0, 0, 0, 0.3 );
+	position: relative;
+	transition: border-color;
+	color: $titles-color;
+
+	&:hover { text-decoration: none; }
+
+}
+
+
+%button-default { border-left-color: $brand-default; }
+%button-primary { border-left-color: $brand-primary; }
+%button-success { border-left-color: $brand-success; }
+%button-warning { border-left-color: $brand-warning; }
+
+
+%button-small {
+	padding: 0 1em;
+	font-size: 85%;
+	border-left: none;
+	color: #fff;
+}
+
+
+%button-small-default { background-color: $titles-color; }
+%button-small-success { background-color: $brand-success; }
+%button-small-warning { background-color: $brand-warning; }
+%button-small-primary { background-color: $brand-primary; }
+
+
+%button-large { padding: 1em 3em; font-size: 120%; border-left-width: 10px; }

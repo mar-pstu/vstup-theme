@@ -1,0 +1,49 @@
+//-
+	Подключение скриптов и стилей
+
+
+link( href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i&display=swap&subset=cyrillic,cyrillic-ext", rel="stylesheet" )
+
+
+script( src=src.js+'jquery.js' )
+
+
+link( rel="stylesheet", href=src.css+'main.css' )
+
+
+link( rel="stylesheet", href=src.css+'slick.css' )
+script( src=src.js+'slick.js' )
+script.
+	jQuery( '#entries-slider' ).slick( {
+		dots: true,
+		arrows: false,
+		//- prevArrow: '#entries-slider-prev',
+		//- nextArrow: '#entries-slider-next',
+		//- appendDots: '#entries-slider-controls',
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		//- dotsClass: 'slider-dots'
+	} );
+	jQuery( '#advantages' ).slick( {
+		dots: false,
+		arrows: false,
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		autoplay: true,
+		autoplaySpeed: 3000,
+	} );
+
+script( src=src.js+'lazyload.js' )
+script.
+	jQuery( ".lazy" ).lazy();
+
+
+link( rel="stylesheet", href=src.css+'fancybox.css' )
+script( src=src.js+'fancybox.js' )
+
+
+script( src=src.js+"superembed.js" )
+
+
+
+script( src=src.js+'main.js' )

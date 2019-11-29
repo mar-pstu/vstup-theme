@@ -1,0 +1,65 @@
+//
+//
+//	Главная страница
+//  первый экран
+//
+//
+
+
+
+
+.jumbotron {
+	
+	@extend %bg-cover;
+	color: #fff;
+	padding: 10em 2em;
+	background-color: $brand-primary;
+	min-height: 15em;
+	position: relative;
+
+	@include min-width( $screen-sm ) {
+		margin-right: -$flexboxgrid-outer-margin;
+	}
+	
+
+	.title {
+		color: #fff;
+		margin: 0;
+	}
+
+	.excerpt {
+		margin: 0;
+		max-width: 20em;
+	}
+
+	.permalink {
+		@extend %button;
+		@extend %button-success;
+		margin-top: 2em;
+	}
+
+
+	.advantages {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: 0;
+		background-color: rgba( 0, 0, 0, .5 );
+		padding: .5em 0;
+	}
+
+	.advantages li {
+		display: flex;
+		align-items: center;
+		padding: 0 1em;
+	}
+
+	.advantages img {
+		width: 2.5em;
+		height: 2.5em;
+		margin-right: .5em;
+	}
+
+
+}

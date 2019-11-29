@@ -1,0 +1,64 @@
+//
+// Главная страница
+// Секция
+//
+
+
+
+
+
+.action {
+
+	margin: 2em 0;
+
+	.title {
+		color: #fff;
+		text-align: left;
+		margin: 0;
+	}
+
+	.permalink,
+	.excerpt {
+		margin: 1em auto;
+	}
+
+	.thumbnail {
+		display: block;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.thumbnail:after {
+		@extend %icon-play;
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate( -50%, -50% );
+		background-color: #fff;
+		z-index: 1;
+		width: 5em;
+		height: 5em;
+		border-radius: 50%;
+		background-size: 1em 1em;
+		background-position: center center;
+		background-repeat: no-repeat;
+	}
+
+
+	img {
+		display: block;
+		width: 100%;
+	}
+
+	.wrap {
+		box-shadow: $block-shadow;
+		color: #fff;
+		background-color: $brand-primary;
+	}
+
+	.overlay {
+		padding: 1em;
+	}
+
+}

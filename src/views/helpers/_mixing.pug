@@ -1,0 +1,26 @@
+//-
+	Набор миксинов
+
+
+
+
+mixin widget( args )
+	.widget
+		h3.widget__title.title #{args.title}
+		div #{args.excerpt}
+		block
+
+
+
+mixin navicon( args )
+	a.navicons__item.item( href="#", role="listitem" )
+		img.icon.lazy( src="#", data-src=args.icon, alt=args.title )
+		.title #{args.title}
+
+
+
+
+mixin heading( args )
+	div.heading
+		img.heading__thumbnail.thumbnail.lazy( src="#", alt=args.title, data-src=args.thumbnail )
+		h3.heading__title.title #{args.title}

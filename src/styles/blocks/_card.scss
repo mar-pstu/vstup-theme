@@ -1,0 +1,173 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.card {
+
+	@extend %bg-cover;
+	position: relative;
+	box-shadow: $block-shadow;
+	background-blend-mode: darken;
+	background-image: none !important;
+	background-color: #fff;
+
+
+	&:focus,
+	&:hover {
+		.overlay { box-shadow: 0px 1em 2em rgba( 0, 0, 0, 0.3 ); }
+		.icon--desctop { opacity: 1; }
+	}
+
+
+
+	.thumbnail {
+		display: block;
+		width: 10em;
+		height: 10em;
+		margin: 1em auto;
+		transition: transform 200ms, opacity 200ms;
+		border-radius: 50%;
+		overflow: hidden;
+	}
+
+	.title {
+		word-spacing: 3px;
+		text-align: center;
+		margin: 1em auto;
+		transform-origin: center center;
+		transition: opacity 200ms;
+		background-color: $brand-success;
+		color: #fff;
+		padding: 0 .5em;
+	}
+
+	.overlay {
+		// background-image: radial-gradient( rgba( 0, 0, 0, .3 ) 1px, transparent 1px );
+		// background-color: red;
+		// background: url(https://html5book.ru/wp-content/uploads/2016/12/romantika.jpg), radial-gradient(black 1px, transparent 1px);
+		background-size: 4px 4px;
+		text-decoration: none;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 1em;
+		margin: 1em auto;
+		min-height: 320px;
+		transition: box-shadow 200ms;
+	}
+
+	.excerpt {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		padding: 3em 2em;
+		background-color: $brand-primary;
+		opacity: 0;
+		transition: opacity 400ms,;
+		color: #fff;
+		overflow-y: scroll;
+		z-index: -1;
+
+		&:after {
+			content: '';
+			height: 2em;
+			display: block;
+		}
+
+		@include min-width( $screen-sm ) { font-size: 85%; }
+
+		&::-webkit-scrollbar {
+			width: 0.5em;
+			background-color: rgba( 255, 255, 255, 0.2 );
+		}
+
+		&::-webkit-scrollbar-thumb {
+			width: 100%;
+			background: rgba( 255, 255, 255, 0.4 );
+			border-radius: 0.3em;
+			transition: background-color 200ms;
+			&:hover { background: rgba( 255, 255, 255, 0.6 ); }
+		}
+	}
+
+	.excerpt * {
+		color: #fff;
+		margin: 0;
+	}
+
+	.close {
+		@extend %background-icon;
+		@extend %icon-close-w;
+		position: absolute;
+		z-index: 2;
+		top: 0;
+		right: 0;
+		display: inline-block;
+		margin: 1em;
+		width: 2em;
+		height: 2em;
+		background-color: $brand-primary;
+		border: none;
+		cursor: pointer;
+	}
+
+	.icon {
+		@extend %xy-center;
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 3em;
+		height: 3em;
+		border-radius: 0 0 0 50%;
+		box-shadow: $block-shadow;
+		background-color: $brand-primary;
+	}
+
+	.icon--desctop {
+		opacity: 0;
+		transition: opacity 200ms;
+	}
+	.icon--desctop::before { @extend %icon-click-desctop; }
+	.icon--mobile::before { @extend %icon-click-mobile; }
+	.icon:before {
+		@extend %icon;
+		@extend %background-icon;
+		content: '';
+		width: 1em;
+		height: 1em;
+	}
+
+
+	&--active {
+		.thumbnail { opacity: 0; }
+		.title { opacity: 0; }
+		.excerpt { opacity: 1; z-index: 1; }
+		.close { visibility: visible; }
+	}
+
+
+}

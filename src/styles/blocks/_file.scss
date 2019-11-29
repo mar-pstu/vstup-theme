@@ -1,0 +1,22 @@
+
+
+$files: (
+  'pdf',
+  'xls',
+  'doc',
+  'zip',
+  'ppt',
+  'odt',
+  'psd'
+);
+
+
+
+.file {
+  @each $file in $files {
+    &-#{$file} {
+        @extend %file;
+        @extend %file-#{$file};
+    }
+  }
+}

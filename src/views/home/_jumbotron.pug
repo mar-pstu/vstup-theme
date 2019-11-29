@@ -1,0 +1,22 @@
+//-
+	Главная страница
+	Первый экран
+
+
+.jumbotron.lazy#jumbotron( data-src=src.img+'jumbotron/bg-01.jpg' )
+	h1.title #{blog.name}
+	p.lead.excerpt #{blog.description}
+	a.permalink( href="#" ) Шаги к поступлению
+	ul.advantages#advantages
+		li
+			img( src="#", data-lazy=src.img+'advantages/university.png' )
+			.title University Life - Overall in here
+		li
+			img( src="#", data-lazy=src.img+'advantages/mortarboard.png' )
+			.title Graduation - Getting Diploma
+		li
+			img( src="#", data-lazy=src.img+'advantages/court.png' )
+			.title Athletics - Sport Clubs
+		li
+			img( src="#", data-lazy=src.img+'advantages/network.png' )
+			.title Social - Overall in here

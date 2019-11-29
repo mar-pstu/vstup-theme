@@ -1,0 +1,54 @@
+%list-unstyled { @include list-unstyled; }
+
+%list-inline { @include list-inline; }
+
+%xy-center { @include xy-center; }
+
+%center-block { @include center-block; }
+
+%link-unstyled {
+	@include td ( inherit, inherit );
+	@include color ( inherit, inherit, inherit, inherit );
+}
+
+%clearfix { @include clearfix; }
+
+%text-overflow { @include text-overflow; }
+
+%dl-horizontal { @include dl-horizontal; }
+
+
+%title {
+	color: $titles-color;
+	font-weight: bold;
+  	margin-top: .2em;
+  	margin-bottom: .2em;
+}
+
+
+
+%bg-cover {
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+
+
+%bg-fixed {
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+
+
+%lead {
+	margin-bottom: $line-height-base;
+	font-size: floor( ( $font-size-base * 1.15 ) );
+	line-height: 1.4;
+	@media ( min-width: $screen-sm ) {
+		font-size: ( $font-size-base * 1.5 );
+	}
+}

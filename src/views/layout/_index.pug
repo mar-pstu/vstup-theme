@@ -1,0 +1,24 @@
+include ../helpers/_variables
+include ../helpers/_mixing
+block variables
+	- page.type = 'page';
+doctype html
+html( lang="ru" )
+	include ../blocks/_head
+	block head
+	block body
+		body( class=page.type )
+			block wrapper
+				.wrapper#wrapper
+					header.wrapper__item.wrapper__item--header.header#header
+						block header
+							include ../blocks/_header
+					main.wrapper__item.wrapper__item--main.main#main
+						block main
+					aside.wrapper__item.wrapper__item--aside.aside.aside--basement
+						include ../asides/_basement
+					footer.wrapper__item.wrapper__item--footer.footer#footer
+						block footer
+							include ../blocks/_footer
+					block enqueue
+						include ../blocks/_enqueue

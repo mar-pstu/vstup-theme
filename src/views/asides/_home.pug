@@ -1,0 +1,23 @@
+//-
+	Сайдбар главной страницы
+
+
+
+mixin widget_home( args )
+	+widget( args )
+		article
+			small #[b 20.11.2019 - 20.12.2019] 
+			span Lorem ipsum dolor sit amet, consectetur adipisicing elit
+		article
+			small #[b 20.11.2019 - 20.12.2019] 
+			span Lorem ipsum dolor sit amet, consectetur adipisicing elit
+
+
+
+aside.aside.aside--events
+	+widget_home( { type: 'default', title: 'Бакалавр дневная форма' } )
+	+widget_home( { type: 'primary', title: 'Бакалавр на базе ПЗСО', thumbnail: src.img+'events/book.png' } )
+	+widget_home( { type: 'success', title: 'Магистр дневная' } )
+	+widget_home( { type: 'warning', title: 'Заочная форма' } )
+	+widget_home( { type: 'default', title: 'Бакалавр на базе высшего образования' } )
+	+widget_home( { type: 'primary', title: 'Магистры заочной форма обучения' } )

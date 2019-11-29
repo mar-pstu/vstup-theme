@@ -1,0 +1,59 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+form {
+
+	label {
+		display: block;
+		font-weight: bold;
+		margin-top: 0.5em;
+	}
+
+	textarea,
+	input[ type="text" ],
+	input[ type="email" ],
+	input[ type="password" ] {
+		box-shadow: $block-shadow;
+		display: block;
+		border: none;
+		margin-top: 0.5em;
+		margin-bottom: 0.5em;
+		width: 100%;
+		box-sizing: border-box;
+		outline: none;
+		// background-color: transparentize( $brand-primary, 0.2 );
+		background-color: #fff;
+		border: 1px solid $brand-primary;
+		padding: 1em;
+		border-radius: 3px;
+		color: $titles-color;
+		// color: #fff;
+		// &:hover, &:focus, &:active { background-color: transparentize( $brand-primary, 0.3 ); }
+	}
+
+
+	textarea {
+		resize: vertical;
+	}
+
+
+	input[ type="submit" ] {
+		@extend %button;
+		@extend %button-warning;
+		@extend %button-large;
+		margin: 1em auto;
+	}
+
+
+}

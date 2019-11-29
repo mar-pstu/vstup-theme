@@ -1,0 +1,32 @@
+//
+//
+//	ПОдвал сайта
+//
+//
+
+
+
+.footer {
+
+	color: #fff;
+	background-color: darken( $brand-default, 40% );
+	padding: 1em 0;
+
+	.copyright {
+		text-align: center;
+		margin: 1em auto;
+		@include min-width( $screen-sm ) { text-align: left; }
+	}
+
+	.developer {
+		text-align: center;
+		margin: 1em auto;
+		@include min-width( $screen-sm ) { text-align: right; }
+	}
+
+	.socials {
+		text-align: center;
+		margin: 1em auto;
+	}
+
+}
