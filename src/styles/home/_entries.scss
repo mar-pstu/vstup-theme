@@ -36,6 +36,10 @@
 		.thumbnail {
 			display: block;
 			position: relative;
+			display: none;
+			@include min-width( $screen-md ) {
+				display: block;
+			}
 		}
 		.wp-post-thumbnail {
 			display: block;

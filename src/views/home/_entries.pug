@@ -6,11 +6,11 @@
 
 mixin entries_item( args )
 	.entries__item.item: .row
-		.col-xs-12.col-sm-3
+		.col-xs-12.col-sm-4.col-md-3
 			a.thumbnail( href="#" )
 				img.lazy.wp-post-thumbnail( src="#", data-src=args.thumbnail, alt=args.title )
 				.date 20.09.2019
-		.col-xs-12.col-sm-9
+		.col-xs-12.col-sm-8.col-md-9
 			h3 #{args.title}
 			p #{args.excerpt}
 			.text-right: a.permalink( href="#" ) Подробней

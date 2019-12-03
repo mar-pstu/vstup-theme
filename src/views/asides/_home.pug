@@ -3,7 +3,7 @@
 
 
 
-mixin widget_home( args )
+mixin widget_calendar( args )
 	+widget( args )
 		article
 			small #[b 20.11.2019 - 20.12.2019] 
@@ -15,9 +15,9 @@ mixin widget_home( args )
 
 
 aside.aside.aside--events
-	+widget_home( { type: 'default', title: 'Бакалавр дневная форма' } )
-	+widget_home( { type: 'primary', title: 'Бакалавр на базе ПЗСО', thumbnail: src.img+'events/book.png' } )
-	+widget_home( { type: 'success', title: 'Магистр дневная' } )
-	+widget_home( { type: 'warning', title: 'Заочная форма' } )
-	+widget_home( { type: 'default', title: 'Бакалавр на базе высшего образования' } )
-	+widget_home( { type: 'primary', title: 'Магистры заочной форма обучения' } )
+	+widget_calendar( { type: 'default', title: 'Бакалавр дневная форма' } )
+	+widget_calendar( { type: 'primary', title: 'Бакалавр на базе ПЗСО', thumbnail: src.img+'events/book.png' } )
+	+widget_calendar( { type: 'success', title: 'Магистр дневная' } )
+	+widget_calendar( { type: 'warning', title: 'Заочная форма' } )
+	+widget_calendar( { type: 'default', title: 'Бакалавр на базе высшего образования' } )
+	+widget_calendar( { type: 'primary', title: 'Магистры заочной форма обучения' } )

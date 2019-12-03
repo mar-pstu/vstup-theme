@@ -13,21 +13,40 @@
       };
     </script>
   </head>
-  <body class="front-page">
+  <body class="front-page" data-nav="inactive">
+    <div class="mobilenav" id="mobilenav">
+      <button class="close navtoggle"><span class="sr-only">Закрыть меню</span></button>
+      <div class="h2">Меню сайта</div>
+    </div>
     <div class="wrapper" id="wrapper">
       <header class="wrapper__item wrapper__item--header header" id="header">
         <div class="multisite">
+          <form class="searchform" role="search" method="get" id="searchform">
+            <div class="container">
+              <div class="row middle-xs">
+                <div class="col-xs-8 col-sm-10 col-md-10">
+                  <input tyle="search" value="" name="s">
+                </div>
+                <div class="col-xs-2 col-sm-1 col-md-1">
+                  <button class="schbutton schbutton--open" type="submit" title="Искать"><span class="sr-only">Поиск</span></button>
+                </div>
+                <div class="col-xs-2 col-sm-1 col-md-1">
+                  <button class="schbutton schbutton--close" data-search="toggle"><span class="sr-only">Закрыть поиск</span></button>
+                </div>
+              </div>
+            </div>
+          </form>
           <div class="container">
             <div class="row middle-xs">
               <div class="col-xs-3 col-sm-2 col-md-1"><a class="main-site-logo" href="#"><img class="custom-logo" src="../images/logo.png"><span class="sr-only">Приазовский государственный технический университет</span></a></div>
               <div class="col-xs-7 col-sm-8 col-md-10">
                 <ul class="quick-links">
-                  <li><a href="#">Обучение для иностранцев</a></li>
                   <li><a href="#">Проекты и мероприятия</a></li>
+                  <li class="bg-warning"><a href="#">Обучение для иностранцев</a></li>
                 </ul>
               </div>
               <div class="col-xs-2 col-sm-1 col-md-1">
-                <button class="search"><span class="sr-only">Поиск</span></button>
+                <button class="schbutton schbutton--open" data-search="toggle"><span class="sr-only">Поиск</span></button>
               </div>
             </div>
           </div>
@@ -56,10 +75,15 @@
         </div>
         <div class="container">
           <nav class="nav" id="nav">
-            <button class="nav__burger burger" id="burger"><span>Открыть меню</span></button>
-            <ul class="nav__list list">
+            <button class="nav__burger burger navtoggle" id="burger"><span>Открыть меню</span></button>
+            <ul class="nav__languages languages">
+              <li class="current">RU</li>
+              <li><a href="#">UK</a></li>
+              <li><a href="#">EN</a></li>
+            </ul>
+            <ul class="nav__list list" id="nav-list">
               <li><a href="#">Главная</a></li>
-              <li class="has-sub-menu"><a href="#">Специальности</a>
+              <li class="has-sub-menu column"><a href="#">Специальности</a>
                 <ul class="sub-menu">
                   <li><a href="#">Калькулятор</a></li>
                   <li><a href="#">Предложения для поступающих</a></li>
@@ -115,27 +139,29 @@
                 <h1 class="title">Абитуриент</h1>
                 <p class="lead excerpt">We invite foreign citizens to study at the Pryazovskyi State Technical University</p><a class="permalink" href="#">Шаги к поступлению</a>
                 <ul class="advantages" id="advantages">
-                  <li><img src="#" data-lazy="../images/advantages/university.png">
-                    <div class="title">University Life - Overall in here</div>
-                  </li>
-                  <li><img src="#" data-lazy="../images/advantages/mortarboard.png">
-                    <div class="title">Graduation - Getting Diploma</div>
-                  </li>
-                  <li><img src="#" data-lazy="../images/advantages/court.png">
-                    <div class="title">Athletics - Sport Clubs</div>
-                  </li>
-                  <li><img src="#" data-lazy="../images/advantages/network.png">
-                    <div class="title">Social - Overall in here</div>
-                  </li>
+                  <ul id="advantages-list">
+                    <li><img src="#" data-lazy="../images/advantages/university.png">
+                      <div class="title">University Life - Overall in here</div>
+                    </li>
+                    <li><img src="#" data-lazy="../images/advantages/mortarboard.png">
+                      <div class="title">Graduation - Getting Diploma</div>
+                    </li>
+                    <li><img src="#" data-lazy="../images/advantages/court.png">
+                      <div class="title">Athletics - Sport Clubs</div>
+                    </li>
+                    <li><img src="#" data-lazy="../images/advantages/network.png">
+                      <div class="title">Social - Overall in here</div>
+                    </li>
+                  </ul><a class="youtube fancybox" href="https://youtu.be/Z9eQAszhC2I"><span class="sr-only">Название видео</span></a>
                 </ul>
               </div>
               <div class="entries" id="entries">
                 <div class="slider" id="entries-slider">
                                 <div class="entries__item item">
                                   <div class="row">
-                                    <div class="col-xs-12 col-sm-3"><a class="thumbnail" href="#"><img class="lazy wp-post-thumbnail" src="#" data-src="../images/default.png" alt="Заголовок новости 1">
+                                    <div class="col-xs-12 col-sm-4 col-md-3"><a class="thumbnail" href="#"><img class="lazy wp-post-thumbnail" src="#" data-src="../images/default.png" alt="Заголовок новости 1">
                                         <div class="date">20.09.2019</div></a></div>
-                                    <div class="col-xs-12 col-sm-9">
+                                    <div class="col-xs-12 col-sm-8 col-md-9">
                                       <h3>Заголовок новости 1</h3>
                                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati nulla sed adipisci magnam molestias, earum hic pariatur at temporibus porro. Ad quo sapiente tenetur necessitatibus doloribus dolorem sequi recusandae laudantium.</p>
                                       <div class="text-right"><a class="permalink" href="#">Подробней</a></div>
@@ -144,9 +170,9 @@
                                 </div>
                                 <div class="entries__item item">
                                   <div class="row">
-                                    <div class="col-xs-12 col-sm-3"><a class="thumbnail" href="#"><img class="lazy wp-post-thumbnail" src="#" data-src="../images/default.png" alt="Заголовок новости 2">
+                                    <div class="col-xs-12 col-sm-4 col-md-3"><a class="thumbnail" href="#"><img class="lazy wp-post-thumbnail" src="#" data-src="../images/default.png" alt="Заголовок новости 2">
                                         <div class="date">20.09.2019</div></a></div>
-                                    <div class="col-xs-12 col-sm-9">
+                                    <div class="col-xs-12 col-sm-8 col-md-9">
                                       <h3>Заголовок новости 2</h3>
                                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati nulla sed adipisci magnam molestias, earum hic pariatur at temporibus porro. Ad quo sapiente tenetur necessitatibus doloribus dolorem sequi recusandae laudantium.</p>
                                       <div class="text-right"><a class="permalink" href="#">Подробней</a></div>
@@ -155,9 +181,9 @@
                                 </div>
                                 <div class="entries__item item">
                                   <div class="row">
-                                    <div class="col-xs-12 col-sm-3"><a class="thumbnail" href="#"><img class="lazy wp-post-thumbnail" src="#" data-src="../images/default.png" alt="Заголовок новости 3">
+                                    <div class="col-xs-12 col-sm-4 col-md-3"><a class="thumbnail" href="#"><img class="lazy wp-post-thumbnail" src="#" data-src="../images/default.png" alt="Заголовок новости 3">
                                         <div class="date">20.09.2019</div></a></div>
-                                    <div class="col-xs-12 col-sm-9">
+                                    <div class="col-xs-12 col-sm-8 col-md-9">
                                       <h3>Заголовок новости 3</h3>
                                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati nulla sed adipisci magnam molestias, earum hic pariatur at temporibus porro. Ad quo sapiente tenetur necessitatibus doloribus dolorem sequi recusandae laudantium.</p>
                                       <div class="text-right"><a class="permalink" href="#">Подробней</a></div>
@@ -235,7 +261,7 @@
           </div>
           <div class="container">
             <div class="row">
-                      <div class="col-xs-12 col-sm-6">
+              <div class="col-xs-12 col-sm-6">
                         <div class="accordio accordio--info" data-heading="h3">
                           <div class="heading"><img class="heading__thumbnail thumbnail lazy" src="#" alt="Производство и технологии" data-src="../images/sectors/18.png"/>
                             <h3 class="heading__title title">Производство и технологии</h3>
@@ -245,8 +271,6 @@
                             <li><a href="#">Технології захисту навколишнього середовища <small>(Бакалавр)</small> </a></li>
                           </ul>
                         </div>
-                      </div>
-                      <div class="col-xs-12 col-sm-6">
                         <div class="accordio accordio--info" data-heading="h3">
                           <div class="heading"><img class="heading__thumbnail thumbnail lazy" src="#" alt="Химическая и биоинженерия" data-src="../images/sectors/16.png"/>
                             <h3 class="heading__title title">Химическая и биоинженерия</h3>
@@ -256,8 +280,6 @@
                             <li><a href="#">Біомедична інженерія <small>(Бакалавр)</small> </a></li>
                           </ul>
                         </div>
-                      </div>
-                      <div class="col-xs-12 col-sm-6">
                         <div class="accordio accordio--info" data-heading="h3">
                           <div class="heading"><img class="heading__thumbnail thumbnail lazy" src="#" alt="Транспорт" data-src="../images/sectors/27.png"/>
                             <h3 class="heading__title title">Транспорт</h3>
@@ -279,8 +301,6 @@
                             <li><a href="#">Організація перевезень і управління на автомобільному транспорті <small>(Магістр)</small></a></li>
                           </ul>
                         </div>
-                      </div>
-                      <div class="col-xs-12 col-sm-6">
                         <div class="accordio accordio--info" data-heading="h3">
                           <div class="heading"><img class="heading__thumbnail thumbnail lazy" src="#" alt="Сфера обслуживания" data-src="../images/sectors/24.png"/>
                             <h3 class="heading__title title">Сфера обслуживания</h3>
@@ -290,8 +310,6 @@
                             <li><a href="#">Туризм <small>(Бакалавр)</small> </a></li>
                           </ul>
                         </div>
-                      </div>
-                      <div class="col-xs-12 col-sm-6">
                         <div class="accordio accordio--info" data-heading="h3">
                           <div class="heading"><img class="heading__thumbnail thumbnail lazy" src="#" alt="Социальная работа" data-src="../images/sectors/23.png"/>
                             <h3 class="heading__title title">Социальная работа</h3>
@@ -302,8 +320,6 @@
                             <li><a href="#">Соціальна робота <small>(Магістр)</small> </a></li>
                           </ul>
                         </div>
-                      </div>
-                      <div class="col-xs-12 col-sm-6">
                         <div class="accordio accordio--info" data-heading="h3">
                           <div class="heading"><img class="heading__thumbnail thumbnail lazy" src="#" alt="Архитектура" data-src="../images/sectors/19.png"/>
                             <h3 class="heading__title title">Архитектура</h3>
@@ -318,8 +334,6 @@
                             <li><a href="#">Промислове і цивільне будівництво <small>(Магістр)</small> </a></li>
                           </ul>
                         </div>
-                      </div>
-                      <div class="col-xs-12 col-sm-6">
                         <div class="accordio accordio--info" data-heading="h3">
                           <div class="heading"><img class="heading__thumbnail thumbnail lazy" src="#" alt="Автоматизация" data-src="../images/sectors/15.png"/>
                             <h3 class="heading__title title">Автоматизация</h3>
@@ -331,8 +345,6 @@
                             <li><a href="#">Комп'ютерно-інтегровані технологічні процеси і виробництва <small>(Магістр)</small> </a></li>
                           </ul>
                         </div>
-                      </div>
-                      <div class="col-xs-12 col-sm-6">
                         <div class="accordio accordio--info" data-heading="h3">
                           <div class="heading"><img class="heading__thumbnail thumbnail lazy" src="#" alt="Электротехника" data-src="../images/sectors/14.png"/>
                             <h3 class="heading__title title">Электротехника</h3>
@@ -351,8 +363,8 @@
                             <li><a href="#">Теплоенергетика <small>(Магістр)</small> </a></li>
                           </ul>
                         </div>
-                      </div>
-                      <div class="col-xs-12 col-sm-6">
+              </div>
+              <div class="col-xs-12 col-sm-6">
                         <div class="accordio accordio--info" data-heading="h3">
                           <div class="heading"><img class="heading__thumbnail thumbnail lazy" src="#" alt="Механическая инженерия" data-src="../images/sectors/13.png"/>
                             <h3 class="heading__title title">Механическая инженерия</h3>
@@ -390,8 +402,6 @@
                             <li><a href="#">Обробка металів тиском <small>(Магістр)</small> </a></li>
                           </ul>
                         </div>
-                      </div>
-                      <div class="col-xs-12 col-sm-6">
                         <div class="accordio accordio--info" data-heading="h3">
                           <div class="heading"><img class="heading__thumbnail thumbnail lazy" src="#" alt="Информационные технологии" data-src="../images/sectors/12.png"/>
                             <h3 class="heading__title title">Информационные технологии</h3>
@@ -405,8 +415,6 @@
                             <li><a href="#">Консолідована інформація <small>(Магістр)</small> </a></li>
                           </ul>
                         </div>
-                      </div>
-                      <div class="col-xs-12 col-sm-6">
                         <div class="accordio accordio--info" data-heading="h3">
                           <div class="heading"><img class="heading__thumbnail thumbnail lazy" src="#" alt="Математика и статистика" data-src="../images/sectors/11.png"/>
                             <h3 class="heading__title title">Математика и статистика</h3>
@@ -417,8 +425,6 @@
                             <li><a href="#">Комп’ютерне моделювання <small>(Магістр)</small> </a></li>
                           </ul>
                         </div>
-                      </div>
-                      <div class="col-xs-12 col-sm-6">
                         <div class="accordio accordio--info" data-heading="h3">
                           <div class="heading"><img class="heading__thumbnail thumbnail lazy" src="#" alt="Управление и администрирование" data-src="../images/sectors/07.png"/>
                             <h3 class="heading__title title">Управление и администрирование</h3>
@@ -456,8 +462,6 @@
                             <li><a href="#">Якість, стандартизація та сертифікація <small>(Магістр)</small> </a></li>
                           </ul>
                         </div>
-                      </div>
-                      <div class="col-xs-12 col-sm-6">
                         <div class="accordio accordio--info" data-heading="h3">
                           <div class="heading"><img class="heading__thumbnail thumbnail lazy" src="#" alt="Социальные и поведенческие науки" data-src="../images/sectors/05.png"/>
                             <h3 class="heading__title title">Социальные и поведенческие науки</h3>
@@ -469,8 +473,6 @@
                             <li><a href="#">Економіка підприємства <small>(Магістр)</small> </a></li>
                           </ul>
                         </div>
-                      </div>
-                      <div class="col-xs-12 col-sm-6">
                         <div class="accordio accordio--info" data-heading="h3">
                           <div class="heading"><img class="heading__thumbnail thumbnail lazy" src="#" alt="Гуманитарные науки" data-src="../images/sectors/03.png"/>
                             <h3 class="heading__title title">Гуманитарные науки</h3>
@@ -486,8 +488,6 @@
                             <li><a href="#">Переклад (англійська та німецька мови) <small>(Магістр)</small> </a></li>
                           </ul>
                         </div>
-                      </div>
-                      <div class="col-xs-12 col-sm-6">
                         <div class="accordio accordio--info" data-heading="h3">
                           <div class="heading"><img class="heading__thumbnail thumbnail lazy" src="#" alt="Образование и педагогика" data-src="../images/sectors/01.png"/>
                             <h3 class="heading__title title">Образование и педагогика</h3>
@@ -502,7 +502,13 @@
                             <li><a href="#">Професійна освіта (Будівництво) <small>(Магістр)</small></a></li>
                           </ul>
                         </div>
-                      </div>
+                        <div class="accordio accordio--default" data-heading="h3">
+                          <div class="heading"><img class="heading__thumbnail thumbnail lazy" src="#" alt="Обрати индивідуально" data-src="../images/sectors/calculator.png"/>
+                            <h3 class="heading__title title">Обрати индивідуально</h3>
+                          </div>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi dolorum vel, nulla ipsa velit, odio quidem laborum consequatur amet eaque voluptatibus ullam nemo eveniet dolor enim neque mollitia. Sapiente, ipsa.</p><a class="btn btn-info" href="#">Выбрать индивидуально</a>
+                        </div>
+              </div>
             </div>
           </div>
         </section>
@@ -616,7 +622,7 @@
         	slidesToScroll: 1,
         	//- dotsClass: 'slider-dots'
         } );
-        jQuery( '#advantages' ).slick( {
+        jQuery( '#advantages-list' ).slick( {
         	dots: false,
         	arrows: false,
         	slidesToShow: 1,
@@ -634,6 +640,11 @@
       </script>
       <link rel="stylesheet" href="../styles/fancybox.css">
       <script src="../scripts/fancybox.js"></script>
+      <script>
+        jQuery( '.fancybox' ).fancybox();
+        
+        
+      </script>
       <script src="../scripts/superembed.js"></script>
       <script src="../scripts/main.js"></script>
     </div>

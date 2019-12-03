@@ -1,6 +1,6 @@
 {
   "name": "pstu-vstup",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "gulpfile.js",
   "scripts": {
@@ -24,5 +24,10 @@
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.2",
     "gulp-zip": "^5.0.0"
+  },
+  "dependencies": {
+    "gulp-concat": "^2.6.1",
+    "gulp-util": "^3.0.8",
+    "vinyl-ftp": "^0.6.1"
   }
 }

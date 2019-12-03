@@ -37,6 +37,7 @@
 %button-primary { border-left-color: $brand-primary; }
 %button-success { border-left-color: $brand-success; }
 %button-warning { border-left-color: $brand-warning; }
+%button-info { border-left-color: $brand-info; }
 
 
 %button-small {
@@ -51,6 +52,7 @@
 %button-small-success { background-color: $brand-success; }
 %button-small-warning { background-color: $brand-warning; }
 %button-small-primary { background-color: $brand-primary; }
+%button-small-info { background-color: $brand-info; }
 
 
 %button-large { padding: 1em 3em; font-size: 120%; border-left-width: 10px; }

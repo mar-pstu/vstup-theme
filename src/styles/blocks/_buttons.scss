@@ -22,6 +22,8 @@
 
 	&-warning { @extend %button-warning; }
 
+	&-info { @extend %button-info; }
+
 	&-block { display: block; }
 
 	&-sm { @extend %button-small; }

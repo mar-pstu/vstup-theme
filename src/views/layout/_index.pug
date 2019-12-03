@@ -7,7 +7,10 @@ html( lang="ru" )
 	include ../blocks/_head
 	block head
 	block body
-		body( class=page.type )
+		body( class=page.type, 'data-nav'='inactive' )
+			#mobilenav.mobilenav
+				button.close.navtoggle #[span.sr-only Закрыть меню]
+				.h2 Меню сайта
 			block wrapper
 				.wrapper#wrapper
 					header.wrapper__item.wrapper__item--header.header#header

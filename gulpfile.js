@@ -14,17 +14,82 @@ var cache          = require( 'gulp-cache' );
 var del            = require( 'del' );
 var browserSync    = require( 'browser-sync' );
 var zip            = require( 'gulp-zip' );
+var concat         = require( 'gulp-concat' );
+var gutil          = require( 'gulp-util' );
+var ftp            = require( 'vinyl-ftp' );
 
 
 
-styles.compiler      = require( 'node-sass' );
+const pass         = require( './pass.js' );
+
+
+
+styles.compiler    = require( 'node-sass' );
+
+
+
+gulp.task( 'deploy', function() {
+	var conn = ftp.create( {
+		host: pass.host,
+		user: pass.login,
+		password: pass.password,
+		parallel:  10,
+		log: gutil.log
+	} );
+	var globs = [
+		'./**/**/*',
+		'!./node_modules',
+		'!./src',
+		'!./gulpfile.js',
+		'!./package-lock.json',
+		'!./package.json',
+		'!./index.html',
+		'!./.gitignore',
+		'!./pass.js',
+		'!./README.md',
+		'!./examples',
+		'!./.git'
+	];
+	return gulp.src( globs, { buffer: false } )
+		.pipe( conn.dest( '/public_html/' ) );
+});
+
+gulp.task( 'main_scripts', function() {
+	return gulp.src( './src/scripts/main/*.js' )
+		.pipe( plumber() )
+		.pipe( concat( 'main.js') )
+		.pipe( gulp.dest( './scripts/' ) );
+	}
+);
+
+
+
+
+gulp.task( 'gutenberg_scripts', function() {
+	return gulp.src( './src/scripts/gutenberg/*.js' )
+		.pipe( plumber() )
+		.pipe( concat( 'gutenberg.js') )
+		.pipe( gulp.dest( './scripts/' ) );
+	}
+);
+
+
+gulp.task( 'gutenberg_styles', function () {
+	return gulp.src( [ './src/styles/gutenberg.scss' ] )
+		.pipe( plumber() )
+		.pipe( sourcemaps.init() )
+		.pipe( styles().on( 'error', styles.logError ) )
+		.pipe( autoprefixer() )
+		.pipe( sourcemaps.write( '.' ) )
+		.pipe( gulp.dest( './styles/' ) );
+} );
 
 
 
 
 gulp.task( 'packtheme', function() {
 	return gulp.src( [ './**/**/*', '!./node_modules', '!./src', '!./gulpfile.js', '!./package-lock.json', '!./package.json' ] )
-		.pipe( zip( 'dumdj-theme.zip' ) )
+		.pipe( zip( 'theme.zip' ) )
 		.pipe( gulp.dest( '../') );
 	}
 );
@@ -33,7 +98,7 @@ gulp.task( 'packtheme', function() {
 
 gulp.task( 'packsrc', function() {
 	return gulp.src( './src/*' )
-		.pipe( zip( 'dumdj-src.zip' ) )
+		.pipe( zip( 'src.zip' ) )
 		.pipe( gulp.dest( '../') );
 	}
 );
@@ -42,7 +107,7 @@ gulp.task( 'packsrc', function() {
 
 gulp.task( 'packproject', function() {
 	return gulp.src( [ './*', '!./node_modules', '!./images', '!./styles', '!./scripts', '!./fonts', '!./video', '!./examples' ] )
-		.pipe( zip( 'dumdj-project.zip' ) )
+		.pipe( zip( 'project.zip' ) )
 		.pipe( gulp.dest( '../') );
 	}
 );
@@ -127,12 +192,12 @@ gulp.task( 'minscripts', function () {
 
 
 gulp.task( 'images', function () {
-		return gulp.src( './src/images/**/*.{png,jpg,svg,gif}' )
-				.pipe( plumber() )
-				.pipe( cache( images() ) )
-				.pipe( gulp.dest( './images/' ) )
-				.on( 'end', browserSync.reload );
-		}
+	return gulp.src( './src/images/**/*.{png,jpg,svg,gif}' )
+			.pipe( plumber() )
+			.pipe( cache( images() ) )
+			.pipe( gulp.dest( './images/' ) )
+			.on( 'end', browserSync.reload );
+	}
 );
 
 
@@ -141,7 +206,8 @@ gulp.task( 'server', function () {
 	browserSync.init({
 		server: {
 			baseDir: './'
-		}
+		},
+		ghostMode: false,
 	} );
 } );
 
@@ -163,10 +229,18 @@ gulp.task( 'minify', gulp.series( 'minstyles', 'minscripts' ) );
 
 
 
+
+gulp.task( 'gutenberg', function () {
+	gulp.watch( './src/scripts/gutenberg/*.js',          gulp.series( 'gutenberg_scripts' ) );
+	gulp.watch( './src/styles/**/*.scss',                gulp.series( 'gutenberg_styles' ) );
+} );
+
+
+
 gulp.task( 'watch', function () {
 	gulp.watch( './src/styles/**/*.scss',                gulp.series( 'styles') );
 	gulp.watch( './src/views/**/*.pug',                  gulp.series( 'html', 'index' ) );
-	gulp.watch( './src/scripts/**/*.js',                 gulp.series( 'scripts' ) );
+	gulp.watch( './src/scripts/**/*.js',                 gulp.series( 'scripts', 'main_scripts' ) );
 	gulp.watch( './src/images/**/*.{png,jpg,svg,gif}',   gulp.series( 'images' ) );
 	gulp.watch( './src/video/**/*.*',                    gulp.series( 'video' ) );
 	gulp.watch( './src/fonts/**/*.*',                    gulp.series( 'fonts' ) );
@@ -175,6 +249,6 @@ gulp.task( 'watch', function () {
 
 
 gulp.task( 'default', gulp.series(
-	gulp.parallel( 'html', 'index', 'styles', 'scripts', 'images', 'video', 'fonts' ),
+	gulp.parallel( 'html', 'index', 'styles', 'scripts', 'main_scripts', 'images', 'video', 'fonts' ),
 	gulp.parallel( 'watch', 'server' )
 ) );
