@@ -4,36 +4,17 @@
 
 
 .pageheader {
-	margin: 15px auto;
-	display: flex;
-	flex-direction: row;
-	justify-content: flex-start;
-	align-items: center;
+	
 	.title {
-		margin: 0;
+		margin-top: 0;
+		margin-right: -$flexboxgrid-outer-margin / 2;
+		margin-bottom: .5em;
+		margin-left: 0;
+		padding: .5em;
 		text-align: left;
 		font-size: 2em;
-		// @include min-width( $screen-sm ) {
-		// 	font-size: 100%;
-		// }
+		background-color: $brand-info;
+		color: #fff;
 	}
-	.thumbnail {
-		margin: 10px 15px 10px 0;
-		flex-shrink: 0;
-		width: 75px;
-		height: 75px;
-		@include min-width( 480px ) {
-			width: 100px;
-			height: 100px;
-		}
-	}
-	.thumbnail + .titles {
-		margin-left: 15px;
-	}
-	.wp-post-thumbnail {
-		display: block;
-	}
-	h1, h2, p {
-		margin: 0;
-	}
+
 }

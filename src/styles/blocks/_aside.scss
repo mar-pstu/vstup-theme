@@ -21,10 +21,27 @@
 	}
 
 
-	&--events {
+	&--home {
 		background-color: #fff;
 		padding: 1em 1.5em;
 		font-size: 85%;
+	}
+
+
+	&--column {
+		position: relative;
+		padding-left: 1em;
+		&:before {
+			content: '';
+			display: block;
+			position: absolute;
+			background-color: #fff;
+			top: 0;
+			left: 0;
+			width: 500%;
+			height: 500%;
+			z-index: -1;
+		}
 	}
 
 

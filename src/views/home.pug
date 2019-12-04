@@ -3,7 +3,7 @@ extend layout/_index
 
 block variables
 	- page.type = 'front-page';
-	- page.title = 'Главная';
+	- page.title = blog.name;
 
 
 block main
@@ -12,7 +12,6 @@ block main
 			include home/_jumbotron
 			include home/_entries
 		.col-xs-12.col-sm-4: include asides/_home
-	include asides/_offers
 	include home/_about
 	include home/_action
 	include home/_contacts

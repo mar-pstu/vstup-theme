@@ -48,8 +48,7 @@ img.alignright, a.alignright img { margin: 5px 0px 10px 10px; }
 
 .list-inline { @extend %list-inline; }
 
-.sr-only { display: none; }
-
+.screen-reader-text, .sr-only { display: none; }
 
 .bg-primary { background-color: $brand-primary; }
 .bg-success { background-color: $brand-success; }

@@ -19,6 +19,7 @@
 		margin-bottom: .5em;
 		border-bottom: 2px solid $brand-success;
 		& + p { margin-top: 0; }
+		.icon { @extend %icon; margin-right: .2em; }
 	}
 
 	p {

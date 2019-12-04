@@ -36,34 +36,33 @@ $social-list: (
 		position: relative;
 	}
 
-	a:before {
-		content: '';
-		display: block;
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		transform: translate( -100%, 0% );
-		transition: transform 100ms;
-	}
+	// a:before {
+	// 	content: '';
+	// 	display: block;
+	// 	position: absolute;
+	// 	top: 0;
+	// 	left: 0;
+	// 	right: 0;
+	// 	bottom: 0;
+	// 	transform: translate( -100%, 0% );
+	// 	transition: transform 100ms;
+	// }
 
 	a:after {
 		@extend %background-icon;
+		@extend %icon;
 		content: '';
-		width: 1em;
-		height: 1em;
 	}
 
-	a:hover:before { transform: translate( -90%, 0% ); }
+	// a:hover:before { transform: translate( -90%, 0% ); }
 
 	@each $social-name, $social-color in $social-list {
 		a.#{$social-name}:after {
 			@extend %icon-social-#{$social-name};
 		}
-		a.#{$social-name}:before {
-			background-color: $social-color;
-		}
+		// a.#{$social-name}:before {
+		// 	background-color: $social-color;
+		// }
 	}
 
 }

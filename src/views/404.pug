@@ -1,0 +1,24 @@
+extend layout/_index
+
+
+block variables
+	- page.type = 'error404';
+	- page.title = 'Ошибка 404';
+
+
+block wrapper
+	.wrap
+		h1 #{page.title}
+		ul.categories
+			li: a( href="#" ) тема
+			li: a( href="#" ) плагин
+			li: a( href="#" ) вёрстка
+			li: a( href="#" ) плагин
+			li: a( href="#" ) тема
+			li: a( href="#" ) тема
+			li: a( href="#" ) плагин
+			li: a( href="#" ) вёрстка
+			li: a( href="#" ) тема
+		p.excerpt Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque excepturi debitis dolores, quia vel eius laborum quas perferendis deleniti voluptatem incidunt, accusantium delectus nihil rerum, ipsa sint amet animi. Unde!
+		p: a.home-link( href="#" ) На главную
+	include blocks/_enqueue

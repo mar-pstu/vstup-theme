@@ -26,23 +26,16 @@
 		display: block;
 		position: relative;
 		overflow: hidden;
+		font-size: 4em;
 	}
 
 	.thumbnail:after {
-		@extend %icon-play;
+		@extend %video-button;
 		content: '';
 		position: absolute;
 		top: 50%;
 		left: 50%;
 		transform: translate( -50%, -50% );
-		background-color: #fff;
-		z-index: 1;
-		width: 5em;
-		height: 5em;
-		border-radius: 50%;
-		background-size: 1em 1em;
-		background-position: center center;
-		background-repeat: no-repeat;
 	}
 
 

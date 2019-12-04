@@ -9,21 +9,23 @@
 .multisite
 	form( role="search", method="get" ).searchform#searchform: .container: .row.middle-xs
 		.col-xs-8.col-sm-10.col-md-10: input( tyle="search", value="", name="s" )
-		.col-xs-2.col-sm-1.col-md-1: button.schbutton.schbutton--open( type="submit", title="Искать" ) #[span.sr-only Поиск]
-		.col-xs-2.col-sm-1.col-md-1: button.schbutton.schbutton--close( data-search="toggle" ) #[span.sr-only Закрыть поиск]
+		.col-xs-2.col-sm-1.col-md-1: button.headerbutton.headerbutton--open( type="submit", title="Искать" ) #[span.sr-only Поиск]
+		.col-xs-2.col-sm-1.col-md-1: button.headerbutton.headerbutton--close( data-search="toggle" ) #[span.sr-only Закрыть поиск]
 	.container: .row.middle-xs
-		.col-xs-3.col-sm-2.col-md-1: a.main-site-logo( href="#" )
+		.col-xs-2.col-sm-2.col-md-1: a.main-site-logo( href="#" )
 			img.custom-logo( src=src.img+'logo.png' )
 			span.sr-only #{blog.network}
-		.col-xs-7.col-sm-8.col-md-10: ul.quick-links
+		.col-xs-6.col-sm-7.col-md-9: ul.quick-links
 			li: a( href="#" ) Проекты и мероприятия
 			li.bg-warning: a( href="#" ) Обучение для иностранцев
 		.col-xs-2.col-sm-1.col-md-1
-			button.schbutton.schbutton--open( data-search="toggle" ) #[span.sr-only Поиск]
+			button.headerbutton.headerbutton--vision#vision-toggle #[span.sr-only Версия для слабовидящих]
+		.col-xs-2.col-sm-1.col-md-1
+			button.headerbutton.headerbutton--open( data-search="toggle" ) #[span.sr-only Поиск]
 .container: .row.middle-xs
 	.col-xs-6
 		include ../blocks/_breadcrumb
-		h1.blogname #{blog.name}
+		.blogname #{blog.name}
 	.col-xs-6.text-right
 		ul.contacts
 			li.phone: a( href="#" ) (0629) 34-30-97

@@ -10,5 +10,24 @@
 
 
 
+	.entry {
+		margin: 2em 0;
+	}
+
+
+
+	&__entry {
+		.title {
+			margin: 0;
+		}
+		.excerpt {
+			margin: 0;
+		}
+		.thumbnail {
+			display: block;
+		}
+	}
+
+
 	
 }

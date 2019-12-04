@@ -23,8 +23,8 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: flex-start;
-		padding-top: 1rem;
-		padding-bottom: 1rem;
+		padding-top: $flexboxgrid-outer-margin;
+		padding-bottom: $flexboxgrid-outer-margin / 2;
 		max-width: 320px;
 		overflow: hidden;
 		background-color: #fff;
@@ -33,14 +33,14 @@
 		content: '';
 		display: block;
 		position: absolute;
-		top: 0.5rem;
-		right: 0.5rem;
-		bottom: 0.5rem;
-		left: 0.5rem;
-		border: 2px solid $brand-default;
+		top: $flexboxgrid-outer-margin / 2;
+		right: $flexboxgrid-outer-margin / 2;
+		bottom: $flexboxgrid-outer-margin / 2;
+		left: $flexboxgrid-outer-margin / 2;
+		border: 1px solid $brand-primary;
 	}
 	.item:hover { text-decoration: none; }
-	.item:hover:before { border: 2px solid $brand-primary; }
+	.item:hover:before { border: 1px solid $brand-warning; }
 
 	&__item {
 		.icon {

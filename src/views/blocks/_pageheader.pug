@@ -3,9 +3,7 @@
 
 
 .pageheader
-	a.fancybox.thumbnail( href=src.img+'sectors/05.png' ): img.lazy.wp-post-thumbnail( src="#", data-src=src.img+'sectors/05.png', alt=page.title )
 	h1.title #{page.title}
-p.lead #{page.excerpt}
-//- .jssocials-wrap
-//- 	.jssocials-heading Поделиться:
-//- 	.jssocials
+	.row.middle-xs
+		.col-xs-8: include _share
+		.col-xs-4: .small.text-right Обновлено 20.01.2020

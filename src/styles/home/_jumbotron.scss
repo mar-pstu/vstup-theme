@@ -49,7 +49,7 @@
 		padding: .5em 0;
 	}
 
-	.advantages li {
+	.advantages .overlay {
 		display: flex;
 		align-items: center;
 		padding: 0 1em;
@@ -61,24 +61,20 @@
 		margin-right: .5em;
 	}
 
-	.advantages .youtube {
-		@extend %xy-center;
-		position: absolute;
-		bottom: 0;
-		right: 0;
-		width: 3em;
-		height: 3em;
-		border-radius: 50%;
-		background-color: #fff;
-		z-index: 10;
-		margin: .5em;
+	.advantages a::after {
+		@extend %video-button;
+		content: '';
+		margin: 0 .5em 0 auto;
+		font-size: 1.5em;
+		transform-origin: center center;
+		transform: scale( 0.8 );
+		opacity: 0;
+		transition: 1s transform, 1s opacity;
 	}
 
-	.advantages .youtube:before {
-		@extend %background-icon;
-		@extend %icon-play;
-		@extend %icon;
-		content: '';
+	.advantages .slick-active a::after {
+		transform: scale( 1 );
+		opacity: 1;
 	}
 
 
