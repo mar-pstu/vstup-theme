@@ -1,23 +1,25 @@
-//-
-	Главная страница
-	Первый экран
 
 
-.jumbotron.lazy#jumbotron( data-src=src.img+'jumbotron/bg-01.jpg' )
-	h1.title #{blog.name}
-	p.lead.excerpt #{blog.description}
-	a.permalink( href="#" ) Шаги к поступлению
-	ul.advantages#advantages
-		ul#advantages-list
-			li: a.overlay.fancybox( href="https://youtu.be/Z9eQAszhC2I" )
-				img( src="#", data-lazy=src.img+'advantages/university.png' )
-				.title University Life - Overall in here
-			li: a.overlay.fancybox( href="https://youtu.be/Z9eQAszhC2I" )
-				img( src="#", data-lazy=src.img+'advantages/mortarboard.png' )
-				.title Graduation - Getting Diploma
-			li: a.overlay.fancybox( href="https://youtu.be/Z9eQAszhC2I" )
-				img( src="#", data-lazy=src.img+'advantages/court.png' )
-				.title Athletics - Sport Clubs
-			li: a.overlay.fancybox( href="https://youtu.be/Z9eQAszhC2I" )
-				img( src="#", data-lazy=src.img+'advantages/network.png' )
-				.title Social - Overall in here
+
+
+
+mixin jumbotron_entry( args )
+	.pageheader
+		.bg.lazy( data-src=args.thumbnail )
+		.container
+			h3.title #{args.title}
+			.excerpt #{args.excerpt}
+			a.btn.btn-success Подробней
+			include ../navs/_warning
+
+
+
+#jumbotron.jumbotron
+	#jumbotron-list
+		+jumbotron_entry( { thumbnail: src.img+'jumbotron/01.jpg', title: 'Заголовок 1', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem enim labore optio eaque non, iste assumenda quod minus atque fugit, laborum nesciunt ullam necessitatibus! Soluta earum explicabo culpa sunt iure!' } )
+		+jumbotron_entry( { thumbnail: src.img+'jumbotron/02.jpg', title: 'Заголовок 2', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo hic, alias voluptas deleniti non, vel voluptates, dignissimos consequuntur consectetur exercitationem reiciendis expedita suscipit voluptatem quidem sunt praesentium, autem iusto harum.' } )
+		+jumbotron_entry( { thumbnail: src.img+'jumbotron/03.jpg', title: 'Заголовок 3', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas maxime tempora voluptatibus ducimus qui ad, excepturi unde delectus expedita, optio soluta doloribus eaque facilis sed quia nesciunt mollitia ut voluptatem!' } )
+		+jumbotron_entry( { thumbnail: src.img+'jumbotron/04.jpg', title: 'Заголовок 4', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam maiores, fugit! Esse velit quidem doloremque pariatur, voluptatum exercitationem numquam error eligendi, voluptate officiis commodi. Voluptatem nihil, ab sed beatae. Consequuntur.' } )
+	#jumbotron-controls.controls: .container.text-right
+		button#jumbotron-slider-prev.arrow.prev #[span.sr-only Предыдущий слайд]
+		button#jumbotron-slider-next.arrow.next #[span.sr-only Следующий слайд]

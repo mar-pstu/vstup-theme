@@ -2,12 +2,9 @@
 @import "helpers/functions";
 @import "helpers/flex";
 @import "helpers/mixins";
-@import "helpers/extends.box";
 @import "helpers/extends.button";
-@import "helpers/extends.file";
 @import "helpers/extends.icons";
 @import "helpers/extends";
-
 
 
 @import "base/normalize";
@@ -16,45 +13,42 @@
 @import "base/flexboxgrid";
 
 
-
-@import "widgets/widget";
-@import "widgets/calendar";
 @import "widgets/tagcloud";
+@import "widgets/calendar";
 
 
 
-@import "blocks/share";
-@import "blocks/mobilenav";
-@import "blocks/nav";
-@import "blocks/heading";
-@import "blocks/navicons";
-@import "blocks/accordio";
-@import "blocks/file";
-@import "blocks/aside";
-@import "blocks/socials";
+@import"navs/main";
+
+
+
 @import "blocks/slider";
+@import "blocks/aside";
+@import "blocks/content";
 @import "blocks/pager";
-@import "blocks/pageheader";
+@import "blocks/section";
 @import "blocks/breadcrumbs";
 @import "blocks/pagination";
 @import "blocks/form";
 @import "blocks/buttons";
-@import "blocks/section";
-@import "blocks/breadcrumbs";
-@import "blocks/to-top-button";
-@import "blocks/header";                 // Шапка сайта
-@import "blocks/footer";                 // Подвал сайта
+@import "blocks/breadcrumbs";    // "хлебные крошки"
+@import "blocks/to-top-button";  // кнопка наверх
+@import "blocks/header";         // Шапка сайта
+@import "blocks/footer";         // Подвал сайта
+@import "blocks/pageheader";
 
 
 
-@import "home/jumbotron";         // Первый экран
-@import "home/entries";           // новости из категории
+@import "home/jumbotron";
+@import "home/about";
+@import "home/news";
 @import "home/action";
-@import "home/contacts";
-@import "home/map";
+@import "home/specialties";      // список специальностей на главной странице
+@import "home/people";
+@import "home/questions";
 
 
 
-@import "pages/home";
-@import "pages/archive";
-@import "pages/error404";
+@import "pages/home";            // главная сраница
+@import "pages/archive";         // страница блога / архива
+@import "pages/error404";        // страница ошибки 404

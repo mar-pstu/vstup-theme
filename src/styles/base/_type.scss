@@ -14,7 +14,15 @@
 
 
 .small { font-size: 80%; }
-.lead { @extend %lead; }
+.lead {
+	margin-bottom: $line-height-base;
+  font-size: floor( ( $font-size-base * 1.15 ) );
+  font-weight: 300;
+  line-height: 1.4;
+  @media ( min-width: $screen-sm ) {
+    font-size: ( $font-size-base * 1.5 );
+  }
+}
 .normal { font-size: 1.00em; font-weight: normal;	font-style: normal; text-transform: none; }
 
 .text-center { text-align: center; }
@@ -48,11 +56,4 @@ img.alignright, a.alignright img { margin: 5px 0px 10px 10px; }
 
 .list-inline { @extend %list-inline; }
 
-.screen-reader-text, .sr-only { display: none; }
-
-.bg-primary { background-color: $brand-primary; }
-.bg-success { background-color: $brand-success; }
-.bg-warning { background-color: $brand-warning; }
-
-
-.h2 { @extend h2; }
+.sr-only { display: none; }

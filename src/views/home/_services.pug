@@ -1,0 +1,20 @@
+
+
+
+
+mixin services_item( args )
+	.col-xs-6.col-sm-4.col-md-4.col-lg-2
+		a.services__item.item( href="#", role="listitem" )
+
+
+
+
+section.section.services#services( role="list" ): .container
+	h2 Додаткові послуги
+	.row
+		+services_item( { thumbnail: '', title: 'Донбасс-Украина' } )
+		+services_item( { thumbnail: '', title: 'Обучение для иностранцев' } )
+		+services_item( { thumbnail: '', title: 'Практика школьников' } )
+		+services_item( { thumbnail: '', title: 'Центр карьеры' } )
+		+services_item( { thumbnail: '', title: 'Курсы подготовки' } )
+		+services_item( { thumbnail: '', title: 'Смотреть все' } )

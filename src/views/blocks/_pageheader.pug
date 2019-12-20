@@ -1,9 +1,23 @@
 //-
-	Заголовок страницы для постов и постоянных страниц
+	Первый экран
+	Страницы: главная, пост, страница
 
 
-.pageheader
+
+
+
+.pageheader: .container
+	.bg.lazy( data-src=src.img+'jumbotron.jpg' )
 	h1.title #{page.title}
-	.row.middle-xs
-		.col-xs-8: include _share
-		.col-xs-4: .small.text-right Обновлено 20.01.2020
+	ul.menu
+		li: a( href="#" ) Для выпускников школ
+		li: a( href="#" ) Для выпускников техникумов
+		li: a( href="#" ) Для магистров
+		li: a( href="#" ) Правила приёма
+		li: a( href="#" ) Стоимость обучения
+		li: a( href="#" ) Конкурсные предметы
+		li: a( href="#" ) Перевод на вакантные места
+		li: a( href="#" ) Списки
+		li: a( href="#" ) Государственный заказ
+		li: a( href="#" ) Программы вступительных экзаменов
+	include ../navs/_warning

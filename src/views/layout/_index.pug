@@ -7,20 +7,15 @@ html( lang="ru" )
 	include ../blocks/_head
 	block head
 	block body
-		body( class=page.type, 'data-nav'='inactive' )
-			#mobilenav.mobilenav
-				button.close.navtoggle #[span.sr-only Закрыть меню]
-				.h2 Меню сайта
+		body( class=page.type, data-nav="inactive" )
 			block wrapper
 				.wrapper#wrapper
 					header.wrapper__item.wrapper__item--header.header#header
 						block header
 							include ../blocks/_header
-					main.wrapper__item.wrapper__item--main.main#main
+					main.wrapper__item.wrapper__item--main.main.lazy#main( data-src=src.img+'bg.svg' )
 						block main
-					aside.wrapper__item.wrapper__item--aside.aside.aside--basement
-						include ../asides/_basement
-					footer.wrapper__item.wrapper__item--footer.footer#footer
+					footer.wrapper__item.wrapper__item--footer.footer
 						block footer
 							include ../blocks/_footer
 					block enqueue

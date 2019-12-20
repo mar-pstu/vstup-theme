@@ -12,7 +12,7 @@
 
 
 mixin aside_column_widget ( args )
-	.col-xs-12.col-sm-6.col-md-12.col-lg-12: .widget
+	.col-xs-12.col-sm-12.col-md-12.col-lg-12: .widget
 		h3.widget__title Hello, world!
 		p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga explicabo temporibus, magnam ratione velit vitae commodi expedita.
 		block
@@ -39,6 +39,10 @@ aside.aside.aside--column: .row
 					li: a(href="#") Best PSD Freebies: Login Form
 			li: a(href="#") Best PSD Freebies: Login Form
 			li: a(href="#") Wedding Photography Shoot Takes & Tricks
+			li: a(href="#") Best PSD Freebies: Amazing Design Resource & Inspiration
+			li: a(href="#") Best PSD Freebies: Login Form
+			li: a(href="#") Wedding Photography Shoot Takes & Tricks
+			li: a(href="#") Best PSD Freebies: Amazing Design Resource & Inspiration
 	+aside_column_widget( {} )
 		include ../forms/_search
 	+aside_column_widget( { title: 'Календарь' } )

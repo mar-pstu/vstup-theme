@@ -2,32 +2,31 @@ extend layout/_index
 
 
 block variables
-	- page.type = 'archive blocg';
-	- page.title = 'Шаблон категории, блога, архива';
+	- page.type = 'archive';
+	- page.title = 'Блог';
 
 
 
 mixin archive_entry( args )
-	.archive__entry.entry: .row
-		.col-xs-12.col-sm-3
-			a.thumbnail( href="#" )
-				img.wp-post-thumbnail.lazy( src="#", data-src=args.thumbnail, alt=args.title )
-				.datetime
-		.col-xs-12.col-sm-9
-			h3.title #{args.title}
-			p.excerpt Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veritatis recusandae molestiae, ipsam eligendi reiciendis ab incidunt quam non reprehenderit illum possimus, error laborum ullam, magni, magnam optio. Tenetur, deleniti.
-			.row.middle-xs
-				.col-xs-6: .small 20.01.2020
-				.col-xs-6.text-right: a.btn.btn-success( href="#" ) Подробней
+	.archive__entry.entry: .row.center-xs
+		.col-xs-6.col-sm-4.col-md-4.col-lg-4: a.entry__thumbnail.thumbnail( href="#" ): img.lazy.wp-post-thumbnail( src="#", data-src=args.thumbnail )
+		.col-xs-12.col-sm-8.col-md-8.col-lg-8
+			h3.entry__title.title #{args.title}
+			.entry__excerpt.excerpt: p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			p.text-right: a.entry__permalink.permalink( href="#" ) Подробней
+
 
 
 block main
-	.container: .row.stratch-xs
-		.col-xs-12.col-md-8
-			include ./blocks/_pageheader
-			.content: include ./blocks/_content
-			+archive_entry( { thumbnail: src.img+'thumbnail.png', title: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit' } )
-			+archive_entry( { thumbnail: src.img+'thumbnail.png', title: 'Repellendus nisi, quia qui amet sed cumque perferendis sint alias sunt esse' } )
-			+archive_entry( { thumbnail: src.img+'thumbnail.png', title: 'Explicabo iusto odio, cum, eveniet, animi qui voluptates at ipsa minima laudantium eos cumque corporis, vero' } )
+	.container: .row
+		.col-xs-12.col-sm-12.col-md-8.col-lg-8
+			h1 #{page.title}
+			include blocks/_breadcrumbs
+			+archive_entry( { thumbnail: src.img+'thumbnail.png', title: 'Заголовок поста 1' } )
+			+archive_entry( { thumbnail: src.img+'thumbnail.png', title: 'Заголовок поста 2' } )
+			+archive_entry( { thumbnail: src.img+'thumbnail.png', title: 'Заголовок поста 3' } )
+			+archive_entry( { thumbnail: src.img+'thumbnail.png', title: 'Заголовок поста 4' } )
+			+archive_entry( { thumbnail: src.img+'thumbnail.png', title: 'Заголовок поста 5' } )
 			include blocks/_pagination
-		.col-xs-12.col-md-4: include asides/_column
+		.col-xs-12.col-sm-12.col-md-4.col-lg-4
+			include asides/_column

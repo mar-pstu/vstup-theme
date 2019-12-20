@@ -1,81 +1,41 @@
-//
-//
-//	Главная страница
-//  первый экран
-//
-//
+
+
+
+
+
+
+
+
+
+
 
 
 
 
 .jumbotron {
-	
-	@extend %bg-cover;
-	color: #fff;
-	padding: 10em 2em;
-	background-color: $brand-primary;
-	min-height: 15em;
+
 	position: relative;
 
-	@include min-width( $screen-md ) {
-		margin-right: -$flexboxgrid-outer-margin;
-	}
-	
-
-	.title {
-		color: #fff;
-		margin: 0;
-	}
-
-	.excerpt {
-		margin: 0;
-		max-width: 20em;
-	}
-
-	.permalink {
-		@extend %button;
-		@extend %button-success;
-		margin-top: 2em;
-	}
-
-
-	.advantages {
+	.controls {
 		position: absolute;
-		bottom: 0;
 		left: 0;
 		right: 0;
-		margin: 0;
-		background-color: rgba( 0, 0, 0, .5 );
-		padding: .5em 0;
+		bottom: 0;
+		padding: 1em 0;
 	}
 
-	.advantages .overlay {
-		display: flex;
-		align-items: center;
-		padding: 0 1em;
-	}
-
-	.advantages img {
-		width: 2.5em;
-		height: 2.5em;
-		margin-right: .5em;
-	}
-
-	.advantages a::after {
-		@extend %video-button;
-		content: '';
-		margin: 0 .5em 0 auto;
-		font-size: 1.5em;
+	.controls .arrow {
+		@extend %background-icon;
+		display: inline-block;
+		background-color: transparent;
+		width: 2em;
+		height: 2em;
+		border: none;
+		background-image: url( 'data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDI4NC45MjkgMjg0LjkyOSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMjg0LjkyOSAyODQuOTI5OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PGc+PGc+Cgk8cGF0aCBkPSJNMjgyLjA4Miw3Ni41MTFsLTE0LjI3NC0xNC4yNzNjLTEuOTAyLTEuOTA2LTQuMDkzLTIuODU2LTYuNTctMi44NTZjLTIuNDcxLDAtNC42NjEsMC45NS02LjU2MywyLjg1NkwxNDIuNDY2LDE3NC40NDEgICBMMzAuMjYyLDYyLjI0MWMtMS45MDMtMS45MDYtNC4wOTMtMi44NTYtNi41NjctMi44NTZjLTIuNDc1LDAtNC42NjUsMC45NS02LjU2NywyLjg1NkwyLjg1Niw3Ni41MTVDMC45NSw3OC40MTcsMCw4MC42MDcsMCw4My4wODIgICBjMCwyLjQ3MywwLjk1Myw0LjY2MywyLjg1Niw2LjU2NWwxMzMuMDQzLDEzMy4wNDZjMS45MDIsMS45MDMsNC4wOTMsMi44NTQsNi41NjcsMi44NTRzNC42NjEtMC45NTEsNi41NjItMi44NTRMMjgyLjA4Miw4OS42NDcgICBjMS45MDItMS45MDMsMi44NDctNC4wOTMsMi44NDctNi41NjVDMjg0LjkyOSw4MC42MDcsMjgzLjk4NCw3OC40MTcsMjgyLjA4Miw3Ni41MTF6IiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBjbGFzcz0iYWN0aXZlLXBhdGgiIHN0eWxlPSJmaWxsOiNGRkZGRkYiIGRhdGEtb2xkX2NvbG9yPSIjMDAwMDAwIj48L3BhdGg+CjwvZz48L2c+IDwvc3ZnPg==' );
 		transform-origin: center center;
-		transform: scale( 0.8 );
-		opacity: 0;
-		transition: 1s transform, 1s opacity;
 	}
 
-	.advantages .slick-active a::after {
-		transform: scale( 1 );
-		opacity: 1;
-	}
-
+	.controls .prev { transform: rotate( 90deg ); }
+	.controls .next { transform: rotate( -90deg ); }
 
 }

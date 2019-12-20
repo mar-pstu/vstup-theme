@@ -1,7 +1,7 @@
-//
-// Главная страница
-// Секция
-//
+
+
+
+
 
 
 
@@ -9,49 +9,21 @@
 
 .action {
 
-	margin: 2em 0;
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
 
-	.title {
-		color: #fff;
-		text-align: left;
-		margin: 0;
-	}
-
-	.permalink,
-	.excerpt {
-		margin: 1em auto;
-	}
-
-	.thumbnail {
+	.logo {
+		width: 10em;
+		height: 10em;
 		display: block;
-		position: relative;
-		overflow: hidden;
-		font-size: 4em;
+		margin: .5em auto;
 	}
 
-	.thumbnail:after {
-		@extend %video-button;
-		content: '';
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate( -50%, -50% );
-	}
-
-
-	img {
-		display: block;
-		width: 100%;
-	}
-
-	.wrap {
-		box-shadow: $block-shadow;
+	.title, .excerpt {
+		margin: .5em 0;
 		color: #fff;
-		background-color: $brand-primary;
-	}
-
-	.overlay {
-		padding: 1em;
+		// text-shadow: .1em .1em .1em #000;
 	}
 
 }

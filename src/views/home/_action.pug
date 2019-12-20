@@ -1,6 +1,3 @@
-//-
-	Главная страница
-	Секиция 
 
 
 
@@ -8,12 +5,13 @@
 
 
 
-section.section.action#action: .container: .wrap: .row.middle-xs
-	.col-xs-12.col-sm-6.col-md-6.col-lg-6
-		a.thumbnail.fancybox( href="https://youtu.be/Z9eQAszhC2I", role="button" )
-			img.lazy( src="#", data-src=src.img+'action/thumbnail.jpg', alt=blog.description )
-			div.sr-only Смотреть видео
-	.col-xs-12.col-sm-6.col-md-6.col-lg-6: .overlay
-		h2.title Поступай в ПГТУ
-		p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-		a.btn.btn-success.btn-lg.permalink( href="#" ) Подробней
+
+
+
+
+section.section.action.lazy#action( data-src=src.img+'action/bg03.jpg' ): .container: .row.middle-xs.center-xs
+	.col-xs-12.col-sm-5.col-sm-offset-7.text-center
+		img.lazy.logo( src="#", data-src=src.img+'gerb.png' )
+		h2.title Почни з нами
+		.excerpt Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem dolorem iure quia, saepe, harum eligendi blanditiis mollitia, dignissimos officiis aliquid laboriosam velit et error nemo? Ex eos dignissimos provident libero.
+		p: a.btn.btn-success( href="#" ) Вступ 2020

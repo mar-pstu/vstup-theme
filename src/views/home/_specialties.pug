@@ -1,0 +1,52 @@
+
+
+
+
+
+
+mixin specialties_item( args )
+	a.specialties__item.item( href="#" )
+		h3.title #{args.title}
+		.sector #{args.sector}
+		img.thumbnail( src="#", data-lazy=args.thumbnail, alt=args.sector )
+		
+
+
+
+section.section.specialties#specialties
+	.container: .row.middle-xs
+		.col-xs-12.col-sm-3
+			h2 Специальности
+			p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa ullam dolorum nam consequuntur, repellendus, amet doloremque iusto vel, optio porro fugit soluta dolores laudantium, nesciunt tenetur. Quam odit cum est.
+			p: a.btn.btn-success( href="#" ) Все специальности
+		.col-xs-12.col-sm-8: .slider
+			#specialties-list
+				+specialties_item( { thumbnail: src.img+'sectors/01.png', sector: 'Освіта / Педагогіка', title: 'Середня освіта. Математика' } )
+				+specialties_item( { thumbnail: src.img+'sectors/01.png', sector: 'Освіта / Педагогіка', title: 'Професійна освіта' } )
+				+specialties_item( { thumbnail: src.img+'sectors/03.png', sector: 'Гуманітарні науки', title: 'Філологія. Слов’янські мови та літератури (переклад включно), перша - російсь' } )
+				+specialties_item( { thumbnail: src.img+'sectors/03.png', sector: 'Гуманітарні науки', title: 'Філологія. Германські мови та літератури (переклад включно), перша - англійська' } )
+				+specialties_item( { thumbnail: src.img+'sectors/05.png', sector: 'Соціальні та поведінкові науки', title: 'Економіка' } )
+				+specialties_item( { thumbnail: src.img+'sectors/07.png', sector: 'Управління та адміністрування', title: 'Облік і оподаткування' } )
+				+specialties_item( { thumbnail: src.img+'sectors/07.png', sector: 'Управління та адміністрування', title: 'Фінанси, банківська справа та страхування' } )
+				+specialties_item( { thumbnail: src.img+'sectors/07.png', sector: 'Управління та адміністрування', title: 'Менеджмент' } )
+				+specialties_item( { thumbnail: src.img+'sectors/07.png', sector: 'Управління та адміністрування', title: 'Маркетинг' } )
+				+specialties_item( { thumbnail: src.img+'sectors/07.png', sector: 'Управління та адміністрування', title: 'Підприємництво, торгівля та біржова діяльність' } )
+				+specialties_item( { thumbnail: src.img+'sectors/11.png', sector: 'Математика та статистика', title: 'Прикладна математика' } )
+				+specialties_item( { thumbnail: src.img+'sectors/12.png', sector: 'Інформаційні технології', title: 'Комп’ютерні науки' } )
+				+specialties_item( { thumbnail: src.img+'sectors/13.png', sector: 'Механічна інженерія', title: 'Прикладна механіка' } )
+				+specialties_item( { thumbnail: src.img+'sectors/13.png', sector: 'Механічна інженерія', title: 'Матеріалознавство' } )
+				+specialties_item( { thumbnail: src.img+'sectors/13.png', sector: 'Механічна інженерія', title: 'Галузеве машинобудування' } )
+				+specialties_item( { thumbnail: src.img+'sectors/13.png', sector: 'Механічна інженерія', title: 'Металургія' } )
+				+specialties_item( { thumbnail: src.img+'sectors/14.png', sector: 'Електрична інженерія', title: 'Електроенергетика, електротехніка та електромеханіка' } )
+				+specialties_item( { thumbnail: src.img+'sectors/14.png', sector: 'Електрична інженерія', title: 'Теплоенергетика' } )
+				+specialties_item( { thumbnail: src.img+'sectors/15.png', sector: 'Автоматизація та приладобудування', title: 'Автоматизація та комп’ютерно - інтегровані технології' } )
+				+specialties_item( { thumbnail: src.img+'sectors/16.png', sector: 'Хімічна та біоінженерія', title: 'Біомедична інженерія' } )
+				+specialties_item( { thumbnail: src.img+'sectors/18.png', sector: 'Виробництво та технології', title: 'Технології захисту навколишнього середовища' } )
+				+specialties_item( { thumbnail: src.img+'sectors/19.png', sector: 'Архітектура та будівництво', title: 'Архітектура та містобудування' } )
+				+specialties_item( { thumbnail: src.img+'sectors/19.png', sector: 'Архітектура та будівництво', title: 'Будівництво та цивільна інженерія' } )
+				+specialties_item( { thumbnail: src.img+'sectors/23.png', sector: 'Соціальна робота', title: 'Соціальна робота' } )
+				+specialties_item( { thumbnail: src.img+'sectors/24.png', sector: 'Сфера обслуговування', title: 'Туризм' } )
+				+specialties_item( { thumbnail: src.img+'sectors/27.png', sector: 'Транспорт', title: 'Транспортні технології. На залізничному транспорті' } )
+				+specialties_item( { thumbnail: src.img+'sectors/27.png', sector: 'Транспорт', title: 'Транспортні технології. На автомобільному транспорті' } )
+			button.slider-arrow.arrow-prev#specialties-arrow-prev #[span.sr-only Предыдущий слайд]
+			button.slider-arrow.arrow-next#specialties-arrow-next #[span.sr-only Следующий слайд]

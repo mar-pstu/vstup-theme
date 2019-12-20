@@ -17,29 +17,34 @@ form {
 	label {
 		display: block;
 		font-weight: bold;
-		margin-top: 0.5em;
+		margin-top: .5em;
 	}
 
+	select,
 	textarea,
 	input[ type="text" ],
 	input[ type="email" ],
 	input[ type="password" ] {
-		box-shadow: $block-shadow;
+		// border-radius: $border-radius;
+		background-color: #fff;
+		padding: .5em 1.5em;
 		display: block;
-		border: none;
-		margin-top: 0.5em;
-		margin-bottom: 0.5em;
+		border: 1px solid $brand-primary;
+		margin-top: .5em;
+		margin-bottom: .5em;
 		width: 100%;
 		box-sizing: border-box;
 		outline: none;
-		// background-color: transparentize( $brand-primary, 0.2 );
-		background-color: #fff;
-		border: 1px solid lighten( $brand-default, 15% );
-		padding: 1em;
-		border-radius: 3px;
-		color: $titles-color;
-		// color: #fff;
-		// &:hover, &:focus, &:active { background-color: transparentize( $brand-primary, 0.3 ); }
+		color: $text-color;
+	}
+
+
+	select {
+		@extend %icon-arrow;
+		appearance: none;
+		background-repeat: no-repeat;
+		background-size: 1em 1em;
+		background-position: 98% 50%;
 	}
 
 
@@ -48,11 +53,31 @@ form {
 	}
 
 
-	input[ type="submit" ] {
+	[ type="submit" ]:not( .searchsubmit ) {
 		@extend %button;
-		@extend %button-warning;
-		@extend %button-large;
-		margin: 1em auto;
+		@extend %button-primary;
+	}
+
+
+	&.searchform {
+		position: relative;
+		.form-control {
+			margin: 0;
+			padding-right: 2.5em;
+		}
+		.searchsubmit {
+			@extend %background-icon;
+			position: absolute;
+			display: block;
+			border: none;
+			background-image: url( 'data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgNTYuOTY2IDU2Ljk2NiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTYuOTY2IDU2Ljk2NjsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIj48Zz48cGF0aCBkPSJNNTUuMTQ2LDUxLjg4N0w0MS41ODgsMzcuNzg2YzMuNDg2LTQuMTQ0LDUuMzk2LTkuMzU4LDUuMzk2LTE0Ljc4NmMwLTEyLjY4Mi0xMC4zMTgtMjMtMjMtMjNzLTIzLDEwLjMxOC0yMywyMyAgczEwLjMxOCwyMywyMywyM2M0Ljc2MSwwLDkuMjk4LTEuNDM2LDEzLjE3Ny00LjE2MmwxMy42NjEsMTQuMjA4YzAuNTcxLDAuNTkzLDEuMzM5LDAuOTIsMi4xNjIsMC45MiAgYzAuNzc5LDAsMS41MTgtMC4yOTcsMi4wNzktMC44MzdDNTYuMjU1LDU0Ljk4Miw1Ni4yOTMsNTMuMDgsNTUuMTQ2LDUxLjg4N3ogTTIzLjk4NCw2YzkuMzc0LDAsMTcsNy42MjYsMTcsMTdzLTcuNjI2LDE3LTE3LDE3ICBzLTE3LTcuNjI2LTE3LTE3UzE0LjYxLDYsMjMuOTg0LDZ6IiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBjbGFzcz0iYWN0aXZlLXBhdGgiIHN0eWxlPSJmaWxsOiMwMDAwMDAiPjwvcGF0aD48L2c+IDwvc3ZnPg==' );
+			background-color: transparent;
+			width: 1.5em;
+			height: 1.5em;
+			top: 0;
+			right: 0;
+			margin: .5em;
+		}
 	}
 
 

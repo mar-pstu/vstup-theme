@@ -12,6 +12,7 @@
 
 .btn {
 
+
 	@extend %button;
 
 	&-default { @extend %button-default; }
@@ -21,11 +22,7 @@
 	&-success { @extend %button-success; }
 
 	&-warning { @extend %button-warning; }
-
-	&-info { @extend %button-info; }
-
-	&-block { display: block; }
-
+	
 	&-sm { @extend %button-small; }
 
 	&-lg { @extend %button-large; }

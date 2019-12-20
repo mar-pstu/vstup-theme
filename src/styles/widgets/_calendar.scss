@@ -18,6 +18,7 @@
 	table {
 		width: 100%;
 		text-align: center;
+		line-height: 200%;
 	}
 	td {
 		padding: 0;
@@ -34,7 +35,7 @@
 		display: block;
 		width: inherit;
 		height: inherit;
-		background-color: lighten( $brand-warning, 25% );
+		background-color: lighten( $brand-primary, 35% );
 		transition: color 200ms, background-color 200ms;
 	}
 	a:hover {

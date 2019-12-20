@@ -5,30 +5,25 @@
 
 
 
-
-.multisite
-	form( role="search", method="get" ).searchform#searchform: .container: .row.middle-xs
-		.col-xs-8.col-sm-10.col-md-10: input( tyle="search", value="", name="s" )
-		.col-xs-2.col-sm-1.col-md-1: button.headerbutton.headerbutton--open( type="submit", title="Искать" ) #[span.sr-only Поиск]
-		.col-xs-2.col-sm-1.col-md-1: button.headerbutton.headerbutton--close( data-search="toggle" ) #[span.sr-only Закрыть поиск]
-	.container: .row.middle-xs
-		.col-xs-2.col-sm-2.col-md-1: a.main-site-logo( href="#" )
-			img.custom-logo( src=src.img+'logo.png' )
-			span.sr-only #{blog.network}
-		.col-xs-6.col-sm-7.col-md-9: ul.quick-links
-			li: a( href="#" ) Проекты и мероприятия
-			li.bg-warning: a( href="#" ) Обучение для иностранцев
-		.col-xs-2.col-sm-1.col-md-1
-			button.headerbutton.headerbutton--vision#vision-toggle #[span.sr-only Версия для слабовидящих]
-		.col-xs-2.col-sm-1.col-md-1
-			button.headerbutton.headerbutton--open( data-search="toggle" ) #[span.sr-only Поиск]
-.container: .row.middle-xs
-	.col-xs-6
-		include ../blocks/_breadcrumb
-		.blogname #{blog.name}
-	.col-xs-6.text-right
-		ul.contacts
-			li.phone: a( href="#" ) (0629) 34-30-97
-			li.email: a( href="#" ) priem@pstu.edu
-.container: include ../blocks/_nav
-
+.line.line--panel: .container.wrap
+	ul.links.list-inline
+		li: a.faq( href="#" ) #[span.label Вопросы ответы]
+		li: a.schedule( href="#" ) #[span.label Расписание]
+	ul.links.socials.list-inline
+		li: a.facebook( href="#" ) #[span.sr-only facebook]
+		li: a.twitter( href="#" ) #[span.sr-only twitter]
+		li: a.instagram( href="#" ) #[span.sr-only instagram]
+		li: a.youtube( href="#" ) #[span.sr-only youtube]
+	ul.links.contacts.list-inline
+		li: a.phone( href="tel:380629343097" ) #[span.label (0629) 34-30-97]
+		li: a.email( href="mailto:priem@pstu.edu" ) #[span.label priem@pstu.edu]
+	include ../forms/_search
+	ul.languages.list-inline
+		li.current RU
+		li: a( href="#" ) UK
+		li: a( href="#" ) EN
+.line.line--nav: .container.wrap
+	a.custom-logo-link( href="#" )
+		img.custom-logo( src=src.img+'logo.png', alt=blog.name )
+		.blog-name #{blog.name}
+	nav.nav#nav: include ../navs/_main

@@ -3,46 +3,46 @@
 //
 
 
-$screen-sm:					576px;
-$screen-md:					768px;
-$screen-lg:					992px;
-$screen-xl:					1200px;
+
+$screen-sm:					38em;
+$screen-md:					51em;
+$screen-lg:					75em;
+$screen-xl:					90em;
 $flexboxgrid-grid-columns: 12;
 $flexboxgrid-gutter-width: 1em;
 $flexboxgrid-outer-margin: 1em;
 $flexboxgrid-breakpoints:
-  xs $screen-sm 540px,
-  sm $screen-md 720px,
-  md $screen-lg 960px,
-  lg $screen-xl 1140px;
+	xs $screen-sm 36em,
+	sm $screen-md 48em,
+	md $screen-lg 70em,
+	lg $screen-xl 87em;
 $flexboxgrid-max-width: 1920px;
 $smallest: xs;
 
 
+$brand-default:     #555555;
+$brand-primary:     #0c426f;
+$brand-success:     #28b7dd;
+$brand-warning:     #d87200;
+$brand-info:        #0098a4;
+$brand-danger:      #971b2f;
 
-$brand-default:         #888888;
-$brand-primary:         #192f59;
-$brand-success:         #24c85e;
-$brand-warning:         #F26C53;
-$brand-info:            lighten( $brand-primary, 20% );
 
-
-$body-color: #efefef;
-$titles-color: #464646;
+$body-color: #ffffff;
+$titles-color: #333333;
 $text-color: $brand-default;
-$link-color: lighten( $titles-color, 20% );
+$link-color: $titles-color;
 
-$font-size-base:    13px;
-$line-height-base:  20em / 13em;
+
+
+$font-size-base:		16px;
+$line-height-base:	26em / 16em;
 $line-height-computed: floor( $font-size-base * $line-height-base );
 
+
+
 $font-family-base: 'Roboto', sans-serif;
-$block-shadow: 0px 1em 1em rgba( 0, 0, 0, 0.2 );
 
 
 
-$brand-vk: #5181b8;
-$brand-facebook: #1877f2;
-$brand-twitter: #64a8f2;
-$brand-linkedin: #00659b;
-$brand-email: #ccc;
+$border-color: #e1e1e1;

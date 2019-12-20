@@ -1,24 +1,16 @@
-extend layout/_index
+include helpers/_variables
+include helpers/_mixing
 
 
-block variables
-	- page.type = 'error404';
-	- page.title = 'Ошибка 404';
+- page.type = 'error404';
+- page.title = 'Ошибка 404';
 
 
-block wrapper
-	.wrap
+doctype html
+html( lang="ru" )
+	include blocks/_head
+	body( class=page.type ): .wrap
 		h1 #{page.title}
-		ul.categories
-			li: a( href="#" ) тема
-			li: a( href="#" ) плагин
-			li: a( href="#" ) вёрстка
-			li: a( href="#" ) плагин
-			li: a( href="#" ) тема
-			li: a( href="#" ) тема
-			li: a( href="#" ) плагин
-			li: a( href="#" ) вёрстка
-			li: a( href="#" ) тема
-		p.excerpt Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque excepturi debitis dolores, quia vel eius laborum quas perferendis deleniti voluptatem incidunt, accusantium delectus nihil rerum, ipsa sint amet animi. Unde!
-		p: a.home-link( href="#" ) На главную
-	include blocks/_enqueue
+		p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		p: a.btn.btn-warning( href="home.html" ) На главную
+		include blocks/_enqueue

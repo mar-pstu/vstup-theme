@@ -9,25 +9,24 @@
 .archive {
 
 
-
 	.entry {
-		margin: 2em 0;
+		margin: 1em auto;
 	}
-
 
 
 	&__entry {
-		.title {
-			margin: 0;
-		}
-		.excerpt {
-			margin: 0;
-		}
+		
 		.thumbnail {
 			display: block;
+			margin-top: 1em;
 		}
-	}
 
+		.permalink {
+			@extend %button;
+			@extend %button-primary;
+		}
+
+	}
 
 	
 }
