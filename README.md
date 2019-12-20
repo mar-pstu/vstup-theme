@@ -1,1 +1,1 @@
-# Starter Wordpress Theme
+# PSTU Vstup
