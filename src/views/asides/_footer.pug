@@ -1,0 +1,13 @@
+
+
+
+mixin widget_footer( args )
+	.col-xs-12.col-sm-3: +widget( args )
+
+
+
+aside.aside.aside--footer: .container: .row
+	+widget_footer( { title: 'Заголовок виджета' } )
+	+widget_footer( { title: 'Заголовок виджета' } )
+	+widget_footer( { title: 'Заголовок виджета' } )
+	+widget_footer( { title: 'Заголовок виджета' } )

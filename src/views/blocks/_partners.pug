@@ -1,0 +1,18 @@
+
+
+
+
+mixin partner( args )
+	div.partners__item.item: img( src="#", data-lazy=args.logo, alt=args.title )
+
+
+
+.partners#partners: .container: .slider
+	#partners-list
+		+partner( { logo: src.img+'partners/metinvest.jpg', title: 'Метинвест' } )
+		+partner( { logo: src.img+'partners/mon.png', title: 'МОН' } )
+		+partner( { logo: src.img+'partners/dtek.png', title: 'ДТЭК' } )
+		+partner( { logo: src.img+'partners/mrpl.png', title: 'Мар Рада' } )
+		+partner( { logo: src.img+'partners/er.jpg', title: 'Erasmus' } )
+	button.slider-arrow.arrow-prev#partners-arrow-prev #[span.sr-only Предыдущий слайд]
+	button.slider-arrow.arrow-next#partners-arrow-next #[span.sr-only Следующий слайд]

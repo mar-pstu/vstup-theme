@@ -1,0 +1,20 @@
+extend layout/_index
+
+
+block variables
+	- page.type = 'page singular single';
+	- page.title = 'Абитуриенту';
+
+
+
+block main
+	include blocks/_jumbotron
+	.container
+		.row.middle-xs
+		.col-xs-12.col-sm-8.col-md-9
+			include blocks/_breadcrumbs
+		.col-xs-12.col-sm-4.col-md-3
+			include blocks/_share
+		include blocks/_content
+		include blocks/_content
+		include blocks/_pager

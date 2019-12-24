@@ -11,14 +11,21 @@ mixin progress( percent )
 
 
 
+mixin heading( args )
+	.heading.heading--icon
+		img.heading__thumbnail.thumbnail.lazy( src="#", data-src=args.thumbnail, alt=args.title, style="border: medium none;" )
+		h3.heading__title.title #{args.title}
+
+
 
 mixin widget( args )
 	.widget
-		if ( args.title )
-			h3.widget__title.title #{args.title}
-		else
-			h3.widget__title.title Hello, world!
-		if block
-			block
-		else
-			p This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.
+		h3.widget__title.title #{args.title}
+		p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis nisi asperiores eum dolorum eveniet beatae dolorem quo repudiandae commodi. Illum, enim molestiae, animi quae necessitatibus culpa consectetur aspernatur tenetur exercitationem?
+
+
+
+
+mixin flatitem( args )
+	a.flatitem.lazy( href="#", data-src=args.thumbnail )
+		.title #{args.title}

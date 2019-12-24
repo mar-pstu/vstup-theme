@@ -2,15 +2,14 @@ extend layout/_index
 
 
 block variables
-	- page.type = 'front-page';
-	- page.title = 'Главная';
+	- page.type = 'page singular single';
+	- page.title = 'Шаблон singular';
 
 
 
 block main
 	include blocks/_pageheader
 	.container
-		include blocks/_breadcrumbs
 		include blocks/_content
 		include blocks/_content
 		include blocks/_pager

@@ -48,3 +48,37 @@
 
 }
 
+
+
+.slider-dots {
+
+	display: block;
+	list-style-type: none;
+	padding-left: 0;
+	margin-top: $font-size-base / 2;
+	margin-bottom: $font-size-base / 2;
+	text-align: center;
+	font-size: 0;
+
+	li {
+		display: inline-block;
+		margin-left: $font-size-base / 4;
+		margin-right: $font-size-base / 4;
+	}
+
+	button {
+		line-height: 0;
+		width: $font-size-base / 2;
+		height: $font-size-base / 2;
+		padding: 0;
+		border-radius: 50%;
+		opacity: .5;
+		background-color: $brand-default;
+		border: none;
+	}
+
+	.slick-active button {
+		opacity: 1;
+	}
+
+}

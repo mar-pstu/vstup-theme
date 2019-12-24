@@ -1,0 +1,28 @@
+//-
+	Блок главной страницы
+	"Видео"
+
+
+
+
+
+mixin videos_title( args )
+	li.videos__title.title: a( class=args.active, href="#" + args.slug ) #[span #{args.title}]
+
+
+mixin videos_item( args )
+	a( class="fancybox videos__item item " + args.active, id=args.id, href=args.href )
+		img.lazy( src="#", data-src=args.thumbnail, alt="Подпись к видео" )
+
+
+
+.section.videos#videos: .container 
+
+	ul.list-unstyles.list-inline.text-center
+		+videos_title( { title: 'Специалность перевод', slug: 'v01', active: 'active' } )
+		+videos_title( { title: 'Социально-гуманитарный факультет', slug: 'v02', active: '' } )
+		+videos_title( { title: 'Крок у нове життя', slug: 'v03', active: '' } )
+
+	+videos_item( { id: 'v01', href: 'https://youtu.be/HzrH6gbxR8M', thumbnail: src.img+'videos/translate.jpg', active: 'active' } )
+	+videos_item( { id: 'v02', href: 'https://youtu.be/Z9eQAszhC2I', thumbnail: src.img+'videos/sgf.jpg', active: '' } )
+	+videos_item( { id: 'v03', href: 'https://youtu.be/3BEmHgUUHEg', thumbnail: src.img+'videos/step.jpg', active: '' } )

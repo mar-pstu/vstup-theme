@@ -28,6 +28,15 @@ $brand-info:        #0098a4;
 $brand-danger:      #971b2f;
 
 
+$brand-colors:
+	'default' $brand-default,
+	'primary' $brand-primary,
+	'success' $brand-success,
+	'warning' $brand-warning,
+	'info' $brand-info,
+	'danger' $brand-danger;
+
+
 $body-color: #ffffff;
 $titles-color: #333333;
 $text-color: $brand-default;

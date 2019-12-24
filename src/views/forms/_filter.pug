@@ -1,0 +1,21 @@
+form: .container: .row
+	.col-xs-12.col-sm-4
+		label( for="based_education" ) Базовое образование
+		select#based_education
+			option 
+			option БАК (бакалавр)
+			option МС (молодший спеціаліст)
+			option паралельне навчання
+			option ПЗСО (повна загальна середня освіта)
+	.col-xs-12.col-sm-4
+		label( for="okr" ) ОКР
+		select#okr
+			option 
+			option Бакалавр
+			option Магистр
+	.col-xs-12.col-sm-4
+		Label( for="order" ) Сортировать
+		select#order
+			option 
+			option по алфавиту
+			option по номеру

@@ -1,0 +1,71 @@
+extend layout/_index
+
+
+block variables
+	- page.type = 'archive';
+	- page.title = 'Специальность';
+
+
+
+block main
+	include blocks/_pageheader
+	.container
+		h2 Освітні програми
+		.row.stretch-xs
+			.col-xs-6.col-sm-4.col-md-4.col-lg-2: +flatitem( { thumbnail: src.img+'services/ukraine.jpg', title: 'Бізнес-адміністрування (Бакалавр)' } )
+			.col-xs-6.col-sm-4.col-md-4.col-lg-2: +flatitem( { thumbnail: src.img+'services/studyinukraine.jpg', title: 'Підприємництво, торгівля та біржова діяльність (Бакалавр)' } )
+			.col-xs-6.col-sm-4.col-md-4.col-lg-2: +flatitem( { thumbnail: src.img+'services/oops.jpg', title: 'Комп’ютерне моделювання (Магістр)' } )
+			.col-xs-6.col-sm-4.col-md-4.col-lg-2: +flatitem( { thumbnail: src.img+'services/career.jpg', title: 'Інформаційні системи та технології (Магістр)' } )
+			.col-xs-6.col-sm-4.col-md-4.col-lg-2: +flatitem( { thumbnail: src.img+'services/cources.jpg', title: 'Відновлення та підвищення зносостійкості деталей і конструкцій (Магістр)' } )
+			.col-xs-6.col-sm-4.col-md-4.col-lg-2: +flatitem( { thumbnail: src.img+'services/.jpg', title: 'Підйомно-транспортні, дорожні, будівельні, меліоративні машини і обладнання (Магістр)' } )
+		.row: .col-xs-12
+			h2 Конкурсні пропозиції
+			table.small
+				thead: tr
+					th № з/п
+					th Освітня програма / Опис
+					th Термін навчання
+					th Компоненти
+				tbody.
+					<tr><td>1</td><td><div><a href="https://pstu.edu/uk/educational_program/kompyuterni-nauky/">122 Комп’ютерні науки (Бакалавр)</a></div><div>1 курс Денна на базі ПЗСО </div></td><td>3 роки 10 місяців</td><td><ul><li><b>українська мова і література</b>  - 0.2</li>
+					<li><b>математика</b>  - 0.4</li>
+					<li><b>іноземна мова</b>  або <b>фізика</b>  - 0.3</li>
+					<li><b>середній бал додатка до атестату</b>  - 0.1</li>
+					<li><b>додатковий бал за особливих умов</b>  - 0.0</li></ul></td></tr>
+					<tr><td>2</td><td><div><a href="https://pstu.edu/uk/educational_program/kompyuterni-nauky/">122 Комп’ютерні науки (Бакалавр)</a></div><div>1 курс Денна на базі ПЗСО <b>(без фізики)</b></div></td><td>3 роки 10 місяців</td><td><ul><li><b>українська мова і література</b>  - 0.2</li>
+					<li><b>математика</b>  - 0.4</li>
+					<li><b>іноземна мова</b>  або <b>історія України</b>  - 0.3</li>
+					<li><b>середній бал додатка до атестату</b>  - 0.1</li>
+					<li><b>додатковий бал за особливих умов</b>  - 0.0</li></ul></td></tr>
+					<tr><td>3</td><td><div><a href="https://pstu.edu/uk/educational_program/informatyka/">122 Інформатика (Бакалавр)</a></div><div>1 курс Денна на базі ПЗСО </div></td><td>3 роки 10 місяців</td><td><ul><li><b>українська мова і література</b>  - 0.2</li>
+					<li><b>математика</b>  - 0.4</li>
+					<li><b>іноземна мова</b>  або <b>фізика</b>  - 0.3</li>
+					<li><b>середній бал додатка до атестату</b>  - 0.1</li>
+					<li><b>додатковий бал за особливих умов</b>  - 0.0</li></ul></td></tr>
+					<tr><td>4</td><td><div><a href="https://pstu.edu/uk/educational_program/informatyka/">122 Інформатика (Бакалавр)</a></div><div>1 курс Денна на базі ПЗСО <b>(без фізики та іноземної мови)</b></div></td><td>3 роки 10 місяців</td><td><ul><li><b>українська мова і література</b>  - 0.2</li>
+					<li><b>математика</b>  - 0.4</li>
+					<li><b>біологія</b>  або <b>історія України</b>  - 0.3</li>
+					<li><b>середній бал додатка до атестату</b>  - 0.1</li>
+					<li><b>додатковий бал за особливих умов</b>  - 0.0</li></ul></td></tr>
+					<tr><td>5</td><td><div><a href="https://pstu.edu/uk/educational_program/informatyka/">122 Інформатика (Бакалавр)</a></div><div>1 курс Заочна на базі ПЗСО </div></td><td>4 роки 10 місяців</td><td><ul><li><b>українська мова і література</b>  - 0.2</li>
+					<li><b>математика</b>  - 0.4</li>
+					<li><b>іноземна мова</b>  або <b>фізика</b>  - 0.3</li>
+					<li><b>середній бал додатка до атестату</b>  - 0.1</li>
+					<li><b>додатковий бал за особливих умов</b>  - 0.0</li></ul></td></tr>
+					<tr><td>6</td><td><div><a href="https://pstu.edu/uk/educational_program/informatyka/">122 Інформатика (Бакалавр)</a></div><div>1 курс Заочна на базі ПЗСО <b>(без фізики)</b></div></td><td>4 роки 10 місяців</td><td><ul><li><b>українська мова і література</b>  - 0.2</li>
+					<li><b>математика</b>  - 0.4</li>
+					<li><b>біологія</b>  або <b>історія України</b>  - 0.3</li>
+					<li><b>середній бал додатка до атестату</b>  - 0.1</li>
+					<li><b>додатковий бал за особливих умов</b>  - 0.0</li></ul></td></tr>
+					<tr><td>7</td><td><div><a href="https://pstu.edu/uk/educational_program/avtomatyzacziya-ta-kompyuterno-integr/">151 Автоматизація та комп’ютерно-інтегровані технології (Бакалавр)</a></div><div>1 курс Денна на базі ПЗСО </div></td><td>3 роки 10 місяців</td><td><ul><li><b>українська мова і література</b>  - 0.2</li>
+					<li><b>математика</b>  - 0.4</li>
+					<li><b>фізика</b>  - 0.3</li>
+					<li><b>іноземна мова</b>  - 0.3</li>
+					<li><b>середній бал додатка до атестату</b>  - 0.1</li>
+					<li><b>додатковий бал за особливих умов</b>  - 0.0</li></ul></td></tr>
+					<tr><td>8</td><td><div><a href="https://pstu.edu/uk/educational_program/avtomatyzacziya-ta-kompyuterno-integr/">151 Автоматизація та комп’ютерно-інтегровані технології (Бакалавр)</a></div><div>1 курс Заочна на базі ПЗСО </div></td><td>4 роки 10 місяців</td><td><ul><li><b>українська мова і література</b>  - 0.2</li>
+					<li><b>математика</b>  - 0.4</li>
+					<li><b>фізика</b>  - 0.3</li>
+					<li><b>іноземна мова</b>  - 0.3</li>
+					<li><b>середній бал додатка до атестату</b>  - 0.1</li>
+					<li><b>інше</b> <small>(середній бал додатка, курси)</small> - 0.1</li></ul></td></tr>

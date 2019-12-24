@@ -9,6 +9,7 @@ html( lang="ru" )
 	block body
 		body( class=page.type, data-nav="inactive" )
 			block wrapper
+				include ../navs/_mobilenav
 				.wrapper#wrapper
 					header.wrapper__item.wrapper__item--header.header#header
 						block header
@@ -17,6 +18,8 @@ html( lang="ru" )
 						block main
 					footer.wrapper__item.wrapper__item--footer.footer
 						block footer
+							include ../asides/_footer
+							include ../blocks/_partners
 							include ../blocks/_footer
 					block enqueue
 						include ../blocks/_enqueue

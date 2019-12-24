@@ -9,24 +9,54 @@
 .archive {
 
 
+	// .entry {
+	// 	margin: 1em auto;
+	// }
+
+
+	// &__entry {
+		
+	// 	.thumbnail {
+	// 		display: block;
+	// 		margin-top: 1em;
+	// 	}
+
+	// 	.permalink {
+	// 		@extend %button;
+	// 		@extend %button-primary;
+	// 	}
+
+	// }
+
+
 	.entry {
-		margin: 1em auto;
+		margin: 2em 0;
+	}
+
+	.entry + .entry {
+		border-top: 1px solid $border-color;
+		padding-top: 2em;
+	}
+
+	.entry:nth-of-type( even ) {
+		.row { @extend .reverse; }
+		.thumbnail { float: right; }
+		.overlay { text-align: right; }
 	}
 
 
 	&__entry {
 		
-		.thumbnail {
-			display: block;
-			margin-top: 1em;
+		.title {
+			margin: 0;
 		}
 
-		.permalink {
-			@extend %button;
-			@extend %button-primary;
+		.thumbnail {
+			display: block;
 		}
 
 	}
+
 
 	
 }

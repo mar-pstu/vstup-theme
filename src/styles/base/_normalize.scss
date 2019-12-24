@@ -102,7 +102,7 @@ a {
   color: $link-color;
   text-decoration: none;
   &:hover {
-    text-decoration: underline;
+    text-decoration: none;
   }
 }
 
@@ -153,7 +153,7 @@ dfn {
 
 h1 {
   @extend %title;
-  font-size: 3em;
+  font-size: 2.5em;
 }
 
 h2 {
@@ -462,17 +462,22 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
   border: none;
+  width: 100%;
 }
 
 table tr + tr {
-  border-top: 1px solid $brand-primary;
+  border-top: 1px solid $border-color;
 }
 
-td,
-th {
-  padding: 0;
+td {
+  padding: 0 .2em;
   border: none;
-  padding: 1em;
+}
+
+th {
+  border-top: 1px solid $border-color;
+  border-bottom: 1px solid $border-color;
+  padding: 1em .2em;
 }
 
 

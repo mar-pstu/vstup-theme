@@ -1,0 +1,25 @@
+
+
+
+
+
+mixin firstscreen_entry( args )
+	div: .jumbotron
+		.bg.lazy( data-src=args.thumbnail )
+		.container
+			h3.title #{args.title}
+			.excerpt #{args.excerpt}
+			a.btn.btn-success Подробней
+			include ../navs/_warning
+
+
+
+#firstscreen.firstscreen.slider
+	#firstscreen-list
+		+firstscreen_entry( { thumbnail: src.img+'jumbotron/01.jpg', title: 'Заголовок 1', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem enim labore optio eaque non, iste assumenda quod minus atque fugit, laborum nesciunt ullam necessitatibus! Soluta earum explicabo culpa sunt iure!' } )
+		+firstscreen_entry( { thumbnail: src.img+'jumbotron/02.jpg', title: 'Заголовок 2', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo hic, alias voluptas deleniti non, vel voluptates, dignissimos consequuntur consectetur exercitationem reiciendis expedita suscipit voluptatem quidem sunt praesentium, autem iusto harum.' } )
+		+firstscreen_entry( { thumbnail: src.img+'jumbotron/03.jpg', title: 'Заголовок 3', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas maxime tempora voluptatibus ducimus qui ad, excepturi unde delectus expedita, optio soluta doloribus eaque facilis sed quia nesciunt mollitia ut voluptatem!' } )
+		+firstscreen_entry( { thumbnail: src.img+'jumbotron/04.jpg', title: 'Заголовок 4', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam maiores, fugit! Esse velit quidem doloremque pariatur, voluptatum exercitationem numquam error eligendi, voluptate officiis commodi. Voluptatem nihil, ab sed beatae. Consequuntur.' } )
+	#firstscreen-controls.controls: .container.text-right
+		button#firstscreen-prev.arrow.prev #[span.sr-only Предыдущий слайд]
+		button#firstscreen-next.arrow.next #[span.sr-only Следующий слайд]

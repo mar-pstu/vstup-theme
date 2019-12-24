@@ -4,17 +4,18 @@
 
 mixin services_item( args )
 	.col-xs-6.col-sm-4.col-md-4.col-lg-2
-		a.services__item.item( href="#", role="listitem" )
+		+flatitem( args )
 
 
 
 
-section.section.services#services( role="list" ): .container
+section.section.services#services: .container
 	h2 Додаткові послуги
 	.row
-		+services_item( { thumbnail: '', title: 'Донбасс-Украина' } )
-		+services_item( { thumbnail: '', title: 'Обучение для иностранцев' } )
-		+services_item( { thumbnail: '', title: 'Практика школьников' } )
-		+services_item( { thumbnail: '', title: 'Центр карьеры' } )
-		+services_item( { thumbnail: '', title: 'Курсы подготовки' } )
-		+services_item( { thumbnail: '', title: 'Смотреть все' } )
+		+services_item( { thumbnail: src.img+'services/ukraine.jpg', title: 'Донбасс-Украина' } )
+		+services_item( { thumbnail: src.img+'services/studyinukraine.jpg', title: 'Обучение для иностранцев' } )
+		+services_item( { thumbnail: src.img+'services/oops.jpg', title: 'Практика школьников' } )
+		+services_item( { thumbnail: src.img+'services/career.jpg', title: 'Центр карьеры' } )
+		+services_item( { thumbnail: src.img+'services/cources.jpg', title: 'Курсы подготовки' } )
+		+services_item( { thumbnail: src.img+'services/.jpg', title: 'Смотреть все' } )
+	p.text-center: a.btn.btn-success( href="#" ) Смотреть все

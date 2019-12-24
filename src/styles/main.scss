@@ -18,10 +18,14 @@
 
 
 
-@import"navs/main";
+@import "navs/main";
+@import "navs/mobilenav";
 
 
-
+@import "blocks/tabs";
+@import "blocks/accordio";
+@import "blocks/heading";
+@import "blocks/file";
 @import "blocks/slider";
 @import "blocks/aside";
 @import "blocks/content";
@@ -36,14 +40,19 @@
 @import "blocks/header";         // Шапка сайта
 @import "blocks/footer";         // Подвал сайта
 @import "blocks/pageheader";
+@import "blocks/jumbotron";
+@import "blocks/share";
+@import "blocks/flatitem";
+@import "blocks/partners";
 
 
 
-@import "home/jumbotron";
+@import "home/firstscreen";
 @import "home/about";
 @import "home/news";
 @import "home/action";
 @import "home/specialties";      // список специальностей на главной странице
+@import "home/videos";
 @import "home/people";
 @import "home/questions";
 
