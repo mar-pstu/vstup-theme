@@ -5,7 +5,8 @@
 
 mixin firstscreen_entry( args )
 	div: .jumbotron
-		.bg.lazy( data-src=args.thumbnail )
+		.bg
+		img( data-lazy=args.thumbnail, style="display: none;" )
 		.container
 			h3.title #{args.title}
 			.excerpt #{args.excerpt}

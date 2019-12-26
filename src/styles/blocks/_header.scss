@@ -7,6 +7,30 @@
 
 .header {
 
+	&.headhesive {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 1000;
+		transition: all .2s;
+		// transform: translate( 0%, -100% );
+	}
+
+	&.headhesive--stick {
+		transform: translate( 0%, 0% );
+	}
+
+	&.headhesive--stick .custom-logo-link {
+		width: 3em;
+		height: 3em;
+		transition: all .2s;
+	}
+
+	// &--stick .line--nav {
+	// 	padding: .1em 0;
+	// }
+
 	.wrap {
 		display: flex;
 		flex-direction: row;
@@ -35,11 +59,7 @@
 		}
 	}
 
-	// .links li {
-	// 	display: inline-block;
-	// 	vertical-align: middle;
-	// 	margin-right: .5em;
-	// }
+
 	.links {
 		a:before {
 			@extend %background-icon;

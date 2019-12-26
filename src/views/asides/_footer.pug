@@ -2,11 +2,11 @@
 
 
 mixin widget_footer( args )
-	.col-xs-12.col-sm-3: +widget( args )
+	.col-xs-12.col-sm-6.col-md-3: +widget( args )
 
 
 
-aside.aside.aside--footer: .container: .row
+aside.aside.aside--footer: .container: .row.center-xs
 	+widget_footer( { title: 'Заголовок виджета' } )
 	+widget_footer( { title: 'Заголовок виджета' } )
 	+widget_footer( { title: 'Заголовок виджета' } )

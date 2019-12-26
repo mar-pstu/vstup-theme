@@ -1,11 +1,72 @@
 ul.nav__list.list#nav-list
 	li: a( href="#" ) Новости
-	li: a( href="#" ) Студенту
-	li: a( href="#" ) Абитуриенту
-	li: a( href="#" ) Университет
-	li: a( href="#" ) Наука
+	li.has-sub-menu
+		a( href="#" ) Абитуриенту
+		ul.sub-menu
+			li: a( href="#" ) Випускникам шкіл
+			li: a( href="#" ) Випускникам технікумів та коледжів
+			li: a( href="#" ) Майбутнім магістрам
+			li: a( href="#" ) Іноземним громадянам
+			li: a( href="#" ) Приймальна комісія ?
+			li: a( href="#" ) Вступ 2020
+	li.has-sub-menu
+		a( href="#" ) Студенту
+		ul.sub-menu
+			li: a( href="#" ) Проекти
+			li: a( href="#" ) Стипендії
+			li: a( href="#" ) Розклад
+			li: a( href="#" ) Центр кар'єри
+			li: a( href="#" ) Студентський сенат
+			li: a( href="#" ) Розклад
+	li.has-sub-menu
+		a( href="#" ) Университет
+		ul.sub-menu
+			li: a( href="#" ) Ректорат
+			li.has-sub-menu
+				a( href="#" ) Структура ПДТУ
+				ul.sub-menu
+					li: a( href="#" ) Інститути
+					li: a( href="#" ) Коледжі
+					li: a( href="#" ) Підрозділи університету
+					li: a( href="#" ) Факультети і кафедри
+			li: a( href="#" ) Історія
+			li: a( href="#" ) Вчена рада
+			li: a( href="#" ) Віртуальний тур
+			li: a( href="#" ) Международная работа
+	li.has-sub-menu
+		a( href="#" ) Наука
+		ul.sub-menu
+			li: a( href="#" ) Аспірантура, докторантура
+			li: a( href="#" ) Інноваційні пропозиції для впровадження
+			li: a( href="#" ) Наукові видання
+			li: a( href="#" ) Науково-технічна рада
+			li.has-sub-menu
+				a( href="#" ) Науково-технічні заходи
+				ul.sub-menu
+					li: a( href="#" ) Виставки
+					li: a( href="#" ) План проведення конференцій та олімпіад
+			li: a( href="#" ) Рада молодих учених
+			li.has-sub-menu
+				a( href="#" ) Спеціалізовані вчені ради
+				ul.sub-menu
+					li: a( href="#" ) Економічна вчена рада
+					li: a( href="#" ) Технічна вчена рада
+			li.has-sub-menu
+				a( href="#" ) Студентська наука
+				ul.sub-menu
+					li: a( href="#" ) Науково-дослідна робота студентів
+					li: a( href="#" ) Олімпіади конкурси та конференції студентів
+					li: a( href="#" ) Наука – перші кроки
+					li: a( href="#" ) Студентське наукове товариство
+			li: a( href="#" ) Сучасна університетська наука
 	li: a( href="#" ) Образование
-	li: a( href="#" ) Контакты
+	li.has-sub-menu
+		a( href="#" ) Контакты
+		ul.sub-menu
+			li: a( href="#" ) Питання-відповіді
+			li: a( href="#" ) Адміністрація сайту
+			li: a( href="#" ) Співробітники
+			li: a( href="#" ) Телефонний довідник
 button.nav__burger.burger.navtoggle#burger
 	span.sr-only Меню
 	svg.icon( enable-background="new 0 0 451.111 451.111", viewBox="0 0 451.111 451.111" ).

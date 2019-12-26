@@ -30,10 +30,18 @@
 		@extend %icon-play;
 		@extend %background-icon;
 		display: inline-block;
-		width: 5em;
-		height: 5em;
+		width: 3em;
+		height: 3em;
 		transition: transform .2s;
 		transform-origin: center center;
+		position: absolute;
+		top: 2em;
+		left: 2em;
+		@include min-width( $screen-md ) {
+			position: static;
+			width: 5em;
+			height: 5em;
+		}
 	}
 
 	.play:hover {

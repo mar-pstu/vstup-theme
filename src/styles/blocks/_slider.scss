@@ -32,7 +32,7 @@
 
 	&::before {
 		@extend %background-icon;
-		@extend %icon-arrow;
+		@extend %icon-arrow-dark;
 		content: '';
 		width: 1em;
 		height: 1em;
