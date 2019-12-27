@@ -14,5 +14,6 @@ mixin partner( args )
 		+partner( { logo: src.img+'partners/dtek.png', title: 'ДТЭК' } )
 		+partner( { logo: src.img+'partners/mrpl.png', title: 'Мар Рада' } )
 		+partner( { logo: src.img+'partners/er.jpg', title: 'Erasmus' } )
-	button.slider-arrow.arrow-prev#partners-arrow-prev #[span.sr-only Предыдущий слайд]
-	button.slider-arrow.arrow-next#partners-arrow-next #[span.sr-only Следующий слайд]
+	#partners-controls.controls
+		button.arrow.prev#partners-arrow-prev #[span.sr-only Предыдущий слайд]
+		button.arrow.next#partners-arrow-next #[span.sr-only Следующий слайд]

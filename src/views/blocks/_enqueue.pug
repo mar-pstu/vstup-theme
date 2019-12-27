@@ -92,6 +92,7 @@ script.
 			dots: true,
 			arrows: true,
 			fade: false,
+			appendDots: jQuery( '#partners-controls' ),
 			dotsClass: 'slider-dots',
 			prevArrow: '#partners-arrow-prev',
 			nextArrow: '#partners-arrow-next',
@@ -104,27 +105,4 @@ script.
 			slidesToShow: 4,
 			//- slidesToScroll: 1,
 		} );
-	} );
-
-
-script( src=src.js+'headhesive.js' )
-script.
-	var header = new Headhesive( '.header', {
-		offset: 0,
-		//- onInit: function () {
-		//- 	console.log( 'init' );
-		//- 	jQuery( '#mobilenav' ).css( 'top', jQuery( '.header' ).height() );
-		//- },
-		//- onStick: function () {
-		//- 	console.log( 'stick' );
-		//- 	jQuery( '#mobilenav' ).css( 'top', jQuery( '.headhesive' ).height() );
-		//- },
-		//- onUnstick: function () {
-		//- 	console.log( 'unstick' );
-		//- 	jQuery( '#mobilenav' ).css( 'top', jQuery( '.headhesive' ).height() );
-		//- },
-		//- onDestroy: function () {
-		//- 	console.log( 'desctoy' );
-		//- 	jQuery( '#mobilenav' ).css( 'top', jQuery( '.header' ).height() );
-		//- },
 	} );
