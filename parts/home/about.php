@@ -1,43 +1,17 @@
-<?php
-
-
-
-if ( ! defined( 'ABSPATH' ) ) { exit; };
-
-
-$page_id = starter\get_translate_id( get_theme_mod( STARTER_SLUG . '_about_page_id', '' ), 'page' );
-
-
-if ( ! empty( $page_id ) ) {
-
-    $page = get_post( $page_id, OBJECT, 'raw' );
-
-    if ( $page && ! is_wp_error( $page ) ) {
-
-        $permalink = get_permalink( $page->ID );
-        $title = get_theme_mod( STARTER_SLUG . '_about_title', '' );
-        $label = get_theme_mod( STARTER_SLUG . '_about_label', __( 'Подробней', STARTER_TEXTDOMAIN ) );
-        $thumbnail_src = get_theme_mod( STARTER_SLUG . '_about_thumbnail', '' );
-
-        if ( function_exists( 'pll__' ) ) {
-            $title = pll__( $title );
-            $label = pll__( $label );
-        }
-
-        if ( empty( $title ) ) $title = apply_filters( 'the_title', $page->post_title, $page->ID );
-
-        if ( empty( $thumbnail_src ) ) {
-            $thumbnail_src = STARTER_URL . 'images/thumbnail.png';
-            $thumbnail_alt = $title;
-        } else {
-            $thumbnail_alt = wp_get_attachment_caption( attachment_url_to_postid( $thumbnail_src ) );
-        }
-
-        $parts = get_extended( $page->post_content );
-        $content = do_shortcode( $parts[ 'main' ], false );
-        
-        include get_theme_file_path( 'views/home/about.php' );
-
-    }
-
-}
+<section class="section about" id="about">
+	<div class="container">
+		<div class="row middle-xs center-xs">
+			<div class="col-xs-12 col-sm-9 col-md-5"><img class="lazy logo" src="#" data-src="../images/gerb.png"></div>
+			<div class="col-xs-12 col-sm-9 col-md-7">
+				<h2>Приазовский государственный технический университет</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur adipisci eligendi cupiditate ad vero earum ratione nesciunt amet. In repellat laborum qui mollitia perferendis quibusdam id expedita ut praesentium quidem.</p>
+				<div class="row stretch-xs" role="list">
+					<div class="col-xs-6 col-sm-4"><a class="advantage lazy" href="#" role="listitem"><span class="bg lazy" data-src="../images/advantages/history.jpg"></span><span class="value">90</span><span class="label">лет истории</span></a></div>
+					<div class="col-xs-6 col-sm-4"><a class="advantage lazy" href="#" role="listitem"><span class="bg lazy" data-src="../images/advantages/faculties.jpg"></span><span class="value">8</span><span class="label">факульететов</span></a></div>
+					<div class="col-xs-6 col-sm-4"><a class="advantage lazy" href="#" role="listitem"><span class="bg lazy" data-src="../images/advantages/specialties.jpg"></span><span class="value">100</span><span class="label">специальностей</span></a></div>
+				</div>
+				<p><a class="btn btn-success" href="#">Наша история</a></p>
+			</div>
+		</div>
+	</div>
+</section>

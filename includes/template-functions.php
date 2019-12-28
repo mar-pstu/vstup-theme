@@ -2,7 +2,7 @@
 
 
 
-namespace starter;
+namespace pstu;
 
 
 
@@ -25,7 +25,10 @@ function get_custom_logo_img() {
 
 
 
-function get_languages_list() {
+function get_languages_list( $args = array() ) {
+	$args = wp_parse_args( $args, array(
+		'container_class' => 'languages',
+	) );
 	$result = array();
 	if ( ( function_exists( 'pll_the_languages' ) ) && ( function_exists( 'pll_current_language' ) ) ) {
 		$current = pll_current_language( 'slug' );
@@ -51,7 +54,11 @@ function get_languages_list() {
 			);
 		}
 	}
-	if ( ! empty( $result ) ) echo '<ul class="languages">' . implode( "\r\n", $result ) . '</ul>';
+	return ( empty( $result ) ) ? __return_empty_string() : printf(
+		'<ul class="%1$s">%2$s</ul>',
+		$args[ 'container_class' ],
+		implode( "\r\n", $result )
+	);
 }
 
 

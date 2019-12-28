@@ -1,10 +1,13 @@
 <?php
 
 
+if ( ! defined( 'ABSPATH' ) ) { exit; };
+
+
 define( 'VSTUP_URL', get_template_directory_uri() . '/' );
 define( 'VSTUP_DIR', get_template_directory() . '/' );
-define( 'VSTUP_TEXTDOMAIN', 'starter' );
-define( 'VSTUP_SLUG', 'starter' );
+define( 'VSTUP_TEXTDOMAIN', 'pstu-vstup' );
+define( 'VSTUP_SLUG', 'pstu_vstup' );
 
 
 
@@ -30,16 +33,32 @@ if ( function_exists( 'pll_register_string' ) ) {
  */
 if ( is_customize_preview() ) {
 	add_action( 'customize_register', function ( $wp_customize ) {
+		$slug = VSTUP_SLUG;
 		$wp_customize->add_panel(
-			VSTUP_SLUG,
+			"{$slug}_home",
 			array(
 				'capability'      => 'edit_theme_options',
-				'title'           => __( 'Настройки Стартовой темы', VSTUP_TEXTDOMAIN ),
+				'title'           => __( 'Секции главной страницы', VSTUP_TEXTDOMAIN ),
 				'priority'        => 200
 			)
 		);
+		$wp_customize->add_panel(
+			$slug,
+			array(
+				'capability'      => 'edit_theme_options',
+				'title'           => __( 'Настройки темы', VSTUP_TEXTDOMAIN ),
+				'priority'        => 300
+			)
+		);
 		include get_theme_file_path( 'customizer/home/about.php' );
-		include get_theme_file_path( 'customizer/404.php' );
+		include get_theme_file_path( 'customizer/home/news.php' );
+		include get_theme_file_path( 'customizer/home/action.php' );
+		include get_theme_file_path( 'customizer/home/videos.php' );
+		include get_theme_file_path( 'customizer/home/people.php' );
+		include get_theme_file_path( 'customizer/advantages.php' );
+		include get_theme_file_path( 'customizer/partners.php' );
+		include get_theme_file_path( 'customizer/contacts.php' );
+		include get_theme_file_path( 'customizer/socials.php' );
 	} );
 }
 
@@ -86,11 +105,11 @@ add_action( 'after_setup_theme', 'resume_register_nav_menus' );
  */
 function starter_register_sidebars() {
 	register_sidebar( array(
-		'name'             => __( 'Колонка', VSTUP_TEXTDOMAIN ),
-		'id'               => 'column',
+		'name'             => __( 'Сайдбар подвала', VSTUP_TEXTDOMAIN ),
+		'id'               => 'footer',
 		'description'      => '',
 		'class'            => '',
-		'before_widget'    => '<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><div id="%1$s" class="widget %2$s">',
+		'before_widget'    => '<div class="col-xs-12 col-sm-6 col-md-3"><div id="%1$s" class="widget %2$s">',
 		'after_widget'     => '</div></div>',
 		'before_title'     => '<h3 class="widget__title">',
 		'after_title'      => '</h3>',
