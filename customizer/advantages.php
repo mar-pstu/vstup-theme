@@ -30,6 +30,10 @@ $wp_customize->add_control(
 		'section'           => "{$slug}_advantages",
 		'label'             => __( 'Количество блоков', VSTUP_TEXTDOMAIN ),
 		'type'              => 'number',
+		'input_attrs'       => array(
+			'min'             => 1,
+			'max'             => 9,
+		),
 	)
 ); /**/
 

@@ -2,8 +2,11 @@
 
 
 
-if ( ! defined( 'ABSPATH' ) ) { exit; };
+namespace vstup;
 
+
+
+if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
 
@@ -88,7 +91,7 @@ $wp_customize->add_control(
 	array(
 		'section'           => "{$slug}_people",
 		'label'             => __( 'Заголовок', VSTUP_TEXTDOMAIN ),
-		'type'              => 'editor',
+		'type'              => 'textarea',
 	)
 ); /**/
 
@@ -110,27 +113,3 @@ $wp_customize->add_control(
 		'type'              => 'text',
 	)
 ); /**/
-
-
-
-$wp_customize->add_setting(
-	"{$slug}_people_thumbnail",
-	array(
-		'default'           => VSTUP_URL . '/images/gerb.png',
-		'transport'         => 'reset',
-		'sanitize_callback' => 'sanitize_url',
-	)
-);
-$wp_customize->add_control(
-   new WP_Customize_Image_Control(
-	   $wp_customize,
-	   "{$slug}_people_thumbnail",
-	   array(
-		   'label'      => __( 'Фон', VSTUP_TEXTDOMAIN ),
-		   'section'    => "{$slug}_people",
-		   'settings'   => "{$slug}_people_thumbnail"
-	   )
-   )
-);
-
-

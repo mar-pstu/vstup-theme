@@ -2,7 +2,7 @@
 
 
 
-namespace pstu;
+namespace vstup;
 
 
 
@@ -16,11 +16,24 @@ function get_custom_logo_img() {
 	if ( $custom_logo_id ) {
 		$result = sprintf(
 			'<img class="custom-logo" src="%1$s" alt="%2$s">',
-			wp_get_attachment_image_src( $custom_logo_id, 'thumbnail', false ),
+			wp_get_attachment_image_url( $custom_logo_id, 'thumbnail', false ),
 			get_bloginfo( 'name', 'display' )
 		);
 	}
 	return $result;
+}
+
+
+
+function get_custom_logo_src( $size = 'full' ) {
+	$custom_logo_id = get_theme_mod( 'custom_logo' );
+	return ( $custom_logo_id ) ? wp_get_attachment_image_url( $custom_logo_id, $size, false ) : __return_empty_string();
+}
+
+
+
+function the_advantages_list() {
+	return '';
 }
 
 

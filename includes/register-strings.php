@@ -20,6 +20,10 @@ foreach ( array(
     'people_title',
     'people_description',
     'people_label',
+    'services_title',
+    'services_label',
+    'questions_title',
+    'questions_form',
 ) as $key ) {
     $value = wp_strip_all_tags( get_theme_mod( VSTUP_SLUG . '_' . $key, '' ) );
     if ( ! empty( $value ) ) {

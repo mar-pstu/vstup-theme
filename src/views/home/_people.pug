@@ -4,8 +4,8 @@
 
 
 
-mixin people_item( args )
-	.people__entry.entry
+mixin grasuate( args )
+	.graduate
 		h3.name: a( href="#" ) #{args.name}
 		a.thumbnail( href="#" ): img.wp-post-tumbnail( src="#", data-lazy=args.thumbnail, alt=args.name )
 		a.sector( href="#" ): img( src="#", data-lazy=args.icon )
@@ -22,11 +22,11 @@ section.section.people#people
 			.description Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis provident consequatur ratione harum corporis omnis beatae dolore voluptatum obcaecati voluptas optio facilis molestiae, odit ipsum reiciendis vero, quo eligendi. Dignissimos!
 			p: a.btn.btn-success( href="#" ) Кнопка
 		.col-xs-12.col-sm-9.col-md-5.col-lg-4.first-md: .slider
-			#people-list
-				+people_item( { icon: src.img+'sectors/01.png', specialty: 'Середня освіта. Математика', thumbnail: src.img+'people/01.jpg', name: 'Анатолій Гущин', excerpt: 'Учасник і дипломант фестивалів художньої ковки. Організатор «Сталевого джерела» в Маріуполі.' } )
-				+people_item( { icon: src.img+'sectors/14.png', specialty: 'Електроенергетика, електротехніка та електромеханіка', thumbnail: src.img+'people/02.jpg', name: 'Марина Гарманюк', excerpt: 'Диплом II ступеня Всеукраїнського конкурсу студентських наукових робіт 2018-2019 навчального року з галузі «Енергетика»' } )
-				+people_item( { icon: src.img+'sectors/18.png', specialty: 'Технології захисту навколишнього середовища', thumbnail: src.img+'people/03.jpg', name: 'Костянтин Згара', excerpt: 'Диплом III cтупеня Всеукраїнського конкурсу студентських наукових робіт 2018-2019 навчального року з галузі «Енергетика»' } )
-				+people_item( { icon: src.img+'sectors/27.png', specialty: 'Транспортні технології. На залізничному транспорті', thumbnail: src.img+'people/04.jpg', name: 'Сергій Гулак', excerpt: 'Диплом Міністерства освіти і науки України за III місце у Всеукраїнському конкурсі студентських наукових робіт 2018-2019 навчального року за спеціальністю «Інженерія програмного забезпечення»' } )
-				+people_item( { icon: src.img+'sectors/13.png', specialty: 'Філологія. Германські мови та літератури (переклад включно), перша - англійська', thumbnail: src.img+'people/05.jpg', name: 'Олексій Голубятник', excerpt: 'Призерка Всеукраїнського конкурсу студентських наукових робіт із галузі «Загальна та соціальна психологія»' } )
-			button.slider-arrow.arrow-prev#people-arrow-prev #[span.sr-only Предыдущий слайд]
-			button.slider-arrow.arrow-next#people-arrow-next #[span.sr-only Следующий слайд]
+			#graduate-list
+				+grasuate( { icon: src.img+'sectors/01.png', specialty: 'Середня освіта. Математика', thumbnail: src.img+'graduates/01.jpg', name: 'Анатолій Гущин', excerpt: 'Учасник і дипломант фестивалів художньої ковки. Організатор «Сталевого джерела» в Маріуполі.' } )
+				+grasuate( { icon: src.img+'sectors/14.png', specialty: 'Електроенергетика, електротехніка та електромеханіка', thumbnail: src.img+'graduates/02.jpg', name: 'Марина Гарманюк', excerpt: 'Диплом II ступеня Всеукраїнського конкурсу студентських наукових робіт 2018-2019 навчального року з галузі «Енергетика»' } )
+				+grasuate( { icon: src.img+'sectors/18.png', specialty: 'Технології захисту навколишнього середовища', thumbnail: src.img+'graduates/03.jpg', name: 'Костянтин Згара', excerpt: 'Диплом III cтупеня Всеукраїнського конкурсу студентських наукових робіт 2018-2019 навчального року з галузі «Енергетика»' } )
+				+grasuate( { icon: src.img+'sectors/27.png', specialty: 'Транспортні технології. На залізничному транспорті', thumbnail: src.img+'graduates/04.jpg', name: 'Сергій Гулак', excerpt: 'Диплом Міністерства освіти і науки України за III місце у Всеукраїнському конкурсі студентських наукових робіт 2018-2019 навчального року за спеціальністю «Інженерія програмного забезпечення»' } )
+				+grasuate( { icon: src.img+'sectors/13.png', specialty: 'Філологія. Германські мови та літератури (переклад включно), перша - англійська', thumbnail: src.img+'graduates/05.jpg', name: 'Олексій Голубятник', excerpt: 'Призерка Всеукраїнського конкурсу студентських наукових робіт із галузі «Загальна та соціальна психологія»' } )
+			button.slider-arrow.arrow-prev#graduate-arrow-prev #[span.sr-only Предыдущий слайд]
+			button.slider-arrow.arrow-next#graduate-arrow-next #[span.sr-only Следующий слайд]

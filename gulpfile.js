@@ -101,7 +101,7 @@ gulp.task( 'gutenberg_styles', function () {
 
 gulp.task( 'packtheme', function() {
 	return gulp.src( [ './**/**/*', '!./node_modules', '!./src', '!./gulpfile.js', '!./package-lock.json', '!./package.json' ] )
-		.pipe( zip( 'dumdj-theme.zip' ) )
+		.pipe( zip( 'vstup-theme.zip' ) )
 		.pipe( gulp.dest( '../') );
 	}
 );
@@ -110,7 +110,7 @@ gulp.task( 'packtheme', function() {
 
 gulp.task( 'packsrc', function() {
 	return gulp.src( './src/*' )
-		.pipe( zip( 'dumdj-src.zip' ) )
+		.pipe( zip( 'vstup-src.zip' ) )
 		.pipe( gulp.dest( '../') );
 	}
 );
@@ -119,7 +119,7 @@ gulp.task( 'packsrc', function() {
 
 gulp.task( 'packproject', function() {
 	return gulp.src( [ './*', '!./node_modules', '!./images', '!./styles', '!./scripts', '!./fonts', '!./video', '!./examples' ] )
-		.pipe( zip( 'dumdj-project.zip' ) )
+		.pipe( zip( 'vstup-project.zip' ) )
 		.pipe( gulp.dest( '../') );
 	}
 );

@@ -1,6 +1,9 @@
 <?php
 
 
+// namespace vstup;
+
+
 if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
@@ -50,22 +53,27 @@ if ( is_customize_preview() ) {
 				'priority'        => 300
 			)
 		);
+		include get_theme_file_path( 'customizer/home/firstscreen.php' );
 		include get_theme_file_path( 'customizer/home/about.php' );
 		include get_theme_file_path( 'customizer/home/news.php' );
 		include get_theme_file_path( 'customizer/home/action.php' );
 		include get_theme_file_path( 'customizer/home/videos.php' );
 		include get_theme_file_path( 'customizer/home/people.php' );
+		include get_theme_file_path( 'customizer/home/services.php' );
+		include get_theme_file_path( 'customizer/home/questions.php' );
 		include get_theme_file_path( 'customizer/advantages.php' );
 		include get_theme_file_path( 'customizer/partners.php' );
 		include get_theme_file_path( 'customizer/contacts.php' );
 		include get_theme_file_path( 'customizer/socials.php' );
+		include get_theme_file_path( 'customizer/graduate-list.php' );
+		include get_theme_file_path( 'customizer/list-of-services.php' );
 	} );
 }
 
 
 
 
-function starter_theme_supports() {
+function vstup_theme_supports() {
 	add_theme_support( 'menus' );
 	add_theme_support( 'custom-logo' );
 	add_theme_support( 'post-thumbnails' );
@@ -73,29 +81,29 @@ function starter_theme_supports() {
 	add_filter( 'widget_text', 'do_shortcode' );
 	add_post_type_support( 'page', 'excerpt' );
 }
-add_action( 'after_setup_theme', 'starter_theme_supports' );
+add_action( 'after_setup_theme', 'vstup_theme_supports' );
 
 
 
 /**
  * Загрузка "переводов"
  */
-function starter_load_textdomain() {
+function vstup_load_textdomain() {
 	load_theme_textdomain( VSTUP_TEXTDOMAIN, VSTUP_DIR . 'languages/' );
 }
-add_action( 'after_setup_theme', 'starter_load_textdomain' );
+add_action( 'after_setup_theme', 'vstup_load_textdomain' );
 
 
 
 /**
  * Регистрация меню
  */
-function resume_register_nav_menus() {
+function vstup_register_nav_menus() {
 	register_nav_menus( array(
 		'main'      => __( 'Главное меню', VSTUP_TEXTDOMAIN ),
 	) );
 }
-add_action( 'after_setup_theme', 'resume_register_nav_menus' );
+add_action( 'after_setup_theme', 'vstup_register_nav_menus' );
 
 
 
@@ -103,7 +111,7 @@ add_action( 'after_setup_theme', 'resume_register_nav_menus' );
 /**
  * Регистрация "сайдбаров"
  */
-function starter_register_sidebars() {
+function vstup_register_sidebars() {
 	register_sidebar( array(
 		'name'             => __( 'Сайдбар подвала', VSTUP_TEXTDOMAIN ),
 		'id'               => 'footer',
@@ -115,7 +123,7 @@ function starter_register_sidebars() {
 		'after_title'      => '</h3>',
 	) );
 }
-add_action( 'widgets_init', 'starter_register_sidebars' );
+add_action( 'widgets_init', 'vstup_register_sidebars' );
 
 
 
@@ -124,7 +132,7 @@ add_action( 'widgets_init', 'starter_register_sidebars' );
 /**
  * Редирект на запись со страницы поиска, если найдена всего одна запись
  */
-function starter_single_result(){  
+function vstup_single_result(){  
 	if( ! is_search() ) return;
 	global $wp_query;
 	if( $wp_query->post_count == 1 ) {  
@@ -132,4 +140,4 @@ function starter_single_result(){
 		die;
 	}  
 }
-add_action( 'template_redirect', 'starter_single_result' );
+add_action( 'template_redirect', 'vstup_single_result' );

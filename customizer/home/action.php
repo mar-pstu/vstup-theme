@@ -2,8 +2,11 @@
 
 
 
-if ( ! defined( 'ABSPATH' ) ) { exit; };
+namespace vstup;
 
+
+
+if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
 
@@ -122,7 +125,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-   new WP_Customize_Image_Control(
+   new \WP_Customize_Image_Control(
 	   $wp_customize,
 	   "{$slug}_action_thumbnail",
 	   array(

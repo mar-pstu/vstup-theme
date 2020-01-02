@@ -1,6 +1,9 @@
 <?php
 
 
+namespace vstup;
+
+
 get_header();
 
 

@@ -2,12 +2,11 @@
 
 
 
-namespace pstu;
+namespace vstup;
 
 
 
 if ( ! defined( 'ABSPATH' ) ) { exit; };
-
 
 
 

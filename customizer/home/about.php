@@ -2,8 +2,11 @@
 
 
 
-if ( ! defined( 'ABSPATH' ) ) { exit; };
+namespace vstup;
 
+
+
+if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
 
@@ -59,7 +62,7 @@ $wp_customize->add_control(
 $wp_customize->add_setting(
 	"{$slug}_about_title",
 	array(
-		'default'           => __( 'Информация', VSTUP_TEXTDOMAIN ),
+		'default'           => get_bloginfo( 'name' ),
 		'transport'         => 'reset',
 		'sanitize_callback' => 'sanitize_text_field',
 	)
@@ -78,7 +81,7 @@ $wp_customize->add_control(
 $wp_customize->add_setting(
 	"{$slug}_about_description",
 	array(
-		'default'           => __( 'Информация', VSTUP_TEXTDOMAIN ),
+		'default'           => get_bloginfo( 'description' ),
 		'transport'         => 'reset',
 		'sanitize_callback' => 'sanitize_textarea_field',
 	)
@@ -87,8 +90,8 @@ $wp_customize->add_control(
 	"{$slug}_about_description",
 	array(
 		'section'           => "{$slug}_about",
-		'label'             => __( 'Заголовок', VSTUP_TEXTDOMAIN ),
-		'type'              => 'editor',
+		'label'             => __( 'Подзаголовок', VSTUP_TEXTDOMAIN ),
+		'type'              => 'textarea',
 	)
 ); /**/
 
@@ -116,13 +119,13 @@ $wp_customize->add_control(
 $wp_customize->add_setting(
 	"{$slug}_about_thumbnail",
 	array(
-		'default'           => VSTUP_URL . '/images/gerb.png',
+		'default'           => get_custom_logo_src( 'large' ),
 		'transport'         => 'reset',
 		'sanitize_callback' => 'sanitize_url',
 	)
 );
 $wp_customize->add_control(
-   new WP_Customize_Image_Control(
+   new \WP_Customize_Image_Control(
 	   $wp_customize,
 	   "{$slug}_about_thumbnail",
 	   array(
