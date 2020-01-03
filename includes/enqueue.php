@@ -20,9 +20,10 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
  */
 function scripts() {
 	wp_enqueue_script( 'vstup-main', VSTUP_URL . 'scripts/main.js', array( 'jquery', 'fancybox' ), filemtime( get_theme_file_path( 'scripts/main.js' ) ), true );
-	wp_localize_script( 'vstup-main', 'StarterTheme', array( 'toTopBtn' => 'Наверх' ) );
+	wp_localize_script( 'vstup-main', 'VstupTheme', array( 'toTopBtn' => 'Наверх' ) );
 	wp_enqueue_script( 'lazyload', VSTUP_URL . 'scripts/lazyload.js', array( 'jquery' ), '1.7.6', true );
 	wp_enqueue_script( 'fancybox', VSTUP_URL . 'scripts/fancybox.js', array( 'jquery' ), '3.3.5', true );
+	wp_enqueue_script( 'slick', VSTUP_URL . 'scripts/slick.js', array( 'jquery' ), '1.8.0', true );
 	wp_add_inline_script( 'fancybox', "jQuery( '.fancybox' ).fancybox();", 'after' );
 	wp_add_inline_script( 'lazyload', "jQuery( '.lazy' ).lazy();", 'after' );
 	wp_enqueue_script( 'superembed', VSTUP_URL . 'scripts/superembed.js', array( 'jquery' ), '3.1', true );

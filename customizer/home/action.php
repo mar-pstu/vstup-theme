@@ -79,7 +79,7 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-	"{$slug}_action_description",
+	"{$slug}_action_excerpt",
 	array(
 		'default'           => '',
 		'transport'         => 'reset',
@@ -87,7 +87,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	"{$slug}_action_description",
+	"{$slug}_action_excerpt",
 	array(
 		'section'           => "{$slug}_action",
 		'label'             => __( 'Подзаголовок', VSTUP_TEXTDOMAIN ),
@@ -117,9 +117,31 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
+	"{$slug}_action_bgi",
+	array(
+		'default'           => VSTUP_URL . '/images/action/bg.jpg',
+		'transport'         => 'reset',
+		'sanitize_callback' => 'sanitize_url',
+	)
+);
+$wp_customize->add_control(
+   new \WP_Customize_Image_Control(
+	   $wp_customize,
+	   "{$slug}_action_bgi",
+	   array(
+		   'label'      => __( 'Фон', VSTUP_TEXTDOMAIN ),
+		   'section'    => "{$slug}_action",
+		   'settings'   => "{$slug}_action_bgi"
+	   )
+   )
+);
+
+
+
+$wp_customize->add_setting(
 	"{$slug}_action_thumbnail",
 	array(
-		'default'           => VSTUP_URL . '/images/gerb.png',
+		'default'           => get_custom_logo_src( 'thumbnail' ),
 		'transport'         => 'reset',
 		'sanitize_callback' => 'sanitize_url',
 	)
@@ -129,7 +151,7 @@ $wp_customize->add_control(
 	   $wp_customize,
 	   "{$slug}_action_thumbnail",
 	   array(
-		   'label'      => __( 'Фон', VSTUP_TEXTDOMAIN ),
+		   'label'      => __( 'Превью', VSTUP_TEXTDOMAIN ),
 		   'section'    => "{$slug}_action",
 		   'settings'   => "{$slug}_action_thumbnail"
 	   )
