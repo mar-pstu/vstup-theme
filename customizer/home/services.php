@@ -53,7 +53,7 @@ $wp_customize->add_control(
 	"{$slug}_services_ct",
 	array(
 		'section'           => "{$slug}_services",
-		'label'             => __( 'Выбор страницы с описанием', VSTUP_TEXTDOMAIN ),
+		'label'             => __( 'Тип контента', VSTUP_TEXTDOMAIN ),
 		'type'              => 'select',
 		'choices'           => array(
 			'services'        => __( 'список услуг', VSTUP_TEXTDOMAIN ),

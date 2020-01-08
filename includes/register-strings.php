@@ -40,7 +40,7 @@ foreach ( array(
  * */
 $slides = get_theme_mod( VSTUP_SLUG . '_firstscreen', __return_empty_array() );
 
-if ( ! empty( $slides ) ) {
+if ( is_array( $slides ) && ! empty( $slides ) ) {
 	for ( $i = 0; $i < get_theme_mod( VSTUP_SLUG . '_firstscreen_number', 5 ); $i++ ) {
 		foreach ( array( 'title', 'excerpt', 'permalink', 'label' ) as $key ) {
 			if ( isset( $slides[ $i ][ $key ] ) && ! empty( trim( $slides[ $i ][ $key ] ) ) ) {
@@ -48,4 +48,25 @@ if ( ! empty( $slides ) ) {
 			}
 		}
 	}
+}
+
+
+
+
+/**
+ * Регистрация строк "Услуг"
+ * */
+$services = get_theme_mod( VSTUP_SLUG . '_services_items', __return_empty_array() );
+
+if ( is_array( $services ) && ! empty( $services ) ) {
+	for ( $i=0;  $i<get_theme_mod( VSTUP_SLUG . '_services_items_number', 6 );  $i++ ) { 
+		if ( isset( $services[ $i ] ) ) {
+			foreach ( array( 'title', 'permalink' ) as $key ) {
+				if ( isset( $services[ $i ][ $key ] ) ) {
+					pll_register_string( "services_{$i}_{$key}", $services[ $i ][ $key ], VSTUP_TEXTDOMAIN, false );
+				}
+			}
+		}
+	}
+	unset( $service );
 }

@@ -19,7 +19,7 @@ $wp_customize->add_section(
 $wp_customize->add_setting(
 	"{$slug}_services_items_number",
 	array(
-		'default'           => 5,
+		'default'           => 6,
 		'transport'         => 'reset',
 		'sanitize_callback' => 'sanitize_text_field',
 	)
@@ -27,7 +27,7 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
 	"{$slug}_services_items_number",
 	array(
-		'section'           => "{$slug}_graduates",
+		'section'           => "{$slug}_services_items",
 		'label'             => __( 'Количество блоков', VSTUP_TEXTDOMAIN ),
 		'type'              => 'number',
 		'input_attrs'       => array(
@@ -41,7 +41,7 @@ $wp_customize->add_control(
 
 for ( $i=0; $i<get_theme_mod( "{$slug}_graduates_number", 5 ); $i++ ) { 
 	$wp_customize->add_setting(
-		"{$slug}_services_item[{$i}][title]",
+		"{$slug}_services_items[{$i}][title]",
 		array(
 			'default'           => '',
 			'transport'         => 'reset',
@@ -49,7 +49,7 @@ for ( $i=0; $i<get_theme_mod( "{$slug}_graduates_number", 5 ); $i++ ) {
 		)
 	);
 	$wp_customize->add_control(
-		"{$slug}_services_item[{$i}][title]",
+		"{$slug}_services_items[{$i}][title]",
 		array(
 			'section'           => "{$slug}_services_items",
 			'label'             => __( sprintf( 'название %d', ( $i + 1 ) ), VSTUP_TEXTDOMAIN ),
@@ -57,7 +57,7 @@ for ( $i=0; $i<get_theme_mod( "{$slug}_graduates_number", 5 ); $i++ ) {
 		)
 	); /**/
 	$wp_customize->add_setting(
-		"{$slug}_services_item[{$i}][thumbnail]",
+		"{$slug}_services_items[{$i}][thumbnail]",
 		array(
 			'default'           => '',
 			'transport'         => 'reset',
@@ -67,16 +67,16 @@ for ( $i=0; $i<get_theme_mod( "{$slug}_graduates_number", 5 ); $i++ ) {
 	$wp_customize->add_control(
 		new WP_Customize_Image_Control(
 			$wp_customize,
-			"{$slug}_services_item[{$i}][thumbnail]",
+			"{$slug}_services_items[{$i}][thumbnail]",
 			array(
 				'label'         => __( sprintf( 'превью %d', ( $i + 1 ) ), VSTUP_TEXTDOMAIN ),
 				'section'       => "{$slug}_services_items",
-				'settings'      => "{$slug}_services_item[{$i}][thumbnail]",
+				'settings'      => "{$slug}_services_items[{$i}][thumbnail]",
 			)
 		)
 	);
 	$wp_customize->add_setting(
-		"{$slug}_services_item[{$i}][permalink]",
+		"{$slug}_services_items[{$i}][permalink]",
 		array(
 			'default'           => '',
 			'transport'         => 'reset',
@@ -84,7 +84,7 @@ for ( $i=0; $i<get_theme_mod( "{$slug}_graduates_number", 5 ); $i++ ) {
 		)
 	);
 	$wp_customize->add_control(
-		"{$slug}_services_item[{$i}][permalink]",
+		"{$slug}_services_items[{$i}][permalink]",
 		array(
 			'section'           => "{$slug}_services_items",
 			'label'             => __( sprintf( 'ссылка на описание %d', ( $i + 1 ) ), VSTUP_TEXTDOMAIN ),

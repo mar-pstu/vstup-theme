@@ -229,3 +229,38 @@ function get_categories_choices() {
 	}
 	return $result;
 }
+
+
+
+
+function get_services_list() {
+	$result = __return_empty_array();
+	$services = get_theme_mod( VSTUP_SLUG . '_services_items', array() );
+	if ( is_array( $services ) && ! empty( $services ) ) {
+		for ( $i=0;  $i<get_theme_mod( VSTUP_SLUG . '_services_items_number', 6 );  $i++ ) { 
+			if ( isset( $services[ $i ] ) ) {
+				$service = array_merge( array(
+					'title'     => '',
+					'permalink' => '',
+					'thumbnail' => '',
+				), ( array ) $services[ $i ] );
+				if ( ! empty( trim( $service[ 'title' ] ) ) ) {
+					$result[] = sprintf(
+						'<div class="col-xs-6 col-sm-4 col-md-4 col-lg-2"><%1$s class="flatitem lazy" href="%2$s" data-src="%3$s"><div class="title">%4$s</div></%1$s></div>',
+						( empty( trim( $service[ 'permalink' ] ) ) ) ? 'div' : 'a',
+						esc_attr( $service[ 'permalink' ] ),
+						esc_attr( $service[ 'thumbnail' ] ),
+						$service[ 'title' ]
+					);
+				}
+			}
+		}
+	}
+	return ( empty( $result ) ) ? __return_empty_string() : '<div class="row">' . implode( "\r\n", $result ) . '</div>';
+}
+
+
+
+function the_services_list() {
+	echo get_services_list();
+}

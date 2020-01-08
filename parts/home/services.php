@@ -1,26 +1,47 @@
-<section class="section services" id="services">
-	<div class="container">
-		<h2>Додаткові послуги</h2>
-		<div class="row">
-			<div class="col-xs-6 col-sm-4 col-md-4 col-lg-2"><a class="flatitem lazy" href="#" data-src="../images/services/ukraine.jpg">
-					<div class="title">Донбасс-Украина</div></a>
-			</div>
-			<div class="col-xs-6 col-sm-4 col-md-4 col-lg-2"><a class="flatitem lazy" href="#" data-src="../images/services/studyinukraine.jpg">
-					<div class="title">Обучение для иностранцев</div></a>
-			</div>
-			<div class="col-xs-6 col-sm-4 col-md-4 col-lg-2"><a class="flatitem lazy" href="#" data-src="../images/services/oops.jpg">
-					<div class="title">Практика школьников</div></a>
-			</div>
-			<div class="col-xs-6 col-sm-4 col-md-4 col-lg-2"><a class="flatitem lazy" href="#" data-src="../images/services/career.jpg">
-					<div class="title">Центр карьеры</div></a>
-			</div>
-			<div class="col-xs-6 col-sm-4 col-md-4 col-lg-2"><a class="flatitem lazy" href="#" data-src="../images/services/cources.jpg">
-					<div class="title">Курсы подготовки</div></a>
-			</div>
-			<div class="col-xs-6 col-sm-4 col-md-4 col-lg-2"><a class="flatitem lazy" href="#" data-src="../images/services/.jpg">
-					<div class="title">Смотреть все</div></a>
-			</div>
-		</div>
-		<p class="text-center"><a class="btn btn-success" href="#">Смотреть все</a></p>
-	</div>
-</section>
+<?php
+
+
+
+namespace vstup;
+
+
+
+if ( ! defined( 'ABSPATH' ) ) { exit; };
+
+
+
+$title = get_theme_mod( VSTUP_SLUG . '_services_title', __( 'Услуги', VSTUP_TEXTDOMAIN ) );
+$label = get_theme_mod( VSTUP_SLUG . '_services_label', __( 'Подробней', VSTUP_TEXTDOMAIN ) );
+$page_id = get_translate_id( get_theme_mod( VSTUP_SLUG . '_services_page_id', '' ), 'page' );
+$permalink = ( empty( $page_id ) ) ? __return_empty_string() : get_permalink( $page_id );
+$content = __return_empty_string();
+$name = 'services';
+
+if ( function_exists( 'pll__' ) ) {
+	$title = pll__( $title );
+	$label = pll__( $label );
+}
+
+switch ( get_theme_mod( VSTUP_SLUG . '_services_ct', 'services' ) ) {
+
+	case 'content':
+		$page = get_post( $page_id, OBJECT, 'raw' );
+		if ( is_object( $page ) && ! is_wp_error( $page ) ) {
+			$content = $page->post_content;
+			if ( empty( $title ) ) {
+				$title = apply_filters( 'the_title', $page->post_title, $page->ID );
+			}
+		}
+		break;
+	
+	case 'services':
+	default:
+		$content = get_services_list();
+		break;
+
+}
+
+
+if ( ! empty( $content ) ) {
+	include get_theme_file_path( 'views/home/section.php' );
+}
