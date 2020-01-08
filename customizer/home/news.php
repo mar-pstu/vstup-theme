@@ -61,7 +61,30 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-	"{$slug}_news_title",
+	"{$slug}_news_numberposts",
+	array(
+		'default'           => 3,
+		'transport'         => 'reset',
+		'sanitize_callback' => 'absint',
+	)
+);
+$wp_customize->add_control(
+	"{$slug}_news_numberposts",
+	array(
+		'section'           => "{$slug}_news",
+		'label'             => __( 'Количество незакреплённых постов', VSTUP_TEXTDOMAIN ),
+		'type'              => 'number',
+		'input_attrs'       => array(
+			'min'             => '1',
+			'max'             => '5',
+		),
+	)
+); /**/
+
+
+
+$wp_customize->add_setting(
+	"{$slug}_news_heading",
 	array(
 		'default'           => __( 'Новости', VSTUP_TEXTDOMAIN ),
 		'transport'         => 'reset',
@@ -69,7 +92,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	"{$slug}_news_title",
+	"{$slug}_news_heading",
 	array(
 		'section'           => "{$slug}_news",
 		'label'             => __( 'Заголовок секции', VSTUP_TEXTDOMAIN ),

@@ -32,17 +32,11 @@ function get_custom_logo_src( $size = 'full' ) {
 
 
 
-function the_advantages_list() {
-	return '';
-}
-
-
-
 function get_languages_list( $args = array() ) {
 	$args = wp_parse_args( $args, array(
 		'container_class' => 'languages',
 	) );
-	$result = array();
+	$result = __return_empty_array();
 	if ( ( function_exists( 'pll_the_languages' ) ) && ( function_exists( 'pll_current_language' ) ) ) {
 		$current = pll_current_language( 'slug' );
 		$other = pll_the_languages( array(
@@ -54,24 +48,43 @@ function get_languages_list( $args = array() ) {
 			'force_home'         => 0,
 			'echo'               => 0,
 			'hide_if_no_translation' => 0,
-			'hide_current'       => 1,
+			'hide_current'       => 0,
 			'post_id'            => ( is_singular() ) ? get_the_ID() : NULL,
 			'raw'                => 1,
 		) );
 		if ( ( $other ) && ( ! empty( $other ) ) ) {
-			$result[] = '<li class="current">' . $current . '</li>';
 			foreach ( $other as $lang ) $result[] = sprintf(
-				'<li><a href="%1$s">%2$s</a></li>',
+				( $lang[ 'slug' ] == $current ) ? '<li class="current">%2$s</li>' : '<li><a href="%1$s">%2$s</a></li>',
 				$lang[ 'url' ],
 				$lang[ 'name' ]
 			);
 		}
 	}
-	return ( empty( $result ) ) ? __return_empty_string() : printf(
-		'<ul class="%1$s">%2$s</ul>',
-		$args[ 'container_class' ],
-		implode( "\r\n", $result )
-	);
+	return ( empty( $result ) ) ? __return_empty_string() :  sprintf( '<ul class="%1$s">%2$s</ul>', $args[ 'container_class' ], implode( "\r\n", $result ) );
+}
+
+
+
+function the_advantages_list( $args = array() ) {
+	echo get_languages_list( $args );
+}
+
+
+
+function render_links_list( $list, $class_name ) {
+	$result = __return_empty_array();
+	if ( is_array( $list ) && ! empty( $list ) ) {
+		foreach ( $list as $key => $value ) {
+			if ( ! empty( $value ) ) {
+				$result[] = sprintf(
+					'<li><a href="%1$s">%1$s</a></li>',
+					$link,
+					$name
+				);
+			}
+		}
+	}
+	return ( empty( $result ) ) ? '' : sprintf( '<ul class="%1$s">%2$s</ul>', $class_name, implode( "\r\n", $result ) );
 }
 
 
@@ -85,7 +98,7 @@ function the_breadcrumb() {
 			if ( ! is_front_page() ) {
 				echo '<a href="';
 				echo home_url();
-				echo '">'.__( 'Главная', STARTER_TEXTDOMAIN );
+				echo '">'.__( 'Главная', VSTUP_TEXTDOMAIN );
 				echo "</a> » ";
 				if ( is_category() || is_single() ) {
 						the_category(' ');
@@ -98,7 +111,7 @@ function the_breadcrumb() {
 				}
 			}
 			else {
-				echo __( 'Домашняя страница', STARTER_TEXTDOMAIN );
+				echo __( 'Домашняя страница', VSTUP_TEXTDOMAIN );
 			}
 	}
 	$result = ob_get_contents();
@@ -147,11 +160,11 @@ function the_pager() {
 	foreach ( array(
 		'previous'  => array(
 			'entry'     => get_previous_post(),
-			'label'     => __( 'Смотреть предыдущий пост', STARTER_TEXTDOMAIN ),
+			'label'     => __( 'Смотреть предыдущий пост', VSTUP_TEXTDOMAIN ),
 		),
 		'next'      => array(
 			'entry'     => get_next_post(),
-			'label'     => __( 'Смотреть следующий пост', STARTER_TEXTDOMAIN ),
+			'label'     => __( 'Смотреть следующий пост', VSTUP_TEXTDOMAIN ),
 		),
 	) as $key => $value ) {
 		if ( $value[ 'entry' ] && ! is_wp_error( $value[ 'entry' ] ) ) {
@@ -177,7 +190,7 @@ function the_pager() {
 function the_thumbnail_image( $post_id, $size = 'thumbnail', $attribute = 'src' ) {
 	printf(
 		'<img class="lazy wp-post-thumbnail" src="#" data-%3$s="%1$s" alt="%2$s"/>',
-		( has_post_thumbnail( $post_id ) ) ? get_the_post_thumbnail_url( $post_id, $size ) : STARTER_URL . 'images/thumbnail.png',
+		( has_post_thumbnail( $post_id ) ) ? get_the_post_thumbnail_url( $post_id, $size ) : VSTUP_URL . 'images/thumbnail.png',
 		the_title_attribute( array(
 			'before' => '',
 			'after'  => '',

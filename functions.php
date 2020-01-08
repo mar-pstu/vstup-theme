@@ -80,6 +80,12 @@ function vstup_theme_supports() {
 	add_theme_support( 'automatic-feed-links' );
 	add_filter( 'widget_text', 'do_shortcode' );
 	add_post_type_support( 'page', 'excerpt' );
+	add_image_size( 'thumbnail-3x2', 600, 400, true ); // размер миниатюры 3x2 с жестким кадрированием
+	add_filter( 'image_size_names_choose', function ( $sizes ) {
+		return array_merge( $sizes, array(
+			'thumbnail-3x2' => __( '2x3 жесткое кадрирование', 'pstu-next-theme' ),
+		) );
+	}, 10, 1 );
 }
 add_action( 'after_setup_theme', 'vstup_theme_supports' );
 
@@ -99,9 +105,16 @@ add_action( 'after_setup_theme', 'vstup_load_textdomain' );
  * Регистрация меню
  */
 function vstup_register_nav_menus() {
-	register_nav_menus( array(
+	$slug = VSTUP_SLUG;
+	$menus = array(
 		'main'      => __( 'Главное меню', VSTUP_TEXTDOMAIN ),
-	) );
+	);
+	if ( get_theme_mod( "{$slug}_news_flag", false ) ) {
+		array_merge( $menus, array(
+			'home_news' => sprintf( __( 'Секция "%1$s" главной страницы', VSTUP_TEXTDOMAIN ), get_theme_mod( "{$slug}_news_heading", __( 'Новости', VSTUP_TEXTDOMAIN ) ) ),
+		) );
+	}
+	register_nav_menus( $menus );
 }
 add_action( 'after_setup_theme', 'vstup_register_nav_menus' );
 

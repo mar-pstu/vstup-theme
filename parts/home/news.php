@@ -1,53 +1,86 @@
-<div class="news section" id="news">
-	<div class="container">
-		<div class="row middle-xs">
-			<div class="col-xs-12 col-sm-6">
-				<h2>Новости</h2>
-			</div>
-			<div class="col-xs-12 col-sm-6">
-				<ul class="categories">
-					<li><a href="#">Новости</a></li>
-					<li><a href="#">Анонсы</a></li>
-					<li><a href="#">Приёмная кампания</a></li>
-				</ul>
-			</div>
-		</div>
-		<div class="row center-xs">
-			<div class="col-xs-12 col-sm-9 col-md-5">
-				<div class="row" role="list">
-					<div class="col-xs-12 col-sm-6">
-										<div class="col-xs-12"><a class="news__thumbnail thumbnail thumbnail" href="#" role="listitem"><img class="wp-post-thumbnail lazy" src="#" data-src="../images/news/01.jpg" alt="Заголовок поста №1">
-												<h3>Заголовок поста №1</h3></a></div>
-					</div>
-					<div class="col-xs-12 col-sm-6">
-										<div class="col-xs-12"><a class="news__thumbnail thumbnail thumbnail" href="#" role="listitem"><img class="wp-post-thumbnail lazy" src="#" data-src="../images/news/02.jpg" alt="Заголовок поста №3">
-												<h3>Заголовок поста №3</h3></a></div>
-					</div>
-					<div class="col-xs-12 col-sm-12">
-										<div class="col-xs-12"><a class="news__thumbnail thumbnail thumbnail" href="#" role="listitem"><img class="wp-post-thumbnail lazy" src="#" data-src="../images/news/03.jpg" alt="Заголовок поста №3">
-												<h3>Заголовок поста №3</h3></a></div>
-					</div>
-				</div>
-			</div>
-			<div class="col-xs-12 col-sm-9 col-md-7">
-				<div class="row" role="list">
-									<div class="news__entry entry" role="listitem">
-										<h3><a href="#">Название новости №1</a></h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus magni, eveniet impedit ipsam beatae debitis! Omnis temporibus, nam adipisci beatae quaerat, blanditiis saepe, reiciendis distinctio in quidem nobis. Enim, dicta.</p>
-										<p class="text-right"><a class="btn btn-success btn-sm permalink" href="#">Подробней</a></p>
-									</div>
-									<div class="news__entry entry" role="listitem">
-										<h3><a href="#">Название новости №2</a></h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi tempore aspernatur ratione qui quod quo deleniti odio quibusdam soluta voluptatum. Reiciendis nostrum, possimus deleniti sapiente hic tempora voluptate nemo labore.</p>
-										<p class="text-right"><a class="btn btn-success btn-sm permalink" href="#">Подробней</a></p>
-									</div>
-									<div class="news__entry entry" role="listitem">
-										<h3><a href="#">Название новости №3</a></h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam dolores repellat assumenda architecto minus in temporibus ab, voluptate eos ipsum asperiores magnam quae, totam ratione odio nostrum porro, possimus vero.</p>
-										<p class="text-right"><a class="btn btn-success btn-sm permalink" href="#">Подробней</a></p>
-									</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+<?php
+
+
+
+namespace vstup;
+
+
+
+if ( ! defined( 'ABSPATH' ) ) { exit; };
+
+
+
+$category_id = get_translate_id( get_theme_mod( VSTUP_SLUG . '_news_category_id', __return_empty_string() ), 'category' );
+
+
+if ( ! empty( $category_id ) ) {
+
+	$heading = get_theme_mod( VSTUP_SLUG . '_news_heading', __( 'Новости', VSTUP_TEXTDOMAIN ) );
+
+	if ( function_exists( 'pll__' ) ) {
+		$heading = pll__( $heading );
+	}
+
+	if ( empty( $heading ) ) {
+		$heading = get_term_field( 'name', $category_id, 'category', 'raw' );
+	}
+
+	$entries = __return_empty_array();
+	$sticky_entries = __return_empty_array();
+
+	$sticky_ids = get_option( 'sticky_posts' );
+	$sticky_ids = ( is_array( $sticky_ids ) ) ? array_slice( $sticky_ids, 0, 3 ) : __return_empty_array();
+
+	$sticky_entries = get_posts( array(
+		'numberposts' => 3,
+		'category'    => 0,
+		'orderby'     => 'date',
+		'order'       => 'DESC',
+		'include'     => $sticky_ids,
+		'exclude'     => array(),
+		'post_type'   => 'post',
+		'suppress_filters' => true,
+	) );
+
+	$unsticky_entries = get_posts( array(
+		'numberposts' => ( ( int ) get_theme_mod( VSTUP_SLUG . '_news_numberposts', 3 ) + ( 3 - count( $sticky_ids ) ) ),
+		'category'    => $category_id,
+		'orderby'     => 'date',
+		'order'       => 'DESC',
+		'include'     => array(),
+		'exclude'     => $sticky_ids,
+		'post_type'   => 'post',
+		'suppress_filters' => true,
+	) );
+
+	if ( is_array( $sticky_entries ) ) {
+		$entries = array_merge( $entries, $sticky_entries );
+	}
+
+	if ( is_array( $unsticky_entries ) ) {
+		$entries = array_merge( $entries, $unsticky_entries );
+	}
+
+	if ( is_array( $entries ) && ! empty( $entries ) ) {
+
+		$categories = __return_empty_string();
+
+		if ( has_nav_menu( 'home_news' ) ) {
+			$categories = wp_nav_menu( array(
+				'theme_location'  => 'home_news',
+				'menu'            => 'home_news', 
+				'container'       => false, 
+				'container_class' => '', 
+				'container_id'    => '',
+				'menu_class'      => 'categories', 
+				'menu_id'         => '',
+				'echo'            => false,
+				'depth'           => 1,
+			) );
+		}
+
+		include get_theme_file_path( 'views/home/news.php' );
+
+	}
+
+}
