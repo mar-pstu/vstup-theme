@@ -8,15 +8,15 @@ get_header();
 
 
 foreach ( array(
-    'firstscreen',
-    'about',
-    'news',
-    'action',
+    'firstscreen',  // ok
+    'about',        // ok
+    'news',         // ok
+    'action',       // ok
     'specialties',
-    'videos',
-    'people',
-    'services',
-    'questions',
+    'videos',       // ok
+    'people',       
+    'services',     // ok
+    'questions',    // ok
 ) as $key ) {
     if ( get_theme_mod( VSTUP_SLUG . "_{$key}_flag", false ) )
         get_template_part( "parts/home/$key" );

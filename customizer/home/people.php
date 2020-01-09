@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 $wp_customize->add_section(
 	"{$slug}_people",
 	array(
-		'title'            => __( 'Выпускники', VSTUP_TEXTDOMAIN ),
+		'title'            => __( 'Люди', VSTUP_TEXTDOMAIN ),
 		'priority'         => 10,
 		'description'      => __( 'Секция главной страницы. Якорь #people', VSTUP_TEXTDOMAIN ),
 		'panel'            => "{$slug}_home"
@@ -62,7 +62,7 @@ $wp_customize->add_control(
 $wp_customize->add_setting(
 	"{$slug}_people_title",
 	array(
-		'default'           => '',
+		'default'           => __( 'Выпускники', VSTUP_TEXTDOMAIN ),
 		'transport'         => 'reset',
 		'sanitize_callback' => 'sanitize_text_field',
 	)
@@ -81,7 +81,7 @@ $wp_customize->add_control(
 $wp_customize->add_setting(
 	"{$slug}_people_description",
 	array(
-		'default'           => __( 'Информация', VSTUP_TEXTDOMAIN ),
+		'default'           => '',
 		'transport'         => 'reset',
 		'sanitize_callback' => 'sanitize_textarea_field',
 	)
@@ -90,7 +90,7 @@ $wp_customize->add_control(
 	"{$slug}_people_description",
 	array(
 		'section'           => "{$slug}_people",
-		'label'             => __( 'Заголовок', VSTUP_TEXTDOMAIN ),
+		'label'             => __( 'Подзаголовок', VSTUP_TEXTDOMAIN ),
 		'type'              => 'textarea',
 	)
 ); /**/

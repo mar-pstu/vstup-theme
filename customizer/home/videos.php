@@ -50,7 +50,7 @@ for ( $i=0; $i<3; $i++ ) {
 		array(
 			'default'           => '',
 			'transport'         => 'reset',
-			'sanitize_callback' => 'sanitize_url',
+			'sanitize_callback' => 'sanitize_text_field',
 		)
 	);
 	$wp_customize->add_control(
