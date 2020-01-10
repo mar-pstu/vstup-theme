@@ -17,6 +17,10 @@ foreach ( array(
 	"action_title",
 	'action_description',
 	'action_label',
+	'specialties_permalink',
+	'specialties_title',
+	'specialties_excerpt',
+	'specialties_label',
 	'people_title',
 	'people_description',
 	'people_label',
@@ -69,4 +73,29 @@ if ( is_array( $services ) && ! empty( $services ) ) {
 		}
 	}
 	unset( $service );
+}
+
+
+
+
+/**
+ * Регистрация переводов "Выпускников"
+ * */
+$graduates = get_theme_mod( VSTUP_SLUG . '_graduates', __return_empty_array() );
+if ( is_array( $graduates ) && ! empty( $graduates ) ) {
+	for ( $i = 0; $i < get_theme_mod( VSTUP_SLUG . '_graduates_number', 5 ); $i++ ) {
+		$graduate = array_merge( array(
+			'name'      => '',
+			'excerpt'   => '',
+			'specialty' => array(
+				'title'      => '',
+				'thumbnail'  => '',
+			),
+		), $graduates[ $i ] )
+		if ( ! empty( $graduate[ 'name' ] ) ) pll_register_string( "gradute_{$i}_name", $graduate[ 'name' ], VSTUP_TEXTDOMAIN, false );
+		if ( ! empty( $graduate[ 'excerpt' ] ) ) pll_register_string( "gradute_{$i}_name", $graduate[ 'excerpt' ], VSTUP_TEXTDOMAIN, false );
+		if ( ! empty( $graduate[ 'specialty' ][ 'title' ] ) ) pll_register_string( "gradute_{$i}_specialty_title", $graduate[ 'specialty' ][ 'title' ], VSTUP_TEXTDOMAIN, false );
+		if ( ! empty( $graduate[ 'specialty' ][ 'thumbnail' ] ) ) pll_register_string( "gradute_{$i}_specialty_thumbnail", $graduate[ 'specialty' ][ 'thumbnail' ], VSTUP_TEXTDOMAIN, false );
+	}
+	unset( $graduate );
 }

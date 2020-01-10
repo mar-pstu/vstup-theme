@@ -185,20 +185,52 @@ function the_pager() {
 
 
 
+function get_attachment_image( $attachment_id, $args = array() ) {
+	$args = wp_parse_args( $args, array(
+		'size'       => 'thumbnail',
+		'attribute'  => 'src',
+		'class_name' => 'wp-post-image',
+		'alt'        => '',
+	) );
+	$result = __return_empty_string();
+	$url = wp_get_attachment_image_url( $attachment_id, $args[ 'size' ], false );
+	if ( $url ) {
+		$result = sprintf(
+			'<img class="lazy %1$s" src="#" alt="%1$s">',
+			$args[ 'class_name' ],
+			$url,
+			( empty( trim( $args[ 'alt' ] ) ) ) ? trim( strip_tags( get_post_meta( $attachment_id, '_wp_attachment_image_alt', true ) ) ) : esc_attr( $args[ 'alt' ] )
+		);
+	}
+	return $result;
+}
+
+
+
 
 
 function the_thumbnail_image( $post_id, $size = 'thumbnail', $attribute = 'src' ) {
-	printf(
-		'<img class="lazy wp-post-thumbnail" src="#" data-%3$s="%1$s" alt="%2$s"/>',
-		( has_post_thumbnail( $post_id ) ) ? get_the_post_thumbnail_url( $post_id, $size ) : VSTUP_URL . 'images/thumbnail.png',
-		the_title_attribute( array(
-			'before' => '',
-			'after'  => '',
-			'echo'   => false,
-			'post'   => $post_id,
-		) ),
-		$attribute
-	);
+	$attachment_id = get_post_thumbnail_id( $post_id );
+	$alt = the_title_attribute( array(
+		'before' => '',
+		'after'  => '',
+		'echo'   => false,
+		'post'   => $post_id,
+	) );
+	if ( ! $attachment_id ) {
+		echo get_attachment_image( $attachment_id, array(
+			'size'       => $size,
+			'attribute'  => $attribute,
+			'alt'        => $alt,
+		) );
+	} else {
+		printf(
+			'<img class="lazy wp-post-thumbnail" src="#" data-%1$s="%2$s" alt="%3$s"/>',
+			$attribute,
+			VSTUP_URL . 'images/thumbnail.png',
+			$alt
+		);
+	}
 }
 
 
@@ -263,10 +295,35 @@ function get_services_list() {
 
 
 
+function get_slider_arrow_buttons( $slug ) {
+	$result = __return_empty_array();
+	foreach ( array(
+		'prev' => __( 'Предыдущий слайд', VSTUP_TEXTDOMAIN ),
+		'next' => __( 'Следующий слайд', VSTUP_TEXTDOMAIN ),
+	) as $key => $label ) {
+		$result[] = sprintf(
+			'<button class="slider-arrow arrow-%1$s" id="%2$s-arrow-next"><span class="sr-only">%2$s</span></button>',
+			$key,
+			$slug,
+			$label
+		);
+	}
+	return implode( "\r\n", $result );
+}
 
 
 
-function get_graduate_list() {
+
+
+function the_slider_arrow_buttons( $args = array() ) {
+	echo get_slider_arrow_buttons( $args );
+}
+
+
+
+
+
+function get_graduate_slider() {
 	$result = __return_empty_string();
 	$graduates = get_theme_mod( VSTUP_SLUG . '_graduates', __return_empty_array() );
 	if ( is_array( $graduates ) && ! empty( $graduates ) ) {
@@ -302,16 +359,7 @@ function get_graduate_list() {
 					<div id="graduate-list">
 						<?php echo $slides; ?>
 					</div>
-					<button class="slider-arrow arrow-prev" id="graduate-arrow-prev">
-						<span class="sr-only">
-							<?php _e( 'Предыдущий слайд', VSTUP_TEXTDOMAIN ); ?>
-						</span>
-					</button>
-					<button class="slider-arrow arrow-next" id="graduate-arrow-next">
-						<span class="sr-only">
-							<?php _e( 'Следующий слайд', VSTUP_TEXTDOMAIN ); ?>
-						</span>
-					</button>
+					<?php the_slider_arrow_buttons( 'graduate' ); ?>
 				</div>
 				<script>
 					( function () {
@@ -337,6 +385,61 @@ function get_graduate_list() {
 		}
 		$result = ob_get_contents();
 		ob_end_clean();
+	}
+	return $result;
+}
+
+
+
+
+
+
+
+
+
+function get_specialties_slider( $args = array() ) {
+	$args = wp_parse_args( $args, array(
+		'wrap'    => 1,
+	) );
+	$result = __return_empty_string();
+	$terms = get_terms( array(
+		'taxonomy'      => 'specialties',
+		'orderby'       => 'name',
+		'order'         => 'ASC',
+		'hide_empty'    => true, 
+		'number'        => '', 
+		'fields'        => 'all', 
+		'hierarchical'  => true, 
+	) );
+	if ( is_array( $terms ) && ! empty( $terms ) ) {
+		$specialties = wp_list_filter( $terms, array( 'parent' => 0 ), 'NOT' );
+		if ( ! empty( $specialties ) ) {
+			$slides = __return_empty_array();
+			wp_enqueue_scripts( 'slick' );
+			wp_enqueue_style( 'slick' );
+			foreach ( $specialties as $specialty ) {
+				$parent = array_shift( wp_list_filter( $terms, array( 'parent' => $specialty->parent ), 'AND' ) );
+				$attachment_id = get_term_meta( $parent->term_id, 'pstu_specialties_logo', true );
+				$slides[] = sprintf(
+					'<a class="specialties__item item" href="%1$s"><h3 class="title">%2$s</h3><div class="sector">%3$s</div><img class="thumbnail" src="#" data-lazy="%4$s" alt="%5$s"></a>',
+					get_term_link( $specialty->term_id, 'specialties' ),
+					wp_strip_all_tags( apply_filters( 'single_term_title', $specialty->name ) ),
+					wp_strip_all_tags( apply_filters( 'single_term_title', $parent->name ) ),
+					( empty( $attachment_id ) ) ? VSTUP_SLUG . 'images/sector.png' : wp_get_attachment_image_url( $attachment_id, 'thumbnail', false ),
+					esc_attr( $specialty->name )
+				);
+			}
+			if ( ! empty( $slides ) ) {
+				?>
+					<div class="slider">
+						<div id="specialties-list">
+							<?php echo implode( "\r\n", $slides ); ?>
+						</div>
+						<?php the_slider_arrow_buttons( 'specialties' ); ?>
+					</div>
+				<?php
+			}
+		}
 	}
 	return $result;
 }

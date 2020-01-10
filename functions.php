@@ -57,6 +57,9 @@ if ( is_customize_preview() ) {
 		include get_theme_file_path( 'customizer/home/about.php' );
 		include get_theme_file_path( 'customizer/home/news.php' );
 		include get_theme_file_path( 'customizer/home/action.php' );
+		if ( post_type_exists( 'educational_program' ) && taxonomy_exists( 'specialties' ) ) {
+			include get_theme_file_path( 'customizer/home/specialties.php' );
+		}
 		include get_theme_file_path( 'customizer/home/videos.php' );
 		include get_theme_file_path( 'customizer/home/people.php' );
 		include get_theme_file_path( 'customizer/home/services.php' );

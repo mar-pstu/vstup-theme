@@ -15,7 +15,7 @@ $label = get_theme_mod( VSTUP_SLUG . '_people_label', __( 'Подробней', 
 $page_id = get_theme_mod( VSTUP_SLUG . '_people_page_id', __return_empty_string() );
 $permalink = __return_empty_string();
 $description = get_theme_mod( VSTUP_SLUG . '_people_description', __return_empty_string() );
-$peoples = get_graduate_list();
+$peoples = get_graduate_slider();
 
 
 if ( function_exists( 'pll__' ) ) {

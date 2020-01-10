@@ -8,7 +8,11 @@
       <?php
 
         if ( is_singular() ) {
-          get_template_part( 'parts/singular' );
+          if ( 'educational_program' == get_post_type( get_the_ID() ) ) {
+            get_template_part( 'parts/educational', 'program' );
+          } else {
+            get_template_part( 'parts/singular' );
+          }
         } else {
           get_template_part( 'parts/archive' );
         }
