@@ -10,6 +10,10 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
 
+
+
+
+
 function get_custom_logo_img() {
 	$result = __return_empty_string();
 	$custom_logo_id = get_theme_mod( 'custom_logo' );
@@ -117,7 +121,7 @@ function the_breadcrumb() {
 	$result = ob_get_contents();
 	ob_end_clean();
 	if ( ! empty( $result ) ) {
-		echo '<div id="breadcrumbs" class="breadcrumbs">';
+		echo '<div class="breadcrumbs">';
 		echo $result;
 		echo '</div>';
 	}
@@ -196,8 +200,9 @@ function get_attachment_image( $attachment_id, $args = array() ) {
 	$url = wp_get_attachment_image_url( $attachment_id, $args[ 'size' ], false );
 	if ( $url ) {
 		$result = sprintf(
-			'<img class="lazy %1$s" src="#" alt="%1$s">',
+			'<img class="lazy %1$s" src="#" data-%2$s="%3$s" alt="%4$s">',
 			$args[ 'class_name' ],
+			$args[ 'attribute' ],
 			$url,
 			( empty( trim( $args[ 'alt' ] ) ) ) ? trim( strip_tags( get_post_meta( $attachment_id, '_wp_attachment_image_alt', true ) ) ) : esc_attr( $args[ 'alt' ] )
 		);
@@ -269,7 +274,7 @@ function get_services_list() {
 	$result = __return_empty_array();
 	$services = get_theme_mod( VSTUP_SLUG . '_services_items', array() );
 	if ( is_array( $services ) && ! empty( $services ) ) {
-		for ( $i=0;  $i<get_theme_mod( VSTUP_SLUG . '_services_items_number', 6 );  $i++ ) { 
+		for ( $i = 0;  $i < get_theme_mod( VSTUP_SLUG . '_services_items_number', 6 );  $i++ ) { 
 			if ( isset( $services[ $i ] ) ) {
 				$service = array_merge( array(
 					'title'     => '',
@@ -315,8 +320,8 @@ function get_slider_arrow_buttons( $slug ) {
 
 
 
-function the_slider_arrow_buttons( $args = array() ) {
-	echo get_slider_arrow_buttons( $args );
+function the_slider_arrow_buttons( $slug ) {
+	echo get_slider_arrow_buttons( $slug );
 }
 
 
@@ -442,4 +447,96 @@ function get_specialties_slider( $args = array() ) {
 		}
 	}
 	return $result;
+}
+
+
+
+
+
+
+
+function get_share( $post_id = false ) {
+	if ( $post_id ) { $post_id = get_the_ID(); }
+	$format = __return_empty_string();
+	$result = __return_empty_array();
+	$title = __return_empty_string();
+	$permalink = __return_empty_string();
+	$thumbnail_url = VSTUP_URL . 'images/thumbnail.png';
+	$blog_name = get_bloginfo( 'name' );
+	if ( $post_id || is_singular() ) {
+		$permalink = get_permalink( $post_id );
+		$title = get_the_title( $post_id );
+		$thumbnail_url = ( has_post_thumbnail( $post_id ) ) ? get_the_post_thumbnail_url( $post_id, 'medium' ) : $thumbnail_url;
+	} elseif ( is_front_page() ) {
+		$permalink = get_home_url();
+		$title = get_bloginfo( 'name' );
+		$thumbnail_url = ( has_header_image() ) ? get_header_image() : $thumbnail_url;
+	} elseif ( $term_id = get_queried_object()->term_id ) {
+		$permalink = get_term_link( $term_id );
+		$title = single_term_title( $term_id, 0 );
+	}
+	foreach ( array(
+		'facebook' => __( 'Поделиться в Facebook', VSTUP_TEXTDOMAIN ),
+		'twitter'  => __( 'Поделиться в Twitter', VSTUP_TEXTDOMAIN ),
+		'linkedin' => __( 'Поделиться в LinkedIn', VSTUP_TEXTDOMAIN ),
+		'email'    => __( 'Отправить по email', VSTUP_TEXTDOMAIN ),
+	) as $key => $label ) {
+		switch ( $key ) {
+			case 'facebook':
+				$format = 'https://www.facebook.com/sharer.php?u=%1$s&amp;t=%2$s';
+				break;
+			case 'twitter':
+				$format = 'https://twitter.com/share?url=%1$s&amp;text=%2$s';
+				break;
+			case 'linkedin':
+				$format = 'https://www.linkedin.com/shareArticle?mini=true&url=%1$s&title=%2$s';
+				break;
+			case 'email':
+				$format = 'mailto:info@example.com?&subject=%4$s&body=%2$s %1$s';
+				break;
+		}
+		$link = sprintf(
+			$format,
+			$permalink,
+			esc_attr( $title ),
+			$thumbnail_url,
+			esc_attr( $blog_name )
+		);
+		$result[] = sprintf(
+			'<li><a class="%1$s" target="_blank" href="%2$s"><span class="sr-only">%3$s</span></a></li>',
+			$key,
+			$link,
+			$label
+		);
+	}
+	return ( empty( $result ) ) ? '' : '<ul class="share">' . implode( "\r\n", $result ) . '</ul>';
+}
+
+
+
+
+function the_share( $post_id = false ) {
+	echo get_share( $post_id );
+}
+
+
+
+
+function the_pageheader() {
+	if ( is_archive() ) {
+		$title = get_the_archive_title();
+		$excerpt = do_shortcode( get_the_archive_description() );
+		$thumbnail = __return_empty_string();
+	} else {
+		$title = single_post_title( '', false );
+		$excerpt = ( has_excerpt( get_the_ID() ) ) ? get_the_excerpt( get_the_ID() ) : false;
+		$thumbnail_id  = get_post_thumbnail_id( get_the_ID() );
+		$thumbnail = ( ( bool ) $thumbnail_id ) ? get_attachment_image( $attachment_id, array(
+			'size'       => 'thumbnail',
+			'attribute'  => 'src',
+			'class_name' => 'thumbnail',
+			'alt'        => '',
+		) ) : __return_empty_string();
+	}
+	include get_theme_file_path( 'views/pageheader.php' );
 }

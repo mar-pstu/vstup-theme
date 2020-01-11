@@ -1,29 +1,38 @@
 <?php
 
 
+namespace vstup;
+
+
 if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
+$partners = get_theme_mod( VSTUP_SLUG . '_partners', array() );
+$slides = __return_empty_array();
 
 
+if ( is_array( $partners ) && ! empty( $partners ) ) {
 
-?>
+	for ( $i = 0; $i < get_theme_mod( VSTUP_SLUG . '_partners_number', 5 ); $i++ ) { 
+		
+		if ( ! empty( $partners[ $i ] ) ) {
 
+			$slides[] = '<div class="partners__item item">' . get_attachment_image(
+				attachment_url_to_postid( $partners[ $i ] ),
+				array(
+					'size'       => 'medium',
+					'attribute'  => 'lazy',
+					'class_name' => '',
+					'alt'        => '',
+				)
+			) . '</div>';
 
-<div class="partners" id="partners">
-	<div class="container">
-		<div class="slider">
-			<div id="partners-list">
-								<div class="partners__item item"><img src="#" data-lazy="../images/partners/metinvest.jpg" alt="Метинвест"></div>
-								<div class="partners__item item"><img src="#" data-lazy="../images/partners/mon.png" alt="МОН"></div>
-								<div class="partners__item item"><img src="#" data-lazy="../images/partners/dtek.png" alt="ДТЭК"></div>
-								<div class="partners__item item"><img src="#" data-lazy="../images/partners/mrpl.png" alt="Мар Рада"></div>
-								<div class="partners__item item"><img src="#" data-lazy="../images/partners/er.jpg" alt="Erasmus"></div>
-			</div>
-			<div class="controls" id="partners-controls">
-				<button class="arrow prev" id="partners-arrow-prev"><span class="sr-only">Предыдущий слайд</span></button>
-				<button class="arrow next" id="partners-arrow-next"><span class="sr-only">Следующий слайд</span></button>
-			</div>
-		</div>
-	</div>
-</div>
+		}
+
+	}
+
+	if ( ! empty( $slides ) ) {
+		include get_theme_file_path( 'views/partners.php' );
+	}
+
+}

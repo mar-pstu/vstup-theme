@@ -53,7 +53,7 @@ $wp_customize->add_control(
 	"{$slug}_partners_number",
 	array(
 		'section'           => "{$slug}_partners",
-		'label'             => __( 'Заголовок', VSTUP_TEXTDOMAIN ),
+		'label'             => __( 'Количество записей', VSTUP_TEXTDOMAIN ),
 		'type'              => 'number',
 		'input_attrs'       => array(
 			'min'             => 1,
@@ -78,7 +78,7 @@ for ( $i=0; $i<get_theme_mod( "{$slug}_partners_number", 5 ); $i++ ) {
 		   $wp_customize,
 		   "{$slug}_partners[{$i}]",
 		   array(
-			   'label'      => __( 'Фон', VSTUP_TEXTDOMAIN ),
+			   'label'      => sprintf( __( 'лого %d', VSTUP_TEXTDOMAIN ), ( $i + 1 ) ),
 			   'section'    => "{$slug}_partners",
 			   'settings'   => "{$slug}_partners[{$i}]",
 		   )
