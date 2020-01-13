@@ -1,3 +1,14 @@
+<?php
+
+
+namespace vstup;
+
+
+if ( ! defined( 'ABSPATH' ) ) { exit; };
+
+
+?>
+
 <div class="mobilenav" id="mobilenav">
 	<div class="bg navtoggle"></div>
 	<div class="overlay">
@@ -7,12 +18,7 @@
 			<li><a href="#">Официальная информация</a></li>
 			<li><a href="#">Услуги</a></li>
 		</ul>
-		<h3>Поделиться</h3>
-		<ul class="share">
-			<li><a class="facebook" href="#"><span class="sr-only">Поделиться в facebook</span></a></li>
-			<li><a class="twitter" href="#"><span class="sr-only">Поделиться в twitter</span></a></li>
-			<li><a class="linkedin" href="#"><span class="sr-only">Поделиться в linkedin</span></a></li>
-			<li><a class="email" href="#"><span class="sr-only">Поделиться в email</span></a></li>
-		</ul>
+		<h3><?php _e( 'Поделиться', VSTUP_TEXTDOMAIN ); ?></h3>
+		<?php the_share(); ?>
 	</div>
 </div>

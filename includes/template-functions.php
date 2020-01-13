@@ -520,3 +520,54 @@ function the_pageheader() {
 	}
 	include get_theme_file_path( 'views/pageheader.php' );
 }
+
+
+
+
+
+function get_warning_nav_menu() {
+	$result = __return_empty_array();
+	$nav_menu_locations = get_nav_menu_locations();
+	if ( $nav_menu_locations && isset( $nav_menu_locations[ 'warning' ] ) ) {
+		$items = wp_get_nav_menu_items( $nav_menu_locations[ 'warning' ] );
+			if ( is_array( $items ) && ! empty( $items ) ) {
+				$items = wp_list_filter( $items, array( 'menu_item_parent' => 0 ), 'AND' );
+				foreach ( $items as $item ) {
+					$result[] = sprintf(
+						'<li class="%1$s"><a href="%2$s" title="%3$s">%4$s</a></li>',
+						implode( " ", $item->classes ),
+						esc_attr( $item->url ),
+						esc_attr( $item->description ),
+						$item->title
+					);
+				}
+			}
+	}
+	return ( empty( $result ) ) ? __return_empty_string() : '<ul class="warning list-inline small">' . implode( "\r\n", $result ) . '</ul>';
+}
+
+
+
+
+function get_page_nav_menu( $post_id ) {
+	$result = __return_empty_array();
+	$pages = get_pages( array(
+		'sort_order'   => 'ASC',
+		'sort_column'  => 'post_title',
+		'hierarchical' => 0,
+		'parent'       => $post_id,
+		'offset'       => 0,
+		'post_type'    => 'page',
+		'post_status'  => 'publish',
+	) );
+	if ( is_array( $pages ) && ! empty( $pages ) ) {
+		foreach ( $pages as $page ) {
+			$result[] = sprintf(
+				'<li><a href="%1$s">%2$s</a></li>',
+				get_permalink( $page->ID ),
+				apply_filters( 'the_title', $page->post_title, $page->ID )
+			);
+		}
+	}
+	return ( empty( $result ) ) ? __return_empty_string() : '<ul class="menu">' . implode( "\r\n", $result ) . '</ul>';
+}

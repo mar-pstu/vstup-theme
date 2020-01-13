@@ -27,7 +27,8 @@ if ( ! empty( $items ) ) {
 		$excerpt = ( isset( $items[ $i ][ 'excerpt' ] ) ) ? $items[ $i ][ 'excerpt' ] : __return_empty_string();
 		$permalink = ( isset( $items[ $i ][ 'permalink' ] ) ) ? $items[ $i ][ 'permalink' ] : __return_empty_string();
 		$label = ( isset( $items[ $i ][ 'label' ] ) ) ? $items[ $i ][ 'label' ] : __( 'Подробней', VSTUP_TEXTDOMAIN );
-		$nav = __return_empty_string();
+		$nav_menu = __return_empty_string();
+		$page_menu = __return_empty_string();
 
 		if ( function_exists( 'pll__' ) ) {
 			$title = pll__( $title );

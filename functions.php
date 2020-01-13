@@ -33,6 +33,16 @@ if ( function_exists( 'pll_register_string' ) ) {
 
 
 /**
+ * Скрипты админки
+ **/
+if ( is_admin() && ! wp_doing_ajax() ) {
+	include get_theme_file_path( 'includes/metabox-promo.php' );
+	new vstup\MetaboxPromo();
+}
+
+
+
+/**
  * Регистрация настроек кастомайзера
  */
 if ( is_customize_preview() ) {
@@ -113,6 +123,7 @@ function vstup_register_nav_menus() {
 	$menus = array(
 		'main'        => __( 'Главное меню', VSTUP_TEXTDOMAIN ),
 		'quick_links' => __( 'Быстрые ссылки (faq, schedule)', VSTUP_TEXTDOMAIN ),
+		'warning'     => __( 'Важное', VSTUP_TEXTDOMAIN ),
 	);
 	if ( get_theme_mod( "{$slug}_news_flag", false ) ) {
 		array_merge( $menus, array(
