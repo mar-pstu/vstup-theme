@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 /**
  * Перевод сблоков
- * */
+ **/
 foreach ( array(
 	'about_title',
 	'about_label',
@@ -41,7 +41,7 @@ foreach ( array(
 
 /**
  * Регистрация строк слайдера главной страницы
- * */
+ **/
 $slides = get_theme_mod( VSTUP_SLUG . '_firstscreen', __return_empty_array() );
 
 if ( is_array( $slides ) && ! empty( $slides ) ) {
@@ -59,7 +59,7 @@ if ( is_array( $slides ) && ! empty( $slides ) ) {
 
 /**
  * Регистрация строк "Услуг"
- * */
+ **/
 $services = get_theme_mod( VSTUP_SLUG . '_services_items', __return_empty_array() );
 
 if ( is_array( $services ) && ! empty( $services ) ) {
@@ -80,7 +80,7 @@ if ( is_array( $services ) && ! empty( $services ) ) {
 
 /**
  * Регистрация переводов "Выпускников"
- * */
+ **/
 $graduates = get_theme_mod( VSTUP_SLUG . '_graduates', __return_empty_array() );
 if ( is_array( $graduates ) && ! empty( $graduates ) ) {
 	for ( $i = 0; $i < get_theme_mod( VSTUP_SLUG . '_graduates_number', 5 ); $i++ ) {
@@ -100,4 +100,35 @@ if ( is_array( $graduates ) && ! empty( $graduates ) ) {
 		}
 	}
 	unset( $graduate );
+}
+
+
+
+
+/**
+ * Регистрация переводов списка контактов
+ **/
+$contacts = get_theme_mod( VSTUP_SLUG . "_contacts", array() );
+if ( is_array( $contacts ) && ! empty( $contacts ) ) {
+	foreach ( $contacts as $key => $link ) {
+		if ( ! empty( trim( $link ) ) ) {
+			pll_register_string( "contacs_{$key}", $link, VSTUP_TEXTDOMAIN, false );
+		}
+	}
+}
+
+
+
+
+
+/**
+ * Регистрация переводов списка ссылок на профили социальных сетей
+ **/
+$socials = get_theme_mod( VSTUP_SLUG . "_socials", array() );
+if ( is_array( $socials ) && ! empty( $socials ) ) {
+	foreach ( $socials as $key => $link ) {
+		if ( ! empty( trim( $link ) ) ) {
+			pll_register_string( "socials_{$key}", $link, VSTUP_TEXTDOMAIN, false );
+		}
+	}
 }

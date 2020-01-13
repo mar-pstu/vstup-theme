@@ -11,9 +11,6 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
 
-
-
-
 function get_custom_logo_img() {
 	$result = __return_empty_string();
 	$custom_logo_id = get_theme_mod( 'custom_logo' );
@@ -73,23 +70,6 @@ function the_advantages_list( $args = array() ) {
 	echo get_languages_list( $args );
 }
 
-
-
-function render_links_list( $list, $class_name ) {
-	$result = __return_empty_array();
-	if ( is_array( $list ) && ! empty( $list ) ) {
-		foreach ( $list as $key => $value ) {
-			if ( ! empty( $value ) ) {
-				$result[] = sprintf(
-					'<li><a href="%1$s">%1$s</a></li>',
-					$link,
-					$name
-				);
-			}
-		}
-	}
-	return ( empty( $result ) ) ? '' : sprintf( '<ul class="%1$s">%2$s</ul>', $class_name, implode( "\r\n", $result ) );
-}
 
 
 
@@ -531,7 +511,7 @@ function the_pageheader() {
 		$title = single_post_title( '', false );
 		$excerpt = ( has_excerpt( get_the_ID() ) ) ? get_the_excerpt( get_the_ID() ) : false;
 		$thumbnail_id  = get_post_thumbnail_id( get_the_ID() );
-		$thumbnail = ( ( bool ) $thumbnail_id ) ? get_attachment_image( $attachment_id, array(
+		$thumbnail = ( ( bool ) $thumbnail_id ) ? get_attachment_image( $thumbnail_id, array(
 			'size'       => 'thumbnail',
 			'attribute'  => 'src',
 			'class_name' => 'thumbnail',

@@ -22,6 +22,7 @@ get_template_part( 'includes/gutenberg' );
 
 
 
+
 /**
  * Регистрация переводов строк
  */
@@ -110,7 +111,8 @@ add_action( 'after_setup_theme', 'vstup_load_textdomain' );
 function vstup_register_nav_menus() {
 	$slug = VSTUP_SLUG;
 	$menus = array(
-		'main'      => __( 'Главное меню', VSTUP_TEXTDOMAIN ),
+		'main'        => __( 'Главное меню', VSTUP_TEXTDOMAIN ),
+		'quick_links' => __( 'Быстрые ссылки (faq, schedule)', VSTUP_TEXTDOMAIN ),
 	);
 	if ( get_theme_mod( "{$slug}_news_flag", false ) ) {
 		array_merge( $menus, array(

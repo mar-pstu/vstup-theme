@@ -9,7 +9,6 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 ?>
 
-
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 	<?php get_template_part( 'parts/head' ); ?>
@@ -19,22 +18,82 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 			<header class="wrapper__item wrapper__item--header header">
 				<div class="line line--panel">
 					<div class="container wrap">
-						<ul class="links list-inline">
-							<li><a class="faq" href="#"><span class="label">Вопросы ответы</span></a></li>
-							<li><a class="schedule" href="#"><span class="label">Расписание</span></a></li>
-						</ul>
-						<ul class="links socials list-inline">
-							<li><a class="facebook" href="#"><span class="sr-only">facebook</span></a></li>
-							<li><a class="twitter" href="#"><span class="sr-only">twitter</span></a></li>
-							<li><a class="instagram" href="#"><span class="sr-only">instagram</span></a></li>
-							<li><a class="youtube" href="#"><span class="sr-only">youtube</span></a></li>
-						</ul>
-						<ul class="links contacts list-inline">
-							<li><a class="phone" href="tel:380629343097"><span class="label">(0629) 34-30-97</span></a></li>
-							<li><a class="email" href="mailto:priem@pstu.edu"><span class="label">priem@pstu.edu</span></a></li>
-						</ul>
-
 						<?php
+							// вывод меню быстрых ссылок
+							$nav_menu_locations = get_nav_menu_locations();
+							if ( $nav_menu_locations && isset( $nav_menu_locations[ 'quick_links' ] ) ) {
+								$quick_links = wp_get_nav_menu_items( $nav_menu_locations[ 'quick_links' ] );
+								if ( is_array( $quick_links ) && ! empty( $quick_links ) ) {
+									$quick_links = wp_list_filter( $quick_links, array( 'menu_item_parent' => 0 ), 'AND' );
+									?>
+										<ul class="links list-inline">
+									<?
+										foreach ( $quick_links as $quick_link ) {
+											printf(
+												'<li><a class="%1$s" href="%2$s" title="%3$s"><span class="label">%4$s</span></a></li>',
+												implode( " ", $quick_link->classes ),
+												esc_attr( $quick_link->url ),
+												esc_attr( $quick_link->description ),
+												$quick_link->title
+											);
+										}
+									?>
+										</ul>
+									<?
+								}
+							}
+							// вывод списка социальных сетей
+							$socials = get_theme_mod( VSTUP_SLUG . "_socials", array() );
+							if ( is_array( $socials ) && ! empty( $socials ) ) {
+								$socials_items = __return_empty_string();
+								foreach ( $socials as $key => $link ) {
+									if ( ! empty( trim( $link ) ) ) {
+										$socials_items[] = sprintf(
+											'<li><a class="%1$s" href="%2$s"><span class="sr-only">%1$s</span></a></li>',
+											$key,
+											esc_attr( $link )
+										);
+									}
+								}
+								if ( ! empty( $socials_items ) ) {
+									echo '<ul class="links socials list-inline">' . implode( "\r\n", $socials_items ) . '</ul>';
+								}
+							}
+							// вывод списка контактов
+							$contacts = get_theme_mod( VSTUP_SLUG . "_contacts", array() );
+							if ( is_array( $contacts ) && ! empty( $contacts ) ) {
+								$contacs_items = __return_empty_string();
+								foreach ( $contacts as $key => $link ) {
+									if ( ! empty( trim( $link ) ) ) {
+										$scheme = __return_empty_string();
+										$label = __return_empty_string();
+										switch ( $key ) {
+											case 'phone':
+												$scheme = 'tel:';
+												$label = '';
+												break;
+											case 'email':
+												$scheme = 'mailto:';
+												break;
+											default:
+												$scheme = 'https://';
+												$label = '';
+												break;
+										}
+										$contacs_items[] = sprintf(
+											'<li><a class="%1$s" href="%2$s%3$s"><span class="label">%4$s</span></a></li>',
+											$key,
+											$scheme,
+											esc_attr( $link ),
+											$link
+										);
+									}
+								}
+								if ( ! empty( $contacs_items ) ) {
+									echo '<ul class="links contacts list-inline">' . implode( "\r\n", $contacs_items ) . '</ul>';
+								}
+							}
+							// вывод формы поиска
 							get_search_form( true );
 							echo get_languages_list( array(
 								'container_class' => 'languages list-inline',
