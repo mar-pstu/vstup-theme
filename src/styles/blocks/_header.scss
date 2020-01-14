@@ -39,6 +39,8 @@
 		padding: .5em 0;
 		transition: padding .2s;
 		a { color: #fff; }
+		.sub-menu a { color: #dbdbdb; }
+		.sub-menu a:hover { color: #fff; }
 		&--nav { background-color: lighten( $brand-primary, 10% ); }
 	}
 

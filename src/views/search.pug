@@ -1,0 +1,27 @@
+extend layout/_index
+
+
+block variables
+	- page.type = 'search';
+	- page.title = 'Блог';
+
+
+
+
+mixin search_entry( args )
+	.search__entry.entry
+		h3.title: a( href="#" ) #{args.title}
+		.small 20.12.2020
+		p.excerpt #{args.excerpt}
+
+
+
+block main
+	.container
+		include blocks/_pageheader
+		+search_entry( { title: 'Заголовок поста 1', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est ducimus unde, tenetur maxime blanditiis, accusamus magnam mollitia et veniam consectetur consequatur id ad amet, facilis soluta beatae quia! Debitis, architecto?' } )
+		+search_entry( { title: 'Заголовок поста 2', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur voluptatibus nihil, architecto accusamus itaque impedit repellendus veniam reprehenderit modi vitae odit ut mollitia illo at repudiandae id! Veritatis, veniam, ratione.' } )
+		+search_entry( { title: 'Заголовок поста 3', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti totam dolor minus. Voluptatum labore debitis optio dolor commodi molestiae distinctio nam, magni earum nihil vero esse deleniti fugit doloremque sed.' } )
+		+search_entry( { title: 'Заголовок поста 4', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas voluptatem minima quidem accusantium fugiat reiciendis quas sint, incidunt, perferendis animi sunt! Sapiente eum, suscipit rem, enim modi impedit laborum exercitationem.' } )
+		+search_entry( { title: 'Заголовок поста 5', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti enim necessitatibus dolorem debitis, libero vero ullam iusto repudiandae quae eligendi possimus, aut, numquam officia explicabo! Eos a illum commodi ipsam.' } )
+		include blocks/_pagination

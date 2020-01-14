@@ -202,7 +202,7 @@ function the_thumbnail_image( $post_id, $size = 'thumbnail', $attribute = 'src' 
 		'echo'   => false,
 		'post'   => $post_id,
 	) );
-	if ( ! $attachment_id ) {
+	if ( $attachment_id ) {
 		echo get_attachment_image( $attachment_id, array(
 			'size'       => $size,
 			'attribute'  => $attribute,
@@ -451,6 +451,9 @@ function get_share( $post_id = false ) {
 		$permalink = get_home_url();
 		$title = get_bloginfo( 'name' );
 		$thumbnail_url = ( has_header_image() ) ? get_header_image() : $thumbnail_url;
+	} elseif ( is_search() ) {
+		$permalink = get_search_link( get_search_query() );
+		$title = sprintf( __( 'Результаты поиска %s', VSTUP_TEXTDOMAIN ), get_search_query() );
 	} elseif ( $term_id = get_queried_object()->term_id ) {
 		$permalink = get_term_link( $term_id );
 		$title = single_term_title( $term_id, 0 );
@@ -507,6 +510,10 @@ function the_pageheader() {
 		$title = get_the_archive_title();
 		$excerpt = do_shortcode( get_the_archive_description() );
 		$thumbnail = __return_empty_string();
+	} elseif ( is_search() ) {
+		$title = __( 'Результаты поиска' );
+		$excerpt = __return_empty_string();
+		$thumbnail = __return_empty_string();
 	} else {
 		$title = single_post_title( '', false );
 		$excerpt = ( has_excerpt( get_the_ID() ) ) ? get_the_excerpt( get_the_ID() ) : false;
@@ -548,26 +555,20 @@ function get_warning_nav_menu() {
 
 
 
-
-function get_page_nav_menu( $post_id ) {
-	$result = __return_empty_array();
-	$pages = get_pages( array(
-		'sort_order'   => 'ASC',
-		'sort_column'  => 'post_title',
-		'hierarchical' => 0,
-		'parent'       => $post_id,
-		'offset'       => 0,
-		'post_type'    => 'page',
-		'post_status'  => 'publish',
-	) );
-	if ( is_array( $pages ) && ! empty( $pages ) ) {
-		foreach ( $pages as $page ) {
-			$result[] = sprintf(
-				'<li><a href="%1$s">%2$s</a></li>',
-				get_permalink( $page->ID ),
-				apply_filters( 'the_title', $page->post_title, $page->ID )
-			);
+/**
+ * Подсветка результатов поиска
+ **/
+function search_backlight( $text ) {
+	if ( is_search() ) {
+		$query_terms = get_query_var( 'search_terms' );
+		if ( empty( $query_terms ) ) $query_terms = array( get_query_var( 's' ) );
+		if ( empty( $query_terms ) ) return $text;
+		foreach( $query_terms as $term ) {
+			$term = preg_quote( $term, '/' );
+			$text = preg_replace_callback( "/$term/iu", function( $match ) {
+				return '<span class="bg-info">'. $match[ 0 ] .'</span>';
+			}, $text );
 		}
 	}
-	return ( empty( $result ) ) ? __return_empty_string() : '<ul class="menu">' . implode( "\r\n", $result ) . '</ul>';
+	return $text;
 }

@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 	<?php get_template_part( 'parts/head' ); ?>
-	<body class="front-page" data-nav="inactive">
+	<body <?php body_class(); ?> data-nav="inactive">
 		<?php get_template_part( 'parts/mobilenav' ); ?>
 		<div class="wrapper" id="wrapper">
 			<header class="wrapper__item wrapper__item--header header">
@@ -45,7 +45,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 							// вывод списка социальных сетей
 							$socials = get_theme_mod( VSTUP_SLUG . "_socials", array() );
 							if ( is_array( $socials ) && ! empty( $socials ) ) {
-								$socials_items = __return_empty_string();
+								$socials_items = __return_empty_array();
 								foreach ( $socials as $key => $link ) {
 									if ( ! empty( trim( $link ) ) ) {
 										$socials_items[] = sprintf(
@@ -62,7 +62,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 							// вывод списка контактов
 							$contacts = get_theme_mod( VSTUP_SLUG . "_contacts", array() );
 							if ( is_array( $contacts ) && ! empty( $contacts ) ) {
-								$contacs_items = __return_empty_string();
+								$contacs_items = __return_empty_array();
 								foreach ( $contacts as $key => $link ) {
 									if ( ! empty( trim( $link ) ) ) {
 										$scheme = __return_empty_string();

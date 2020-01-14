@@ -23,11 +23,12 @@ if ( ! empty( $items ) ) {
 		ob_clean();
 
 		$title = ( isset( $items[ $i ][ 'title' ] ) ) ? $items[ $i ][ 'title' ] : __return_empty_string();
-		$bgi = ( isset( $items[ $i ][ 'bgi' ] ) ) ? $items[ $i ][ 'bgi' ] : __return_empty_string();
+		$bgi = __return_empty_string();
+		$thumbnail_url = ( isset( $items[ $i ][ 'bgi' ] ) ) ? $items[ $i ][ 'bgi' ] : __return_empty_string();
 		$excerpt = ( isset( $items[ $i ][ 'excerpt' ] ) ) ? $items[ $i ][ 'excerpt' ] : __return_empty_string();
 		$permalink = ( isset( $items[ $i ][ 'permalink' ] ) ) ? $items[ $i ][ 'permalink' ] : __return_empty_string();
 		$label = ( isset( $items[ $i ][ 'label' ] ) ) ? $items[ $i ][ 'label' ] : __( 'Подробней', VSTUP_TEXTDOMAIN );
-		$nav_menu = __return_empty_string();
+		$warning_menu = __return_empty_string();
 		$page_menu = __return_empty_string();
 
 		if ( function_exists( 'pll__' ) ) {

@@ -27,21 +27,10 @@ the_pageheader();
 
 			?>
 
-				<div <?php post_class( 'archive__entry entry', get_the_ID() ); ?> id="post-<?php the_ID(); ?>">
-					<div class="row center-xs middle-xs">
-						<div class="col-xs-12 col-sm-6 col-md-4">
-							<a class="thumbnail" href="<?php the_permalink(); ?>">
-								<?php the_thumbnail_image( get_the_ID(), 'thumbnail' ); ?>
-							</a>
-						</div>
-						<div class="col-xs-12 col-sm-6 col-md-8">
-							<div class="overlay">
-								<h3 class="title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-								<div class="excerpt"><?php the_excerpt(); ?></div>
-								<p><a class="btn btn-sm btn-success" href="<?php the_permalink(); ?>"><?php _e( 'Подробней', VSTUP_TEXTDOMAIN ); ?></a></p>
-							</div>
-						</div>
-					</div>
+				<div <?php post_class( 'search__entry entry', get_the_ID() ); ?> id="post-<?php the_ID(); ?>">
+					<h3 class="title"><a href="<?php the_permalink(); ?>"><?php echo search_backlight( get_the_title( get_the_ID() ) ); ?></a></h3>
+					<div class="small"><?php the_date( get_option( 'date_format' ), '', '',  true ) ?></div>
+					<div class="excerpt"><?php echo search_backlight( get_the_excerpt( get_the_ID() ) ); ?></div>
 				</div>
 
 			<?php
@@ -60,6 +49,8 @@ the_pageheader();
 			'screen_reader_text' => __( 'Posts navigation' ),
 		) );
 
+	} else {
+		echo '<p>' . __( 'К сожалению ничего не найдено. Попробуйте изменит поисковый запрос.', VSTUP_TEXTDOMAIN ) . '</p>';
 	}
 
 ?>

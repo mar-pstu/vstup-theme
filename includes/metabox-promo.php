@@ -34,6 +34,7 @@ class MetaboxPromo {
 
 	function render( $post, $meta ) {
 		$slug = VSTUP_SLUG;
+		$subpage_menu = get_post_meta( $post->ID, "{$slug}_subpage_menu", true );
 		$nav_menus = wp_get_nav_menus();
 		$current_nav_menu = get_post_meta( $post->ID, "{$slug}_page_nav_menu", true );
 		wp_nonce_field( "{$slug}_promo", "{$slug}_nonce" );
@@ -48,6 +49,11 @@ class MetaboxPromo {
 		if ( ! wp_verify_nonce( $_POST[ "{$slug}_nonce" ], "{$slug}_promo" ) ) return;
 		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
 		if( ! current_user_can( 'edit_post', $post_id ) ) return;
+		if ( isset( $_REQUEST[ 'subpage_menu' ] ) && 'on' == $_REQUEST[ 'subpage_menu' ] ) {
+			update_post_meta( $post_id, "{$slug}_subpage_menu", true );
+		} else {
+			delete_post_meta( $post_id, "{$slug}_subpage_menu" );
+		}
 		if ( isset( $_REQUEST[ 'page_nav_menu' ] ) ) {
 			update_post_meta( $post_id, "{$slug}_page_nav_menu", sanitize_key( $_REQUEST[ 'page_nav_menu' ] ) );
 		} else {
