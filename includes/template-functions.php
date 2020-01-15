@@ -258,17 +258,15 @@ function get_services_list() {
 			if ( isset( $services[ $i ] ) ) {
 				$service = array_merge( array(
 					'title'     => '',
-					'permalink' => '',
+					'permalink' => '#',
 					'thumbnail' => '',
 				), ( array ) $services[ $i ] );
 				if ( ! empty( trim( $service[ 'title' ] ) ) ) {
-					$result[] = sprintf(
-						'<div class="col-xs-6 col-sm-4 col-md-4 col-lg-2"><%1$s class="flatitem lazy" href="%2$s" data-src="%3$s"><div class="title">%4$s</div></%1$s></div>',
-						( empty( trim( $service[ 'permalink' ] ) ) ) ? 'div' : 'a',
-						esc_attr( $service[ 'permalink' ] ),
-						esc_attr( $service[ 'thumbnail' ] ),
-						$service[ 'title' ]
-					);
+					extract( $service );
+					ob_start();
+					include get_theme_file_path( 'views/flatitem.php' );
+					$result[] = ob_get_contents();
+					ob_end_clean();
 				}
 			}
 		}
