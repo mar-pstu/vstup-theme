@@ -285,7 +285,7 @@ function get_slider_arrow_buttons( $slug ) {
 		'next' => __( 'Следующий слайд', VSTUP_TEXTDOMAIN ),
 	) as $key => $label ) {
 		$result[] = sprintf(
-			'<button class="slider-arrow arrow-%1$s" id="%2$s-arrow-next"><span class="sr-only">%2$s</span></button>',
+			'<button class="slider-arrow arrow-%1$s" id="%2$s-arrow-%1$s"><span class="sr-only">%2$s</span></button>',
 			$key,
 			$slug,
 			$label
@@ -323,12 +323,12 @@ function get_graduate_slider() {
 						'thumbnail'  => '',
 					),
 				), $graduates[ $i ] ) );
-				// if ( filter_var( $specialty[ 'thumbnail' ], FILTER_VALIDATE_URL ) ) {
-				// 	$foto = wp_get_attachment_image_url( $foto, 'thumbnail', false );
-				// }
-				// if ( filter_var( $specialty[ 'thumbnail' ], FILTER_VALIDATE_URL ) ) {
-				// 	$specialty[ 'thumbnail' ] = wp_get_attachment_image_url( $specialty[ 'thumbnail' ], 'thumbnail', false );
-				// }
+				if ( filter_var( $foto, FILTER_VALIDATE_INT ) ) {
+					$foto = wp_get_attachment_image_url( $foto, 'thumbnail', false );
+				}
+				if ( filter_var( $specialty[ 'thumbnail' ], FILTER_VALIDATE_INT ) ) {
+					$specialty[ 'thumbnail' ] = wp_get_attachment_image_url( $specialty[ 'thumbnail' ], 'thumbnail', false );
+				}
 				include get_theme_file_path( 'views/graduate.php' );
 			}
 		}
