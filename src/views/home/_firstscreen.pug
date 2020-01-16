@@ -17,10 +17,41 @@ mixin firstscreen_entry( args )
 
 #firstscreen.firstscreen.slider
 	#firstscreen-list
-		+firstscreen_entry( { thumbnail: src.img+'jumbotron/01.jpg', title: 'Заголовок 1', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem enim labore optio eaque non, iste assumenda quod minus atque fugit, laborum nesciunt ullam necessitatibus! Soluta earum explicabo culpa sunt iure!' } )
-		+firstscreen_entry( { thumbnail: src.img+'jumbotron/02.jpg', title: 'Заголовок 2', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo hic, alias voluptas deleniti non, vel voluptates, dignissimos consequuntur consectetur exercitationem reiciendis expedita suscipit voluptatem quidem sunt praesentium, autem iusto harum.' } )
-		+firstscreen_entry( { thumbnail: src.img+'jumbotron/03.jpg', title: 'Заголовок 3', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas maxime tempora voluptatibus ducimus qui ad, excepturi unde delectus expedita, optio soluta doloribus eaque facilis sed quia nesciunt mollitia ut voluptatem!' } )
-		+firstscreen_entry( { thumbnail: src.img+'jumbotron/04.jpg', title: 'Заголовок 4', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam maiores, fugit! Esse velit quidem doloremque pariatur, voluptatum exercitationem numquam error eligendi, voluptate officiis commodi. Voluptatem nihil, ab sed beatae. Consequuntur.' } )
+		+firstscreen_entry( {
+			thumbnail: src.img+'jumbotron/european-education.jpg',
+			title: 'Ваша цель получить высшее образование европейского уровня?',
+			excerpt: 'Университет  входит в европейскую зону высшего образования, которая обеспечивает мобильность трудоустройстве. Национальная система образования совместима с европейскими.'
+		} )
+		+firstscreen_entry( {
+			thumbnail: 'https://pstu.edu/wp-content/uploads/2018/08/Наука.jpg',
+			title: 'Вы мечтаете внести свой вклад в науку?',
+			excerpt: 'Научная деятельность обеспечивает высокую квалификацию любого специалиста, способность творчески применить в практической деятельности новейшие достижения'
+		} )
+		+firstscreen_entry( {
+			thumbnail: src.img+'jumbotron/foreign-students.jpg',
+			title: 'Вы иностранец и хотите учиться в Украине?',
+			excerpt: 'Студенты получают языковую подготовку и адаптацию, достойный уровень образования всех уровней, и в перспективе вид на жительство.'
+		} )
+		+firstscreen_entry( {
+			thumbnail: src.img+'jumbotron/langeage.jpg',
+			title: 'Хотите овладеть иностранным языком и получить международные сертификаты?',
+			excerpt: 'Международный образовательно-квалификационный центр осуществляет подготовку студентов к сдаче международных екзаменов по иностранному языку.'
+		} )
+		+firstscreen_entry( {
+			thumbnail: src.img+'jumbotron/leisure.jpg',
+			title: 'Вы хотите учиться и заниматься спортом, иметь интересный досуг?',
+			excerpt: 'Студенческие годы – отдельная маленькая жизнь, наполнена самыми крутыми событиями, созиданием и энергией.'
+		} )
+		+firstscreen_entry( {
+			thumbnail: src.img+'jumbotron/vsu.jpg',
+			title: 'Вы хотите получить военную профессию и защищать Украину?',
+			excerpt: 'Обучение на военной кафедре и получение военной специальности параллельно с обучением или службой.'
+		} )
+		+firstscreen_entry( {
+			thumbnail: src.img+'jumbotron/projects.jpg',
+			title: 'Вы готовы участвовать в международных проектах?',
+			excerpt: 'Студенты являются активными участниками программы трансевропейского сотрудничества, они занимаются разработкой инновационных предложений для европейских партнеров.'
+		} )
 	#firstscreen-controls.controls: .container.text-right
 		button#firstscreen-prev.arrow.prev #[span.sr-only Предыдущий слайд]
 		button#firstscreen-next.arrow.next #[span.sr-only Следующий слайд]
