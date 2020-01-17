@@ -145,7 +145,7 @@ gulp.task( 'styles', function () {
 		.pipe( plumber() )
 		.pipe( sourcemaps.init() )
 		.pipe( styles().on( 'error', styles.logError ) )
-		.pipe( autoprefixer() )
+		.pipe( autoprefixer( [ 'last 15 versions', '> 1%', 'ie 11' ], { cascade: true } ) )
 		.pipe( sourcemaps.write( '.' ) )
 		.pipe( gulp.dest( './styles/' ) )
 		.on( 'end', browserSync.reload );
