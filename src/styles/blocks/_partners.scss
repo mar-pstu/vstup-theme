@@ -1,0 +1,75 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.partners {
+
+	// background-color: $body-color;
+	padding: 1em 0;
+
+	.item {
+		display: block;
+		margin-left: 1em;
+		margin-right: 1em;
+	}
+
+
+	.item:hover img {
+		filter: grayscale( 0% );
+	}
+
+	&__item img {
+		transition: .2s filter;
+		display: block;
+		height: 3em;
+		filter: grayscale( 100% );
+	}
+
+
+	.controls .arrow {
+		@extend %background-icon;
+		@extend %icon-arrow-light;
+		display: inline-block;
+		background-color: transparent;
+		width: 1em;
+		height: 1em;
+		border: none;
+		transform-origin: center center;
+		margin-left: .5em;
+		margin-right: .5em;
+	}
+
+	.controls .prev { order: -1; transform: rotate( 90deg ); }
+	.controls .next { order: 1; transform: rotate( -90deg ); }
+
+
+	.controls {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		margin: 1em 0;
+	}
+
+	.controls .slider-dots {
+		order: 0;
+	}
+
+
+	.slider-dots button {
+		background-color: #fff;
+		margin-top: 2em;
+	}
+
+}

@@ -1,0 +1,63 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.flatitem {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	position: relative;
+	background-position: center center;
+	background-size: cover;
+	min-height: 8em;
+	padding: .5em 1em;
+	margin-bottom: $flexboxgrid-outer-margin * 2;
+	font-size: 85%;
+	height: inherit;
+	box-sizing: border-box;
+	max-width: 25em;
+}
+
+
+
+.flatitem::before {
+	content: '';
+	z-index: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: transparentize( $brand-primary, .50 );
+	transition: background-color .2s;
+}
+
+
+
+.flatitem:hover::before {
+	background-color: transparentize( $brand-primary, .25 );
+}
+
+
+
+.flatitem .title {
+	@extend h4;
+	color: #fff;
+	margin: 0;
+	position: relative;
+	z-index: 1;
+	max-height: 4em * $line-height-base;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

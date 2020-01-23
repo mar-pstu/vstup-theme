@@ -1,0 +1,65 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+.specialties {
+
+
+	.item {
+		display: flex !important;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+		padding: 1em 1.5em;
+		margin: .5em;
+		border: 1px solid $border-color;
+		height: inherit;
+		min-height: 15em;
+		background-color: #fff;
+		font-size: 85%;
+		max-width: 20em;
+	}
+
+
+	.item:hover {
+		text-decoration: none;
+	}
+
+
+	.slider {
+		margin: 1em 2em;
+	}
+
+
+	&__item {
+		.title {
+			text-align: center;
+			order: 2;
+			margin: 0;
+			font-size: 1em;
+		}
+		.sector {
+			font-size: 85%;
+			// font-style: italic;
+			text-align: center;
+			margin: .5em;
+		}
+		.thumbnail {
+			width: 5em;
+			height: 5em;
+			order: -1;
+			margin: .5em;
+		}
+	}
+
+
+}

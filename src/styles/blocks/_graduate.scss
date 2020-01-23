@@ -1,0 +1,61 @@
+
+
+
+
+
+
+
+
+.graduate {
+	display: flex !important;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	padding: 2em 1em;
+	margin: 1em;
+	background-color: #fff;
+	min-height: 20em;
+	border: 1px solid $border-color;
+	position: relative;
+	text-align: center;
+	min-height: 25em;
+}
+
+
+
+.graduate {
+	.sector {
+		position: absolute;
+		top: 0;
+		right: 0;
+		margin: 1em;
+		width: 3em;
+		height: 3em;
+	}
+	.specialty {
+		font-size: 85%;			
+		margin-left: 1em;
+		color: $brand-primary;
+		// font-style: italic;
+		// font-weight: bold;
+	}
+	.title {
+		font-style: italic;
+		margin: .5em 0;
+		font-weight: normal;
+	}
+	.thumbnail {
+		width: 10em;
+		height: 10em;
+		order: -1;
+		border-radius: 50%;
+		overflow: hidden;
+		margin: .5em 0;
+	}
+	.excerpt {
+		margin: .5em 0;
+	}
+	a:hover {
+		text-decoration: none;
+	}
+}

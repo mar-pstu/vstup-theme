@@ -1,0 +1,151 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.videos {
+
+
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: contain;
+
+
+	&__title {
+		display: inline-block;
+		margin-bottom: 1em;
+		vertical-align: middle;
+		@include min-width( $screen-sm ) {
+			margin-bottom: 2em;
+		}
+	}
+	
+	&__title + .title {
+		margin-left: .5em;
+		@include min-width( $screen-sm ) {
+			margin-left: 2em;
+		}
+	}
+
+	.title {
+		a {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			padding: .5em;
+			text-decoration: none;
+			font-size: 75%;
+			width: 12em;
+			min-height: 4em;
+			@include min-width( $screen-sm ) {
+				padding: 1em 2em;
+				width: 15em;
+			}
+		}
+		a::after {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 100%;
+			left: 50%;
+			width: 0;
+			height: 0;
+			margin-left: -1em;
+			border: 1em solid transparent;
+		}
+		a:hover {
+			text-decoration: none;
+			background-color: lighten( $brand-primary, 50% );
+			color: #fff;
+		}
+		a.active {
+			background-color: $brand-primary;
+			color: #fff;
+			position: relative;
+		}
+		a.active .title {
+			color: #fff;
+		}
+		a.active::after {
+			border-top: 1em solid $brand-primary;
+		}
+	}
+
+
+	&__item {
+		display: none;
+		margin: 1em auto;
+		max-width: 30em;
+		position: relative;
+		background-color: #fff;
+		padding: .5em;
+		box-shadow: 0 1em 1em rgba( 0, 0, 0, .25 );
+		@include min-width( $screen-sm ) {
+			margin: 2em auto;
+		}
+	}
+
+	&__item.active {
+		display: block;
+		background-color: #fff;
+	}
+
+
+	.item::before {
+		content: '';
+		display: block;
+		position: absolute;
+		top: .5em;
+		left: .5em;
+		right: .5em;
+		bottom: .5em;
+		z-index: 1;
+		background-color: transparentize( $brand-primary, .75 );
+		transition: background-color .2s
+	}
+
+
+	.item::after {
+		@extend %icon-play;
+		@extend %background-icon;
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-top: -2.5em;
+		margin-left: -2.5em;
+		width: 5em;
+		height: 5em;
+		z-index: 2;
+		transform-origin: center center;
+		transition: transform .2s;
+	}
+
+
+	.item:hover::after {
+		transform: scale( 1.2 );
+	}
+
+	.item:hover::before {
+		background-color: transparentize( $brand-primary, .50 );
+	}
+
+	.item img {
+		display: block;
+		position: relative;
+		z-index: 0;
+	}
+
+
+}

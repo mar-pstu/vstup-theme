@@ -1,0 +1,134 @@
+
+
+
+
+
+
+
+
+
+
+
+.nav {
+
+	& {
+		position: relative;
+	}
+
+	.list {
+		list-style-type: none;
+		padding-left: 0;
+		margin: 0;
+		display: none;
+		@include min-width( $screen-lg ) {
+			display: block;
+		}
+	}
+
+
+	&__list {
+		> li { display: inline-block; }
+		> li > a { display: block; padding: .5em 1em; transition: background-color .2s }
+		> li:hover > a { background-color: rgba( 255, 255, 255, .1 ); }
+		> li.has-sub-menu > a::after {
+			@extend %icon;
+			@extend %background-icon;
+			@extend %icon-arrow-light;
+			content: '';
+			margin-left: 1em;
+			font-size: 50%;
+		}
+		> li.has-sub-menu > .sub-menu {
+			position: absolute;
+			top: 100%;
+			left: 0%;
+			display: none;
+			background-color: $brand-primary;
+			z-index: 999;
+		}
+	}
+
+
+
+
+
+
+
+	.item--columns {
+		&:hover > .sub-menu { display: block; }
+		& > .sub-menu {
+			column-count: 2;
+			right: 0%;
+			list-style-position: inside;
+			list-style-type: none;
+			padding: .5em 1em 1em 1em;
+		}
+		.sub-menu .sub-menu {
+			font-size: 85%;
+			display: inline-block;
+			vertical-align: top;
+			width: 100%;
+			list-style-type: none;
+			padding-left: 0;
+		}
+		.sub-menu .sub-menu li:before {
+			content: "\2022";
+			color: #fff;
+			width: 1em;
+			margin-right: 1em;
+		}
+	}
+	
+
+
+
+	.item--simple {
+		& { position: relative; }
+		&:hover .sub-menu { display: block; }
+		a:hover { background-color: rgba( 255, 255, 255, .1 ); }
+		.sub-menu {
+			min-width: 15em;
+			display: none;
+			list-style-type: none;
+			background-color: $brand-primary;
+			padding-left: 0;
+			font-size: 85%;
+		}
+		a {
+			display: block;
+			padding: .5em 1em;
+			transition: background-color .2;
+		}
+	}
+
+
+
+
+	.burger {
+		@extend %xy-center;
+		margin-left: auto;
+		width: 2.5em;
+		height: 2.5em;
+		border: none;
+		background-color: transparent;
+		transform-origin: center center;
+		transition: transform .2s;
+		.icon {
+			width: inherit;
+			height: inherit;
+		}
+		path {
+			fill: #fff;
+		}
+		@include min-width( $screen-lg ) {
+			display: none;
+		}
+		&.active {
+			transform: rotate( -90deg );
+		}
+	}
+
+
+
+
+}

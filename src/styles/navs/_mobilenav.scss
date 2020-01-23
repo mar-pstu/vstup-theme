@@ -1,0 +1,74 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.mobilenav {
+
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: -1;
+	opacity: 0;
+	transition: opacity .2s;
+	visibility: hidden;
+	
+
+	.bg {
+		position: absolute;
+		background-color: rgba( 0, 0, 0, .5 );
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	}
+	
+	.overlay {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		min-width: 40%;
+		padding: .5em 2em;
+		background-color: #fff;
+		overflow-y: auto;
+	}
+
+	.close {
+		@extend %background-icon;
+		display: block;
+		background-image: url( 'data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDI0MS4xNzEgMjQxLjE3MSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMjQxLjE3MSAyNDEuMTcxOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjUxMnB4IiBoZWlnaHQ9IjUxMnB4Ij4KPGc+Cgk8cGF0aCBpZD0iQ2xvc2UiIGQ9Ik0xMzguMTM4LDEyMC43NTRsOTkuMTE4LTk4LjU3NmM0Ljc1Mi00LjcwNCw0Ljc1Mi0xMi4zMTksMC0xNy4wMTFjLTQuNzQtNC43MDQtMTIuNDM5LTQuNzA0LTE3LjE3OSwwICAgbC05OS4wMzMsOTguNDkyTDIxLjA5NSwzLjY5OWMtNC43NC00Ljc1Mi0xMi40MzktNC43NTItMTcuMTc5LDBjLTQuNzQsNC43NjQtNC43NCwxMi40NzUsMCwxNy4yMjdsOTkuODc2LDk5Ljg4OEwzLjU1NSwyMjAuNDk3ICAgYy00Ljc0LDQuNzA0LTQuNzQsMTIuMzE5LDAsMTcuMDExYzQuNzQsNC43MDQsMTIuNDM5LDQuNzA0LDE3LjE3OSwwbDEwMC4xNTItOTkuNTk5bDk5LjU1MSw5OS41NjMgICBjNC43NCw0Ljc1MiwxMi40MzksNC43NTIsMTcuMTc5LDBjNC43NC00Ljc2NCw0Ljc0LTEyLjQ3NSwwLTE3LjIyN0wxMzguMTM4LDEyMC43NTR6IiBmaWxsPSIjMDAwMDAwIi8+Cgk8Zz4KCTwvZz4KCTxnPgoJPC9nPgoJPGc+Cgk8L2c+Cgk8Zz4KCTwvZz4KCTxnPgoJPC9nPgoJPGc+Cgk8L2c+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==' );
+		width: 2em;
+		height: 2em;
+		min-width: .5em;
+		padding: 0;
+		display: block;
+		float: right;
+		background-color: transparent;
+		border: none;
+		cursor: pointer;
+	}
+
+}
+
+
+
+
+.mobilenav.active {
+	z-index: 999;
+	opacity: 1;
+	visibility: visible;
+}

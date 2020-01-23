@@ -1,0 +1,45 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.questions {
+
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	
+	.title {
+		text-align: center;
+		font-size: 1.5em;
+		color: #fff;
+		text-shadow: .2em .2em .5em rgba( 0, 0, 0, .9 );
+		@include min-width( $screen-md ) {
+			font-size: 3em;
+			text-align: right;
+		}
+	}
+
+	.form,
+	form {
+		background-color: #fff;
+		padding: 1em;
+		margin: 2em auto;
+		box-shadow: 0 0 2em rgba( 0, 0, 0, .5 );
+		@include min-width( $screen-md ) {
+			padding: 2em;
+		}
+	}
+
+
+}

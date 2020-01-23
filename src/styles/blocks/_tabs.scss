@@ -1,0 +1,101 @@
+
+
+
+
+
+
+
+
+.tabs[data-heading] {
+	margin: 15px auto;
+}
+
+
+
+.tabs[data-heading] .tabs-heading {
+
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	
+	li {
+		display: inline-block;
+		margin-bottom: -4px;
+		padding: .5em 1em;
+		color: #fff;
+		text-decoration: none;
+		text-transform: uppercase;
+		font-weight: bold;
+		text-shadow: 1px 1px 1px rgba( 0, 0, 0, 0.75 );
+		font-size: 1em;
+		cursor: pointer;
+		font-weight: bold;
+		box-sizing: border-box;
+	}
+
+	li + li {
+		margin-left: 3px;
+	}
+
+	li:hover {
+		text-decoration: none;
+	}
+
+	li.active:hover {
+		background-color: #fff;
+	}
+
+	li.active {
+		background-color: #fff;
+		border-bottom: 2px solid #fff;
+		color: inherit;
+		text-shadow: none;
+		font-size: 1em;
+	}
+
+}
+
+
+
+.tabs[data-heading] .tab-section {
+
+	padding: 5px 10px;
+	margin: 0;
+	border-top: none;
+	position: relative;
+	display: none;
+	background-color: #fff;
+
+	&.active {
+		display: block;
+	}
+
+}
+
+
+.tabs[data-heading] .accordio-section .heading {
+	padding: 0.75em;
+}
+
+
+
+// цвета
+
+.tabs[data-heading] {
+	.tabs-heading { border-bottom: 2px solid $brand-default; }
+	.tabs-heading li { background-color: $brand-default; border-bottom: 2px solid $brand-default; }
+	.tabs-heading li:hover { background-color: lighten( $brand-default, 5% ); }
+	.tabs-heading li.active { border: 2px solid $brand-default; }
+	.tab-section { border: 2px solid $brand-default; border-top: none; }
+}
+
+@each $name, $color in $brand-colors {
+	.tabs--#{$name}[data-heading] {
+		.tabs-heading { border-bottom: 2px solid $color; }
+		.tabs-heading li { background-color: $color; border-bottom: 2px solid $color; }
+		.tabs-heading li:hover { background-color: lighten( $color, 5% ); }
+		.tabs-heading li.active { border: 2px solid $color; }
+		.tab-section { border: 2px solid $color; border-top: none; }
+	}
+}
+
