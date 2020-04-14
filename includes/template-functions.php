@@ -570,3 +570,36 @@ function search_backlight( $text ) {
 	}
 	return $text;
 }
+
+
+
+
+/**
+ * Функция для очистки массива параметров
+ * @param  array $default           расзерённые парметры и стандартные значения
+ * @param  array $args              неочищенные параметры
+ * @param  array $sanitize_callbackодномерный массив с именами функция, с помощью поторых нужно очистить параметры
+ * @param  array $required          обязательные параметры
+ * @return array                    возвращает ощиченный массив разрешённых параметров
+ */
+function parse_only_allowed_args( $default, $args, $sanitize_callback = [], $required = [] ) {
+	$args = ( array ) $args;
+	$result = [];
+	$count = 0;
+	while ( ( $value = current( $default ) ) !== false ) {
+		$key = key( $default );
+		if ( array_key_exists( $key, $args ) ) {
+			$result[ $key ] = $args[ $key ];
+			if ( isset( $sanitize_callback[ $count ] ) && ! empty( $sanitize_callback[ $count ] ) ) {
+				$result[ $key ] = $sanitize_callback[ $count ]( $result[ $key ] );
+			}
+		} elseif ( in_array( $key, $required ) ) {
+			return null;
+		} else {
+			$result[ $key ] = $value;
+		}
+		$count = $count + 1;
+		next( $default );
+	}
+	return $result;
+}

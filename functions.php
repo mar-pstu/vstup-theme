@@ -37,8 +37,10 @@ if ( function_exists( 'pll_register_string' ) ) {
  **/
 if ( is_admin() && ! wp_doing_ajax() ) {
 	include get_theme_file_path( 'includes/metabox-promo.php' );
+	include get_theme_file_path( 'includes/custom-asides.php' );
 	new vstup\MetaboxPromo();
 }
+
 
 
 
@@ -141,19 +143,26 @@ add_action( 'after_setup_theme', 'vstup_register_nav_menus' );
  * Регистрация "сайдбаров"
  */
 function vstup_register_sidebars() {
-	register_sidebar( array(
-		'name'             => __( 'Сайдбар подвала', VSTUP_TEXTDOMAIN ),
-		'id'               => 'footer',
-		'description'      => '',
-		'class'            => '',
-		'before_widget'    => '<div class="col-xs-12 col-sm-6 col-md-3"><div id="%1$s" class="widget %2$s">',
-		'after_widget'     => '</div></div>',
-		'before_title'     => '<h3 class="widget__title">',
-		'after_title'      => '</h3>',
-	) );
+	$asides = array_merge( [ [
+		'name'          => __( 'Сайдбар подвала', VSTUP_TEXTDOMAIN ),
+		'id'            => 'footer',
+		'description'   => '',
+		'class'         => '',
+	] ], get_theme_mod( 'register_asides', [] ) );
+	foreach ( $asides as $aside ) {
+		register_sidebar( array(
+			'name'             => $aside[ 'name' ],
+			'id'               => $aside[ 'id' ],
+			'description'      => $aside[ 'description' ],
+			'class'            => $aside[ 'class' ],
+			'before_widget'    => '<div class="col-xs-12 col-sm-6 col-md-3"><div id="%1$s" class="widget %2$s">',
+			'after_widget'     => '</div></div>',
+			'before_title'     => '<h3 class="widget__title">',
+			'after_title'      => '</h3>',
+		) );
+	}
 }
 add_action( 'widgets_init', 'vstup_register_sidebars' );
-
 
 
 
@@ -214,3 +223,39 @@ function vstup_add_content_lazyload_images( $content ) {
 	return implode( "", $result );
 }
 add_filter( 'the_content', 'vstup_add_content_lazyload_images', 10, 1 );
+
+
+
+
+
+/**
+ * Проверяем есть нужна ли замена колонки у страницы и если есть,
+ * то регистрируем соответствующий фильтр
+ */
+function vstup_replace_default_column() {
+	$custom_asides = '';
+	if ( is_singular( 'page' ) ) {
+		$custom_asides = get_post_meta( get_the_ID(), '_custom_asides', true );
+	} elseif ( is_singular( 'post' ) ) {
+		$categories = get_terms( [
+			'taxonomy'   => 'category',
+			'object_ids' => get_the_ID(),
+			'fields'     => 'ids',
+			'meta_key'   => '_custom_asides',
+		] );
+		if ( is_array( $categories ) && ! empty( $categories ) ) {
+			$custom_asides = get_term_meta( $categories[ 0 ], '_custom_asides', true );
+		}
+	} elseif ( is_category() ) {
+		$custom_asides = get_term_meta( get_queried_object()->term_id, '_custom_asides', true );
+	}
+	if ( ! empty( $custom_asides ) ) {
+		add_filter( 'sidebars_widgets', function( $sidebars ) use ( $custom_asides ) {
+			if ( array_key_exists( $custom_asides, $sidebars ) ) {
+				$sidebars[ 'footer' ] = $sidebars[ $custom_asides ];
+			}
+			return $sidebars;
+		}, 5, 1 );
+	}
+}
+add_action( 'wp', 'vstup_replace_default_column' );
