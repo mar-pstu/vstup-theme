@@ -13,7 +13,7 @@ $wp_customize->add_section(
 		'title'            => __( 'Контакты', VSTUP_TEXTDOMAIN ),
 		'priority'         => 10,
 		'description'      => __( 'Список контактов организации', VSTUP_TEXTDOMAIN ),
-		'panel'            => $slug
+		'panel'            => "{$slug}_list",
 	)
 ); /**/
 

@@ -10,7 +10,7 @@ $wp_customize->add_section(
 		'title'            => __( 'Список выпускников', VSTUP_TEXTDOMAIN ),
 		'priority'         => 10,
 		'description'      => __( 'Список выпускников. Публикуется на главной странице в блоке "Люди". Можно вывести с помощью шорткода <code>[GRADUATES]</code>', VSTUP_TEXTDOMAIN ),
-		'panel'            => $slug,
+		'panel'            => "{$slug}_list",
 	)
 ); /**/
 

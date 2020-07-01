@@ -10,7 +10,7 @@ $wp_customize->add_section(
 		'title'            => __( 'Список Услуг', VSTUP_TEXTDOMAIN ),
 		'priority'         => 10,
 		'description'      => __( 'Публикуется на главной странице в блоке "Услуги". Можно вывести с помощью шорткода <code>[SERVICES]</code>', VSTUP_TEXTDOMAIN ),
-		'panel'            => $slug,
+		'panel'            => "{$slug}_list",
 	)
 ); /**/
 

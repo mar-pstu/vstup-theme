@@ -56,10 +56,10 @@ if ( is_customize_preview() ) {
 			)
 		);
 		$wp_customize->add_panel(
-			$slug,
+			"{$slug}_list",
 			array(
 				'capability'      => 'edit_theme_options',
-				'title'           => __( 'Настройки темы', VSTUP_TEXTDOMAIN ),
+				'title'           => __( 'Списки темы', VSTUP_TEXTDOMAIN ),
 				'priority'        => 300
 			)
 		);
