@@ -10,6 +10,17 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
 
+/**
+ *  Определяет есть ли дочернее меню у переданного пункта
+ */
+function is_nav_has_sub_menu( $item_id, $items ) {
+	foreach( $items as $item ) {
+		if( $item->menu_item_parent && $item->menu_item_parent == $item_id ) return true;
+	}
+	return false;
+}
+
+
 
 function get_custom_logo_img() {
 	$result = __return_empty_string();

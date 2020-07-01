@@ -1,9 +1,6 @@
 <?php
 
 
-// namespace vstup;
-
-
 if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
@@ -259,3 +256,16 @@ function vstup_replace_default_column() {
 	}
 }
 add_action( 'wp', 'vstup_replace_default_column' );
+
+
+
+/**
+ * Добавляет класс к родительским пунктам меню
+ */
+function vstup_add_class_to_parent_menu_item( $items ) {
+	foreach( $items as $item ) {
+		if( vstup\is_nav_has_sub_menu( $item->ID, $items ) ) $item->classes[] = 'has-sub-menu';
+	}
+	return $items;
+}
+add_filter( 'wp_nav_menu_objects', 'vstup_add_class_to_parent_menu_item' );
