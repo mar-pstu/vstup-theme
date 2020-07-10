@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 			<div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-1 text-center">
 				<?php if ( ! empty( $thumbnail ) ) : ?><img class="lazy logo" src="#" data-src="<?php echo esc_attr( $thumbnail ); ?>"><?php endif; ?>
 				<?php if ( ! empty( $title ) ) : ?><h2 class="title"><?php echo $title; ?></h2><?php endif; ?>
-				<?php if ( ! empty( $excerpt ) ) : ?><div class="excerpt"></div><?php endif; ?>
+				<?php if ( ! empty( $excerpt ) ) : ?><div class="excerpt"><?php echo $excerpt; ?></div><?php endif; ?>
 				<?php if ( ! empty( $permalink ) ) : ?>
 					<p>
 						<a class="btn btn-success" href="<?php echo  esc_attr( $permalink ); ?>">

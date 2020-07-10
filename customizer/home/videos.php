@@ -66,7 +66,7 @@ for ( $i=0; $i<3; $i++ ) {
 		array(
 			'default'           => '',
 			'transport'         => 'reset',
-			'sanitize_callback' => 'sanitize_text_field',
+			'sanitize_callback' => 'sanitize_url',
 		)
 	);
 	$wp_customize->add_control(
@@ -90,9 +90,9 @@ for ( $i=0; $i<3; $i++ ) {
 		   $wp_customize,
 		   "{$slug}_videos[{$i}][thumbnail]",
 		   array(
-			   'label'      => __( sprintf( 'превью №%d', ( $i + 1 ) ), VSTUP_TEXTDOMAIN ),
-			   'section'    => "{$slug}_videos",
-			   'settings'   => "{$slug}_videos[{$i}]",
+			   'label'          => __( sprintf( 'превью №%d', ( $i + 1 ) ), VSTUP_TEXTDOMAIN ),
+			   'section'        => "{$slug}_videos",
+			   'settings'       => "{$slug}_videos[{$i}][thumbnail]",
 		   )
 	   )
 	);

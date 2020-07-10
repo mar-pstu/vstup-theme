@@ -37,7 +37,7 @@ if ( is_array( $videos ) && ! empty( $videos ) ) {
 					$videos[ $i ][ 'label' ]
 				);
 				$items[] = sprintf(
-					'<a class="fancybox videos__item item %1$s" id="#video-item-%2$s" href="%3$s"><img class="lazy" src="#" data-src="%4$s" alt="%5$s"></a>',
+					'<a class="fancybox videos__item item %1$s" id="video-item-%2$s" href="%3$s"><img class="lazy" src="#" data-src="%4$s" alt="%5$s"></a>',
 					( 0 == $i ) ? 'active' : 'inactive',
 					$i,
 					$videos[ $i ][ 'url' ],
