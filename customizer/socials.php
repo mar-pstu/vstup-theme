@@ -12,7 +12,7 @@ $wp_customize->add_section(
 	array(
 		'title'            => __( 'Социальные сети', VSTUP_TEXTDOMAIN ),
 		'priority'         => 10,
-		'description'      => __( 'Список ссылок на странцы соцыальных сетей организации', VSTUP_TEXTDOMAIN ),
+		'description'      => __( 'Список ссылок на страницы социальных сетей организации', VSTUP_TEXTDOMAIN ),
 		'panel'            => "{$slug}_list",
 	)
 ); /**/

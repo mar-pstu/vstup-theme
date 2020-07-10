@@ -18,8 +18,6 @@ get_template_part( 'includes/gutenberg' );
 
 
 
-
-
 /**
  * Регистрация переводов строк
  */
@@ -85,7 +83,6 @@ if ( is_customize_preview() ) {
 
 
 
-
 function vstup_theme_supports() {
 	add_theme_support( 'menus' );
 	add_theme_support( 'custom-logo' );
@@ -96,7 +93,7 @@ function vstup_theme_supports() {
 	add_image_size( 'thumbnail-3x2', 600, 400, true ); // размер миниатюры 3x2 с жестким кадрированием
 	add_filter( 'image_size_names_choose', function ( $sizes ) {
 		return array_merge( $sizes, array(
-			'thumbnail-3x2' => __( '2x3 жесткое кадрирование', 'pstu-next-theme' ),
+			'thumbnail-3x2' => __( '2x3 жесткое кадрирование', VSTUP_TEXTDOMAIN ),
 		) );
 	}, 10, 1 );
 }

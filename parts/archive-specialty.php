@@ -24,7 +24,7 @@ $educational_programs = get_posts( array(
 
 <div class="container">
 
-	<h2><?php _e( 'Освітні програми', VSTUP_TEXTDOMAIN ); ?></h2>
+	<h2><?php _e( 'Образовательные программы', VSTUP_TEXTDOMAIN ); ?></h2>
 
 	<div class="row stretch-xs">
 

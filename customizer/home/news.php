@@ -84,7 +84,7 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-	"{$slug}_news_heading",
+	"{$slug}_news_title",
 	array(
 		'default'           => __( 'Новости', VSTUP_TEXTDOMAIN ),
 		'transport'         => 'reset',
@@ -92,7 +92,7 @@ $wp_customize->add_setting(
 	)
 );
 $wp_customize->add_control(
-	"{$slug}_news_heading",
+	"{$slug}_news_title",
 	array(
 		'section'           => "{$slug}_news",
 		'label'             => __( 'Заголовок секции', VSTUP_TEXTDOMAIN ),

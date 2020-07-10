@@ -1,16 +1,13 @@
 <?php
 
 
-
 namespace vstup;
-
 
 
 if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
-
-$category_id = get_translate_id( get_theme_mod( VSTUP_SLUG . '_news_category_id', __return_empty_string() ), 'category' );
+$category_id = get_translate_id( get_theme_mod( VSTUP_SLUG . '_news_category_id', '' ), 'category' );
 
 
 if ( ! empty( $category_id ) ) {
@@ -21,15 +18,11 @@ if ( ! empty( $category_id ) ) {
 		$heading = pll__( $heading );
 	}
 
-	if ( empty( $heading ) ) {
-		$heading = get_term_field( 'name', $category_id, 'category', 'raw' );
-	}
-
-	$entries = __return_empty_array();
-	$sticky_entries = __return_empty_array();
+	$entries = [];
+	$sticky_entries = [];
 
 	$sticky_ids = get_option( 'sticky_posts' );
-	$sticky_ids = ( is_array( $sticky_ids ) ) ? array_slice( $sticky_ids, 0, 3 ) : __return_empty_array();
+	$sticky_ids = ( is_array( $sticky_ids ) ) ? array_slice( $sticky_ids, 0, 3 ) : [];
 
 	$sticky_entries = get_posts( array(
 		'numberposts' => 3,

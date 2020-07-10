@@ -265,27 +265,12 @@ function the_thumbnail_image( $post_id, $size = 'thumbnail', $attribute = 'src' 
 
 
 function get_categories_choices() {
-	$result = __return_empty_array();
-	$categories = get_categories( array(
-		'taxonomy'     => 'category',
-		'type'         => 'post',
-		'child_of'     => 0,
-		'parent'       => '',
-		'orderby'      => 'name',
-		'order'        => 'ASC',
-		'hide_empty'   => 1,
-		'hierarchical' => 1,
-		'exclude'      => '',
-		'include'      => '',
-		'number'       => 0,
-		'pad_counts'   => false,
-	) );
-	if ( is_array( $categories ) && ! empty( $categories ) ) {
-		foreach ( $categories as $category ) {
-			$result[ $category->term_id ] = esc_html( apply_filters( 'single_cat_title', $category->name ) );
-		}
-	}
-	return $result;
+	$categories = get_terms( [
+		'taxonomy'   => 'category',
+		'hide_empty' => false,
+		'fields'     => 'id=>name',
+	] );
+	return ( is_array( $categories ) && ! empty( $categories ) ) ? $categories : [];
 }
 
 
