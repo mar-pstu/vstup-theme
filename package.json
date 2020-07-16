@@ -20,10 +20,11 @@
     "gulp-pug": "^4.0.1",
     "gulp-rename": "^1.4.0",
     "gulp-rigger": "^0.5.8",
-    "gulp-sass": "^4.0.2",
+    "gulp-sass": "^4.1.0",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.2",
-    "gulp-zip": "^5.0.1"
+    "gulp-zip": "^5.0.2",
+    "lodash": "^4.17.19"
   },
   "dependencies": {
     "acorn": "^7.1.1",
