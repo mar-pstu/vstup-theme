@@ -5,7 +5,7 @@
 
 
 mixin grasuate( args )
-	.graduate
+	div: .graduate
 		h3.name: a( href="#" ) #{args.name}
 		a.thumbnail( href="#" ): img.wp-post-tumbnail( src="#", data-lazy=args.thumbnail, alt=args.name )
 		a.sector( href="#" ): img( src="#", data-lazy=args.icon )
@@ -22,7 +22,7 @@ section.section.people#people
 			.description Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis provident consequatur ratione harum corporis omnis beatae dolore voluptatum obcaecati voluptas optio facilis molestiae, odit ipsum reiciendis vero, quo eligendi. Dignissimos!
 			p: a.btn.btn-success( href="#" ) Кнопка
 		.col-xs-12.col-sm-9.col-md-5.col-lg-4.first-md: .slider
-			#graduate-list
+			#graduate-list2
 				+grasuate( { icon: src.img+'sectors/01.png', specialty: 'Середня освіта. Математика', thumbnail: src.img+'graduates/01.jpg', name: 'Анатолій Гущин', excerpt: 'Учасник і дипломант фестивалів художньої ковки. Організатор «Сталевого джерела» в Маріуполі.' } )
 				+grasuate( { icon: src.img+'sectors/14.png', specialty: 'Електроенергетика, електротехніка та електромеханіка', thumbnail: src.img+'graduates/02.jpg', name: 'Марина Гарманюк', excerpt: 'Диплом II ступеня Всеукраїнського конкурсу студентських наукових робіт 2018-2019 навчального року з галузі «Енергетика»' } )
 				+grasuate( { icon: src.img+'sectors/18.png', specialty: 'Технології захисту навколишнього середовища', thumbnail: src.img+'graduates/03.jpg', name: 'Костянтин Згара', excerpt: 'Диплом III cтупеня Всеукраїнського конкурсу студентських наукових робіт 2018-2019 навчального року з галузі «Енергетика»' } )

@@ -10,8 +10,8 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
 
-$items = get_theme_mod( VSTUP_SLUG . '_firstscreen', __return_empty_array() );
-$slides = __return_empty_array();
+$items = get_theme_mod( VSTUP_SLUG . '_firstscreen', [] );
+$slides = [];
 
 
 if ( ! empty( $items ) ) {
@@ -22,14 +22,31 @@ if ( ! empty( $items ) ) {
 		
 		ob_clean();
 
-		$title = ( isset( $items[ $i ][ 'title' ] ) ) ? $items[ $i ][ 'title' ] : __return_empty_string();
-		$bgi = __return_empty_string();
-		$thumbnail_url = ( isset( $items[ $i ][ 'bgi' ] ) ) ? $items[ $i ][ 'bgi' ] : __return_empty_string();
-		$excerpt = ( isset( $items[ $i ][ 'excerpt' ] ) ) ? $items[ $i ][ 'excerpt' ] : __return_empty_string();
-		$permalink = ( isset( $items[ $i ][ 'permalink' ] ) ) ? $items[ $i ][ 'permalink' ] : __return_empty_string();
+		$title = ( isset( $items[ $i ][ 'title' ] ) ) ? $items[ $i ][ 'title' ] : '';
+		$bgi = '';
+		$thumbnail_url = ( isset( $items[ $i ][ 'bgi' ] ) ) ? $items[ $i ][ 'bgi' ] : '';
+		$excerpt = ( isset( $items[ $i ][ 'excerpt' ] ) ) ? $items[ $i ][ 'excerpt' ] : '';
+		$permalink = ( isset( $items[ $i ][ 'permalink' ] ) ) ? $items[ $i ][ 'permalink' ] : '';
 		$label = ( isset( $items[ $i ][ 'label' ] ) ) ? $items[ $i ][ 'label' ] : __( 'Подробней', VSTUP_TEXTDOMAIN );
-		$warning_menu = __return_empty_string();
-		$page_menu = __return_empty_string();
+		$warning_menu = ( has_nav_menu( 'warning' ) ) ? wp_nav_menu( [
+			'theme_location'  => 'warning',
+			'menu'            => 'warning',
+			'container'       => false,
+			'container_class' => '',
+			'container_id'    => '',
+			'menu_class'      => 'warning list-inline small',
+			'menu_id'         => '',
+			'echo'            => false,
+			'fallback_cb'     => '',
+			'before'          => '',
+			'after'           => '',
+			'link_before'     => '',
+			'link_after'      => '',
+			'items_wrap'      => '<ul id = "%1$s" class = "%2$s">%3$s</ul>',
+			'depth'           => 1,
+			'walker'          => '',
+		] ) : '';
+		$page_menu = '';
 
 		if ( function_exists( 'pll__' ) ) {
 			$title = pll__( $title );
