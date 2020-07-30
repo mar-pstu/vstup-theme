@@ -9,6 +9,9 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 $category_id = get_translate_id( get_theme_mod( VSTUP_SLUG . '_news_category_id', '' ), 'category' );
 
+// echo '<pre>';
+// var_dump( get_translate_id( get_theme_mod( VSTUP_SLUG . '_news_category_id', '' ), 'category' ) );
+// echo '</pre>';
 
 if ( ! empty( $category_id ) ) {
 

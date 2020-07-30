@@ -1,13 +1,10 @@
 <?php
 
 
-
 namespace vstup;
 
 
-
 if ( ! defined( 'ABSPATH' ) ) { exit; };
-
 
 
 if ( have_posts() ) {
@@ -37,11 +34,11 @@ if ( have_posts() ) {
 
 				</div>
 
+				<?php if ( comments_open( get_the_ID() ) ) comments_template(); ?>
+
 			</div>
 
 		<?php
-	
-		if ( comments_open( get_the_ID() ) ) comments_template();
 
 	}
 

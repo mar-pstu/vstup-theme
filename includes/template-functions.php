@@ -149,26 +149,26 @@ function the_breadcrumb() {
 }
 
 
-
-
-
+/**
+ * Получает перевод поста/страницы/терма
+ * @param   int      $id     идентификатор переводимого объекта
+ * @param   string   $type   тип парадаваемого объекта
+ **/
 function get_translate_id( $id, $type = 'post' ) {
-	$result = '';
-	if ( $id && ! empty( $id ) ) {
-		if ( defined( 'POLYLANG_FILE' ) ) {
-			switch ( $type ) {
-				case 'category':
-					$translate = ( function_exists( 'pll_get_term' ) ) ? pll_get_term( $id, pll_current_language( 'slug' ) ) : $translate;
-					break;
-				case 'post':
-				case 'page':
-				default:
-					$translate = ( function_exists( 'pll_get_post' ) ) ? pll_get_post( $id, pll_current_language( 'slug' ) ) : $translate;
-					break;
-			} // switch
-			$result = ( $translate ) ? $translate : '';
-		} else {
-			$result = $id;
+	$result = $id;
+	if ( defined( 'POLYLANG_FILE' ) && ! empty( $id ) && function_exists( 'pll_current_language' ) && function_exists( 'pll_get_term' ) && function_exists( 'pll_get_post' ) ) {
+		switch ( $type ) {
+			case 'category':
+				$result = pll_get_term( $id, pll_current_language( 'slug' ) );
+				break;
+			case 'post':
+			case 'page':
+			default:
+				echo '<pre>';
+				var_dump( 'wert' );
+				echo '</pre>';
+				$result = pll_get_post( $id, pll_current_language( 'slug' ) );
+				break;
 		}
 	}
 	return $result;
