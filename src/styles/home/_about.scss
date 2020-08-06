@@ -11,9 +11,27 @@
 
 	.logo {
 		display: block;
-		max-width: 25em;
+		max-width: 10em;
 		width: 100%;
 		margin: 1em auto;
+		@include min-width ( $screen-sm ) {
+			max-width: 15em;
+		}
+		@include min-width ( $screen-md ) {
+			max-width: 20em;
+		}
+		@include min-width ( $screen-lg ) {
+			max-width: 25em;
+		}
+	}
+
+	.title,
+	.excerpt,
+	.basement {
+		text-align: center;
+		@include min-width ( $screen-lg ) {
+			text-align: left;
+		}
 	}
 
 	.advantage {

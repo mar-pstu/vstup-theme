@@ -25,6 +25,12 @@
 	opacity: 0;
 	transition: opacity .2s;
 	visibility: hidden;
+
+
+	.list-container > li > a {
+		font-size: 1.5em;
+		cursor: pointer;
+	}
 	
 
 	.bg {
@@ -41,7 +47,7 @@
 		top: 0;
 		right: 0;
 		bottom: 0;
-		min-width: 40%;
+		width: 40%;
 		padding: .5em 2em;
 		background-color: #fff;
 		overflow-y: auto;

@@ -14,10 +14,10 @@ mixin advantage( args )
 section.section.about#about: .container: .row.middle-xs.center-xs
 	.col-xs-12.col-sm-12.col-md-5: img.lazy.logo( src="#", data-src=src.img+'gerb.png' )
 	.col-xs-12.col-sm-12.col-md-7
-		h2 #{blog.description}
-		p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur adipisci eligendi cupiditate ad vero earum ratione nesciunt amet. In repellat laborum qui mollitia perferendis quibusdam id expedita ut praesentium quidem.
+		h2.title #{blog.description}
+		p.excerpt Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur adipisci eligendi cupiditate ad vero earum ratione nesciunt amet. In repellat laborum qui mollitia perferendis quibusdam id expedita ut praesentium quidem.
 		.row.stretch-xs( role="list" )
 			+advantage( { thumbnail: src.img+'advantages/specialties.jpg', label: 'специальностей', value: '80' } )
 			+advantage( { thumbnail: src.img+'advantages/faculties.jpg', label: 'европейских проектів', value: '20' } )
 			+advantage( { thumbnail: src.img+'advantages/history.jpg', label: 'лет истории', value: '90' } )
-		p: a.btn.btn-success( href="#" ) Об университете
+		p.basement: a.btn.btn-success( href="#" ) Об университете
