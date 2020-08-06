@@ -1,13 +1,10 @@
 <?php
 
 
-
 namespace vstup;
 
 
-
 if ( ! defined( 'ABSPATH' ) ) { exit; };
-
 
 
 /**
@@ -21,9 +18,12 @@ function is_nav_has_sub_menu( $item_id, $items ) {
 }
 
 
-
+/**
+ * Возвращает html-код логотипа сайта
+ * @return   string           html-код изображения логотипа
+ **/
 function get_custom_logo_img() {
-	$result = __return_empty_string();
+	$result = '';
 	$custom_logo_id = get_theme_mod( 'custom_logo' );
 	if ( $custom_logo_id ) {
 		$result = sprintf(
@@ -36,12 +36,14 @@ function get_custom_logo_img() {
 }
 
 
-
-function get_custom_logo_src( $size = 'full' ) {
+/**
+ * Возвращает url изображения логотипа сайта
+ * @return    string          url логотипа сайта
+ **/
+function get_custom_logo_src( string $size = 'full' ) {
 	$custom_logo_id = get_theme_mod( 'custom_logo' );
 	return ( $custom_logo_id ) ? wp_get_attachment_image_url( $custom_logo_id, $size, false ) : __return_empty_string();
 }
-
 
 
 /**
@@ -79,42 +81,9 @@ function get_languages_list( $args = [] ) {
 }
 
 
-
 /**
- * Выводит html-код списка преимуществ
+ * Выводит хлебные крошки 
  */
-function the_advantages_list( $args = [] ) {
-	echo get_advantages_list( $args );
-}
-
-
-function get_advantages_list( $args = [] ) {
-	$html = '';
-	$advantages = get_theme_mod( VSTUP_SLUG . '_advantages', [] );
-	if ( $advantages ) {
-		ob_start();
-		for ( $i = 0; $i < get_theme_mod( VSTUP_SLUG . '_advantages_number', 3 ); $i++ ) {
-			if ( isset( $advantages[ $i ] ) && is_array( $advantages[ $i ] ) ) {
-				$advantages[ $i ] = array_merge( [
-					'label' => '',
-					'value' => '',
-					'image' => '',
-					'link'  => '',
-				], $advantages[ $i ] );
-				if ( ! empty( $advantages[ $i ][ 'image' ] ) ) {
-					$advantages[ $i ][ 'image' ] = wp_get_attachment_image_url( attachment_url_to_postid( $advantages[ $i ][ 'image' ] ), 'medium', false );
-				}
-				extract( $advantages[ $i ] );
-				include get_theme_file_path( 'views/advantage-item.php' );
-			}
-		}
-		$html = ob_get_contents();
-		ob_end_clean();
-	}
-	return ( empty( $html ) ) ? '' : '<div class="row stretch-xs" role="list">' . $html . '</div>';
-}
-
-
 function the_breadcrumb() {
 	ob_start();
 	if ( function_exists( 'yoast_breadcrumb' ) ) {

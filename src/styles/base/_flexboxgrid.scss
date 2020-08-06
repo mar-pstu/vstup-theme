@@ -36,6 +36,7 @@ $half-gutter-width: $flexboxgrid-gutter-width * .5;
 .container {
   margin-right: auto;
   margin-left: auto;
+  max-width: 100%;
 }
 
 
@@ -52,6 +53,7 @@ $half-gutter-width: $flexboxgrid-gutter-width * .5;
   @include flex(0, 1, auto);
   @include flex-direction(row);
   @include flex-wrap(wrap);
+  max-width: 100%;
   margin-right: $gutter-compensation;
   margin-left: $gutter-compensation;
 }

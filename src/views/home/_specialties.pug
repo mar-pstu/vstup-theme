@@ -1,52 +1,82 @@
-
-
-
-
+//-
+	Главная страница
+	Блок Специальности / Факультеты
 
 
 mixin specialties_item( args )
-	a.specialties__item.item( href="#" )
-		h3.title #{args.title}
-		.sector #{args.sector}
-		img.thumbnail( src="#", data-lazy=args.thumbnail, alt=args.sector )
-		
-
+	section.specialties__item.item: .container: .row.middle-xs
+		.col-xs-12.col-sm-4
+			a.logo( href="#" ): img( src="#", data-lazy=args.logo )
+		.col-xs-12.col-sm-8
+			h3.title #{args.title}
+			.excerpt #{args.excerpt}
+			a.permalink( href="#" ) Подробней
 
 
 section.section.specialties#specialties
-	.container: .row
-		.col-xs-12.col-sm-4
-			h2 Специальности
-			p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa ullam dolorum nam consequuntur, repellendus, amet doloremque iusto vel, optio porro fugit soluta dolores laudantium, nesciunt tenetur. Quam odit cum est.
-			p: a.btn.btn-success( href="#" ) Все специальности
-		.col-xs-12.col-sm-8: .slider
-			#specialties-list
-				+specialties_item( { thumbnail: src.img+'sectors/01.png', sector: 'Освіта / Педагогіка', title: 'Середня освіта. Математика' } )
-				+specialties_item( { thumbnail: src.img+'sectors/01.png', sector: 'Освіта / Педагогіка', title: 'Професійна освіта' } )
-				+specialties_item( { thumbnail: src.img+'sectors/03.png', sector: 'Гуманітарні науки', title: 'Філологія. Слов’янські мови та літератури (переклад включно), перша - російсь' } )
-				+specialties_item( { thumbnail: src.img+'sectors/03.png', sector: 'Гуманітарні науки', title: 'Філологія. Германські мови та літератури (переклад включно), перша - англійська' } )
-				+specialties_item( { thumbnail: src.img+'sectors/05.png', sector: 'Соціальні та поведінкові науки', title: 'Економіка' } )
-				+specialties_item( { thumbnail: src.img+'sectors/07.png', sector: 'Управління та адміністрування', title: 'Облік і оподаткування' } )
-				+specialties_item( { thumbnail: src.img+'sectors/07.png', sector: 'Управління та адміністрування', title: 'Фінанси, банківська справа та страхування' } )
-				+specialties_item( { thumbnail: src.img+'sectors/07.png', sector: 'Управління та адміністрування', title: 'Менеджмент' } )
-				+specialties_item( { thumbnail: src.img+'sectors/07.png', sector: 'Управління та адміністрування', title: 'Маркетинг' } )
-				+specialties_item( { thumbnail: src.img+'sectors/07.png', sector: 'Управління та адміністрування', title: 'Підприємництво, торгівля та біржова діяльність' } )
-				+specialties_item( { thumbnail: src.img+'sectors/11.png', sector: 'Математика та статистика', title: 'Прикладна математика' } )
-				+specialties_item( { thumbnail: src.img+'sectors/12.png', sector: 'Інформаційні технології', title: 'Комп’ютерні науки' } )
-				+specialties_item( { thumbnail: src.img+'sectors/13.png', sector: 'Механічна інженерія', title: 'Прикладна механіка' } )
-				+specialties_item( { thumbnail: src.img+'sectors/13.png', sector: 'Механічна інженерія', title: 'Матеріалознавство' } )
-				+specialties_item( { thumbnail: src.img+'sectors/13.png', sector: 'Механічна інженерія', title: 'Галузеве машинобудування' } )
-				+specialties_item( { thumbnail: src.img+'sectors/13.png', sector: 'Механічна інженерія', title: 'Металургія' } )
-				+specialties_item( { thumbnail: src.img+'sectors/14.png', sector: 'Електрична інженерія', title: 'Електроенергетика, електротехніка та електромеханіка' } )
-				+specialties_item( { thumbnail: src.img+'sectors/14.png', sector: 'Електрична інженерія', title: 'Теплоенергетика' } )
-				+specialties_item( { thumbnail: src.img+'sectors/15.png', sector: 'Автоматизація та приладобудування', title: 'Автоматизація та комп’ютерно - інтегровані технології' } )
-				+specialties_item( { thumbnail: src.img+'sectors/16.png', sector: 'Хімічна та біоінженерія', title: 'Біомедична інженерія' } )
-				+specialties_item( { thumbnail: src.img+'sectors/18.png', sector: 'Виробництво та технології', title: 'Технології захисту навколишнього середовища' } )
-				+specialties_item( { thumbnail: src.img+'sectors/19.png', sector: 'Архітектура та будівництво', title: 'Архітектура та містобудування' } )
-				+specialties_item( { thumbnail: src.img+'sectors/19.png', sector: 'Архітектура та будівництво', title: 'Будівництво та цивільна інженерія' } )
-				+specialties_item( { thumbnail: src.img+'sectors/23.png', sector: 'Соціальна робота', title: 'Соціальна робота' } )
-				+specialties_item( { thumbnail: src.img+'sectors/24.png', sector: 'Сфера обслуговування', title: 'Туризм' } )
-				+specialties_item( { thumbnail: src.img+'sectors/27.png', sector: 'Транспорт', title: 'Транспортні технології. На залізничному транспорті' } )
-				+specialties_item( { thumbnail: src.img+'sectors/27.png', sector: 'Транспорт', title: 'Транспортні технології. На автомобільному транспорті' } )
-			button.slider-arrow.arrow-prev#specialties-arrow-prev #[span.sr-only Предыдущий слайд]
-			button.slider-arrow.arrow-next#specialties-arrow-next #[span.sr-only Следующий слайд]
+	.container.text-center
+		h2 Факультеты
+		p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa ullam dolorum nam consequuntur, repellendus, amet doloremque iusto vel, optio porro fugit soluta dolores laudantium, nesciunt tenetur. Quam odit cum est.
+	#specialties-list
+		+specialties_item( { bg: src.img+'faculties/EkF.jpg', logo: src.img+'faculties/EkF.png', title: 'Економічний факультет', excerpt: 'Ми відкриваємо для тебе нові можливості! Які саме використати – обирати тобі! Економічний факультет є одним із провідних факультетів Приазовського державного технічного університету.' } )
+		+specialties_item( { bg: src.img+'faculties/EnF.jpg', logo: src.img+'faculties/EnF.png', title: 'Енергетичний факультет', excerpt: 'На факультеті здійсюється підготовка бакалаврів за освітніми програмами спеціальностей: 141 «Електроенергетика, електротехніка та електромеханіка», 144 «Теплоенергетика», 183 «Технології захисту навколишнього середовища» і магістрів за освітніми програмами: 141 «Системи управління виробництвом та розподілом електроенергії», «Електротехнічні системи споживання», 141 «Електромеханічні системи автоматизації та електроприводу», 144 «Теплоенергетика», 144 «Енергетичний менеджмент».' } )
+		+specialties_item( { bg: src.img+'faculties/MF.jpg', logo: src.img+'faculties/MF.png', title: 'Металургійний факультет', excerpt: 'За час свого існування факультет дав путівки в життя майже 12 тисячам інженерам-металургам. Найталановитіші з них продовжили навчання в аспірантурі і докторантурі, працювали керівниками крупних підприємств і галузей промисловості. Більшість керівників і інженерно-технічних працівників металургійних комбінатів м. Маріуполя є випускниками металургійного факультету. Підготовка фахівців ведеться за спеціальностями «Металургія» і « Матеріалознавство»' } )
+		+specialties_item( { bg: src.img+'faculties/SGF.jpg', logo: src.img+'faculties/SGF.png', title: 'Соціально-гуманітарний факультет', excerpt: 'Факультет виконує свою роль з розповсюдження соціально-гуманітарного напрямку освітянської діяльності в університеті та місті. Формула успіху факультету – це високий професіоналізм та працездатність викладачів і співробітників, всебічна підтримка діяльності ректоратом університету.' } )
+		+specialties_item( { bg: src.img+'faculties/FIMP.jpg', logo: src.img+'faculties/FIMP.png', title: 'Факультет інженерної та мовної підготовки', excerpt: 'На факультеті працюють досвідчені викладачі, які мають великий (від десяти до двадцяти п’яти років) стаж роботи з іноземними студентами. Більшість із них є авторами посібників, схвалених і рекомендованих Міністерством освіти і науки України для мовної підготовки іноземних студентів. Факультет має сучасну матеріально-технічну базу, власний аудиторний фонд, відповідне методичне забезпечення.' } )
+		+specialties_item( { bg: src.img+'faculties/FIT.jpg', logo: src.img+'faculties/FIT.png', title: 'Факультет інформаційних технологій', excerpt: 'На факультеті організацією учбового процесу, педагогічною і науковою роботою займаються висококваліфіковані викладачі: 4 доктори технічних, економічних і фізико-математичних наук, 6 професорів, 21 кандидат наук, доцент, 45 старших викладачів і асистентів.' } )
+		+specialties_item( { bg: src.img+'faculties/FMZ.jpg', logo: src.img+'faculties/FMZ.png', title: 'Факультет машинобудування та зварювання', excerpt: 'Факультет машинобудування та зварювання Приазовського державного технічного університету включає сім випускаючих кафедр і є найбільшим в університеті за кількістю студентів і викладачів. На факультеті навчається понад 550 студентів і близько 70 викладачів, з яких 16 – доктори технічних наук, професори, 40 – кандидати технічних наук, доценти. Підготовка бакалаврів (термін навчання 4 роки) і магістрів (термін навчання 1,4 року).' } )
+		+specialties_item( { bg: src.img+'faculties/FTT.jpg', logo: src.img+'faculties/FTT.png', title: 'Факультет транспортних технологій', excerpt: 'Факультет був створений у травні 2000 року згідно наказу Міністерства освіти і науки України з метою об’єднання та поглиблення навчальних й наукових процесів, підвищення результативності роботи з підготовки інженерних та наукових кадрів.' } )
+		+specialties_item( { bg: src.img+'faculties/CZN.jpg', logo: src.img+'faculties/CZN.png', title: 'Центр заочного навчання', excerpt: 'Центр заочного навчання є структурним підрозділом ДВНЗ «Приазовський державний технічний університет», що за заочною формою навчання готує бакалаврів та магістрів.' } )
+	.container: .slider-controls#specialties-controls
+		button.slider-arrow.prev#specialties-arrow-prev #[span.sr-only Предыдущий слайд]
+		button.slider-arrow.next#specialties-arrow-next #[span.sr-only Следующий слайд]
+
+
+//-
+	первая версия со слайдером
+
+
+	mixin specialties_item( args )
+		a.specialties__item.item( href="#" )
+			h3.title #{args.title}
+			.sector #{args.sector}
+			img.thumbnail( src="#", data-lazy=args.thumbnail, alt=args.sector )
+			
+
+	section.section.specialties#specialties
+		.container: .row
+			.col-xs-12.col-sm-4
+				h2 Специальности
+				p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa ullam dolorum nam consequuntur, repellendus, amet doloremque iusto vel, optio porro fugit soluta dolores laudantium, nesciunt tenetur. Quam odit cum est.
+				p: a.btn.btn-success( href="#" ) Все специальности
+			.col-xs-12.col-sm-8: .slider
+				#specialties-list
+					+specialties_item( { thumbnail: src.img+'sectors/01.png', sector: 'Освіта / Педагогіка', title: 'Середня освіта. Математика' } )
+					+specialties_item( { thumbnail: src.img+'sectors/01.png', sector: 'Освіта / Педагогіка', title: 'Професійна освіта' } )
+					+specialties_item( { thumbnail: src.img+'sectors/03.png', sector: 'Гуманітарні науки', title: 'Філологія. Слов’янські мови та літератури (переклад включно), перша - російсь' } )
+					+specialties_item( { thumbnail: src.img+'sectors/03.png', sector: 'Гуманітарні науки', title: 'Філологія. Германські мови та літератури (переклад включно), перша - англійська' } )
+					+specialties_item( { thumbnail: src.img+'sectors/05.png', sector: 'Соціальні та поведінкові науки', title: 'Економіка' } )
+					+specialties_item( { thumbnail: src.img+'sectors/07.png', sector: 'Управління та адміністрування', title: 'Облік і оподаткування' } )
+					+specialties_item( { thumbnail: src.img+'sectors/07.png', sector: 'Управління та адміністрування', title: 'Фінанси, банківська справа та страхування' } )
+					+specialties_item( { thumbnail: src.img+'sectors/07.png', sector: 'Управління та адміністрування', title: 'Менеджмент' } )
+					+specialties_item( { thumbnail: src.img+'sectors/07.png', sector: 'Управління та адміністрування', title: 'Маркетинг' } )
+					+specialties_item( { thumbnail: src.img+'sectors/07.png', sector: 'Управління та адміністрування', title: 'Підприємництво, торгівля та біржова діяльність' } )
+					+specialties_item( { thumbnail: src.img+'sectors/11.png', sector: 'Математика та статистика', title: 'Прикладна математика' } )
+					+specialties_item( { thumbnail: src.img+'sectors/12.png', sector: 'Інформаційні технології', title: 'Комп’ютерні науки' } )
+					+specialties_item( { thumbnail: src.img+'sectors/13.png', sector: 'Механічна інженерія', title: 'Прикладна механіка' } )
+					+specialties_item( { thumbnail: src.img+'sectors/13.png', sector: 'Механічна інженерія', title: 'Матеріалознавство' } )
+					+specialties_item( { thumbnail: src.img+'sectors/13.png', sector: 'Механічна інженерія', title: 'Галузеве машинобудування' } )
+					+specialties_item( { thumbnail: src.img+'sectors/13.png', sector: 'Механічна інженерія', title: 'Металургія' } )
+					+specialties_item( { thumbnail: src.img+'sectors/14.png', sector: 'Електрична інженерія', title: 'Електроенергетика, електротехніка та електромеханіка' } )
+					+specialties_item( { thumbnail: src.img+'sectors/14.png', sector: 'Електрична інженерія', title: 'Теплоенергетика' } )
+					+specialties_item( { thumbnail: src.img+'sectors/15.png', sector: 'Автоматизація та приладобудування', title: 'Автоматизація та комп’ютерно - інтегровані технології' } )
+					+specialties_item( { thumbnail: src.img+'sectors/16.png', sector: 'Хімічна та біоінженерія', title: 'Біомедична інженерія' } )
+					+specialties_item( { thumbnail: src.img+'sectors/18.png', sector: 'Виробництво та технології', title: 'Технології захисту навколишнього середовища' } )
+					+specialties_item( { thumbnail: src.img+'sectors/19.png', sector: 'Архітектура та будівництво', title: 'Архітектура та містобудування' } )
+					+specialties_item( { thumbnail: src.img+'sectors/19.png', sector: 'Архітектура та будівництво', title: 'Будівництво та цивільна інженерія' } )
+					+specialties_item( { thumbnail: src.img+'sectors/23.png', sector: 'Соціальна робота', title: 'Соціальна робота' } )
+					+specialties_item( { thumbnail: src.img+'sectors/24.png', sector: 'Сфера обслуговування', title: 'Туризм' } )
+					+specialties_item( { thumbnail: src.img+'sectors/27.png', sector: 'Транспорт', title: 'Транспортні технології. На залізничному транспорті' } )
+					+specialties_item( { thumbnail: src.img+'sectors/27.png', sector: 'Транспорт', title: 'Транспортні технології. На автомобільному транспорті' } )
+				button.slider-arrow.arrow-prev#specialties-arrow-prev #[span.sr-only Предыдущий слайд]
+				button.slider-arrow.arrow-next#specialties-arrow-next #[span.sr-only Следующий слайд]

@@ -36,9 +36,6 @@
 		}
 		a:hover {
 			opacity: 1;
-			// background-color: $brand-primary;
-			// color: #fff;
-			// text-decoration: none;
 		}
 	}
 
@@ -47,8 +44,8 @@
 		display: block;
 		position: relative;
 		margin: 0 0 $flexboxgrid-outer-margin 0;
-		// margin: -$flexboxgrid-outer-margin;
 		overflow: hidden;
+		max-height: 250px;
 	}
 
 
@@ -65,7 +62,6 @@
 		left: 0;
 		right: 0;
 		bottom: 0;
-		// background-image: linear-gradient( to right, $brand-primary 0%, $brand-primary 25%, transparent );
 		background-color: transparentize( $brand-primary, .5 );
 		z-index: 0;
 	}

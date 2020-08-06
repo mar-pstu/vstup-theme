@@ -12,42 +12,51 @@
 .slider {
 
 	position: relative;
+	width: 100%;
+	max-width: 100%;
 
+}
+
+
+.slick-track {
+	display: flex !important;
+}
+
+
+.slick-slide {
+	height: auto !important;
 }
 
 
 .slider-arrow {
 
-	@extend %xy-center;
-	position: absolute;
-	border: 1px solid $border-color;
-	width: 3em;
-	height: 3em;
-	top: 50%;
-	margin-top: -1.5em;
-	padding: 0;
-	z-index: 50;
-	background-color: #fff;
+	@extend %background-icon;
+	@extend %icon-arrow-dark;
+	background-color: transparent;
+	width: 1em;
+	height: 1em;
+	border: none;
 	transform-origin: center center;
+	margin-left: .5em;
+	margin-right: .5em;
 
-	&::before {
-		@extend %background-icon;
-		@extend %icon-arrow-dark;
-		content: '';
-		width: 1em;
-		height: 1em;
-
-	}
-
-
-	&.arrow-prev { right: 100%; }
-	&.arrow-prev::before { transform: rotate( 90deg ); }
-
-	&.arrow-next { left: 100%; }
-	&.arrow-next::before { transform: rotate( -90deg ); }
+	&.prev { order: -1; transform: rotate( 90deg ); }
+	&.next { order: 1; transform: rotate( -90deg ); }
 
 }
 
+
+.slider-controls {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+
+.slider-controls .slider-dots {
+	order: 0;
+}
 
 
 .slider-dots {
@@ -55,8 +64,8 @@
 	display: block;
 	list-style-type: none;
 	padding-left: 0;
-	margin-top: $font-size-base / 2;
-	margin-bottom: $font-size-base / 2;
+	margin-top: $font-size-base;
+	margin-bottom: $font-size-base;
 	text-align: center;
 	font-size: 0;
 

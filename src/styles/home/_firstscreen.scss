@@ -16,44 +16,21 @@
 
 	position: relative;
 
-	.controls {
+	.blogname {
+		
+		font-size: 5em;
+		font-weight: bold;
+		opacity: .25;
+		text-shadow: .5em .5em .5em rgba( 0, 0, 0, .5 );
 		position: absolute;
-		left: 0;
 		right: 0;
 		bottom: 0;
-		padding: 1em 0;
-	}
+		padding: 0 1em;
 
-	.controls .arrow {
-		@extend %background-icon;
-		@extend %icon-arrow-light;
-		display: inline-block;
-		background-color: transparent;
-		width: 1em;
-		height: 1em;
-		border: none;
-		transform-origin: center center;
-		margin-left: .5em;
-		margin-right: .5em;
-	}
+		@include min-width( $screen-sm ) {
+			font-size: 7em;
+		}
 
-	.controls .prev { order: -1; transform: rotate( 90deg ); }
-	.controls .next { order: 1; transform: rotate( -90deg ); }
-
-
-	.controls .container {
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		align-items: center;
-	}
-
-	.controls .slider-dots {
-		order: 0;
-	}
-
-	.controls .slider-dots button {
-		background-color: #fff;
 	}
 
 }

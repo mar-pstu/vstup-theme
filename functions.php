@@ -14,6 +14,8 @@ define( 'VSTUP_SLUG', 'pstu_vstup' );
 
 get_template_part( 'includes/enqueue' );
 get_template_part( 'includes/template-functions' );
+
+get_template_part( 'includes/shortcodes' );
 get_template_part( 'includes/gutenberg' );
 
 
@@ -43,42 +45,7 @@ if ( is_admin() && ! wp_doing_ajax() ) {
  * Регистрация настроек кастомайзера
  */
 if ( is_customize_preview() ) {
-	add_action( 'customize_register', function ( $wp_customize ) {
-		$slug = VSTUP_SLUG;
-		$wp_customize->add_panel(
-			"{$slug}_home",
-			array(
-				'capability'      => 'edit_theme_options',
-				'title'           => __( 'Секции главной страницы', VSTUP_TEXTDOMAIN ),
-				'priority'        => 200
-			)
-		);
-		$wp_customize->add_panel(
-			"{$slug}_list",
-			array(
-				'capability'      => 'edit_theme_options',
-				'title'           => __( 'Списки темы', VSTUP_TEXTDOMAIN ),
-				'priority'        => 300
-			)
-		);
-		include get_theme_file_path( 'customizer/home/firstscreen.php' );
-		include get_theme_file_path( 'customizer/home/about.php' );
-		include get_theme_file_path( 'customizer/home/news.php' );
-		include get_theme_file_path( 'customizer/home/action.php' );
-		if ( post_type_exists( 'educational_program' ) && taxonomy_exists( 'specialties' ) ) {
-			include get_theme_file_path( 'customizer/home/specialties.php' );
-		}
-		include get_theme_file_path( 'customizer/home/videos.php' );
-		include get_theme_file_path( 'customizer/home/people.php' );
-		include get_theme_file_path( 'customizer/home/services.php' );
-		include get_theme_file_path( 'customizer/home/questions.php' );
-		include get_theme_file_path( 'customizer/advantages.php' );
-		include get_theme_file_path( 'customizer/partners.php' );
-		include get_theme_file_path( 'customizer/contacts.php' );
-		include get_theme_file_path( 'customizer/socials.php' );
-		include get_theme_file_path( 'customizer/graduate-list.php' );
-		include get_theme_file_path( 'customizer/list-of-services.php' );
-	} );
+	get_template_part( 'includes/customizer' );
 }
 
 

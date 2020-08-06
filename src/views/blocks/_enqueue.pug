@@ -30,11 +30,12 @@ link( rel="stylesheet", href=src.css+'slick.css' )
 script( src=src.js+'slick.js' )
 script.
 	jQuery( document ).ready( function () {
+	
 		jQuery( '#firstscreen-list' ).slick( {
 			dots: true,
 			arrows: true,
 			dotsClass: 'slider-dots',
-			appendDots: jQuery( '#firstscreen-controls .container' ),
+			appendDots: jQuery( '#firstscreen-controls' ),
 			prevArrow: '#firstscreen-prev',
 			nextArrow: '#firstscreen-next',
 			fade: true,
@@ -45,35 +46,55 @@ script.
 		} ).on( 'lazyLoaded', function ( event, slick, image, imageSource ) {
 			jQuery( image ).closest( '.jumbotron' ).find( '.bg' ).attr( 'style', 'background-image:url('+imageSource+');' );
 		} );
+
 		jQuery( '#specialties-list' ).slick( {
 			dots: true,
 			arrows: true,
 			dotsClass: 'slider-dots',
+			appendDots: jQuery( '#specialties-controls' ),
 			prevArrow: '#specialties-arrow-prev',
 			nextArrow: '#specialties-arrow-next',
-			autoplay: true,
+			autoplay: false,
+			adaptiveHeight: false,
+			fade: true,
 			autoplaySpeed: 4000,
 			speed: 1500,
 			lazyLoad: 'ondemand',
-			slidesToShow: 4,
-			slidesToScroll: 4,
-			responsive: [
-				{
-					breakpoint: 1400,
-					settings: {
-						slidesToShow: 3,
-						slidesToScroll: 3,
-					}
-				},
-				{
-					breakpoint: 1200,
-					settings: {
-						slidesToShow: 2,
-						slidesToScroll: 2,
-					}
-				}
-			]
+			slidesToShow: 1,
+			slidesToScroll: 1,
 		} );
+
+		// старая версия со списком Специальностей
+		//- jQuery( '#specialties-list' ).slick( {
+		//- 	dots: true,
+		//- 	arrows: true,
+		//- 	dotsClass: 'slider-dots',
+		//- 	prevArrow: '#specialties-arrow-prev',
+		//- 	nextArrow: '#specialties-arrow-next',
+		//- 	autoplay: true,
+		//- 	autoplaySpeed: 4000,
+		//- 	speed: 1500,
+		//- 	lazyLoad: 'ondemand',
+		//- 	slidesToShow: 4,
+		//- 	slidesToScroll: 4,
+		//- 	responsive: [
+		//- 		{
+		//- 			breakpoint: 1400,
+		//- 			settings: {
+		//- 				slidesToShow: 3,
+		//- 				slidesToScroll: 3,
+		//- 			}
+		//- 		},
+		//- 		{
+		//- 			breakpoint: 1200,
+		//- 			settings: {
+		//- 				slidesToShow: 2,
+		//- 				slidesToScroll: 2,
+		//- 			}
+		//- 		}
+		//- 	]
+		//- } );
+
 		jQuery( '#graduate-list' ).slick( {
 			dots: true,
 			arrows: true,
@@ -87,7 +108,9 @@ script.
 			lazyLoad: 'ondemand',
 			slidesToShow: 1,
 			slidesToScroll: 1,
+			appendDots: jQuery( '#graduate-controls' ),
 		} );
+
 		jQuery( '#partners-list' ).slick( {
 			dots: true,
 			arrows: true,
@@ -105,4 +128,5 @@ script.
 			slidesToShow: 4,
 			//- slidesToScroll: 1,
 		} );
+
 	} );

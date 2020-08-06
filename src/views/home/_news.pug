@@ -8,7 +8,7 @@
 
 
 
-mixin news_entry( args )
+mixin entry_text( args )
 	.news__entry.entry( role="listitem" )
 		h3: a( href="#" ) #{args.title}
 		p #{args.excerpt}
@@ -34,11 +34,11 @@ mixin entry_thumbnail( args )
 			li: a( href="#" ) Анонсы
 			li: a( href="#" ) Приёмная кампания
 	.row.center-xs
-		.col-xs-12.col-sm-9.col-md-5: .row( role="list" )
+		.col-xs-12.col-sm-12.col-md-5: .row( role="list" )
 			.col-xs-12.col-sm-6: +entry_thumbnail( { thumbnail: src.img+'news/01.jpg', title: 'Заголовок поста №1' } )
 			.col-xs-12.col-sm-6: +entry_thumbnail( { thumbnail: src.img+'news/02.jpg', title: 'Заголовок поста №3' } )
 			.col-xs-12.col-sm-12: +entry_thumbnail( { thumbnail: src.img+'news/03.jpg', title: 'Заголовок поста №3' } )
-		.col-xs-12.col-sm-9.col-md-7: div( role="list" )
-			+news_entry( { title: 'Название новости №1', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus magni, eveniet impedit ipsam beatae debitis! Omnis temporibus, nam adipisci beatae quaerat, blanditiis saepe, reiciendis distinctio in quidem nobis. Enim, dicta.' } )
-			+news_entry( { title: 'Название новости №2', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi tempore aspernatur ratione qui quod quo deleniti odio quibusdam soluta voluptatum. Reiciendis nostrum, possimus deleniti sapiente hic tempora voluptate nemo labore.' } )
-			+news_entry( { title: 'Название новости №3', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam dolores repellat assumenda architecto minus in temporibus ab, voluptate eos ipsum asperiores magnam quae, totam ratione odio nostrum porro, possimus vero.' } )
+		.col-xs-12.col-sm-12.col-md-7: div( role="list" )
+			+entry_text( { title: 'Название новости №1', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus magni, eveniet impedit ipsam beatae debitis! Omnis temporibus, nam adipisci beatae quaerat, blanditiis saepe, reiciendis distinctio in quidem nobis. Enim, dicta.' } )
+			+entry_text( { title: 'Название новости №2', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi tempore aspernatur ratione qui quod quo deleniti odio quibusdam soluta voluptatum. Reiciendis nostrum, possimus deleniti sapiente hic tempora voluptate nemo labore.' } )
+			+entry_text( { title: 'Название новости №3', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam dolores repellat assumenda architecto minus in temporibus ab, voluptate eos ipsum asperiores magnam quae, totam ratione odio nostrum porro, possimus vero.' } )

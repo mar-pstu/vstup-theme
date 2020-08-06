@@ -12,6 +12,7 @@ mixin firstscreen_entry( args )
 			.excerpt #{args.excerpt}
 			a.btn.btn-success Подробней
 			include ../navs/_warning
+			.blogname ПДТУ
 
 
 
@@ -52,6 +53,6 @@ mixin firstscreen_entry( args )
 			title: 'Вы готовы участвовать в международных проектах?',
 			excerpt: 'Студенты Приазовского государственного технического университета являются активными участниками программы трансевропейского сотрудничества, они занимаются разработкой инновационных предложений для европейских партнеров.'
 		} )
-	#firstscreen-controls.controls: .container.text-right
-		button#firstscreen-prev.arrow.prev #[span.sr-only Предыдущий слайд]
-		button#firstscreen-next.arrow.next #[span.sr-only Следующий слайд]
+	#firstscreen-controls.slider-controls
+		button#firstscreen-prev.slider-arrow.prev #[span.sr-only Предыдущий слайд]
+		button#firstscreen-next.slider-arrow.next #[span.sr-only Следующий слайд]
