@@ -13,7 +13,7 @@ $wp_customize->add_section(
 		'title'            => __( 'Партнёры', VSTUP_TEXTDOMAIN ),
 		'priority'         => 10,
 		'description'      => __( 'Вторая секция главной страницы. Якорь #partners', VSTUP_TEXTDOMAIN ),
-		'panel'            => "{$slug}_list",
+		'panel'            => "{$slug}_lists",
 	)
 ); /**/
 

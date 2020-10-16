@@ -1,6 +1,9 @@
 <?php
 
 
+namespace vstup;
+
+
 if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
@@ -10,7 +13,7 @@ $wp_customize->add_section(
 		'title'            => __( 'Преимущества', VSTUP_TEXTDOMAIN ),
 		'priority'         => 10,
 		'description'      => __( 'Список преимуществ. Публикуется на главной странице в блоке информация. Можно вывести с помощью шорткода <code>[ADVANTAGES]</code>', VSTUP_TEXTDOMAIN ),
-		'panel'            => "{$slug}_list",
+		'panel'            => "{$slug}_lists",
 	)
 ); /**/
 

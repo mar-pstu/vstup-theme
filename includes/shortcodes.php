@@ -14,6 +14,7 @@ foreach ( [
 		'func'   => 'get_advantages_list',
 	],
 ] as $shortcode ) {
-	include get_theme_file_path( "shortcodes/{$shotcode[ 'path' ]}.php" );
-	add_shortcode( $shotcode[ 'name' ], $shotcode[ 'func' ] );
+	extract( $shortcode );
+	include get_theme_file_path( "shortcodes/{$path}.php" );
+	add_shortcode( $name, $func );
 }

@@ -10,7 +10,6 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
 
-
 class MetaboxPromo {
 
 

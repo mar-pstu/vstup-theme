@@ -1,39 +1,34 @@
 <?php
 
 
-
 namespace vstup;
-
 
 
 if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
-
 $wp_customize->add_section(
-	"{$slug}_action",
-	array(
+	VSTUP_SLUG . '_action',
+	[
 		'title'            => __( 'Начни с нами', VSTUP_TEXTDOMAIN ),
 		'priority'         => 10,
 		'description'      => __( 'Третья секция главной страницы. Якорь #action', VSTUP_TEXTDOMAIN ),
 		'panel'            => "{$slug}_home"
-	)
+	]
 ); /**/
 
 
-
 $wp_customize->add_setting(
-	"{$slug}_action_flag",
-	array(
-		'default'           => false,
+	'action_flag',
+	[
 		'transport'         => 'reset',
 		'sanitize_callback' => 'sanitize_text_field',
-	)
+	]
 );
 $wp_customize->add_control(
-	"{$slug}_action_flag",
+	'action_flag',
 	array(
-		'section'           => "{$slug}_action",
+		'section'           => VSTUP_SLUG . '_action',
 		'label'             => __( 'Использовать секцию', VSTUP_TEXTDOMAIN ),
 		'type'              => 'checkbox',
 	)
@@ -41,137 +36,125 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-	"{$slug}_action_page_id",
-	array(
-		'default'           => '',
+	'action_page_id',
+	[
 		'transport'         => 'reset',
 		'sanitize_callback' => 'absint',
-	)
+	]
 );
 $wp_customize->add_control(
-	"{$slug}_action_page_id",
+	'action_page_id',
 	array(
-		'section'           => "{$slug}_action",
+		'section'           => VSTUP_SLUG . '_action',
 		'label'             => __( 'Выбор страницы', VSTUP_TEXTDOMAIN ),
 		'type'              => 'dropdown-pages',
 	)
 ); /**/
 
 
-
 $wp_customize->add_setting(
-	"{$slug}_action_title",
-	array(
-		'default'           => __( 'Начни с нами', VSTUP_TEXTDOMAIN ),
+	'action_title',
+	[
 		'transport'         => 'reset',
 		'sanitize_callback' => 'sanitize_text_field',
-	)
+	]
 );
 $wp_customize->add_control(
-	"{$slug}_action_title",
-	array(
-		'section'           => "{$slug}_action",
+	'action_title',
+	[
+		'section'           => VSTUP_SLUG . '_action',
 		'label'             => __( 'Заголовок', VSTUP_TEXTDOMAIN ),
 		'type'              => 'text',
-	)
+	]
 ); /**/
 
 
-
 $wp_customize->add_setting(
-	"{$slug}_action_excerpt",
-	array(
-		'default'           => '',
+	'action_excerpt',
+	[
 		'transport'         => 'reset',
 		'sanitize_callback' => 'sanitize_textarea_field',
-	)
+	]
 );
 $wp_customize->add_control(
-	"{$slug}_action_excerpt",
-	array(
-		'section'           => "{$slug}_action",
+	'action_excerpt',
+	[
+		'section'           => VSTUP_SLUG . '_action',
 		'label'             => __( 'Подзаголовок', VSTUP_TEXTDOMAIN ),
 		'type'              => 'textarea',
-	)
+	]
 ); /**/
 
 
-
 $wp_customize->add_setting(
-	"{$slug}_action_label",
-	array(
-		'default'           => __( 'Подробней', VSTUP_TEXTDOMAIN ),
+	'action_label',
+	[
 		'transport'         => 'reset',
 		'sanitize_callback' => 'sanitize_text_field',
-	)
+	]
 );
 $wp_customize->add_control(
-	"{$slug}_action_label",
-	array(
-		'section'           => "{$slug}_action",
+	'action_label',
+	[
+		'section'           => VSTUP_SLUG . '_action',
 		'label'             => __( 'Текст кнопки', VSTUP_TEXTDOMAIN ),
 		'type'              => 'text',
-	)
+	]
 ); /**/
 
 
-
 $wp_customize->add_setting(
-	"{$slug}_action_bgi",
-	array(
-		'default'           => VSTUP_URL . '/images/action/bg.jpg',
+	'action_bgi',
+	[
 		'transport'         => 'reset',
 		'sanitize_callback' => 'sanitize_url',
-	)
+	]
 );
 $wp_customize->add_control(
    new \WP_Customize_Image_Control(
 	   $wp_customize,
-	   "{$slug}_action_bgi",
-	   array(
-		   'label'      => __( 'Фон', VSTUP_TEXTDOMAIN ),
-		   'section'    => "{$slug}_action",
-		   'settings'   => "{$slug}_action_bgi"
-	   )
-   )
+	   'action_bgi',
+		[
+			'label'         => __( 'Фон', VSTUP_TEXTDOMAIN ),
+			'section'       => VSTUP_SLUG . '_action',
+			'settings'      => 'action_bgi',
+		]
+	)
 );
 
 
-
 $wp_customize->add_setting(
-	"{$slug}_action_thumbnail",
-	array(
-		'default'           => get_custom_logo_src( 'thumbnail' ),
+	'action_thumbnail',
+	[
 		'transport'         => 'reset',
 		'sanitize_callback' => 'sanitize_url',
-	)
+	]
 );
 $wp_customize->add_control(
    new \WP_Customize_Image_Control(
 	   $wp_customize,
-	   "{$slug}_action_thumbnail",
-	   array(
-		   'label'      => __( 'Превью', VSTUP_TEXTDOMAIN ),
-		   'section'    => "{$slug}_action",
-		   'settings'   => "{$slug}_action_thumbnail"
-	   )
-   )
+	   'action_thumbnail',
+	   	[
+			'label'         => __( 'Превью', VSTUP_TEXTDOMAIN ),
+			'section'       => VSTUP_SLUG . '_action',
+			'settings'      => 'action_thumbnail',
+		]
+	)
 );
 
 
 $wp_customize->add_setting(
-	"{$slug}_action_video",
-	array(
-		'default'           => '',
+	'action_video',
+	[
 		'transport'         => 'reset',
 		'sanitize_callback' => 'sanitize_text_field',
-	)
+	]
 );
 $wp_customize->add_control(
-	"{$slug}_action_video",
-	array(
-		'section'           => "{$slug}_action",
+	'action_video',
+	[
+		'section'           => VSTUP_SLUG . '_action',
 		'label'             => __( 'Ссылка на YouTube видео', VSTUP_TEXTDOMAIN ),
 		'type'              => 'text',
-	)
+	]
 ); /**/

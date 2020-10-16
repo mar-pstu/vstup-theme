@@ -7,8 +7,6 @@ namespace vstup;
 if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
-
-
 /**
  * Подключение скриптов
  *
@@ -31,10 +29,6 @@ function scripts() {
 add_action( 'wp_enqueue_scripts', 'vstup\scripts' );
 
 
-
-
-
-
 /**
  * Подключение стилей
  *
@@ -52,24 +46,12 @@ function styles() {
 add_action( 'wp_enqueue_scripts', 'vstup\styles', 10, 0 );
 
 
-
-
-
-
-
+/**
+ * Подключение стилей инлайн для более быстрой отрисовки страницы
+ * */
 function ctitical_styles() {
 	if ( file_exists( VSTUP_DIR . 'styles/critical.css' ) ) {
 		echo '<style type="text/css">' . file_get_contents( VSTUP_DIR . 'styles/critical.css' ) . '</style>';
 	}
 }
 add_action( 'wp_head', 'vstup\ctitical_styles', 10, 0 );
-
-
-
-/**
- * Подключение скриптов административной части сайта
- */
-function admin_scripts() {
-	wp_enqueue_style( 'vstup-admin', VSTUP_URL . 'styles/admin.css', array(), filemtime( get_theme_file_path( 'styles/main.css' ) ), 'all' );
-}
-add_action( 'admin_enqueue_scripts', 'vstup\admin_scripts', 10, 1 );

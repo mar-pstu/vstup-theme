@@ -8,6 +8,17 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
 /**
+ * Возвращает настройки темы
+ * @param    $name    идентификатор опции
+ * @return            значение опции
+ **/
+function get_theme_setting( $name ) {
+	$value = get_theme_mod( VSTUP_SLUG . '_' . $name, apply_filters( 'get_default_setting', $name ) );
+	return apply_filters( 'get_theme_setting', $value, $name );
+}
+
+
+/**
  *  Определяет есть ли дочернее меню у переданного пункта
  */
 function is_nav_has_sub_menu( $item_id, $items ) {
@@ -133,9 +144,6 @@ function get_translate_id( $id, $type = 'post' ) {
 			case 'post':
 			case 'page':
 			default:
-				echo '<pre>';
-				var_dump( 'wert' );
-				echo '</pre>';
 				$result = pll_get_post( $id, pll_current_language( 'slug' ) );
 				break;
 		}
@@ -567,17 +575,16 @@ function search_backlight( $text ) {
 }
 
 
-
-
 /**
  * Функция для очистки массива параметров
  * @param  array $default           расзерённые парметры и стандартные значения
  * @param  array $args              неочищенные параметры
- * @param  array $sanitize_callbackодномерный массив с именами функция, с помощью поторых нужно очистить параметры
+ * @param  array $sanitize_callback одномерный массив с именами функция, с помощью поторых нужно очистить параметры
  * @param  array $required          обязательные параметры
+ * @param  array $not_empty         параметры которые не могут быть пустыми
  * @return array                    возвращает ощиченный массив разрешённых параметров
- */
-function parse_only_allowed_args( $default, $args, $sanitize_callback = [], $required = [] ) {
+ * */
+function parse_only_allowed_args( $default, $args, $sanitize_callback = [], $required = [], $not_empty = [] ) {
 	$args = ( array ) $args;
 	$result = [];
 	$count = 0;
@@ -592,6 +599,9 @@ function parse_only_allowed_args( $default, $args, $sanitize_callback = [], $req
 			return null;
 		} else {
 			$result[ $key ] = $value;
+		}
+		if ( empty( $result[ $key ] ) && in_array( $key, $not_empty ) ) {
+			return null;
 		}
 		$count = $count + 1;
 		next( $default );
