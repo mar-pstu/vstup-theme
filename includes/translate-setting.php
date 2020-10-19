@@ -13,6 +13,7 @@ function add_settings_translations () {
 		'about_title',
 		'about_description',
 		'about_label',
+		'news_title',
 		'action_title',
 		'action_excerpt',
 		'action_label',
@@ -25,6 +26,47 @@ function add_settings_translations () {
 	] as $name ) {
 		add_filter( "theme_mod_{$name}", 'pll__', 10, 1 );
 	}
+
+	/**
+	 * Переводы массивов категорий
+	 * */
+	foreach ( [
+		'news_categories'
+	] as $name ) {
+		add_filter( "theme_mod_{$name}", function ( $terms ) {
+			if ( ! is_array( $terms ) ) {
+				$terms = [ $terms ];
+			}
+			$terms = array_map( 'pll_get_term', array_filter( array_map( 'absint', $terms ) ) );
+			return $terms;
+		}, 10, 1 );
+	}
+
+	/**
+	 * Перевод массива новостей (главная страница)
+	 * */
+	if ( is_front_page() ) {
+		add_filter( 'theme_mod_' . 'news_entries', function ( $news ) {
+			if ( ! is_array( $news ) ) {
+				$news = [ $news ];
+			}
+			$news = array_map( function ( $item ) {
+				if ( ! is_array( $item ) ) {
+					$item = [];
+				}
+				$item = array_merge( [
+					'title' => '',
+					'link'  => '',
+					'thumbnail' => '',
+				], $item );
+				$item[ 'title' ] = ( empty( trim( $item[ 'title' ] ) ) ) ? '' : pll__( $item[ 'title' ] );
+				$item[ 'link' ] = ( empty( trim( $item[ 'link' ] ) ) ) ? '' : pll__( $item[ 'link' ] );
+				return $item;
+			}, $news );
+			return $news;
+		}, 10, 1 );
+	}
+
 
 	/**
 	 * Перевод постоянных страниц

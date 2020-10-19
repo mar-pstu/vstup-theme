@@ -7,7 +7,7 @@ namespace vstup;
 if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
-function sanitize_news_entries_setting( $value, $old_value ) {
+function sanitize_news_entries_setting( $value, $old_value = [] ) {
 
 	$value = ( is_array( $value ) ) ? array_filter( array_map( function ( $entry ) {
 		return parse_only_allowed_args(

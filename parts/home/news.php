@@ -7,76 +7,77 @@ namespace vstup;
 if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
-$category_id = get_translate_id( get_theme_mod( VSTUP_SLUG . '_news_category_id', '' ), 'category' );
+// $category_id = get_theme_mod( 'news_category_id', '' ), 'category' );
+
 
 // echo '<pre>';
 // var_dump( get_translate_id( get_theme_mod( VSTUP_SLUG . '_news_category_id', '' ), 'category' ) );
 // echo '</pre>';
 
-if ( ! empty( $category_id ) ) {
+// if ( ! empty( $category_id ) ) {
 
-	$heading = get_theme_mod( VSTUP_SLUG . '_news_heading', __( 'Новости', VSTUP_TEXTDOMAIN ) );
+// 	$heading = get_theme_mod( VSTUP_SLUG . '_news_heading', __( 'Новости', VSTUP_TEXTDOMAIN ) );
 
-	if ( function_exists( 'pll__' ) ) {
-		$heading = pll__( $heading );
-	}
+// 	if ( function_exists( 'pll__' ) ) {
+// 		$heading = pll__( $heading );
+// 	}
 
-	$entries = [];
-	$sticky_entries = [];
+// 	$entries = [];
+// 	$sticky_entries = [];
 
-	$sticky_ids = get_option( 'sticky_posts' );
-	$sticky_ids = ( is_array( $sticky_ids ) ) ? array_slice( $sticky_ids, 0, 3 ) : [];
+// 	$sticky_ids = get_option( 'sticky_posts' );
+// 	$sticky_ids = ( is_array( $sticky_ids ) ) ? array_slice( $sticky_ids, 0, 3 ) : [];
 
-	$sticky_entries = get_posts( array(
-		'numberposts' => 3,
-		'category'    => 0,
-		'orderby'     => 'date',
-		'order'       => 'DESC',
-		'include'     => $sticky_ids,
-		'exclude'     => array(),
-		'post_type'   => 'post',
-		'suppress_filters' => true,
-	) );
+// 	$sticky_entries = get_posts( array(
+// 		'numberposts' => 3,
+// 		'category'    => 0,
+// 		'orderby'     => 'date',
+// 		'order'       => 'DESC',
+// 		'include'     => $sticky_ids,
+// 		'exclude'     => array(),
+// 		'post_type'   => 'post',
+// 		'suppress_filters' => true,
+// 	) );
 
-	$unsticky_entries = get_posts( array(
-		'numberposts' => ( ( int ) get_theme_mod( VSTUP_SLUG . '_news_numberposts', 3 ) + ( 3 - count( $sticky_ids ) ) ),
-		'category'    => $category_id,
-		'orderby'     => 'date',
-		'order'       => 'DESC',
-		'include'     => array(),
-		'exclude'     => $sticky_ids,
-		'post_type'   => 'post',
-		'suppress_filters' => true,
-	) );
+// 	$unsticky_entries = get_posts( array(
+// 		'numberposts' => ( ( int ) get_theme_mod( VSTUP_SLUG . '_news_numberposts', 3 ) + ( 3 - count( $sticky_ids ) ) ),
+// 		'category'    => $category_id,
+// 		'orderby'     => 'date',
+// 		'order'       => 'DESC',
+// 		'include'     => array(),
+// 		'exclude'     => $sticky_ids,
+// 		'post_type'   => 'post',
+// 		'suppress_filters' => true,
+// 	) );
 
-	if ( is_array( $sticky_entries ) ) {
-		$entries = array_merge( $entries, $sticky_entries );
-	}
+// 	if ( is_array( $sticky_entries ) ) {
+// 		$entries = array_merge( $entries, $sticky_entries );
+// 	}
 
-	if ( is_array( $unsticky_entries ) ) {
-		$entries = array_merge( $entries, $unsticky_entries );
-	}
+// 	if ( is_array( $unsticky_entries ) ) {
+// 		$entries = array_merge( $entries, $unsticky_entries );
+// 	}
 
-	if ( is_array( $entries ) && ! empty( $entries ) ) {
+// 	if ( is_array( $entries ) && ! empty( $entries ) ) {
 
-		$categories = __return_empty_string();
+// 		$categories = __return_empty_string();
 
-		if ( has_nav_menu( 'home_news' ) ) {
-			$categories = wp_nav_menu( array(
-				'theme_location'  => 'home_news',
-				'menu'            => 'home_news', 
-				'container'       => false, 
-				'container_class' => '', 
-				'container_id'    => '',
-				'menu_class'      => 'categories', 
-				'menu_id'         => '',
-				'echo'            => false,
-				'depth'           => 1,
-			) );
-		}
+// 		if ( has_nav_menu( 'home_news' ) ) {
+// 			$categories = wp_nav_menu( array(
+// 				'theme_location'  => 'home_news',
+// 				'menu'            => 'home_news', 
+// 				'container'       => false, 
+// 				'container_class' => '', 
+// 				'container_id'    => '',
+// 				'menu_class'      => 'categories', 
+// 				'menu_id'         => '',
+// 				'echo'            => false,
+// 				'depth'           => 1,
+// 			) );
+// 		}
 
-		include get_theme_file_path( 'views/home/news.php' );
+// 		include get_theme_file_path( 'views/home/news.php' );
 
-	}
+// 	}
 
-}
+// }
