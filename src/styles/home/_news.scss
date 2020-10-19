@@ -4,9 +4,14 @@
 
 .news {
 
+	.categories-names {
+		margin: 1em auto;
+		padding-left: 1emz;
+	}
+
 	.categories-names .item {
 		cursor: pointer;
-		padding: .5em 1em;
+		padding: .5em 1.5em;
 		transform: scale( .8 );
 		transform-origin: center center;
 		transition: transform .2s;
@@ -21,6 +26,7 @@
 
 	.news-list {
 		position: relative;
+		margin-top: 1em;
 	}
 	
 	.news-list .item {
@@ -28,8 +34,6 @@
 		top: 0;
 		left: 0;
 		right: 0;
-		background-color: #fff;
-		padding: .5em 1em;
 		// opacity: 0;
 	}
 
@@ -42,7 +46,7 @@
 		position: relative;
 		margin: 0 0 $flexboxgrid-outer-margin 0;
 		overflow: hidden;
-		max-height: 250px;
+		max-height: 20em;
 	}
 
 

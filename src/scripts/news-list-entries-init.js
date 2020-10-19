@@ -1,5 +1,5 @@
 jQuery( document ).ready( function () {
-	jQuery( '#news-list-entries-large' ).slick( {
+	jQuery( '#news-list-entries' ).slick( {
 		dots: false,
 		arrows: false,
 		fade: true,
