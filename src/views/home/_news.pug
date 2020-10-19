@@ -21,19 +21,13 @@ mixin entry_thumbnail( args )
 			h2 Новости
 			#news-list-entries( role="list" )
 				div: .row
-					.col-xs-6.col-sm-6
-						+entry_thumbnail( { thumbnail: src.img+'news/03.jpg', title: 'Заголовок поста №1' } )
-					.col-xs-6.col-sm-6
-						+entry_thumbnail( { thumbnail: src.img+'news/01.jpg', title: 'Заголовок поста №2' } )
-					.col-xs-12.col-sm-12
-						+entry_thumbnail( { thumbnail: src.img+'news/02.jpg', title: 'Заголовок поста №3' } )
+					+entry_thumbnail( { thumbnail: src.img+'news/03.jpg', title: 'Заголовок поста №1' } )
+					+entry_thumbnail( { thumbnail: src.img+'news/01.jpg', title: 'Заголовок поста №2' } )
+					+entry_thumbnail( { thumbnail: src.img+'news/02.jpg', title: 'Заголовок поста №3' } )
 				div: .row
-					.col-xs-6.col-sm-6
-						+entry_thumbnail( { thumbnail: src.img+'news/02.jpg', title: 'Заголовок поста №2' } )
-					.col-xs-6.col-sm-6
-						+entry_thumbnail( { thumbnail: src.img+'news/01.jpg', title: 'Заголовок поста №1' } )
-					.col-xs-12.col-sm-12
-						+entry_thumbnail( { thumbnail: src.img+'news/03.jpg', title: 'Заголовок поста №3' } )
+					+entry_thumbnail( { thumbnail: src.img+'news/02.jpg', title: 'Заголовок поста №2' } )
+					+entry_thumbnail( { thumbnail: src.img+'news/01.jpg', title: 'Заголовок поста №1' } )
+					+entry_thumbnail( { thumbnail: src.img+'news/03.jpg', title: 'Заголовок поста №3' } )
 	
 		.col-xs-12.col-sm-12.col-md-6
 			#news-categories-names.categories-names( role="list" )

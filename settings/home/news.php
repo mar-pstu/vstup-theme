@@ -36,6 +36,23 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
+	'news_title',
+	[
+		'transport'         => 'reset',
+		'sanitize_callback' => 'sanitize_text_field',
+	]
+);
+$wp_customize->add_control(
+	'news_title',
+	[
+		'section'           => VSTUP_SLUG . '_news',
+		'label'             => __( 'Заголовок секции', VSTUP_TEXTDOMAIN ),
+		'type'              => 'text',
+	]
+); /**/
+
+
+$wp_customize->add_setting(
 	'news_terms_number',
 	[
 		'transport'         => 'reset',
@@ -93,23 +110,6 @@ $wp_customize->add_control(
 			'min'             => '1',
 			'max'             => '5',
 		],
-	]
-); /**/
-
-
-$wp_customize->add_setting(
-	'news_title',
-	[
-		'transport'         => 'reset',
-		'sanitize_callback' => 'sanitize_text_field',
-	]
-);
-$wp_customize->add_control(
-	'news_title',
-	[
-		'section'           => VSTUP_SLUG . '_news',
-		'label'             => __( 'Заголовок секции', VSTUP_TEXTDOMAIN ),
-		'type'              => 'text',
 	]
 ); /**/
 

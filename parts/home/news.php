@@ -7,77 +7,94 @@ namespace vstup;
 if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
-// $category_id = get_theme_mod( 'news_category_id', '' ), 'category' );
+global $post;
 
+$category_ids = get_theme_mod( 'news_categories' );
 
-// echo '<pre>';
-// var_dump( get_translate_id( get_theme_mod( VSTUP_SLUG . '_news_category_id', '' ), 'category' ) );
-// echo '</pre>';
+$news_entries = get_theme_mod( 'news_entries' );
 
-// if ( ! empty( $category_id ) ) {
+$section_title = get_theme_mod( 'news_title' );
 
-// 	$heading = get_theme_mod( VSTUP_SLUG . '_news_heading', __( 'Новости', VSTUP_TEXTDOMAIN ) );
+include get_theme_file_path( 'views/home/news-before.php' );
 
-// 	if ( function_exists( 'pll__' ) ) {
-// 		$heading = pll__( $heading );
-// 	}
+// выводим список записей с превью
+if ( is_array( $news_entries ) && ! empty( $news_entries ) && count( $news_entries ) > 3 ) {
 
-// 	$entries = [];
-// 	$sticky_entries = [];
+	wp_enqueue_style( 'slick' );
+	wp_enqueue_scripts( 'slick' );
+	if ( file_exists( $entries_init_script_path = get_theme_file_path( 'scripts/news-list-entries-init.js' ) ) ) {
+		wp_add_inline_script( 'slick', file_get_contents( $entries_init_script_path ), 'after' );
+	}
 
-// 	$sticky_ids = get_option( 'sticky_posts' );
-// 	$sticky_ids = ( is_array( $sticky_ids ) ) ? array_slice( $sticky_ids, 0, 3 ) : [];
+	include get_theme_file_path( 'views/home/news-list-entries-before.php' );
 
-// 	$sticky_entries = get_posts( array(
-// 		'numberposts' => 3,
-// 		'category'    => 0,
-// 		'orderby'     => 'date',
-// 		'order'       => 'DESC',
-// 		'include'     => $sticky_ids,
-// 		'exclude'     => array(),
-// 		'post_type'   => 'post',
-// 		'suppress_filters' => true,
-// 	) );
+	while ( 0 != intdiv( count( $news_entries ), 3 ) ) {
+		$news_entries[] = current( $news_entries );
+		next( $news_entries );
+	}
 
-// 	$unsticky_entries = get_posts( array(
-// 		'numberposts' => ( ( int ) get_theme_mod( VSTUP_SLUG . '_news_numberposts', 3 ) + ( 3 - count( $sticky_ids ) ) ),
-// 		'category'    => $category_id,
-// 		'orderby'     => 'date',
-// 		'order'       => 'DESC',
-// 		'include'     => array(),
-// 		'exclude'     => $sticky_ids,
-// 		'post_type'   => 'post',
-// 		'suppress_filters' => true,
-// 	) );
+	reset( $news_entries )
+	include get_theme_file_path( 'views/home/news-list-before_slide.php' );
+	foreach ( $news_entries as $index => $entry ) {
+		setup_postdata( $post = $entry );
+		include get_theme_file_path( 'views/home/news-list-entry.php' );
+		if ( 3 == $index + 1 ) ) {
+			include get_theme_file_path( 'views/home/news-list-after_slide.php' );
+		}
+	}
+	wp_reset_postdata();
 
-// 	if ( is_array( $sticky_entries ) ) {
-// 		$entries = array_merge( $entries, $sticky_entries );
-// 	}
+	include get_theme_file_path( 'views/home/news-list-entries-after.php' );
 
-// 	if ( is_array( $unsticky_entries ) ) {
-// 		$entries = array_merge( $entries, $unsticky_entries );
-// 	}
+}
 
-// 	if ( is_array( $entries ) && ! empty( $entries ) ) {
+// выводим вкладки с категориями постов
+if ( is_array( $category_ids ) && ! empty( $category_ids ) ) {
+	$categories = get_terms( [
+		'include' => $category_ids,
+	], '' );
+	if ( is_array( $categories ) && ! empty( $categories ) ) {
+		include get_theme_file_path( 'views/home/news-categories-before.php' );
+		
+		include get_theme_file_path( 'views/home/news-categories-names-before.php' );
+		echo implode( "\r\n", array_map( function ( $category ) {
+			return sprintf(
+				'<a class="item" role="listitem" href="#%1$s">%2$s</a>',
+				$category->slug,
+				$category->name
+			);
+		}, $categories ) );
+		include get_theme_file_path( 'views/home/news-categories-names-after.php' );
+		include get_theme_file_path( 'views/home/news-categories-list-before.php' );
+		$category_entries = get_posts( [
+			'numberposts' => 5,
+			'category'    => implode( ',', $category_ids ),
+		] );
+		do {
+			$category_current = current( $categories );
+			$category_entries = get_posts( [
+				'numberposts' => 5,
+				'tax_query'   => [
 
-// 		$categories = __return_empty_string();
+				],
+			] );
+			if ( is_array( $category_entries ) && ! empty( $category_entries ) ) {
+				echo sprintf(
+					'',
+					implode( "\r\n", array_map(callback, arr1) )
+				);
+				include get_theme_file_path( 'views/home/news-categories-list-item_before.php' );
+				foreach ( $category_entries as $entry ) {
+					setup_postdata( $post = $entry );
+					include get_theme_file_path( 'views/home/news-categories-list-entry.php' );
+				}
+				include get_theme_file_path( 'views/home/news-categories-list-item_after.php' );
+			}
+			next( $categories );
+		} while ( $category_current );
+		include get_theme_file_path( 'views/home/news-categories-list-after.php' );
+		include get_theme_file_path( 'views/home/news-categories-after.php' );
+	}
+}
 
-// 		if ( has_nav_menu( 'home_news' ) ) {
-// 			$categories = wp_nav_menu( array(
-// 				'theme_location'  => 'home_news',
-// 				'menu'            => 'home_news', 
-// 				'container'       => false, 
-// 				'container_class' => '', 
-// 				'container_id'    => '',
-// 				'menu_class'      => 'categories', 
-// 				'menu_id'         => '',
-// 				'echo'            => false,
-// 				'depth'           => 1,
-// 			) );
-// 		}
-
-// 		include get_theme_file_path( 'views/home/news.php' );
-
-// 	}
-
-// }
+include get_theme_file_path( 'views/home/news-after.php' );
