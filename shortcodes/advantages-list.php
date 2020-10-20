@@ -21,10 +21,10 @@ function the_advantages_list( $args = [] ) {
  */
 function get_advantages_list( $args = [] ) {
 	$html = '';
-	$advantages = get_theme_mod( VSTUP_SLUG . '_advantages', [] );
+	$advantages = get_theme_mod( 'advantages', [] );
 	if ( $advantages ) {
 		ob_start();
-		for ( $i = 0; $i < get_theme_mod( VSTUP_SLUG . '_advantages_number', 3 ); $i++ ) {
+		for ( $i = 0; $i < get_theme_mod( 'advantages_number', 3 ); $i++ ) {
 			if ( isset( $advantages[ $i ] ) && is_array( $advantages[ $i ] ) ) {
 				$advantages[ $i ] = array_merge( [
 					'label' => '',

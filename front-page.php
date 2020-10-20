@@ -18,7 +18,7 @@ foreach ( array(
     'services',     // ok
     'questions',    // ok
 ) as $key ) {
-    if ( get_theme_mod( VSTUP_SLUG . "_{$key}_flag", false ) )
+    if ( get_theme_mod( "{$key}_flag", false ) )
         get_template_part( "parts/home/$key" );
 }
 

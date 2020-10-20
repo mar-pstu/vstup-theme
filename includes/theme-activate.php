@@ -46,8 +46,31 @@ function setup_default_mods( $old_name ) {
 		'action_excerpt'  => '',
 		'action_label'    => 'Вступ 2020',
 		'action_bgi'      => get_theme_file_path( '/images/action/bg.jpg' ),
-		'action_thumbnail' =>  get_custom_logo_src( 'thumbnail' ),
+		'action_thumbnail' => get_custom_logo_src( 'thumbnail' ),
 		'action_video'    => '',
+
+		// преимущества
+		'advantages_number' => 3,
+		'advantages'      => [
+			[
+				'value'     => '80',
+				'label'     => 'спеціальностей',
+				'link'      => '#',
+				'image'     => '',
+			],
+			[
+				'value'     => '20',
+				'label'     => 'європейських проектів',
+				'link'      => '#',
+				'image'     => '',
+			],
+			[
+				'value'     => '90',
+				'label'     => 'років історії',
+				'link'      => '#',
+				'image'     => '',
+			],
+		],
 
 	] );
 

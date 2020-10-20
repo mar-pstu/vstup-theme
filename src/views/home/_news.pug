@@ -11,7 +11,7 @@ mixin entry_text( args )
 
 mixin entry_thumbnail( args )
 	a.news__thumbnail.thumbnail( href="#", role="listitem" )
-		img.wp-post-thumbnail( src="#", data-lazy=args.thumbnail, alt=args.title )
+		img.wp-post-thumbnail.lazy( src="#", data-src=args.thumbnail, alt=args.title )
 		h3 #{args.title}
 
 
