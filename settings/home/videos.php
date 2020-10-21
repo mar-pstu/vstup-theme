@@ -1,13 +1,10 @@
 <?php
 
 
-
 namespace vstup;
 
 
-
 if ( ! defined( 'ABSPATH' ) ) { exit; };
-
 
 
 $wp_customize->add_section(
@@ -21,13 +18,12 @@ $wp_customize->add_section(
 ); /**/
 
 
-
 $wp_customize->add_setting(
 	"{$slug}_videos_flag",
 	array(
 		'default'           => false,
 		'transport'         => 'reset',
-		'sanitize_callback' => 'sanitize_text_field',
+		'sanitize_callback' => 'vstup\sanitize_checkbox',
 	)
 );
 $wp_customize->add_control(
@@ -38,10 +34,6 @@ $wp_customize->add_control(
 		'type'              => 'checkbox',
 	)
 ); /**/
-
-
-
-
 
 
 for ( $i=0; $i<3; $i++ ) {
@@ -97,5 +89,3 @@ for ( $i=0; $i<3; $i++ ) {
 	   )
 	);
 }
-
-

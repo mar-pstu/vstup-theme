@@ -49,6 +49,13 @@ function setup_default_mods( $old_name ) {
 		'action_thumbnail' => get_custom_logo_src( 'thumbnail' ),
 		'action_video'    => '',
 
+		// главная страница - услуги
+		'services_flag'   => true,
+		'services_ct'     => 'services',
+		'services_page_id' => '',
+		'services_title'  => 'Послуги',
+		'services_label'  => 'Докладніше',
+
 		// главная страница - Задать вопрос
 		'questions_flag'  => true,
 		'questions_title' => 'Залишилися питання? Дзвони або пиши нам!',
@@ -83,6 +90,14 @@ function setup_default_mods( $old_name ) {
 		'contacts'        => [
 			'phone'         => '',
 			'email'         => '',
+		],
+
+		// социальные сети
+		'socials'         => [
+			'facebook'      => '',
+			'twitter'       => '',
+			'instagram'     => '',
+			'youtube'       => '',
 		],
 
 	] );

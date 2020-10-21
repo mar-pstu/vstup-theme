@@ -8,12 +8,12 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
 $wp_customize->add_section(
-	"{$slug}_socials",
+	VSTUP_SLUG . '_socials',
 	array(
 		'title'            => __( 'Социальные сети', VSTUP_TEXTDOMAIN ),
 		'priority'         => 10,
 		'description'      => __( 'Список ссылок на страницы социальных сетей организации', VSTUP_TEXTDOMAIN ),
-		'panel'            => "{$slug}_lists",
+		'panel'            => VSTUP_SLUG . '_lists',
 	)
 ); /**/
 
@@ -26,17 +26,16 @@ foreach ( array(
 	'youtube'   => __( 'YouTube', VSTUP_TEXTDOMAIN ),
 ) as $key => $label ) {
 	$wp_customize->add_setting(
-		"{$slug}_socials[{$key}]",
+		"socials[{$key}]",
 		array(
-			'default'           => '',
 			'transport'         => 'reset',
 			'sanitize_callback' => 'sanitize_text_field',
 		)
 	);
 	$wp_customize->add_control(
-		"{$slug}_socials[{$key}]",
+		"socials[{$key}]",
 		array(
-			'section'           => "{$slug}_socials",
+			'section'           => VSTUP_SLUG . '_socials',
 			'label'             => $label,
 			'type'              => 'text',
 		)

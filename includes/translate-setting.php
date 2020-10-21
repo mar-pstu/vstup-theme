@@ -23,6 +23,10 @@ function add_settings_translations () {
 		'action_title',
 		'action_excerpt',
 		'action_label',
+		'services_title',
+		'services_label',
+		'questions_title',
+		'questions_form',
 	] as $name ) {
 		add_filter( "theme_mod_{$name}", 'pll__', 10, 1 );
 	}
@@ -64,6 +68,19 @@ function add_settings_translations () {
 				return $item;
 			}, $news );
 			return $news;
+		}, 10, 1 );
+	}
+
+
+	/**
+	 * Перевод списка контактов и социальных сетей
+	 * */
+	foreach ( [ 'contacts', 'socials' ] as $key ) {
+		add_filter( 'theme_mod_' . $key, function ( $list ) {
+			if ( is_array( $list ) && ! empty( $list ) ) {
+				$list = array_map( 'pll__', $list );
+			}
+			return $list;
 		}, 10, 1 );
 	}
 

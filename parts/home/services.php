@@ -1,28 +1,27 @@
 <?php
 
 
-
 namespace vstup;
-
 
 
 if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
-
-$title = get_theme_mod( VSTUP_SLUG . '_services_title', __( 'Услуги', VSTUP_TEXTDOMAIN ) );
-$label = get_theme_mod( VSTUP_SLUG . '_services_label', __( 'Подробней', VSTUP_TEXTDOMAIN ) );
-$page_id = get_translate_id( get_theme_mod( VSTUP_SLUG . '_services_page_id', '' ), 'page' );
+$title = get_theme_mod( 'services_title' );
+$label = get_theme_mod( 'services_label' );
+$page_id = get_translate_id( get_theme_mod( 'services_page_id', '' ), 'page' );
 $permalink = ( empty( $page_id ) ) ? __return_empty_string() : get_permalink( $page_id );
 $content = __return_empty_string();
 $name = 'services';
+
 
 if ( function_exists( 'pll__' ) ) {
 	$title = pll__( $title );
 	$label = pll__( $label );
 }
 
-switch ( get_theme_mod( VSTUP_SLUG . '_services_ct', 'services' ) ) {
+
+switch ( get_theme_mod( 'services_ct', 'services' ) ) {
 
 	case 'content':
 		$page = get_post( $page_id, OBJECT, 'raw' );

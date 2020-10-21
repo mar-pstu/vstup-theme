@@ -22,7 +22,7 @@ $wp_customize->add_setting(
 	'about_flag',
 	[
 		'transport'         => 'reset',
-		'sanitize_callback' => 'sanitize_text_field',
+		'sanitize_callback' => 'vstup\sanitize_checkbox',
 	]
 );
 $wp_customize->add_control(

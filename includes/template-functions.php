@@ -8,14 +8,33 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
 /**
+ * Проверяет данные поля чекбокс
+ * @return   bool
+ * */
+function sanitize_checkbox( $checked = false ) {
+	return ( ( isset( $checked ) && true == $checked ) ? true : false );
+}
+
+
+/**
+ * Проверяет является ли переданная строка валидным URL
+ * @param  string  $url исходная строка
+ * @return boolean      результат проверки
+ */
+function is_url( $url = '' ) {
+	return ( bool ) filter_var( $url, FILTER_VALIDATE_URL );
+}
+
+
+/**
  * Возвращает настройки темы
  * @param    $name    идентификатор опции
  * @return            значение опции
  **/
-function get_theme_setting( $name ) {
-	$value = get_theme_mod( VSTUP_SLUG . '_' . $name, apply_filters( 'get_default_setting', $name ) );
-	return apply_filters( 'get_theme_setting', $value, $name );
-}
+// function get_theme_setting( $name ) {
+// 	$value = get_theme_mod( VSTUP_SLUG . '_' . $name, apply_filters( 'get_default_setting', $name ) );
+// 	return apply_filters( 'get_theme_setting', $value, $name );
+// }
 
 
 /**

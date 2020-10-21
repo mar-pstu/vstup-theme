@@ -1,13 +1,10 @@
 <?php
 
 
-
 namespace vstup;
 
 
-
 if ( ! defined( 'ABSPATH' ) ) { exit; };
-
 
 
 $wp_customize->add_section(
@@ -21,12 +18,11 @@ $wp_customize->add_section(
 ); /**/
 
 
-
 $wp_customize->add_setting(
 	'questions_flag',
 	[
 		'transport'         => 'reset',
-		'sanitize_callback' => 'sanitize_text_field',
+		'sanitize_callback' => 'vstup\sanitize_checkbox',
 	]
 );
 $wp_customize->add_control(
@@ -37,9 +33,6 @@ $wp_customize->add_control(
 		'type'              => 'checkbox',
 	]
 ); /**/
-
-
-
 
 
 $wp_customize->add_setting(
@@ -59,7 +52,6 @@ $wp_customize->add_control(
 ); /**/
 
 
-
 $wp_customize->add_setting(
 	'questions_form',
 	[
@@ -77,12 +69,11 @@ $wp_customize->add_control(
 ); /**/
 
 
-
 $wp_customize->add_setting(
 	'questions_bgi',
 	[
 		'transport'         => 'reset',
-		'sanitize_callback' => 'sanitize_url',
+		'sanitize_callback' => 'esc_url_raw',
 	]
 );
 $wp_customize->add_control(
