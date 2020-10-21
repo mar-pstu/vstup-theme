@@ -28,6 +28,7 @@ add_action( 'customize_register', function ( $wp_customize ) {
 		'about',
 		'news',
 		'action',
+		'faculties',
 		'videos',
 		'people',
 		'services',
