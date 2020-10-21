@@ -8,9 +8,9 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
 
-$title = get_theme_mod( VSTUP_SLUG . '_questions_title', __( 'Остались вопросы? Звони или пиши нам!', VSTUP_TEXTDOMAIN ) );
-$bgi = get_theme_mod( VSTUP_SLUG . '_questions_bgi', VSTUP_URL . '/images/questions/bg.jpg' );
-$form = get_theme_mod( VSTUP_SLUG . '_questions_form', '' );
+$title = get_theme_mod( 'questions_title', __( 'Остались вопросы? Звони или пиши нам!', VSTUP_TEXTDOMAIN ) );
+$bgi = get_theme_mod( 'questions_bgi', VSTUP_URL . '/images/questions/bg.jpg' );
+$form = get_theme_mod( 'questions_form', '' );
 
 
 if ( function_exists( 'pll__' ) ) {

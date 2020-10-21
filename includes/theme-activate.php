@@ -49,6 +49,13 @@ function setup_default_mods( $old_name ) {
 		'action_thumbnail' => get_custom_logo_src( 'thumbnail' ),
 		'action_video'    => '',
 
+		// главная страница - Задать вопрос
+		'questions_flag'  => true,
+		'questions_title' => 'Залишилися питання? Дзвони або пиши нам!',
+		'questions_form'  => '',
+		'questions_bgi'   => VSTUP_URL . '/images/questions/bg.jpg',
+
+
 		// преимущества
 		'advantages_number' => 3,
 		'advantages'      => [
@@ -70,6 +77,12 @@ function setup_default_mods( $old_name ) {
 				'link'      => '#',
 				'image'     => '',
 			],
+		],
+
+		// контакты университета
+		'contacts'        => [
+			'phone'         => '',
+			'email'         => '',
 		],
 
 	] );

@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
 $wp_customize->add_section(
-	"{$slug}_contacts",
+	VSTUP_TEXTDOMAIN . '_contacts',
 	array(
 		'title'            => __( 'Контакты', VSTUP_TEXTDOMAIN ),
 		'priority'         => 10,
@@ -24,17 +24,16 @@ foreach ( array(
 	'email' => __( 'Email', VSTUP_TEXTDOMAIN ),
 ) as $key => $label ) {
 	$wp_customize->add_setting(
-		"{$slug}_contacts[{$key}]",
+		"contacts[{$key}]",
 		array(
-			'default'           => '',
 			'transport'         => 'reset',
 			'sanitize_callback' => 'sanitize_text_field',
 		)
 	);
 	$wp_customize->add_control(
-		"{$slug}_contacts[{$key}]",
+		"contacts[{$key}]",
 		array(
-			'section'           => "{$slug}_contacts",
+			'section'           => VSTUP_TEXTDOMAIN . '_contacts',
 			'label'             => $label,
 			'type'              => 'text',
 		)

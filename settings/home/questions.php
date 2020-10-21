@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
 $wp_customize->add_section(
-	"{$slug}_questions",
+	VSTUP_SLUG . '_questions',
 	array(
 		'title'            => __( 'Обратная связь', VSTUP_TEXTDOMAIN ),
 		'priority'         => 10,
@@ -23,20 +23,19 @@ $wp_customize->add_section(
 
 
 $wp_customize->add_setting(
-	"{$slug}_questions_flag",
-	array(
-		'default'           => false,
+	'questions_flag',
+	[
 		'transport'         => 'reset',
 		'sanitize_callback' => 'sanitize_text_field',
-	)
+	]
 );
 $wp_customize->add_control(
-	"{$slug}_questions_flag",
-	array(
-		'section'           => "{$slug}_questions",
+	'questions_flag',
+	[
+		'section'           => VSTUP_SLUG . '_questions',
 		'label'             => __( 'Использовать секцию', VSTUP_TEXTDOMAIN ),
 		'type'              => 'checkbox',
-	)
+	]
 ); /**/
 
 
@@ -44,59 +43,56 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
-	"{$slug}_questions_title",
-	array(
-		'default'           => __( 'Остались вопросы? Звони или пиши нам!', VSTUP_TEXTDOMAIN ),
+	'questions_title',
+	[
 		'transport'         => 'reset',
 		'sanitize_callback' => 'sanitize_text_field',
-	)
+	]
 );
 $wp_customize->add_control(
-	"{$slug}_questions_title",
-	array(
-		'section'           => "{$slug}_questions",
+	'questions_title',
+	[
+		'section'           => VSTUP_SLUG . '_questions',
 		'label'             => __( 'Заголовок', VSTUP_TEXTDOMAIN ),
 		'type'              => 'text',
-	)
+	]
 ); /**/
 
 
 
 $wp_customize->add_setting(
-	"{$slug}_questions_form",
-	array(
-		'default'           => '',
+	'questions_form',
+	[
 		'transport'         => 'reset',
 		'sanitize_callback' => 'sanitize_text_field',
-	)
+	]
 );
 $wp_customize->add_control(
-	"{$slug}_questions_form",
-	array(
-		'section'           => "{$slug}_questions",
+	'questions_form',
+	[
+		'section'           => VSTUP_SLUG . '_questions',
 		'label'             => __( 'Шорткод формы', VSTUP_TEXTDOMAIN ),
 		'type'              => 'text',
-	)
+	]
 ); /**/
 
 
 
 $wp_customize->add_setting(
-	"{$slug}_questions_bgi",
-	array(
-		'default'           => VSTUP_URL . '/images/questions/bg.jpg',
+	'questions_bgi',
+	[
 		'transport'         => 'reset',
 		'sanitize_callback' => 'sanitize_url',
-	)
+	]
 );
 $wp_customize->add_control(
    new \WP_Customize_Image_Control(
 	   $wp_customize,
-	   "{$slug}_questions_bgi",
-	   array(
+	   'questions_bgi',
+	   [
 		   'label'      => __( 'Фон', VSTUP_TEXTDOMAIN ),
-		   'section'    => "{$slug}_questions",
-		   'settings'   => "{$slug}_questions_bgi"
-	   )
+		   'section'    => VSTUP_SLUG . '_questions',
+		   'settings'   => 'questions_bgi',
+	   ]
    )
 );
