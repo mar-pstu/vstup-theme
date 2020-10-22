@@ -11,8 +11,9 @@ define( 'VSTUP_SLUG', 'pstu_vstup' );
 
 
 get_template_part( 'includes/textdomain' );
+get_template_part( 'includes/theme-hooks' );
 get_template_part( 'includes/theme-supports' );
-get_template_part( 'includes/template-functions' );
+get_template_part( 'includes/theme-functions' );
 get_template_part( 'includes/shortcodes' );
 get_template_part( 'includes/gutenberg' );
 get_template_part( 'includes/menus' );

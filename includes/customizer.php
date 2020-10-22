@@ -9,13 +9,11 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 add_action( 'customize_register', function ( $wp_customize ) {
 	
-	$slug = VSTUP_SLUG;
-	
 	/**
 	 * Секция настроек блоков главной страницы
 	 **/
 	$wp_customize->add_panel(
-		"{$slug}_home",
+		VSTUP_SLUG . '_home',
 		array(
 			'capability'      => 'edit_theme_options',
 			'title'           => __( 'Блоки главной страницы', VSTUP_TEXTDOMAIN ),
@@ -23,25 +21,17 @@ add_action( 'customize_register', function ( $wp_customize ) {
 		)
 	);
 	
-	foreach ( [
-		'firstscreen',
-		'about',
-		'news',
-		'action',
-		'faculties',
-		'videos',
-		'people',
-		'services',
-		'questions',
-	] as $path_name ) {
-		include get_theme_file_path( "settings/home/{$path_name}.php" );
+	foreach ( apply_filters( 'get_home_parts', [] ) as $path_name ) {
+		if ( $path_name ) {
+			include get_theme_file_path( "settings/home/{$path_name}.php" );
+		}
 	}
 
 	/**
 	 * Секция "списков" темы
 	 **/
 	$wp_customize->add_panel(
-		"{$slug}_lists",
+		VSTUP_SLUG . '_lists',
 		array(
 			'capability'      => 'edit_theme_options',
 			'title'           => __( 'Списки темы', VSTUP_TEXTDOMAIN ),

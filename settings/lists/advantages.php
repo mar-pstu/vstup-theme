@@ -13,7 +13,7 @@ $wp_customize->add_section(
 		'title'            => __( 'Преимущества', VSTUP_TEXTDOMAIN ),
 		'priority'         => 10,
 		'description'      => __( 'Список преимуществ. Публикуется на главной странице в блоке информация. Можно вывести с помощью шорткода <code>[advantages]</code>', VSTUP_TEXTDOMAIN ),
-		'panel'            => "{$slug}_lists",
+		'panel'            => VSTUP_SLUG . '_lists',
 	)
 ); /**/
 

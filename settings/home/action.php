@@ -13,7 +13,7 @@ $wp_customize->add_section(
 		'title'            => __( 'Начни с нами', VSTUP_TEXTDOMAIN ),
 		'priority'         => 10,
 		'description'      => __( 'Третья секция главной страницы. Якорь #action', VSTUP_TEXTDOMAIN ),
-		'panel'            => "{$slug}_home"
+		'panel'            => VSTUP_SLUG . '_home',
 	]
 ); /**/
 

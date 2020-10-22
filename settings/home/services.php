@@ -1,13 +1,10 @@
 <?php
 
 
-
 namespace vstup;
 
 
-
 if ( ! defined( 'ABSPATH' ) ) { exit; };
-
 
 
 $wp_customize->add_section(
@@ -16,7 +13,7 @@ $wp_customize->add_section(
 		'title'            => __( 'Услуги', VSTUP_TEXTDOMAIN ),
 		'priority'         => 10,
 		'description'      => __( 'Секция главной страницы. Якорь #services. Содержит список услуг университета. Услуги могут публиковаться с помощью шорткода <code>[SRVICES]</code> и доступны в редакторе Gutenberg.', VSTUP_TEXTDOMAIN ),
-		'panel'            => "{$slug}_home"
+		'panel'            => VSTUP_SLUG . '_home',
 	]
 ); /**/
 

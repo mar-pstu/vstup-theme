@@ -21,7 +21,7 @@ if ( function_exists( 'pll__' ) ) {
 }
 
 
-switch ( get_theme_mod( 'services_ct', 'services' ) ) {
+switch ( get_theme_mod( 'services_ct' ) ) {
 
 	case 'content':
 		$page = get_post( $page_id, OBJECT, 'raw' );

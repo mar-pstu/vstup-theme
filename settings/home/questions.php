@@ -13,7 +13,7 @@ $wp_customize->add_section(
 		'title'            => __( 'Обратная связь', VSTUP_TEXTDOMAIN ),
 		'priority'         => 10,
 		'description'      => __( 'Секция главной страницы. Якорь #questions. Предполагается наличие формы обратной связи.', VSTUP_TEXTDOMAIN ),
-		'panel'            => "{$slug}_home"
+		'panel'            => VSTUP_SLUG . '_home',
 	)
 ); /**/
 

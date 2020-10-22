@@ -13,12 +13,12 @@ $category_ids = get_theme_mod( 'news_categories' );
 
 $news_entries = get_theme_mod( 'news_entries' );
 
-$section_title = get_theme_mod( 'news_title' );
+$news_title = get_theme_mod( 'news_title' );
 
 include get_theme_file_path( 'views/home/news-before.php' );
 
 // выводим список записей с превью
-if ( is_array( $news_entries ) && ! empty( $news_entries ) && count( $news_entries ) > 3 ) {
+if ( is_array( $news_entries ) && ! empty( $news_entries ) && count( $news_entries ) >= 3 ) {
 
 	wp_enqueue_style( 'slick' );
 	wp_enqueue_scripts( 'slick' );
@@ -28,22 +28,27 @@ if ( is_array( $news_entries ) && ! empty( $news_entries ) && count( $news_entri
 
 	include get_theme_file_path( 'views/home/news-list-entries-before.php' );
 
-	while ( 0 != intdiv( count( $news_entries ), 3 ) ) {
-		$news_entries[] = current( $news_entries );
-		next( $news_entries );
-	}
+	// echo '<pre>'; var_dump( current( $news_entries ) ); echo '</pre>';
 
-	reset( $news_entries )
+	// while ( 0 != intdiv( key( $news_entries ) + 1, 3 ) ) {
+	// 	echo '<pre>'; var_dump( current( $news_entries ) ); echo '</pre>';
+	// 	$news_entries[] = current( $news_entries );
+	// 	next( $news_entries );
+	// }
+
+	reset( $news_entries );
 	include get_theme_file_path( 'views/home/news-list-before_slide.php' );
 	foreach ( $news_entries as $index => $entry ) {
-		setup_postdata( $post = $entry );
+		$entry = array_merge( [
+			'title' => '',
+			'link'  => '',
+			'tumbnail' => '',
+		], $entry );
 		include get_theme_file_path( 'views/home/news-list-entry.php' );
-		if ( 3 == $index + 1 ) ) {
+		if ( 3 == $index + 1 ) {
 			include get_theme_file_path( 'views/home/news-list-after_slide.php' );
 		}
 	}
-	wp_reset_postdata();
-
 	include get_theme_file_path( 'views/home/news-list-entries-after.php' );
 
 }
@@ -70,28 +75,28 @@ if ( is_array( $category_ids ) && ! empty( $category_ids ) ) {
 			'numberposts' => 5,
 			'category'    => implode( ',', $category_ids ),
 		] );
-		do {
-			$category_current = current( $categories );
-			$category_entries = get_posts( [
-				'numberposts' => 5,
-				'tax_query'   => [
+		// do {
+		// 	$category_current = current( $categories );
+		// 	$category_entries = get_posts( [
+		// 		'numberposts' => 5,
+		// 		'tax_query'   => [
 
-				],
-			] );
-			if ( is_array( $category_entries ) && ! empty( $category_entries ) ) {
-				echo sprintf(
-					'',
-					implode( "\r\n", array_map(callback, arr1) )
-				);
-				include get_theme_file_path( 'views/home/news-categories-list-item_before.php' );
-				foreach ( $category_entries as $entry ) {
-					setup_postdata( $post = $entry );
-					include get_theme_file_path( 'views/home/news-categories-list-entry.php' );
-				}
-				include get_theme_file_path( 'views/home/news-categories-list-item_after.php' );
-			}
-			next( $categories );
-		} while ( $category_current );
+		// 		],
+		// 	] );
+		// 	if ( is_array( $category_entries ) && ! empty( $category_entries ) ) {
+		// 		echo sprintf(
+		// 			'',
+		// 			implode( "\r\n", array_map(callback, arr1) )
+		// 		);
+		// 		include get_theme_file_path( 'views/home/news-categories-list-item_before.php' );
+		// 		foreach ( $category_entries as $entry ) {
+		// 			setup_postdata( $post = $entry );
+		// 			include get_theme_file_path( 'views/home/news-categories-list-entry.php' );
+		// 		}
+		// 		include get_theme_file_path( 'views/home/news-categories-list-item_after.php' );
+		// 	}
+		// 	next( $categories );
+		// } while ( $category_current );
 		include get_theme_file_path( 'views/home/news-categories-list-after.php' );
 		include get_theme_file_path( 'views/home/news-categories-after.php' );
 	}

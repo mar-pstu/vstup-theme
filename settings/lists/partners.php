@@ -1,89 +1,82 @@
 <?php
 
 
+namespace vstup;
+
 
 if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
-
-
 $wp_customize->add_section(
-	"{$slug}_partners",
-	array(
+	VSTUP_SLUG . '_partners',
+	[
 		'title'            => __( 'Партнёры', VSTUP_TEXTDOMAIN ),
 		'priority'         => 10,
 		'description'      => __( 'Вторая секция главной страницы. Якорь #partners', VSTUP_TEXTDOMAIN ),
-		'panel'            => "{$slug}_lists",
-	)
+		'panel'            => VSTUP_SLUG . '_lists',
+	]
 ); /**/
 
 
 
 $wp_customize->add_setting(
-	"{$slug}_partners_flag",
-	array(
+	'partners_flag',
+	[
 		'default'           => false,
 		'transport'         => 'reset',
 		'sanitize_callback' => 'sanitize_text_field',
-	)
+	]
 );
 $wp_customize->add_control(
-	"{$slug}_partners_flag",
-	array(
-		'section'           => "{$slug}_partners",
+	'partners_flag',
+	[
+		'section'           => VSTUP_SLUG . '_partners',
 		'label'             => __( 'Использовать секцию', VSTUP_TEXTDOMAIN ),
 		'type'              => 'checkbox',
-	)
+	]
 ); /**/
-
-
-
-
 
 
 $wp_customize->add_setting(
-	"{$slug}_partners_number",
-	array(
+	'partners_number',
+	[
 		'default'           => 5,
 		'transport'         => 'reset',
 		'sanitize_callback' => 'sanitize_textarea_field',
-	)
+	]
 );
 $wp_customize->add_control(
-	"{$slug}_partners_number",
-	array(
-		'section'           => "{$slug}_partners",
+	'partners_number',
+	[
+		'section'           => VSTUP_SLUG . '_partners',
 		'label'             => __( 'Количество записей', VSTUP_TEXTDOMAIN ),
 		'type'              => 'number',
-		'input_attrs'       => array(
+		'input_attrs'       => [
 			'min'             => 1,
 			'max'             => 10,
-		),
-	)
+		],
+	]
 ); /**/
 
 
-
-for ( $i=0; $i<get_theme_mod( "{$slug}_partners_number", 5 ); $i++ ) { 
+for ( $i = 0; $i < get_theme_mod( 'partners_number' ); $i++ ) { 
 	$wp_customize->add_setting(
-		"{$slug}_partners[{$i}]",
-		array(
+		"partners[{$i}]",
+		[
 			'default'           => '',
 			'transport'         => 'reset',
-			'sanitize_callback' => 'sanitize_url',
-		)
+			'sanitize_callback' => 'esc_url_raw',
+		]
 	);
 	$wp_customize->add_control(
 	   new WP_Customize_Image_Control(
-		   $wp_customize,
-		   "{$slug}_partners[{$i}]",
-		   array(
-			   'label'      => sprintf( __( 'лого %d', VSTUP_TEXTDOMAIN ), ( $i + 1 ) ),
-			   'section'    => "{$slug}_partners",
-			   'settings'   => "{$slug}_partners[{$i}]",
-		   )
-	   )
+			$wp_customize,
+			"partners[{$i}]",
+			[
+				'label'      => sprintf( __( 'лого %d', VSTUP_TEXTDOMAIN ), ( $i + 1 ) ),
+				'section'    => VSTUP_SLUG . '_partners',
+				'settings'   => "{$slug}_partners[{$i}]",
+			]
+		)
 	);
 }
-
-

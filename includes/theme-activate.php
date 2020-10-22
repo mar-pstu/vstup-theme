@@ -170,6 +170,26 @@ function setup_default_mods( $old_name ) {
 			],
 		],
 
+		// главная страница - блок видео
+		'videos_flag'     => true,
+		'videos'          => [
+			[
+				'label'         => 'Спеціальність Переклад',
+				'url'           => 'https://youtu.be/HzrH6gbxR8M',
+				'thumbnail'     => '',
+			],
+			[
+				'label'         => 'Соціально-гуманітарний факультет',
+				'url'           => 'https://youtu.be/Z9eQAszhC2I',
+				'thumbnail'     => '',
+			],
+			[
+				'label'         => 'Крок у нове життя',
+				'url'           => 'https://youtu.be/3BEmHgUUHEg',
+				'thumbnail'     => '',
+			]
+		],
+
 		// главная странциа - выпускники
 		'people_flag'     => true,
 		'people_page_id'  => '',
@@ -212,6 +232,50 @@ function setup_default_mods( $old_name ) {
 				'label'     => 'років історії',
 				'link'      => '#',
 				'image'     => '',
+			],
+		],
+
+		// главная страница - партнёры
+		'partners_flag'   => true,
+		'partners_number' => 5,
+		'partners'        => [
+			'https://pstu.edu/wp-content/uploads/2018/09/МОН.png',
+			'https://pstu.edu/wp-content/uploads/2019/06/ДТЭК-логотип.png',
+			'https://pstu.edu/wp-content/uploads/2019/06/Метинвест-логотип.jpg',
+			'https://pstu.edu/wp-content/uploads/2018/11/ПИТ.png',
+		],
+
+		// выпускники
+		'graduates_number' => 5,
+		'graduates'       => [],
+
+		// писок услуг
+		'services_items_number' => 6,
+		'services_items'  => [
+			[
+				'title'     => 'Донбас-Україна',
+				'thumbnail' => '',
+				'permalink' => 'https://pstu.edu/uk/university/structure/departments/osvitnij-czentr-donbas-ukrayina/',
+			],
+			[
+				'title'     => 'навчання для іноземців',
+				'thumbnail' => '',
+				'permalink' => 'https://studyinukraine.pstu.edu',
+			],
+			[
+				'title'     => 'Практика школярів',
+				'thumbnail' => '',
+				'permalink' => 'https://pstu.edu/uk/vstup/proforiyentaczijna-praktyka/',
+			],
+			[
+				'title'     => 'Центр кар\'єри',
+				'thumbnail' => '',
+				'permalink' => 'https://pstu.edu/uk/university/structure/departments/czentr-karyery/',
+			],
+			[
+				'title'     => 'Курси',
+				'thumbnail' => '',
+				'permalink' => 'https://eng.pstu.edu',
 			],
 		],
 
