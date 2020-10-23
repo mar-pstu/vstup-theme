@@ -4,7 +4,7 @@
 
 
 			</main>
-			<footer class="wrapper__item wrapper__item--footer footer">
+			<footer id="footer" class="wrapper__item wrapper__item--footer footer">
 				<?php
 					get_sidebar();
 					if ( get_theme_mod( VSTUP_SLUG . '_partners_flag', false ) ) {

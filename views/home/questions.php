@@ -16,11 +16,12 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 			<?php if ( ! empty( $title ) ) : ?>
 				<div class="col-xs-12 col-sm-5 col-md-5 col-lg-4">
 					<h2 class="title"><?php echo $title; ?></h2>
+					<?php get_template_part( 'parts/lists/contacts' ); ?>
 				</div>
 			<?php endif; ?>
 			<?php if ( ! empty( $form ) ) : ?>
 				<div class="col-xs-12 col-sm-6 col-md-5 col-lg-4 col-md-offset-1">
-					<?php echo $form; ?>
+					<?php echo do_shortcode( $form, false ); ?>
 				</div>
 			<?php endif; ?>
 		</div>

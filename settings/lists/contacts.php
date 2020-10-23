@@ -1,10 +1,7 @@
 <?php
 
 
-
 if ( ! defined( 'ABSPATH' ) ) { exit; };
-
-
 
 
 $wp_customize->add_section(
@@ -18,11 +15,10 @@ $wp_customize->add_section(
 ); /**/
 
 
-
-foreach ( array(
+foreach ( [
 	'phone' => __( 'Телефон', VSTUP_TEXTDOMAIN ),
 	'email' => __( 'Email', VSTUP_TEXTDOMAIN ),
-) as $key => $label ) {
+] as $key => $label ) {
 	$wp_customize->add_setting(
 		"contacts[{$key}]",
 		[
@@ -33,7 +29,7 @@ foreach ( array(
 	$wp_customize->add_control(
 		"contacts[{$key}]",
 		[
-			'section'           => VSTUP_TEXTDOMAIN . '_contacts',
+			'section'           => VSTUP_SLUG . '_contacts',
 			'label'             => $label,
 			'type'              => 'text',
 		]

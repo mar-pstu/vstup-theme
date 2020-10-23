@@ -1,22 +1,12 @@
 //-
 	Шапка сайта
 
-
-
-
-
 .line.line--panel: .container.wrap
 	ul.links.list-inline
 		li: a.faq( href="#" ) #[span.label Вопросы ответы]
 		li: a.schedule( href="#" ) #[span.label Расписание]
-	ul.links.socials.list-inline
-		li: a.facebook( href="#" ) #[span.sr-only facebook]
-		li: a.twitter( href="#" ) #[span.sr-only twitter]
-		li: a.instagram( href="#" ) #[span.sr-only instagram]
-		li: a.youtube( href="#" ) #[span.sr-only youtube]
-	ul.links.contacts.list-inline
-		li: a.phone( href="tel:380629343097" ) #[span.label (0629) 34-30-97]
-		li: a.email( href="mailto:priem@pstu.edu" ) #[span.label priem@pstu.edu]
+	include ../blocks/_contacts
+	include ../blocks/_socials
 	include ../forms/_search
 	ul.languages.list-inline
 		li.current RU

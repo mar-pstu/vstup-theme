@@ -22,3 +22,6 @@ function get_home_parts( $parts = [] ) {
 }
 
 add_filter( 'get_home_parts', 'vstup\get_home_parts', 10, 1 );
+
+
+add_filter('show_admin_bar', '__return_false');

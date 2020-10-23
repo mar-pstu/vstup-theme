@@ -1,16 +1,13 @@
 <?php
 
 
-
 namespace vstup;
-
 
 
 if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
-
-$items = get_theme_mod( VSTUP_SLUG . '_firstscreen', [] );
+$items = get_theme_mod( 'firstscreen', [] );
 $slides = [];
 
 
@@ -18,7 +15,7 @@ if ( ! empty( $items ) ) {
 
 	ob_start();
 
-	for ( $i = 0; $i < get_theme_mod( VSTUP_SLUG . '_firstscreen_number', 5 ); $i++ ) {
+	for ( $i = 0; $i < get_theme_mod( 'firstscreen_number' ); $i++ ) {
 		
 		ob_clean();
 
@@ -62,7 +59,6 @@ if ( ! empty( $items ) ) {
 	}
 
 	ob_end_clean();
-
 
 	if ( ! empty( $slides ) ) {
 		include get_theme_file_path( 'views/home/firstscreen.php' );

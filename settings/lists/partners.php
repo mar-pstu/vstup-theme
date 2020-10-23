@@ -69,13 +69,13 @@ for ( $i = 0; $i < get_theme_mod( 'partners_number' ); $i++ ) {
 		]
 	);
 	$wp_customize->add_control(
-	   new WP_Customize_Image_Control(
+	   new \WP_Customize_Image_Control(
 			$wp_customize,
 			"partners[{$i}]",
 			[
 				'label'      => sprintf( __( 'лого %d', VSTUP_TEXTDOMAIN ), ( $i + 1 ) ),
 				'section'    => VSTUP_SLUG . '_partners',
-				'settings'   => "{$slug}_partners[{$i}]",
+				'settings'   => "partners[{$i}]",
 			]
 		)
 	);

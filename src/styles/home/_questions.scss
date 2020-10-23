@@ -1,18 +1,5 @@
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// главная странциа - задать вопрос
 .questions {
 
 	background-repeat: no-repeat;
@@ -20,12 +7,27 @@
 	background-attachment: fixed;
 	
 	.title {
-		text-align: center;
 		font-size: 1.5em;
 		color: #fff;
 		text-shadow: .2em .2em .5em rgba( 0, 0, 0, .9 );
 		@include min-width( $screen-md ) {
 			font-size: 3em;
+		}
+	}
+
+	.links li {
+		display: block;
+		font-size: 200%;
+	}
+
+	.links a {
+		color: #fff;
+	}
+
+	.title,
+	.links {
+		text-align: center;
+		@include min-width( $screen-md ) {
 			text-align: right;
 		}
 	}

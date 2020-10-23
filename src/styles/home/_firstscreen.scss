@@ -1,23 +1,10 @@
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+// главная страница - первый экран
 .firstscreen {
 
 	position: relative;
 
 	.blogname {
-		
 		font-size: 5em;
 		font-weight: bold;
 		opacity: .25;
@@ -26,11 +13,24 @@
 		right: 0;
 		bottom: 0;
 		padding: 0 1em;
-
 		@include min-width( $screen-sm ) {
 			font-size: 7em;
 		}
+	}
 
+	.slider-controls {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+	}
+
+	.slider-controls .slider-arrow {
+		@extend %icon-arrow-light;
+	}
+
+	.slider-controls .slider-dots button {
+		background-color: #fff;
 	}
 
 }

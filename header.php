@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 	<body <?php body_class(); ?> data-nav="inactive">
 		<?php get_template_part( 'parts/mobilenav' ); ?>
 		<div class="wrapper" id="wrapper">
-			<header class="wrapper__item wrapper__item--header header">
+			<header id="header" class="wrapper__item wrapper__item--header header">
 				<div class="line line--panel">
 					<div class="container wrap">
 						<?php
@@ -42,57 +42,8 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 									<?
 								}
 							}
-							// вывод списка социальных сетей
-							$socials = get_theme_mod( VSTUP_SLUG . "_socials", array() );
-							if ( is_array( $socials ) && ! empty( $socials ) ) {
-								$socials_items = __return_empty_array();
-								foreach ( $socials as $key => $link ) {
-									if ( ! empty( trim( $link ) ) ) {
-										$socials_items[] = sprintf(
-											'<li><a class="%1$s" href="%2$s"><span class="sr-only">%1$s</span></a></li>',
-											$key,
-											esc_attr( $link )
-										);
-									}
-								}
-								if ( ! empty( $socials_items ) ) {
-									echo '<ul class="links socials list-inline">' . implode( "\r\n", $socials_items ) . '</ul>';
-								}
-							}
-							// вывод списка контактов
-							$contacts = get_theme_mod( VSTUP_SLUG . "_contacts", array() );
-							if ( is_array( $contacts ) && ! empty( $contacts ) ) {
-								$contacs_items = __return_empty_array();
-								foreach ( $contacts as $key => $link ) {
-									if ( ! empty( trim( $link ) ) ) {
-										$scheme = __return_empty_string();
-										$label = __return_empty_string();
-										switch ( $key ) {
-											case 'phone':
-												$scheme = 'tel:';
-												$label = '';
-												break;
-											case 'email':
-												$scheme = 'mailto:';
-												break;
-											default:
-												$scheme = 'https://';
-												$label = '';
-												break;
-										}
-										$contacs_items[] = sprintf(
-											'<li><a class="%1$s" href="%2$s%3$s"><span class="label">%4$s</span></a></li>',
-											$key,
-											$scheme,
-											esc_attr( $link ),
-											$link
-										);
-									}
-								}
-								if ( ! empty( $contacs_items ) ) {
-									echo '<ul class="links contacts list-inline">' . implode( "\r\n", $contacs_items ) . '</ul>';
-								}
-							}
+							get_template_part( 'parts/lists/socials' );
+							get_template_part( 'parts/lists/contacts' );
 							// вывод формы поиска
 							get_search_form( true );
 							echo get_languages_list( array(

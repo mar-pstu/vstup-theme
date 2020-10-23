@@ -63,7 +63,7 @@ for ( $i = 0; $i < get_theme_mod( 'graduates_number' ); $i++ ) {
 		]
 	);
 	$wp_customize->add_control(
-		new WP_Customize_Cropped_Image_Control(
+		new \WP_Customize_Cropped_Image_Control(
 			$wp_customize,
 			"graduates[{$i}][foto]",
 			[
@@ -130,7 +130,7 @@ for ( $i = 0; $i < get_theme_mod( 'graduates_number' ); $i++ ) {
 		]
 	);
 	$wp_customize->add_control(
-		new WP_Customize_Cropped_Image_Control(
+		new \WP_Customize_Cropped_Image_Control(
 			$wp_customize,
 			"graduates[{$i}][specialty][thumbnail]",
 			[
