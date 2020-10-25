@@ -65,7 +65,7 @@ if ( ! empty( $items ) ) {
 		if ( count( $slides ) > 1 ) {
 			wp_enqueue_style( 'slick' );
 			wp_enqueue_script( 'slick' );
-			wp_add_inline_script( 'slick', \file_get_contents( VSTUP_DIR . 'scripts/firstscreen-init.js' ), 'after' );
+			wp_add_inline_script( 'slick', \file_get_contents( VSTUP_DIR . 'scripts/firstscreen-list-init.js' ), 'after' );
 		}
 	}
 
