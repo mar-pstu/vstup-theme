@@ -1,16 +1,14 @@
 <?php
 
 
-
 namespace vstup;
-
 
 
 if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
-
 ?>
+
 
 <div class="pageheader">
 	<div class="container">
@@ -29,7 +27,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 				<?php the_breadcrumb(); ?>
 			</div>
 			<div class="col-xs-12 col-sm-4 col-md-3">
-				<?php the_share(); ?>
+				<?php get_template_part( 'parts/share' ); ?>
 			</div>
 		</div>
 	</div>
