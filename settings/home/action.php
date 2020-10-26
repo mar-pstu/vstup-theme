@@ -135,7 +135,7 @@ $wp_customize->add_control(
 		$wp_customize,
 		'action_bgc',
 		[
-		   'label'          => __( 'Цвет фона', WEBSPUTNIK_THEME_TEXTDOMAIN ),
+		   'label'          => __( 'Цвет фона', VSTUP_TEXTDOMAIN ),
 		   'section'        => VSTUP_SLUG . '_action',
 		   'settings'       => 'action_bgc',
 		]

@@ -1,0 +1,49 @@
+//
+// Главная странциа
+// Блок специальности / Факультеты
+//
+
+
+.faculties {
+
+	
+
+	&__item {
+		height: 100%;
+		text-align: center;
+		@include min-width( $screen-md ) {
+			text-align: left;
+		}
+	}
+
+	.item {
+
+
+		.logo {
+			display: block;
+			width: 10em;
+			weight: 10em;
+			margin: 1em auto .5em;
+			@include min-width( $screen-md ) {
+				width: 15em;
+				weight: 15em;
+			}
+		}
+
+		.logo img {
+			display: block;
+		}
+
+		.title {
+			margin-top: 0;
+		}
+
+		.permalink {
+			@extend %button;
+			@extend %button-success;
+			margin-top: 1.5em;
+		}
+
+	}
+
+}

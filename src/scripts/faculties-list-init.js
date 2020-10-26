@@ -1,11 +1,11 @@
 jQuery( document ).ready( function () {
-	jQuery( '#specialties-list' ).slick( {
+	jQuery( '#faculties-list' ).slick( {
 		dots: true,
 		arrows: true,
 		dotsClass: 'slider-dots',
-		appendDots: jQuery( '#specialties-controls' ),
-		prevArrow: '#specialties-arrow-prev',
-		nextArrow: '#specialties-arrow-next',
+		appendDots: jQuery( '#faculties-controls' ),
+		prevArrow: '#faculties-arrow-prev',
+		nextArrow: '#faculties-arrow-next',
 		autoplay: false,
 		adaptiveHeight: false,
 		fade: false,
