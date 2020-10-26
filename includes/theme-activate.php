@@ -97,10 +97,12 @@ function setup_default_mods( $old_name ) {
 		'action_page_id'  => '2330',
 		'action_title'    => 'Почни з нами',
 		'action_excerpt'  => '',
+		'action_page_id'  => 434,
 		'action_label'    => 'Вступ 2020',
-		'action_bgi'      => get_theme_file_path( '/images/action/bg.jpg' ),
+		'action_bgi'      => get_theme_file_uri( 'images/action/bg.jpg' ),
+		'action_bgc'      => '#76bcf8',
 		'action_thumbnail' => get_custom_logo_src( 'thumbnail' ),
-		'action_video'    => '',
+		'action_video'    => 'https://youtu.be/IUXXfvIUIKg',
 
 		// главная странциа - специальности
 		'faculties_flag' => true,

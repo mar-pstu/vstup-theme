@@ -17,19 +17,19 @@ mixin entry_thumbnail( args )
 
 .news#news.section: .container
 	.row.center-xs
-		.col-xs-12.col-sm-12.col-md-6
+		.col-xs-12.col-sm-12.col-md-6.col-lg-6
 			h2 Новости
 			#news-list-entries( role="list" )
-				div: .row
+				div.slide: .row
 					+entry_thumbnail( { thumbnail: src.img+'news/03.jpg', title: 'Заголовок поста №1' } )
 					+entry_thumbnail( { thumbnail: src.img+'news/01.jpg', title: 'Заголовок поста №2' } )
 					+entry_thumbnail( { thumbnail: src.img+'news/02.jpg', title: 'Заголовок поста №3' } )
-				div: .row
+				div.slide: .row
 					+entry_thumbnail( { thumbnail: src.img+'news/02.jpg', title: 'Заголовок поста №2' } )
 					+entry_thumbnail( { thumbnail: src.img+'news/01.jpg', title: 'Заголовок поста №1' } )
 					+entry_thumbnail( { thumbnail: src.img+'news/03.jpg', title: 'Заголовок поста №3' } )
 	
-		.col-xs-12.col-sm-12.col-md-6
+		.col-xs-12.col-sm-12.col-md-6.col-lg-6
 			#news-categories-names.categories-names( role="list" )
 				a.item( role="listitem" href="#list1" ) Все
 				a.item( role="listitem" href="#list2" ) Новости

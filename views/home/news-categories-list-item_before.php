@@ -1,4 +1,13 @@
+<?php
 
 
+namespace vstup;
 
-<div class="item" id="list1" role="listitem">
+
+if ( ! defined( 'ABSPATH' ) ) { exit; };
+
+
+?>
+
+
+<div class="item" id="<?php echo esc_attr ( isset( $category->slug ) ) ? $category->slug : 'all-categories'; ?>" role="listitem" >

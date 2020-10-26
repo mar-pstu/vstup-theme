@@ -124,6 +124,26 @@ $wp_customize->add_control(
 
 
 $wp_customize->add_setting(
+	'action_bgc',
+	[
+		'transport'         => 'reset',
+		'sanitize_callback' => 'sanitize_hex_color',
+	]
+);
+$wp_customize->add_control(
+	new \WP_Customize_Color_Control(
+		$wp_customize,
+		'action_bgc',
+		[
+		   'label'          => __( 'Цвет фона', WEBSPUTNIK_THEME_TEXTDOMAIN ),
+		   'section'        => VSTUP_SLUG . '_action',
+		   'settings'       => 'action_bgc',
+		]
+	)
+);
+
+
+$wp_customize->add_setting(
 	'action_thumbnail',
 	[
 		'transport'         => 'reset',

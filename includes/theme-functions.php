@@ -627,3 +627,38 @@ function parse_only_allowed_args( $default, $args, $sanitize_callback = [], $req
 	}
 	return $result;
 }
+
+
+/**
+ * Конвертер ассоциативного массива в css правила
+ * @param    array    $rules   массив параметров, где ключ это селекторы
+ * @param    array    $args    дополнительные аргумаенты для преобразования
+ * @return   string
+ * */
+function css_array_to_css( $rules, $args = [] ) {
+	$args = array_merge( [
+		'indent'     => 0,
+		'container'  => false,
+	], $args );
+	$css = '';
+	$prefix = str_repeat( '  ', $args[ 'indent' ] );
+	foreach ($rules as $key => $value ) {
+		if ( is_array( $value ) ) {
+			$selector = $key;
+			$properties = $value;
+			$css .= $prefix . "$selector {\n";
+			$css .= $prefix . css_array_to_css( $properties, [
+				'indent'     => $args[ 'indent' ] + 1,
+				'container'  => false,
+			] );
+			$css .= $prefix . "}\n";
+		} else {
+			$property = $key;
+			if ( filter_var( $value, FILTER_VALIDATE_URL ) ) {
+				$value = 'url(' . $value . ')';
+			}
+			$css .= $prefix . "$property: $value;\n";
+		}
+	}
+	return ( $args[ 'container' ] ) ? "\n<style>\n" . $css . "\n</style>\n" : $css;
+}

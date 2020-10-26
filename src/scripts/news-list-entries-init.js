@@ -1,5 +1,12 @@
 jQuery( document ).ready( function () {
-	jQuery( '#news-list-entries' ).slick( {
+	var $slider = jQuery( '#news-list-entries' );
+	$slider.find( '.slide' ).each( function ( index, element ) {
+		var $slide = jQuery( element );
+		if ( $slide.find( '.news__thumbnail' ).length == 0 ) {
+			$slide.remove();
+		}
+	} );
+	$slider.slick( {
 		dots: false,
 		arrows: false,
 		fade: true,

@@ -5,6 +5,8 @@
 	position: relative;
 
 	.blogname {
+		display: none;
+		visibility: hidden;
 		font-size: 5em;
 		font-weight: bold;
 		opacity: .25;
@@ -15,6 +17,8 @@
 		padding: 0 1em;
 		@include min-width( $screen-sm ) {
 			font-size: 7em;
+			display: block;
+			visibility: visible;
 		}
 	}
 

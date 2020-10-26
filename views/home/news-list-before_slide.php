@@ -10,5 +10,5 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 ?>
 
 
-<div>
+<div class="slide">
 	<div class="row">

@@ -1,11 +1,5 @@
 
-
-
-
-
-
-
-
+// перовый экран для шлавной страницы и конрневых страниц
 .jumbotron {
 
 	padding: 3em 0 5em 0;
@@ -66,6 +60,16 @@
 
 	.warning {
 		margin-top: 5em;
+	}
+
+	.warning li {
+		display: inline-block;
+		margin-right: .5em;
+	}
+
+	.warning li + li::before {
+		content: '|';
+		margin-right: .5em;
 	}
 
 }
