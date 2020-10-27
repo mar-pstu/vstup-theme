@@ -14,10 +14,13 @@ get_template_part( 'includes/textdomain' );
 get_template_part( 'includes/theme-hooks' );
 get_template_part( 'includes/theme-supports' );
 get_template_part( 'includes/theme-functions' );
-get_template_part( 'includes/shortcodes' );
 get_template_part( 'includes/gutenberg' );
 get_template_part( 'includes/menus' );
 get_template_part( 'includes/sidebars' );
+
+
+get_template_part( 'shortcodes/graduate-list' );
+get_template_part( 'shortcodes/advantages-list' );
 
 
 if ( function_exists( 'pll_register_string' ) && function_exists( 'pll__' ) ) {

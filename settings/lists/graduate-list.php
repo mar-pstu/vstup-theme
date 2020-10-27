@@ -12,7 +12,7 @@ $wp_customize->add_section(
 	[
 		'title'            => __( 'Список выпускников', VSTUP_TEXTDOMAIN ),
 		'priority'         => 10,
-		'description'      => __( 'Список выпускников. Публикуется на главной странице в блоке "Люди". Можно вывести с помощью шорткода <code>[GRADUATES]</code>', VSTUP_TEXTDOMAIN ),
+		'description'      => __( 'Список выпускников. Публикуется на главной странице в блоке "Люди". Можно вывести с помощью шорткода <code>[graduate_list]</code>', VSTUP_TEXTDOMAIN ),
 		'panel'            => VSTUP_SLUG . '_lists',
 	]
 ); /**/
@@ -93,14 +93,14 @@ for ( $i = 0; $i < get_theme_mod( 'graduates_number' ); $i++ ) {
 		]
 	); /**/
 	$wp_customize->add_setting(
-		"graduates[{$i}][specialty][title]",
+		"graduates[{$i}][specialty_title]",
 		[
 			'transport'         => 'reset',
 			'sanitize_callback' => 'sanitize_text_field',
 		]
 	);
 	$wp_customize->add_control(
-		"graduates[{$i}][specialty][title]",
+		"graduates[{$i}][specialty_title]",
 		[
 			'section'           => VSTUP_SLUG . '_graduates',
 			'label'             => __( sprintf( 'специальность %d', ( $i + 1 ) ), VSTUP_TEXTDOMAIN ),
@@ -108,14 +108,14 @@ for ( $i = 0; $i < get_theme_mod( 'graduates_number' ); $i++ ) {
 		]
 	); /**/
 	$wp_customize->add_setting(
-		"graduates[{$i}][specialty][permalink]",
+		"graduates[{$i}][specialty_permalink]",
 		[
 			'transport'         => 'reset',
 			'sanitize_callback' => 'sanitize_text_field',
 		]
 	);
 	$wp_customize->add_control(
-		"graduates[{$i}][specialty][permalink]",
+		"graduates[{$i}][specialty_permalink]",
 		[
 			'section'           => VSTUP_SLUG . '_graduates',
 			'label'             => __( sprintf( 'ссылка на описание специальности %d', ( $i + 1 ) ), VSTUP_TEXTDOMAIN ),
@@ -123,7 +123,7 @@ for ( $i = 0; $i < get_theme_mod( 'graduates_number' ); $i++ ) {
 		]
 	); /**/
 	$wp_customize->add_setting(
-		"graduates[{$i}][specialty][thumbnail]",
+		"graduates[{$i}][specialty_thumbnail]",
 		[
 			'transport'         => 'reset',
 			'sanitize_callback' => 'absint',
@@ -132,11 +132,11 @@ for ( $i = 0; $i < get_theme_mod( 'graduates_number' ); $i++ ) {
 	$wp_customize->add_control(
 		new \WP_Customize_Cropped_Image_Control(
 			$wp_customize,
-			"graduates[{$i}][specialty][thumbnail]",
+			"graduates[{$i}][specialty_thumbnail]",
 			[
 				'label'         => __( sprintf( 'лого специальности %d', ( $i + 1 ) ), VSTUP_TEXTDOMAIN ),
 				'section'       => VSTUP_SLUG . '_graduates',
-				'settings'      => "graduates[{$i}][specialty][thumbnail]",
+				'settings'      => "graduates[{$i}][specialty_thumbnail]",
 				'flex_width'    => false,
 				'flex_height'   => false,
 				'width'         => 150,

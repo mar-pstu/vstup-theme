@@ -1,28 +1,17 @@
 <?php
 
 
-
 namespace vstup;
-
 
 
 if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
-
-$title = get_theme_mod( VSTUP_SLUG . '_people_title', __( 'Выпускники', VSTUP_TEXTDOMAIN ) );
-$label = get_theme_mod( VSTUP_SLUG . '_people_label', __( 'Подробней', VSTUP_TEXTDOMAIN ) );
-$page_id = get_theme_mod( VSTUP_SLUG . '_people_page_id', __return_empty_string() );
-$permalink = __return_empty_string();
-$description = get_theme_mod( VSTUP_SLUG . '_people_description', __return_empty_string() );
-$peoples = get_graduate_slider();
-
-
-if ( function_exists( 'pll__' ) ) {
-	$title = pll__( $title );
-	$label = pll__( $label );
-	$description = pll__( $description );
-}
+$title = get_theme_mod( 'people_title' );
+$label = get_theme_mod( 'people_label' );
+$page_id = get_theme_mod( 'people_page_id' );
+$permalink = '';
+$description = get_theme_mod( 'people_description' );
 
 
 if ( ! empty( $page_id ) ) {
@@ -30,8 +19,9 @@ if ( ! empty( $page_id ) ) {
 	if ( empty( $title ) ) {
 		$title = get_the_title( $page_id );
 	}
-	if ( empty( $excerpt ) ) {
-		$excerpt = get_the_excerpt( $page_id );
+	if ( empty( $description ) ) {
+		$parts = get_extended( get_the_content( '', true, $page_id ) );
+		$description = apply_filters( 'the_content', do_shortcode( $parts[ 'main' ], false ) );
 	}
 }
 

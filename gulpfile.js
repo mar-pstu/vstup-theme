@@ -85,7 +85,7 @@ gulp.task( 'index', function () {
 
 
 gulp.task( 'other_scripts', function () {
-	return gulp.src( [ './src/scripts/*.js' ] )
+	return gulp.src( [ './src/scripts/*.js', './src/scripts/init/*.js' ] )
 		.pipe( plumber() )
 		.pipe( gulp.dest( './scripts/' ) )
 		.pipe( minscripts() )
@@ -97,7 +97,7 @@ gulp.task( 'other_scripts', function () {
 
 
 gulp.task( 'minscripts', function () {
-	return gulp.src( [ './scripts/*.js', '!./scripts/*.min.js' ] )
+	return gulp.src( [ './scripts/*.js', '!./scripts/*.min.js', './scripts/init/*.js', '!./scripts/init/*.min.js' ] )
 		.pipe( plumber() )
 		.pipe( minscripts() )
 		.pipe( rename( { suffix: '.min' } ) )

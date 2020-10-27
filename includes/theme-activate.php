@@ -197,7 +197,8 @@ function setup_default_mods( $old_name ) {
 		'people_page_id'  => '',
 		'people_title'    => 'Випускники',
 		'people_description' => '',
-		'people_label'    => 'Подробней',
+		'people_label'    => 'Докладніше',
+		
 
 
 		// главная страница - услуги

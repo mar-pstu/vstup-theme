@@ -282,88 +282,9 @@ function get_slider_arrow_buttons( $slug ) {
 }
 
 
-
-
-
 function the_slider_arrow_buttons( $slug ) {
 	echo get_slider_arrow_buttons( $slug );
 }
-
-
-
-
-
-function get_graduate_slider() {
-	$result = __return_empty_string();
-	$graduates = get_theme_mod( VSTUP_SLUG . '_graduates', __return_empty_array() );
-	if ( is_array( $graduates ) && ! empty( $graduates ) ) {
-		ob_start();
-		for ( $i = 0; $i < get_theme_mod( VSTUP_SLUG . '_graduates_number', 5 ); $i++ ) { 
-			if ( isset( $graduates[ $i ] ) && is_array( $graduates[ $i ] ) && ! empty( $graduates[ $i ] ) && isset( $graduates[ $i ][ 'name' ] ) && ! empty( trim( $graduates[ $i ][ 'name' ] ) ) ) {
-				extract( array_merge( array(
-					'name'      => '',
-					'excerpt'   => '',
-					'foto'      => VSTUP_URL . 'images/user.svg',
-					'specialty' => array(
-						'title'      => '',
-						'permalink'  => ( post_type_exists( 'educational_program' ) ) ? get_post_type_archive_link( 'educational_program' ) : '#',
-						'thumbnail'  => '',
-					),
-				), $graduates[ $i ] ) );
-				if ( filter_var( $foto, FILTER_VALIDATE_INT ) ) {
-					$foto = wp_get_attachment_image_url( $foto, 'thumbnail', false );
-				}
-				if ( filter_var( $specialty[ 'thumbnail' ], FILTER_VALIDATE_INT ) ) {
-					$specialty[ 'thumbnail' ] = wp_get_attachment_image_url( $specialty[ 'thumbnail' ], 'thumbnail', false );
-				}
-				include get_theme_file_path( 'views/graduate.php' );
-			}
-		}
-		$slides = ob_get_contents();
-		ob_clean();
-		if ( ! empty( $slides ) ) {
-			wp_enqueue_scripts( 'slick' );
-			wp_enqueue_style( 'slick' );
-			?>
-				<div class="slider">
-					<div id="graduate-list">
-						<?php echo $slides; ?>
-					</div>
-					<?php the_slider_arrow_buttons( 'graduate' ); ?>
-				</div>
-				<script>
-					( function () {
-						jQuery( document ).ready( function () {
-							jQuery( '#graduate-list' ).slick( {
-								dots: true,
-								arrows: true,
-								fade: true,
-								dotsClass: 'slider-dots',
-								prevArrow: '#graduate-arrow-prev',
-								nextArrow: '#graduate-arrow-next',
-								autoplay: true,
-								autoplaySpeed: 5000,
-								speed: 1000,
-								lazyLoad: 'ondemand',
-								slidesToShow: 1,
-								slidesToScroll: 1,
-							} );
-						} );
-					} )();
-				</script>
-			<?php
-		}
-		$result = ob_get_contents();
-		ob_end_clean();
-	}
-	return $result;
-}
-
-
-
-
-
-
 
 
 

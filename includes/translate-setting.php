@@ -25,6 +25,8 @@ function add_settings_translations () {
 		'action_label',
 		'faculties_title',
 		'faculties_excerpt',
+		'people_title',
+		'people_label',
 		'services_title',
 		'services_label',
 		'questions_title',
@@ -64,6 +66,13 @@ function add_settings_translations () {
 			],
 			'videos'       => [
 				'label'      => 'pll__',
+			],
+			'graduates'    => [
+				'name'       => 'pll__',
+				'excerpt'    => 'pll__',
+				'specialty_title' => 'pll__',
+				'specialty_permalink' => 'pll__',
+				'specialty_thumbnail' => 'pll__',
 			],
 		] as $name => $atts ) {
 			add_filter( 'theme_mod_' . $name, function ( $news ) use ( $atts ) {
@@ -107,6 +116,7 @@ function add_settings_translations () {
 	foreach ( [
 		'about_page_id',
 		'action_page_id',
+		'people_page_id',
 	] as $name ) {
 		add_filter( "theme_mod_{$name}", 'pll_get_post', 10, 1 );
 	}
