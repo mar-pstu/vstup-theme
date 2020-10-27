@@ -50,25 +50,36 @@ function add_settings_translations () {
 	 * Перевод массива новостей (главная страница)
 	 * */
 	if ( is_front_page() ) {
-		add_filter( 'theme_mod_' . 'news_entries', function ( $news ) {
-			if ( ! is_array( $news ) ) {
-				$news = [ $news ];
-			}
-			$news = array_map( function ( $item ) {
-				if ( ! is_array( $item ) ) {
-					$item = [];
+		foreach ( [
+			'news_entries' => [
+				'title'      => 'pll__',
+				'link'       => 'pll__',
+			],
+			'faculties'    => [
+				'name'       => 'pll__',
+				'excerpt'    => 'pll__',
+				'permalink'  => 'pll__',
+			],
+		] as $mod => $atts ) {
+			add_filter( 'theme_mod_' . $mod, function ( $news ) use ( $atts ) {
+				if ( ! is_array( $news ) ) {
+					$news = [ $news ];
 				}
-				$item = array_merge( [
-					'title' => '',
-					'link'  => '',
-					'thumbnail' => '',
-				], $item );
-				$item[ 'title' ] = ( empty( trim( $item[ 'title' ] ) ) ) ? '' : pll__( $item[ 'title' ] );
-				$item[ 'link' ] = ( empty( trim( $item[ 'link' ] ) ) ) ? '' : pll__( $item[ 'link' ] );
-				return $item;
-			}, $news );
-			return $news;
-		}, 10, 1 );
+				$news = array_map( function ( $item ) {
+					if ( ! is_array( $item ) ) {
+						$item = [];
+					}
+					$item = array_merge( array_map( '__return_empty_string', array_flip( $atts ) ), $item );
+					foreach ( $atts as $key => $callback ) {
+						if ( empty( trim( $item[ $key ] ) ) ) {
+							$item[ $key ] = $callback( $item[ $key ] );
+						}
+					}
+					return $item;
+				}, $news );
+				return $news;
+			}, 10, 1 );
+		}
 	}
 
 

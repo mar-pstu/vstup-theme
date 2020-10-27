@@ -126,7 +126,7 @@ function setup_default_mods( $old_name ) {
 				'name'      => 'Військової підготовка',
 				'excerpt'   => '',
 				'permalink' => 'https://pstu.edu/uk/fakultety-2/kafedra-vijskovoyi-pidgotovky/',
-				'logo'      => '',
+				'logo'      => 'https://pstu.edu/wp-content/uploads/2018/09/%D0%92%D0%A1%D0%A3.png',
 			],
 			[
 				'name'      => 'Металургійний факультет',
