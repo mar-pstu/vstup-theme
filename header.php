@@ -9,6 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 ?>
 
+
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 	<?php get_template_part( 'parts/head' ); ?>
@@ -19,36 +20,11 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 				<div class="line line--panel">
 					<div class="container wrap">
 						<?php
-							// вывод меню быстрых ссылок
-							$nav_menu_locations = get_nav_menu_locations();
-							if ( $nav_menu_locations && isset( $nav_menu_locations[ 'quick_links' ] ) ) {
-								$quick_links = wp_get_nav_menu_items( $nav_menu_locations[ 'quick_links' ] );
-								if ( is_array( $quick_links ) && ! empty( $quick_links ) ) {
-									$quick_links = wp_list_filter( $quick_links, array( 'menu_item_parent' => 0 ), 'AND' );
-									?>
-										<ul class="links list-inline">
-									<?
-										foreach ( $quick_links as $quick_link ) {
-											printf(
-												'<li><a class="%1$s" href="%2$s" title="%3$s"><span class="label">%4$s</span></a></li>',
-												implode( " ", $quick_link->classes ),
-												esc_attr( $quick_link->url ),
-												esc_attr( $quick_link->description ),
-												$quick_link->title
-											);
-										}
-									?>
-										</ul>
-									<?
-								}
-							}
+							get_template_part( 'parts/quick-links' );
 							get_template_part( 'parts/lists/socials' );
 							get_template_part( 'parts/lists/contacts' );
-							// вывод формы поиска
 							get_search_form( true );
-							echo get_languages_list( array(
-								'container_class' => 'languages list-inline',
-							) );
+							get_template_part( 'parts/languages-list' );
 						?>
 					</div>
 				</div>

@@ -77,41 +77,6 @@ function get_custom_logo_src( string $size = 'full' ) {
 
 
 /**
- * 	Возвращает список языков
- */ 
-function get_languages_list( $args = [] ) {
-	$args = wp_parse_args( $args, array(
-		'container_class' => 'languages',
-	) );
-	$result = __return_empty_array();
-	if ( ( function_exists( 'pll_the_languages' ) ) && ( function_exists( 'pll_current_language' ) ) ) {
-		$current = pll_current_language( 'slug' );
-		$other = pll_the_languages( array(
-			'dropdown'           => 0,
-			'show_names'         => '',
-			'display_names_as'   => 'slug',
-			'show_flags'         => 0,
-			'hide_if_empty'      => 0,
-			'force_home'         => 0,
-			'echo'               => 0,
-			'hide_if_no_translation' => 0,
-			'hide_current'       => 0,
-			'post_id'            => ( is_singular() ) ? get_the_ID() : NULL,
-			'raw'                => 1,
-		) );
-		if ( ( $other ) && ( ! empty( $other ) ) ) {
-			foreach ( $other as $lang ) $result[] = sprintf(
-				( $lang[ 'slug' ] == $current ) ? '<li class="current">%2$s</li>' : '<li><a href="%1$s">%2$s</a></li>',
-				$lang[ 'url' ],
-				$lang[ 'name' ]
-			);
-		}
-	}
-	return ( empty( $result ) ) ? __return_empty_string() :  sprintf( '<ul class="%1$s">%2$s</ul>', $args[ 'container_class' ], implode( "\r\n", $result ) );
-}
-
-
-/**
  * Выводит хлебные крошки 
  */
 function the_breadcrumb() {
