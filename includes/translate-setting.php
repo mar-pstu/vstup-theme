@@ -23,12 +23,14 @@ function add_settings_translations () {
 		'action_title',
 		'action_excerpt',
 		'action_label',
+		'faculties_title',
+		'faculties_excerpt',
 		'services_title',
 		'services_label',
 		'questions_title',
 		'questions_form',
 	] as $name ) {
-		add_filter( "theme_mod_{$name}", 'pll__', 10, 1 );
+		add_filter( 'theme_mod_' . $name, 'pll__', 10, 1 );
 	}
 
 	/**
@@ -47,7 +49,7 @@ function add_settings_translations () {
 	}
 
 	/**
-	 * Перевод массива новостей (главная страница)
+	 * Перевод массивов новостей, факультетов
 	 * */
 	if ( is_front_page() ) {
 		foreach ( [
@@ -60,8 +62,11 @@ function add_settings_translations () {
 				'excerpt'    => 'pll__',
 				'permalink'  => 'pll__',
 			],
-		] as $mod => $atts ) {
-			add_filter( 'theme_mod_' . $mod, function ( $news ) use ( $atts ) {
+			'videos'       => [
+				'label'      => 'pll__',
+			],
+		] as $name => $atts ) {
+			add_filter( 'theme_mod_' . $name, function ( $news ) use ( $atts ) {
 				if ( ! is_array( $news ) ) {
 					$news = [ $news ];
 				}

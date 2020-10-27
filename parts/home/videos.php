@@ -10,25 +10,25 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
 
-$videos = get_theme_mod( VSTUP_SLUG . '_videos', __return_empty_array() );
-$title = __return_empty_string();
-$content = __return_empty_string();
-$permalink = __return_empty_string();
+$videos = get_theme_mod( 'videos' );
+$title = '';
+$content = '';
+$permalink = '';
 $name = 'videos';
 
 
 if ( is_array( $videos ) && ! empty( $videos ) ) {
 
-	$titles = __return_empty_array();
-	$items = __return_empty_array();
+	$titles = [];
+	$items = [];
 
 	for ( $i=0; $i<3 ; $i++ ) { 
 		if ( isset( $videos[ $i ] ) && is_array( $videos[ $i ] ) ) {
-			$videos[ $i ] = array_merge( array(
+			$videos[ $i ] = array_merge( [
 				'label'     => sprintf( __( 'Видео %d', VSTUP_TEXTDOMAIN ), ( $i + 1 ) ),
 				'url'       => '',
-				'thumbnail' => VSTUP_URL . 'images/preview.jpg',
-			), $videos[ $i ] );
+				'thumbnail' => '',
+			], $videos[ $i ] );
 			if ( ! empty( trim( $videos[ $i ][ 'url' ] ) ) ) {
 				$titles[] = sprintf(
 					'<li class="videos__title title"><a class="%1$s" href="#video-item-%2$s"><span>%3$s</span></a></li>',
@@ -41,7 +41,7 @@ if ( is_array( $videos ) && ! empty( $videos ) ) {
 					( 0 == $i ) ? 'active' : 'inactive',
 					$i,
 					$videos[ $i ][ 'url' ],
-					$videos[ $i ][ 'thumbnail' ],
+					( empty( $videos[ $i ][ 'thumbnail' ] ) ) ? VSTUP_URL . 'images/preview.jpg' : $videos[ $i ][ 'thumbnail' ],
 					esc_attr( $videos[ $i ][ 'label' ] )
 				);
 			}

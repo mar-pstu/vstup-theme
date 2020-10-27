@@ -12,7 +12,14 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 <section class="section faculties" id="faculties">
 	<div class="container text-center">
-		<h2>Факультеты</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa ullam dolorum nam consequuntur, repellendus, amet doloremque iusto vel, optio porro fugit soluta dolores laudantium, nesciunt tenetur. Quam odit cum est.</p>
+
+			<?php if ( isset( $title ) && ! empty( trim( $title ) ) ) : ?>
+				<h2><?php echo $title; ?></h2>
+			<?php endif; ?>
+
+			<?php if ( isset( $excerpt ) && ! empty( trim( $excerpt ) ) ) : ?>
+				<p><?php echo $excerpt; ?></p>
+			<?php endif; ?>
+
 	</div>
 	<div id="faculties-list">
