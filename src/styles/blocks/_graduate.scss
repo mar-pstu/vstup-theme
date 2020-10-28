@@ -36,8 +36,6 @@
 		font-size: 85%;			
 		margin-left: 1em;
 		color: $brand-primary;
-		// font-style: italic;
-		// font-weight: bold;
 	}
 	.title {
 		font-style: italic;
@@ -48,9 +46,11 @@
 		width: 10em;
 		height: 10em;
 		order: -1;
-		border-radius: 50%;
-		overflow: hidden;
 		margin: .5em 0;
+	}
+	.thumbnail img {
+		display: block;
+		border-radius: 50%;
 	}
 	.excerpt {
 		margin: .5em 0;

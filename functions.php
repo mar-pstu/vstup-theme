@@ -21,6 +21,7 @@ get_template_part( 'includes/sidebars' );
 
 get_template_part( 'shortcodes/graduate-list' );
 get_template_part( 'shortcodes/advantages-list' );
+get_template_part( 'shortcodes/services-list' );
 
 
 if ( function_exists( 'pll_register_string' ) && function_exists( 'pll__' ) ) {

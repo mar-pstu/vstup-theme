@@ -7,7 +7,7 @@
 			<footer id="footer" class="wrapper__item wrapper__item--footer footer">
 				<?php
 					get_sidebar();
-					if ( get_theme_mod( VSTUP_SLUG . '_partners_flag', false ) ) {
+					if ( get_theme_mod( 'partners_flag', false ) ) {
 						get_template_part( "parts/partners" );
 					}
 				?>

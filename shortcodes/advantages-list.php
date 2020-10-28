@@ -44,3 +44,6 @@ function get_advantages_list( $args = [] ) {
 	}
 	return ( empty( $html ) ) ? '' : '<div class="row stretch-xs" role="list">' . $html . '</div>';
 }
+
+
+add_shortcode( 'advantages_list', 'vstup\get_graduate_slider' );

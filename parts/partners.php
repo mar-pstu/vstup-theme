@@ -7,32 +7,41 @@ namespace vstup;
 if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
-$partners = get_theme_mod( VSTUP_SLUG . '_partners', array() );
-$slides = __return_empty_array();
+$partners = get_theme_mod( 'partners' );
+$number = get_theme_mod( 'partners_number' );
 
+if ( is_array( $partners ) && ! empty( $partners ) && $number > 0 ) {
 
-if ( is_array( $partners ) && ! empty( $partners ) ) {
+	if ( file_exists( $init_script_path = get_theme_file_path( 'scripts/init/partners-list.js' ) ) ) {
+		wp_enqueue_style( 'slick' );
+		wp_enqueue_scripts( 'slick' );
+		wp_add_inline_script( 'slick', file_get_contents( $init_script_path ), 'after' );
+	}
 
-	for ( $i = 0; $i < get_theme_mod( VSTUP_SLUG . '_partners_number', 5 ); $i++ ) { 
+	include get_theme_file_path( 'views/partners-before.php' );
+
+	for ( $i = 0; $i < get_theme_mod( 'partners_number' ); $i++ ) { 
 		
 		if ( ! empty( $partners[ $i ] ) ) {
 
-			$slides[] = '<div class="partners__item item">' . get_attachment_image(
+			include get_theme_file_path( 'views/partners-item-before.php' );
+
+			echo get_attachment_image(
 				attachment_url_to_postid( $partners[ $i ] ),
-				array(
+				[
 					'size'       => 'medium',
 					'attribute'  => 'lazy',
 					'class_name' => '',
 					'alt'        => '',
-				)
-			) . '</div>';
+				]
+			);
+
+			include get_theme_file_path( 'views/partners-item-after.php' );
 
 		}
 
 	}
 
-	if ( ! empty( $slides ) ) {
-		include get_theme_file_path( 'views/partners.php' );
-	}
+	include get_theme_file_path( 'views/partners-after.php' );
 
 }

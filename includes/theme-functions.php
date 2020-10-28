@@ -235,36 +235,6 @@ function get_categories_choices() {
 }
 
 
-
-
-function get_services_list() {
-	$result = __return_empty_array();
-	$services = get_theme_mod( VSTUP_SLUG . '_services_items', array() );
-	if ( is_array( $services ) && ! empty( $services ) ) {
-		for ( $i = 0;  $i < get_theme_mod( VSTUP_SLUG . '_services_items_number', 6 );  $i++ ) { 
-			if ( isset( $services[ $i ] ) ) {
-				$service = array_merge( array(
-					'title'     => '',
-					'permalink' => '#',
-					'thumbnail' => '',
-				), ( array ) $services[ $i ] );
-				if ( ! empty( trim( $service[ 'title' ] ) ) ) {
-					extract( $service );
-					ob_start();
-					include get_theme_file_path( 'views/flatitem.php' );
-					$result[] = ob_get_contents();
-					ob_end_clean();
-				}
-			}
-		}
-	}
-	return ( empty( $result ) ) ? __return_empty_string() : '<div class="row">' . implode( "\r\n", $result ) . '</div>';
-}
-
-
-
-
-
 function get_slider_arrow_buttons( $slug ) {
 	$result = __return_empty_array();
 	foreach ( array(
