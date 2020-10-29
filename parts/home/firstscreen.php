@@ -45,13 +45,6 @@ if ( ! empty( $items ) ) {
 		] ) : '';
 		$page_menu = '';
 
-		if ( function_exists( 'pll__' ) ) {
-			$title = pll__( $title );
-			$excerpt = pll__( $excerpt );
-			$permalink = pll__( $permalink );
-			$label = pll__( $label );
-		}
-
 		include get_theme_file_path( 'views/jumbotron.php' );
 
 		$slides[] = '<div>' . ob_get_contents() . '</div>';
@@ -61,12 +54,15 @@ if ( ! empty( $items ) ) {
 	ob_end_clean();
 
 	if ( ! empty( $slides ) ) {
-		include get_theme_file_path( 'views/home/firstscreen.php' );
-		if ( count( $slides ) > 1 ) {
+
+		if ( file_exists( $init_script_path = get_theme_file_path( 'scripts/init/firstscreen-list.js' ) ) ) {
 			wp_enqueue_style( 'slick' );
-			wp_enqueue_script( 'slick' );
-			wp_add_inline_script( 'slick', \file_get_contents( VSTUP_DIR . 'scripts/firstscreen-list-init.js' ), 'after' );
+			wp_enqueue_scripts( 'slick' );
+			wp_add_inline_script( 'slick', file_get_contents( $init_script_path ), 'after' );
 		}
+
+		include get_theme_file_path( 'views/home/firstscreen.php' );
+
 	}
 
 }

@@ -55,6 +55,12 @@ function add_settings_translations () {
 	 * */
 	if ( is_front_page() ) {
 		foreach ( [
+			'firstscreen'  => [
+				'title'      => 'pll__',
+				'excerpt'    => 'pll__',
+				'permalink'  => 'pll__',
+				'label'      => 'pll__',
+			],
 			'news_entries' => [
 				'title'      => 'pll__',
 				'link'       => 'pll__',

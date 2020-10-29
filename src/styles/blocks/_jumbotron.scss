@@ -2,7 +2,7 @@
 // перовый экран для шлавной страницы и конрневых страниц
 .jumbotron {
 
-	padding: 3em 0 5em 0;
+	padding: 2em 0 3em 0;
 	position: relative;
 	color: #fff;
 	min-height: 100vh;
@@ -50,16 +50,17 @@
 
 	.title {
 		@extend h1;
-		max-width: 25em;
+		max-width: 45em;
 	}
 
 	.excerpt {
 		margin: 2em 0;
-		max-width: 40em;
+		max-width: 45em;
 	}
 
 	.warning {
-		margin-top: 5em;
+		margin-top: 2em;
+		padding-left: 0;
 	}
 
 	.warning li {

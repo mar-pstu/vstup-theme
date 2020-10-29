@@ -27,6 +27,7 @@
 		bottom: 0;
 		left: 0;
 		right: 0;
+		visibility: hidden;
 	}
 
 	.slider-controls .slider-arrow {
@@ -35,6 +36,14 @@
 
 	.slider-controls .slider-dots button {
 		background-color: #fff;
+	}
+
+	.slide {
+		display: none;
+	}
+
+	.slide:nth-of-type( 1 ) {
+		display: block;
 	}
 
 }

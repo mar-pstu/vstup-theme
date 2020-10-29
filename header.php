@@ -36,17 +36,17 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 						</a>
 						<nav class="nav">
 							<?php
-								if ( has_nav_menu( 'main' ) )  wp_nav_menu( array(
+								if ( has_nav_menu( 'main' ) )  wp_nav_menu( [
 									'theme_location'  => 'main',
 									'menu'            => 'main',
 									'container'       => false,
 									'container_class' => '',
 									'container_id'    => 'nav',
-									'menu_class'      => 'nav__list list',
+									'menu_class'      => 'nav__list list text-center',
 									'menu_id'         => '',
 									'echo'            => true,
 									'depth'           => 3,
-								) );
+								] );
 							?>
 							<button class="nav__burger burger navtoggle">
 								<span class="sr-only"><?php _e( 'Меню', VSTUP_TEXTDOMAIN ); ?></span>

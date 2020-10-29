@@ -20,7 +20,7 @@ include get_theme_file_path( 'views/home/news-before.php' );
 // выводим список записей с превью
 if ( is_array( $news_entries ) && ! empty( $news_entries ) && count( $news_entries ) >= 3 ) {
 
-	if ( file_exists( $entries_init_script_path = get_theme_file_path( 'scripts/news-list-entries-init.js' ) ) ) {
+	if ( file_exists( $entries_init_script_path = get_theme_file_path( 'scripts/init/news-list-entries.js' ) ) ) {
 		wp_enqueue_style( 'slick' );
 		wp_enqueue_scripts( 'slick' );
 		wp_add_inline_script( 'slick', file_get_contents( $entries_init_script_path ), 'after' );
@@ -55,8 +55,7 @@ if ( is_array( $news_entries ) && ! empty( $news_entries ) && count( $news_entri
 
 // выводим вкладки с категориями постов
 if ( is_array( $category_ids ) && ! empty( $category_ids ) ) {
-	if ( file_exists( $categories_init_script_path = get_theme_file_path( 'scripts/news-categories-init.js' ) ) ) {
-		// echo '<pre>'; var_dump( file_get_contents( $categories_init_script_path ) ); echo '</pre>';
+	if ( file_exists( $categories_init_script_path = get_theme_file_path( 'scripts/init/news-categories.js' ) ) ) {
 		wp_add_inline_script( 'jquery', file_get_contents( $categories_init_script_path ), 'after' );
 	}
 	$categories = get_terms( [
