@@ -8,24 +8,20 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
 /**
- * Выводит html-код списка преимуществ
- */
-function the_advantages_list( $args = [] ) {
-	echo get_advantages_list( $args );
-}
-
-
-/**
  * Выводит список преимуществ организации
  * @param    array   $args   параметры вывода
  */
-function get_advantages_list( $args = [] ) {
+function get_advantages_list() {
 	$html = '';
-	$advantages = get_theme_mod( 'advantages', [] );
+	ob_start();
+	$advantages = get_theme_mod( 'advantages' );
+	$number = get_theme_mod( 'advantages_number' );
 	if ( $advantages ) {
-		ob_start();
-		for ( $i = 0; $i < get_theme_mod( 'advantages_number', 3 ); $i++ ) {
+		
+		include get_theme_file_path( 'views/advantage-list-before.php' );
+		for ( $i = 0; $i < $number; $i++ ) {
 			if ( isset( $advantages[ $i ] ) && is_array( $advantages[ $i ] ) ) {
+				include get_theme_file_path( 'views/advantage-item-before.php' );
 				$advantages[ $i ] = array_merge( [
 					'label' => '',
 					'value' => '',
@@ -37,12 +33,14 @@ function get_advantages_list( $args = [] ) {
 				}
 				extract( $advantages[ $i ] );
 				include get_theme_file_path( 'views/advantage-item.php' );
+				include get_theme_file_path( 'views/advantage-item-after.php' );
 			}
 		}
-		$html = ob_get_contents();
-		ob_end_clean();
+		include get_theme_file_path( 'views/advantage-list-after.php' );
 	}
-	return ( empty( $html ) ) ? '' : '<div class="row stretch-xs" role="list">' . $html . '</div>';
+	$html = ob_get_contents();
+	ob_end_clean();
+	return $html;
 }
 
 

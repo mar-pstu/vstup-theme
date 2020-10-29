@@ -5,6 +5,7 @@
 			arrows: true,
 			fade: true,
 			dotsClass: 'slider-dots',
+			appendDots: '#graduate-controls',
 			prevArrow: '#graduate-arrow-prev',
 			nextArrow: '#graduate-arrow-next',
 			autoplay: true,

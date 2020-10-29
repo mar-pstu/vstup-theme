@@ -39,16 +39,16 @@ $wp_customize->add_control(
 ); /**/
 
 
-for ( $i = 0; $i < get_theme_mod( 'graduates_number' ); $i++ ) { 
+for ( $i = 0; $i < get_theme_mod( 'graduates_number' ); $i++ ) {
 	$wp_customize->add_setting(
-		'graduates[{$i}][name]',
+		"graduates[{$i}][name]",
 		[
 			'transport'         => 'reset',
 			'sanitize_callback' => 'sanitize_text_field',
 		]
 	);
 	$wp_customize->add_control(
-		'graduates[{$i}][name]',
+		"graduates[{$i}][name]",
 		[
 			'section'           => VSTUP_SLUG . '_graduates',
 			'label'             => __( sprintf( 'имя %d', ( $i + 1 ) ), VSTUP_TEXTDOMAIN ),
