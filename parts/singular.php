@@ -13,12 +13,6 @@ if ( have_posts() ) {
 
 	the_post();
 
-	if ( is_page() ) {
-		get_template_part( 'parts/jumbotron' );
-	} else {
-		the_pageheader();
-	}
-
 		?>
 
 			<div class="container">
@@ -28,7 +22,6 @@ if ( have_posts() ) {
 					<?php
 
 						the_content();
-						the_pager();
 
 					?>
 

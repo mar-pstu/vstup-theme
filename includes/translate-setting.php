@@ -123,6 +123,7 @@ function add_settings_translations () {
 		'about_page_id',
 		'action_page_id',
 		'people_page_id',
+		'services_page_id',
 	] as $name ) {
 		add_filter( "theme_mod_{$name}", 'pll_get_post', 10, 1 );
 	}

@@ -16,7 +16,6 @@ $excerpt = ( has_excerpt( get_the_ID() ) ) ? get_the_excerpt( get_the_ID() ) : _
 $permalink = __return_empty_string();
 $label = __return_empty_string();
 $page_menu = __return_empty_string();
-$warning_menu = get_warning_nav_menu();
 $thumbnail_url = __return_empty_string();
 
 

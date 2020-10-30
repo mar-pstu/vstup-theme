@@ -9,9 +9,9 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 $title = get_theme_mod( 'services_title' );
 $label = get_theme_mod( 'services_label' );
-$page_id = get_translate_id( get_theme_mod( 'services_page_id', '' ), 'page' );
-$permalink = ( empty( $page_id ) ) ? __return_empty_string() : get_permalink( $page_id );
-$content = __return_empty_string();
+$page_id = get_theme_mod( 'services_page_id' );
+$permalink = ( empty( $page_id ) ) ? '' : get_permalink( $page_id );
+$content = '';
 $name = 'services';
 
 

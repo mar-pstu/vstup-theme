@@ -7,12 +7,27 @@ namespace vstup;
 if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
+$post_class = [ 'pager__item', 'item' ];
+
+
+if ( isset( $key ) && ! empty( $key ) ) {
+	$post_class[] = $key;
+}
+
+
 ?>
 
 
-<a class="<?php echo $key; ?> pager__item item" href="<?php echo $permalink; ?>" title="<?php echo esc_attr( $label ); ?>">
-  <div class="arrow">
-    <div class="sr-only"><?php echo $label; ?></div>
-  </div>
-  <h4 class="title"><?php echo $title; ?></h4>
+<a <?php post_class( $post_class, get_the_ID() ); ?> href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+
+	<div class="arrow">
+	
+		<?php if ( isset( $label ) && ! empty( $label ) ) : ?>
+			<div class="sr-only"><?php echo $label; ?></div>
+		<?php endif; ?>
+	
+	</div>
+	
+	<h4 class="title"><?php the_title( '', '', true ); ?></h4>
+
 </a>

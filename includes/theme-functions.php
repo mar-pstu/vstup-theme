@@ -27,17 +27,6 @@ function is_url( $url = '' ) {
 
 
 /**
- * Возвращает настройки темы
- * @param    $name    идентификатор опции
- * @return            значение опции
- **/
-// function get_theme_setting( $name ) {
-// 	$value = get_theme_mod( VSTUP_SLUG . '_' . $name, apply_filters( 'get_default_setting', $name ) );
-// 	return apply_filters( 'get_theme_setting', $value, $name );
-// }
-
-
-/**
  *  Определяет есть ли дочернее меню у переданного пункта
  */
 function is_nav_has_sub_menu( $item_id, $items ) {
@@ -76,101 +65,6 @@ function get_custom_logo_src( string $size = 'full' ) {
 }
 
 
-/**
- * Выводит хлебные крошки 
- */
-function the_breadcrumb() {
-	ob_start();
-	if ( function_exists( 'yoast_breadcrumb' ) ) {
-			yoast_breadcrumb();
-	} else {
-			if ( ! is_front_page() ) {
-				echo '<a href="';
-				echo home_url();
-				echo '">'.__( 'Главная', VSTUP_TEXTDOMAIN );
-				echo "</a> » ";
-				if ( is_category() || is_single() ) {
-						the_category(' ');
-						if ( is_single() ) {
-								echo " » ";
-								the_title();
-						}
-				} elseif ( is_page() ) {
-						echo the_title();
-				}
-			}
-			else {
-				echo __( 'Домашняя страница', VSTUP_TEXTDOMAIN );
-			}
-	}
-	$result = ob_get_contents();
-	ob_end_clean();
-	if ( ! empty( $result ) ) {
-		echo '<div class="breadcrumbs">';
-		echo $result;
-		echo '</div>';
-	}
-}
-
-
-/**
- * Получает перевод поста/страницы/терма
- * @param   int      $id     идентификатор переводимого объекта
- * @param   string   $type   тип парадаваемого объекта
- **/
-function get_translate_id( $id, $type = 'post' ) {
-	$result = $id;
-	if ( defined( 'POLYLANG_FILE' ) && ! empty( $id ) && function_exists( 'pll_current_language' ) && function_exists( 'pll_get_term' ) && function_exists( 'pll_get_post' ) ) {
-		switch ( $type ) {
-			case 'category':
-				$result = pll_get_term( $id, pll_current_language( 'slug' ) );
-				break;
-			case 'post':
-			case 'page':
-			default:
-				$result = pll_get_post( $id, pll_current_language( 'slug' ) );
-				break;
-		}
-	}
-	return $result;
-}
-
-
-
-
-
-
-
-function the_pager() {
-	ob_start();
-	foreach ( array(
-		'previous'  => array(
-			'entry'     => get_previous_post(),
-			'label'     => __( 'Смотреть предыдущий пост', VSTUP_TEXTDOMAIN ),
-		),
-		'next'      => array(
-			'entry'     => get_next_post(),
-			'label'     => __( 'Смотреть следующий пост', VSTUP_TEXTDOMAIN ),
-		),
-	) as $key => $value ) {
-		if ( $value[ 'entry' ] && ! is_wp_error( $value[ 'entry' ] ) ) {
-			$title = apply_filters( 'the_title', $value[ 'entry' ]->post_title, $value[ 'entry' ]->ID );
-			$label = $value[ 'label' ];
-			$permalink = get_permalink( $value[ 'entry' ]->ID );
-			include get_theme_file_path( 'views/adjacent-post.php' );
-		}
-	}
-	$content = ob_get_contents();
-	ob_end_clean();
-	if ( ! empty( $content ) ) {
-		echo '<nav class="pager">' . $content . '</nav>';
-	}
-}
-
-
-
-
-
 function get_attachment_image( $attachment_id, $args = array() ) {
 	$args = wp_parse_args( $args, array(
 		'size'       => 'thumbnail',
@@ -191,9 +85,6 @@ function get_attachment_image( $attachment_id, $args = array() ) {
 	}
 	return $result;
 }
-
-
-
 
 
 function the_thumbnail_image( $post_id, $size = 'thumbnail', $attribute = 'src' ) {
@@ -221,10 +112,6 @@ function the_thumbnail_image( $post_id, $size = 'thumbnail', $attribute = 'src' 
 }
 
 
-
-
-
-
 function get_categories_choices() {
 	$categories = get_terms( [
 		'taxonomy'   => 'category',
@@ -233,82 +120,6 @@ function get_categories_choices() {
 	] );
 	return ( is_array( $categories ) && ! empty( $categories ) ) ? $categories : [];
 }
-
-
-function get_slider_arrow_buttons( $slug ) {
-	$result = __return_empty_array();
-	foreach ( array(
-		'prev' => __( 'Предыдущий слайд', VSTUP_TEXTDOMAIN ),
-		'next' => __( 'Следующий слайд', VSTUP_TEXTDOMAIN ),
-	) as $key => $label ) {
-		$result[] = sprintf(
-			'<button class="slider-arrow arrow-%1$s" id="%2$s-arrow-%1$s"><span class="sr-only">%2$s</span></button>',
-			$key,
-			$slug,
-			$label
-		);
-	}
-	return implode( "\r\n", $result );
-}
-
-
-function the_slider_arrow_buttons( $slug ) {
-	echo get_slider_arrow_buttons( $slug );
-}
-
-
-
-function get_specialties_slider( $args = array() ) {
-	$args = wp_parse_args( $args, array(
-		'wrap'    => 1,
-	) );
-	$result = __return_empty_string();
-	$terms = get_terms( array(
-		'taxonomy'      => 'specialties',
-		'orderby'       => 'name',
-		'order'         => 'ASC',
-		'hide_empty'    => true, 
-		'number'        => '', 
-		'fields'        => 'all', 
-		'hierarchical'  => true, 
-	) );
-	if ( is_array( $terms ) && ! empty( $terms ) ) {
-		$specialties = wp_list_filter( $terms, array( 'parent' => 0 ), 'NOT' );
-		if ( ! empty( $specialties ) ) {
-			$slides = __return_empty_array();
-			wp_enqueue_scripts( 'slick' );
-			wp_enqueue_style( 'slick' );
-			foreach ( $specialties as $specialty ) {
-				$parent = array_shift( wp_list_filter( $terms, array( 'parent' => $specialty->parent ), 'AND' ) );
-				$attachment_id = get_term_meta( $parent->term_id, 'pstu_specialties_logo', true );
-				$slides[] = sprintf(
-					'<a class="specialties__item item" href="%1$s"><h3 class="title">%2$s</h3><div class="sector">%3$s</div><img class="thumbnail" src="#" data-lazy="%4$s" alt="%5$s"></a>',
-					get_term_link( $specialty->term_id, 'specialties' ),
-					wp_strip_all_tags( apply_filters( 'single_term_title', $specialty->name ) ),
-					wp_strip_all_tags( apply_filters( 'single_term_title', $parent->name ) ),
-					( empty( $attachment_id ) ) ? VSTUP_SLUG . 'images/sector.png' : wp_get_attachment_image_url( $attachment_id, 'thumbnail', false ),
-					esc_attr( $specialty->name )
-				);
-			}
-			if ( ! empty( $slides ) ) {
-				?>
-					<div class="slider">
-						<div id="specialties-list">
-							<?php echo implode( "\r\n", $slides ); ?>
-						</div>
-						<?php the_slider_arrow_buttons( 'specialties' ); ?>
-					</div>
-				<?php
-			}
-		}
-	}
-	return $result;
-}
-
-
-
-
-
 
 
 function get_share( $post_id = false ) {
@@ -372,63 +183,9 @@ function get_share( $post_id = false ) {
 }
 
 
-
-
 function the_share( $post_id = false ) {
 	echo get_share( $post_id );
 }
-
-
-
-
-function the_pageheader() {
-	if ( is_archive() ) {
-		$title = get_the_archive_title();
-		$excerpt = do_shortcode( get_the_archive_description() );
-		$thumbnail = __return_empty_string();
-	} elseif ( is_search() ) {
-		$title = __( 'Результаты поиска' );
-		$excerpt = __return_empty_string();
-		$thumbnail = __return_empty_string();
-	} else {
-		$title = single_post_title( '', false );
-		$excerpt = ( has_excerpt( get_the_ID() ) ) ? get_the_excerpt( get_the_ID() ) : false;
-		$thumbnail_id  = get_post_thumbnail_id( get_the_ID() );
-		$thumbnail = ( ( bool ) $thumbnail_id ) ? get_attachment_image( $thumbnail_id, array(
-			'size'       => 'thumbnail',
-			'attribute'  => 'src',
-			'class_name' => 'thumbnail',
-			'alt'        => '',
-		) ) : __return_empty_string();
-	}
-	include get_theme_file_path( 'views/pageheader.php' );
-}
-
-
-
-
-
-function get_warning_nav_menu() {
-	$result = __return_empty_array();
-	$nav_menu_locations = get_nav_menu_locations();
-	if ( $nav_menu_locations && isset( $nav_menu_locations[ 'warning' ] ) ) {
-		$items = wp_get_nav_menu_items( $nav_menu_locations[ 'warning' ] );
-			if ( is_array( $items ) && ! empty( $items ) ) {
-				$items = wp_list_filter( $items, array( 'menu_item_parent' => 0 ), 'AND' );
-				foreach ( $items as $item ) {
-					$result[] = sprintf(
-						'<li class="%1$s"><a href="%2$s" title="%3$s">%4$s</a></li>',
-						implode( " ", $item->classes ),
-						esc_attr( $item->url ),
-						esc_attr( $item->description ),
-						$item->title
-					);
-				}
-			}
-	}
-	return ( empty( $result ) ) ? __return_empty_string() : '<ul class="warning list-inline small">' . implode( "\r\n", $result ) . '</ul>';
-}
-
 
 
 /**

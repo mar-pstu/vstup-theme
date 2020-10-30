@@ -1,19 +1,22 @@
 <?php
 
 
+namespace vstup;
 
 
-if ( $post_id ) { $post_id = get_the_ID(); }
-$format = __return_empty_string();
-$result = __return_empty_array();
-$title = __return_empty_string();
-$link = __return_empty_string();
+if ( ! defined( 'ABSPATH' ) ) { exit; };
+
+
+$format = '';
+$result = [];
+$title = '';
+$link = '';
 $thumbnail_url = VSTUP_URL . 'images/thumbnail.png';
 $blog_name = get_bloginfo( 'name' );
-if ( $post_id || is_singular() ) {
-	$link = get_link( $post_id );
-	$title = get_the_title( $post_id );
-	$thumbnail_url = ( has_post_thumbnail( $post_id ) ) ? get_the_post_thumbnail_url( $post_id, 'medium' ) : $thumbnail_url;
+if ( is_singular() ) {
+	$link = get_permalink( get_the_ID() );
+	$title = get_the_title( get_the_ID() );
+	$thumbnail_url = ( has_post_thumbnail( get_the_ID() ) ) ? get_the_post_thumbnail_url( get_the_ID(), 'medium' ) : $thumbnail_url;
 } elseif ( is_front_page() ) {
 	$link = get_home_url();
 	$title = get_bloginfo( 'name' );

@@ -8,7 +8,9 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
 function get_graduate_slider() {
+	
 	$result = '';
+	
 	ob_start();
 
 	$graduates = get_theme_mod( 'graduates' );
@@ -29,8 +31,8 @@ function get_graduate_slider() {
 				&& isset( $graduates[ $i ] )
 				&& is_array( $graduates[ $i ] )
 				&& ! empty( $graduates[ $i ] )
-				// && isset( $graduates[ $i ][ 'name' ] )
-				// && ! empty( trim( $graduates[ $i ][ 'name' ] ) )
+				&& isset( $graduates[ $i ][ 'name' ] )
+				&& ! empty( trim( $graduates[ $i ][ 'name' ] ) )
 			) {
 				extract( array_merge( [
 					'name'      => __( 'Выпускник', VSTUP_TEXTDOMAIN ),
@@ -46,7 +48,7 @@ function get_graduate_slider() {
 				if ( filter_var( $specialty_thumbnail, FILTER_VALIDATE_INT ) ) {
 					$specialty_thumbnail = wp_get_attachment_image_url( $specialty_thumbnail, 'thumbnail', false );
 				}
-				if ( filter_var( $specialty_permalink, FILTER_VALIDATE_URL ) ) {
+				if ( is_url( $specialty_permalink ) ) {
 					$specialty_permalink = ( post_type_exists( 'educational_program' ) ) ? get_post_type_archive_link( 'educational_program' ) : '#';
 				}
 				include get_theme_file_path( 'views/graduate-list-item.php' );
