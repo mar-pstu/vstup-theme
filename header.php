@@ -31,7 +31,13 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 				<div class="line line--nav">
 					<div class="container wrap">
 						<a class="custom-logo-link" href="<?php echo  home_url( '/' ); ?>">
-							<?php echo get_custom_logo_img(); ?>
+							<?php if ( $custom_logo_id = get_theme_mod( 'custom_logo' ) ) : ?>
+								<img
+									class="custom-logo"
+									src="<?php echo wp_get_attachment_image_url( $custom_logo_id, 'thumbnail', false ); ?>"
+									alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"
+								>
+							<?php endif; ?>
 							<div class="blog-name"><?php bloginfo( 'name' ); ?></div>
 						</a>
 						<nav class="nav">

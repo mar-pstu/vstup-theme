@@ -1,28 +1,23 @@
 <?php
 
 
-
 namespace vstup;
-
 
 
 if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
-
 $title = get_the_title( get_the_ID() );
-$bgi = ( has_post_thumbnail( get_the_ID() ) ) ? get_the_post_thumbnail_url( get_the_ID(), 'full' ) : __return_empty_string();
-$excerpt = ( has_excerpt( get_the_ID() ) ) ? get_the_excerpt( get_the_ID() ) : __return_empty_string();
-$permalink = __return_empty_string();
-$label = __return_empty_string();
-$page_menu = __return_empty_string();
-$thumbnail_url = __return_empty_string();
-
+$bgi = ( has_post_thumbnail( get_the_ID() ) ) ? get_the_post_thumbnail_url( get_the_ID(), 'full' ) : '';
+$excerpt = ( has_excerpt( get_the_ID() ) ) ? get_the_excerpt( get_the_ID() ) : '';
+$permalink = '';
+$label = '';
+$page_menu = '';
+$thumbnail_url = '';
 
 
 // пункты меню страницы
-$page_menu_items = __return_empty_array();
-
+$page_menu_items = [];
 
 
 // получаем список подстраниц
@@ -48,7 +43,6 @@ if ( get_post_meta( $post->ID, VSTUP_SLUG . '_subpage_menu', true ) ) {
 }
 
 
-
 // получаем пункты прикреплённого меню
 $promo_nav_menu = get_post_meta( $post->ID, VSTUP_SLUG . '_page_nav_menu', true );
 if ( ! empty( $promo_nav_menu ) ) {
@@ -66,13 +60,10 @@ if ( ! empty( $promo_nav_menu ) ) {
 }
 
 
-
 // формируем меню
 if ( ! empty( $page_menu_items ) ) {
-
 	$page_menu_items = wp_list_sort( $page_menu_items, array( 'title' => 'ASC' ) );
 	$page_menu .= '<ul class="menu">';
-
 	foreach ( $page_menu_items as $item ) {
 		$page_menu .= sprintf(
 			'<li><a href="%1$s" title="%2$s">%3$s</a></li>',
@@ -81,9 +72,7 @@ if ( ! empty( $page_menu_items ) ) {
 			$item[ 'title' ]
 		);
 	}
-
 	$page_menu .= '</ul>';
-
 }
 
 
