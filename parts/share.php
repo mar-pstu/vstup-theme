@@ -24,6 +24,9 @@ if ( is_singular() ) {
 } elseif ( is_search() ) {
 	$link = get_search_link( get_search_query() );
 	$title = sprintf( __( 'Результаты поиска %s', VSTUP_TEXTDOMAIN ), get_search_query() );
+} elseif ( is_date() ) {
+	$link = ( ( ! empty( $_SERVER[ 'HTTPS' ] ) ) ? 'https' : 'http' ) . '://' . $_SERVER[ 'HTTP_HOST' ] . $_SERVER[ 'REQUEST_URI' ];
+	$title = get_the_archive_title();
 } elseif ( $term_id = get_queried_object()->term_id ) {
 	$link = get_term_link( $term_id );
 	$title = single_term_title( $term_id, 0 );

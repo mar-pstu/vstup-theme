@@ -11,7 +11,7 @@ $contacts = get_theme_mod( 'contacts', [] );
 
 if ( is_array( $contacts ) && ! empty( $contacts ) ) {
 
-	$contacs_items = __return_empty_array();
+	$contacs_items = [];
 
 	foreach ( $contacts as $key => $link ) {
 		if ( ! empty( trim( $link ) ) ) {

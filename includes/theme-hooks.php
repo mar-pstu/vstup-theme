@@ -27,6 +27,23 @@ function get_home_parts( $parts = [] ) {
 add_filter( 'get_home_parts', 'vstup\get_home_parts', 10, 1 );
 
 
+/**
+ * Возвращает на список идентификаторов "списков". Списки используются в шорткодах, секциях главной страницы
+ * */
+function get_lists_parts( $parts = [] ) {
+	return array_merge( [
+		'advantages',
+		'partners',
+		'contacts',
+		'socials',
+		'graduate-list',
+		'list-of-services',
+	], $parts );
+}
+
+add_filter( 'get_lists_parts', 'vstup\get_lists_parts', 10, 1 );
+
+
 add_filter('show_admin_bar', '__return_false');
 
 

@@ -45,6 +45,16 @@ if ( is_admin() && ! wp_doing_ajax() ) {
 
 
 if ( is_customize_preview() ) {
-	get_template_part( 'includes/customizer' );
+	get_template_part( 'includes/customizer-panels' );
 	get_template_part( 'includes/sanitize-settings' );
+	foreach ( [
+		'home'  => apply_filters( 'get_home_parts', [] ),
+		'lists' => apply_filters( 'get_lists_parts', [] ),
+	] as $dir_name => $path_names ) {
+		foreach ( $path_names as $path_name ) {
+			if ( $path_name ) {
+				get_template_part( "settings/{$dir_name}/{$path_name}" );
+			}
+		}
+	}
 }

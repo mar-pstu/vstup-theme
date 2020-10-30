@@ -73,8 +73,10 @@ if ( ! empty( $page_menu_items ) ) {
 		);
 	}
 	$page_menu .= '</ul>';
+	include get_theme_file_path( 'views/container-after.php' );
+	include get_theme_file_path( 'views/jumbotron.php' );
+	include get_theme_file_path( 'views/container-before.php' );
+	
+} else {
+	include get_theme_file_path( 'views/pageheader.php' );
 }
-
-
-
-include get_theme_file_path( 'views/jumbotron.php' );
