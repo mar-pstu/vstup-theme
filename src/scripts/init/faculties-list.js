@@ -10,7 +10,7 @@ jQuery( document ).ready( function () {
 		adaptiveHeight: false,
 		fade: false,
 		autoplaySpeed: 4000,
-		speed: 1500,
+		speed: 500,
 		lazyLoad: 'ondemand',
 		slidesToShow: 1,
 		slidesToScroll: 1,

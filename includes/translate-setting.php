@@ -30,6 +30,8 @@ function add_settings_translations () {
 		'services_title',
 		'services_label',
 		'questions_title',
+		'questions_label',
+		'questions_permalink',
 		'questions_form',
 	] as $name ) {
 		add_filter( 'theme_mod_' . $name, 'pll__', 10, 1 );

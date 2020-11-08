@@ -16,7 +16,7 @@ if ( is_array( $socials ) && ! empty( $socials ) ) {
 	foreach ( $socials as $key => $link ) {
 		if ( ! empty( trim( $link ) ) ) {
 			$socials_items[] = sprintf(
-				'<li><a class="%1$s" href="%2$s"><span class="sr-only">%1$s</span></a></li>',
+				'<li><a class="%1$s" target="_blank" href="%2$s"><span class="sr-only">%1$s</span></a></li>',
 				$key,
 				esc_attr( $link )
 			);

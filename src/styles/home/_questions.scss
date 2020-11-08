@@ -2,16 +2,36 @@
 // главная странциа - задать вопрос
 .questions {
 
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-attachment: fixed;
+	.bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: -1;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-attachment: fixed;
+	}
+
+	.bg:after {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: #000;
+		opacity: .5;
+	}
 	
 	.title {
-		font-size: 1.5em;
+		font-size: 1.25em;
 		color: #fff;
 		text-shadow: .2em .2em .5em rgba( 0, 0, 0, .9 );
 		@include min-width( $screen-md ) {
-			font-size: 3em;
+			font-size: 2em;
 		}
 	}
 
@@ -22,10 +42,12 @@
 
 	.links a {
 		color: #fff;
+		text-shadow: .2em .2em .5em rgba( 0, 0, 0, .9 );
 	}
 
 	.title,
-	.links {
+	.links,
+	.permalink-wrap {
 		text-align: center;
 		@include min-width( $screen-md ) {
 			text-align: right;

@@ -41,6 +41,23 @@ function register_home_settings_firstscreen( $wp_customize ) {
 
 
 	$wp_customize->add_setting(
+		'firstscreen_bg_title',
+		[
+			'transport'         => 'reset',
+			'sanitize_callback' => 'sanitize_text_field',
+		]
+	);
+	$wp_customize->add_control(
+		'firstscreen_bg_title',
+		[
+			'section'           => VSTUP_SLUG . '_firstscreen',
+			'label'             => __( 'Фоновый заголовок', VSTUP_TEXTDOMAIN ),
+			'type'              => 'text',
+		]
+	);
+
+
+	$wp_customize->add_setting(
 		'firstscreen_number',
 		[
 			'transport'         => 'reset',

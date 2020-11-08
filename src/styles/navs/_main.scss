@@ -1,14 +1,5 @@
 
-
-
-
-
-
-
-
-
-
-
+// главное меню
 .nav {
 
 	& {
@@ -28,7 +19,7 @@
 
 	&__list {
 		> li { display: inline-block; text-align: left; }
-		> li > a { display: block; padding: .5em 1em; transition: background-color .2s }
+		> li > a { display: block; padding: .5em; transition: background-color .2s }
 		> li:hover > a { background-color: rgba( 255, 255, 255, .1 ); }
 		> li.has-sub-menu > a::after {
 			@extend %icon;

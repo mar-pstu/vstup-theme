@@ -23,6 +23,7 @@ function setup_default_mods( $old_name ) {
 		// Главная страница - Первый экран
 		'firstscreen_flag'  => true,
 		'firstscreen_number' => 5,
+		'firstscreen_bg_title' => 'ПДТУ',
 		'firstscreen'       => [
 			[
 				'title'       => 'Вашою метою є отримання вищої освіти європейського рівня?',
@@ -112,61 +113,61 @@ function setup_default_mods( $old_name ) {
 		'faculties'       => [
 			[
 				'name'      => 'Економічний факультет',
-				'excerpt'   => '',
+				'excerpt'   => 'Економіка підприємства, Економіка довкілля і природних ресурсів, Економіка підприємства, Облік і аудит, Фінанси і кредит, Менеджмент, Бізнес-адміністрування, Менеджмент організацій і адміністрування (Магістр), Управління проектами, Бізнес-адміністрування, Маркетинг, IT маркетинг, Підприємництво, торгівля та біржова діяльність, Інтелектуальна власність, Якість, стандартизація та сертифікація',
 				'permalink' => 'https://pstu.edu/uk/fakultety-2/ekonomichnyj-fakultet/',
 				'logo'      => 'https://pstu.edu/wp-content/uploads/2017/05/EkF-300x300.png',
 			],
 			[
 				'name'      => 'Енергетичний факультет',
-				'excerpt'   => '',
+				'excerpt'   => 'Електроенергетика, електротехніка та електромеханіка, Електротехнічні системи електроспоживання, Системи управління виробництвом і розподілом електроенергії, Електромеханічні системи автоматизації та електропривод, Теплоенергетика',
 				'permalink' => 'https://pstu.edu/uk/fakultety-2/energetychnyj-fakultet/',
 				'logo'      => 'https://pstu.edu/wp-content/uploads/2017/05/EnF-300x300.png',
 			],
 			[
 				'name'      => 'Військової підготовка',
-				'excerpt'   => '',
+				'excerpt'   => 'Бойове застосування механізованих з’єднань, військових частин і підрозділів, Бойове застосування безпілотних авіаційних комплексів тактичних класів, Організація перевезень і управління на автомобільному транспорті, Психологія',
 				'permalink' => 'https://pstu.edu/uk/fakultety-2/kafedra-vijskovoyi-pidgotovky/',
 				'logo'      => 'https://pstu.edu/wp-content/uploads/2018/09/%D0%92%D0%A1%D0%A3.png',
 			],
 			[
 				'name'      => 'Металургійний факультет',
-				'excerpt'   => '',
+				'excerpt'   => 'Матеріалознавство, Матеріалознавство, Комп’ютерний дизайн, 3D-технології та експертиза матеріалів, Металургія, Металургія чорних металів, Обробка металів тиском',
 				'permalink' => 'https://pstu.edu/uk/fakultety-2/metalurgijnyj-fakultet/',
 				'logo'      => 'https://pstu.edu/wp-content/uploads/2017/05/MF-ru-300x300.png',
 			],
 			[
 				'name'      => 'Соціально-гуманітарний факультет',
-				'excerpt'   => '',
+				'excerpt'   => 'Філологія (переклад з російської, польської мов на українську), Переклад (російська та польська мови), Англійська та німецька мови (переклад включно), Переклад (англійська та німецька мови),Соціальна робота',
 				'permalink' => 'https://pstu.edu/uk/fakultety-2/soczialno-gumanitarnyj-fakultet/',
 				'logo'      => 'https://pstu.edu/wp-content/uploads/2017/05/SGF-300x300.png',
 			],
 			[
 				'name'      => 'Факультет інженерної та мовної підготовки',
-				'excerpt'   => '',
+				'excerpt'   => 'На факультеті працюють досвідчені викладачі, які мають великий стаж роботи з іноземними студентами. Більшість із них є авторами посібників, схвалених і рекомендованих Міністерством освіти і науки України для мовної підготовки іноземних студентів. Факультет має сучасну матеріально-технічну базу, власний аудиторний фонд, відповідне методичне забезпечення.',
 				'permalink' => 'https://pstu.edu/uk/fakultety-2/1038-2/',
 				'logo'      => 'https://pstu.edu/wp-content/uploads/2017/05/FIMP-300x300.png',
 			],
 			[
 				'name'      => 'Факультет інформаційних технологій',
-				'excerpt'   => '',
+				'excerpt'   => 'Середня освіта освітня програма «Математика», Комп’ютерне моделювання, Комп’ютерне моделювання, Інформатика, Консолідована інформація, Комп’ютерні науки, Інформаційні системи та технології, Автоматизація та комп’ютерно-інтегровані технології, Автоматизоване управління технологічними процесами, Комп’ютерно-інтегровані технологічні процеси і виробництва, Біомедична інженерія',
 				'permalink' => 'https://pstu.edu/uk/fakultety-2/fakultet-informaczijnyh-tehnologij/',
 				'logo'      => 'https://pstu.edu/wp-content/uploads/2017/05/FIT-300x300.png',
 			],
 			[
 				'name'      => 'Факультет машинобудування та зварювання',
-				'excerpt'   => '',
+				'excerpt'   => 'Зварювання, Технології та устаткування зварювання, Відновлення та підвищення зносостійкості деталей і конструкцій, Інженерна механіка, Прикладна механіка',
 				'permalink' => 'https://pstu.edu/uk/fakultety-2/mehaniko-mashynobudivnyj-fakultet/',
 				'logo'      => 'https://pstu.edu/wp-content/uploads/2017/05/FMZ-300x300.png',
 			],
 			[
 				'name'      => 'Факультет транспортних технологій',
-				'excerpt'   => '',
+				'excerpt'   => 'Менеджмент транспорту та логістики, Логістичний менеджмент, Транспортні системи, Транспортні технології на залізничному транспорті, Організація перевезень і управління на промисловому транспорті, Транспортні технології на автомобільному транспорті, Організація перевезень і управління на автомобільному транспорті, Організація міжнародних перевезень, Інжиніринг криз та ризиків у сфері транспортних послуг',
 				'permalink' => 'https://pstu.edu/uk/fakultety-2/fakultet-transportnyh-tehnologij/',
 				'logo'      => 'https://pstu.edu/wp-content/uploads/2017/05/FTT-300x300.png',
 			],
 			[
 				'name'      => 'Центр заочного навчання',
-				'excerpt'   => '',
+				'excerpt'   => 'Структурний підрозділ ДВНЗ «Приазовський державний технічний університет», що за заочною формою навчання готує бакалаврів та магістрів',
 				'permalink' => 'https://pstu.edu/uk/university/structure/departments/czentr-zaochnogo-navchannya/',
 				'logo'      => '',
 			],
@@ -211,6 +212,8 @@ function setup_default_mods( $old_name ) {
 		// главная страница - Задать вопрос
 		'questions_flag'  => true,
 		'questions_title' => 'Залишилися питання? Дзвони або пиши нам!',
+		'question_permalink' => '',
+		'question_label'  => 'Відповіді на типові питання',
 		'questions_form'  => '',
 		'questions_bgi'   => VSTUP_URL . '/images/questions/bg.jpg',
 
@@ -250,7 +253,48 @@ function setup_default_mods( $old_name ) {
 
 		// выпускники
 		'graduates_number' => 5,
-		'graduates'       => [],
+		'graduates'       => [
+			[
+				'name'      => 'Бойченко Вадим Сергійович',
+				'foto'      => 0,
+				'excerpt'   => 'Eкраїнський політик, Маріупольський міський голова. Закінчив ПДТУ у 2001.',
+				'specialty_title' => 'Факультет транспортних технологій',
+				'specialty_permalink' => 'https://pstu.edu/uk/fakultety-2/fakultet-transportnyh-tehnologij/',
+				'specialty_thumbnail' => 0,
+			],
+			[
+				'name'      => '',
+				'foto'      => 0,
+				'excerpt'   => '',
+				'specialty_title' => '',
+				'specialty_permalink' => '',
+				'specialty_thumbnail' => 0,
+			],
+			[
+				'name'      => 'Сергій Олексійович Тарута',
+				'foto'      => 0,
+				'excerpt'   => 'Український підприємець, політик, голова ради директорів компанії «Індустріальний союз Донбасу»',
+				'specialty_title' => 'Механіко-металургійний факультет',
+				'specialty_permalink' => 'https://pstu.edu/uk/fakultety-2/mehaniko-mashynobudivnyj-fakultet/',
+				'specialty_thumbnail' => 0,
+			],
+			[
+				'name'      => '',
+				'foto'      => 0,
+				'excerpt'   => '',
+				'specialty_title' => '',
+				'specialty_permalink' => '',
+				'specialty_thumbnail' => 0,
+			],
+			[
+				'name'      => '',
+				'foto'      => 0,
+				'excerpt'   => '',
+				'specialty_title' => '',
+				'specialty_permalink' => '',
+				'specialty_thumbnail' => 0,
+			],
+		],
 
 		// писок услуг
 		'services_items_number' => 6,
@@ -290,10 +334,10 @@ function setup_default_mods( $old_name ) {
 
 		// социальные сети
 		'socials'         => [
-			'facebook'      => '',
-			'twitter'       => '',
-			'instagram'     => '',
-			'youtube'       => '',
+			'facebook'      => 'https://www.facebook.com/mar.pstu',
+			'twitter'       => 'https://twitter.com/mar_pstu',
+			'instagram'     => 'https://www.instagram.com/mar.pstu/',
+			'youtube'       => 'https://www.youtube.com/channel/UC_vS5rv2BJan5WF-hC55mUQ',
 		],
 
 	] );

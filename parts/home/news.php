@@ -56,7 +56,8 @@ if ( is_array( $news_entries ) && ! empty( $news_entries ) && count( $news_entri
 // выводим вкладки с категориями постов
 if ( is_array( $category_ids ) && ! empty( $category_ids ) ) {
 	if ( file_exists( $categories_init_script_path = get_theme_file_path( 'scripts/init/news-categories.js' ) ) ) {
-		wp_add_inline_script( 'jquery', file_get_contents( $categories_init_script_path ), 'after' );
+		wp_enqueue_script( 'vstup-public' );
+		wp_add_inline_script( 'vstup-public', file_get_contents( $categories_init_script_path ), 'after' );
 	}
 	$categories = get_terms( [
 		'include' => $category_ids,
@@ -74,16 +75,31 @@ if ( is_array( $category_ids ) && ! empty( $category_ids ) ) {
 		}, $categories ) );
 		include get_theme_file_path( 'views/home/news-categories-names-after.php' );
 		include get_theme_file_path( 'views/home/news-categories-list-before.php' );
-		$category_entries = get_posts( [
-			'numberposts' => 5,
+		$all_category_entries = get_posts( [
+			'numberposts' => get_theme_mod( 'news_numberposts' ),
 			'category'    => implode( ',', $category_ids ),
 		] );
-		do {
-			$category = current( $categories );
+		if ( is_array( $all_category_entries ) && ! empty( $all_category_entries ) ) {
+			include get_theme_file_path( 'views/home/news-categories-list-item_before.php' );
+			foreach ( $all_category_entries as $entry ) {
+				setup_postdata( $post = $entry );
+				include get_theme_file_path( 'views/home/news-categories-list-entry.php' );
+			}
+			include get_theme_file_path( 'views/home/news-categories-list-item_after.php' );
+		}
+		foreach ( $categories as $category ) {
 			$category_entries = get_posts( [
-				'numberposts' => 5,
+				'numberposts' => get_theme_mod( 'news_numberposts' ),
+				'exclude'     => wp_list_pluck( $all_category_entries, 'ID', null ),
 				'tax_query'   => [
-
+					'relation'  => 'AND',
+					[
+						'taxonomy' => 'category',
+						'field'    => 'term_id',
+						'terms'    => $category,
+						'operator' => 'IN',
+						'include_children' => true,
+					]
 				],
 			] );
 			if ( is_array( $category_entries ) && ! empty( $category_entries ) ) {
@@ -94,8 +110,7 @@ if ( is_array( $category_ids ) && ! empty( $category_ids ) ) {
 				}
 				include get_theme_file_path( 'views/home/news-categories-list-item_after.php' );
 			}
-			next( $categories );
-		} while ( $category );
+		};
 		include get_theme_file_path( 'views/home/news-categories-list-after.php' );
 		include get_theme_file_path( 'views/home/news-categories-after.php' );
 	}

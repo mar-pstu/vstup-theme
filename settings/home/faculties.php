@@ -61,7 +61,7 @@ function register_home_settings_faculties( $wp_customize ) {
 		'faculties_excerpt',
 		[
 			'transport'         => 'reset',
-			'sanitize_callback' => 'sanitize_text_field',
+			'sanitize_callback' => 'sanitize_textarea_field',
 		]
 	);
 	$wp_customize->add_control(
@@ -69,7 +69,7 @@ function register_home_settings_faculties( $wp_customize ) {
 		[
 			'section'           => VSTUP_SLUG . '_faculties',
 			'label'             => __( 'Описание', VSTUP_TEXTDOMAIN ),
-			'type'              => 'text',
+			'type'              => 'textarea',
 		]
 	); /**/
 
@@ -115,7 +115,7 @@ function register_home_settings_faculties( $wp_customize ) {
 			"faculties[{$i}][excerpt]",
 			[
 				'transport'         => 'reset',
-				'sanitize_callback' => 'sanitize_text_field',
+				'sanitize_callback' => 'sanitize_textarea_field',
 			]
 		);
 		$wp_customize->add_control(
@@ -123,7 +123,7 @@ function register_home_settings_faculties( $wp_customize ) {
 			[
 				'section'           => VSTUP_SLUG . '_faculties',
 				'label'             => sprintf( __( 'описание %s', VSTUP_TEXTDOMAIN ), ( $i + 1 ) ),
-				'type'              => 'text',
+				'type'              => 'textarea',
 			]
 		); /**/
 		$wp_customize->add_setting(

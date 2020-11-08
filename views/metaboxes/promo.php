@@ -1,13 +1,14 @@
+<?php
 
 
+namespace vstup;
 
 
-<p>
-	<label for="subpage_menu">
-		<input type="checkbox" id="subpage_menu" name="subpage_menu" value="on" <?php checked( $subpage_menu, true, true ); ?> >
-		<?php _e( 'Показывать меню дочерних страниц', VSTUP_TEXTDOMAIN ); ?>
-	</label>
-</p>
+if ( ! defined( 'ABSPATH' ) ) { exit; };
+
+
+?>
+
 
 <label for="page_nav_menu">
 	<?php _e( 'Выбор дополнительного меню', VSTUP_TEXTDOMAIN ); ?>

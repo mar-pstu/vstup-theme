@@ -33,6 +33,25 @@
 		z-index: 0;
 	}
 
+	.blogname {
+		display: none;
+		visibility: hidden;
+		font-size: 3em;
+		font-weight: bold;
+		opacity: .25;
+		text-shadow: .5em .5em .5em rgba( 0, 0, 0, .5 );
+		position: absolute;
+		max-width: 20em;
+		right: 0;
+		bottom: 1em;
+		padding: 0 1em;
+		text-align: right;
+		@include min-width( $screen-sm ) {
+			display: block;
+			visibility: visible;
+		}
+	}
+
 	a {
 		color: #fff;
 	}

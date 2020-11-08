@@ -58,6 +58,40 @@ function register_home_settings_questions( $wp_customize ) {
 
 
 	$wp_customize->add_setting(
+		'questions_permalink',
+		[
+			'transport'         => 'reset',
+			'sanitize_callback' => 'esc_url_raw',
+		]
+	);
+	$wp_customize->add_control(
+		'questions_permalink',
+		[
+			'section'           => VSTUP_SLUG . '_questions',
+			'label'             => __( 'Ссылка на дополнительную информацию', VSTUP_TEXTDOMAIN ),
+			'type'              => 'text',
+		]
+	); /**/
+
+
+	$wp_customize->add_setting(
+		'questions_label',
+		[
+			'transport'         => 'reset',
+			'sanitize_callback' => 'sanitize_text_field',
+		]
+	);
+	$wp_customize->add_control(
+		'questions_label',
+		[
+			'section'           => VSTUP_SLUG . '_questions',
+			'label'             => __( 'Подпись кнопки с дополнительной информацией', VSTUP_TEXTDOMAIN ),
+			'type'              => 'text',
+		]
+	); /**/
+
+
+	$wp_customize->add_setting(
 		'questions_form',
 		[
 			'transport'         => 'reset',

@@ -1,13 +1,10 @@
 <?php
 
 
-
 namespace vstup;
 
 
-
 if ( ! defined( 'ABSPATH' ) ) { exit; };
-
 
 
 class MetaboxPromo {
@@ -33,13 +30,11 @@ class MetaboxPromo {
 
 	function render( $post, $meta ) {
 		$slug = VSTUP_SLUG;
-		$subpage_menu = get_post_meta( $post->ID, "{$slug}_subpage_menu", true );
 		$nav_menus = wp_get_nav_menus();
 		$current_nav_menu = get_post_meta( $post->ID, "{$slug}_page_nav_menu", true );
 		wp_nonce_field( "{$slug}_promo", "{$slug}_nonce" );
 		include VSTUP_DIR . 'views/metaboxes/promo.php';
 	}
-
 
 
 	function save_postdata( $post_id ) {
@@ -59,7 +54,6 @@ class MetaboxPromo {
 			delete_post_meta( $post_id, "{$slug}_page_nav_menu" );
 		}
 	}
-
 
 
 }

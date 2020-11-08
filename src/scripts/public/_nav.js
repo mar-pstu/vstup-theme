@@ -24,7 +24,6 @@ jQuery( document ).ready( function () {
 		}
 	} );
 
-
 	$mobile_list_container.appendTo( jQuery( '#mobilenav-list' ) );
 	$mobile_child_menus.hide( 0 );
 

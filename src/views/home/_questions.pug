@@ -2,10 +2,12 @@
 	Главная страница
 	Задать вопрос
 
-section.section.questions.lazy#questions( data-src=src.img+'questions/bg.jpg' )
+section.section.questions#questions
+	.bg.lazy( data-src=src.img+'questions/bg.jpg' )
 	.container: .row.middle-xs.center-xs
 		.col-xs-12.col-sm-5.col-md-5.col-lg-4
 			h2.title Залишилися питання? Дзвони або пиши нам
 			include ../blocks/_contacts
+			p.permalink-wrap: a.btn.btn-success.permalink( href="#" ) Відповіді на типові питання
 		.col-xs-12.col-sm-6.col-md-5.col-lg-4.col-md-offset-1
 			include ../forms/_faq
