@@ -19,8 +19,8 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 					<h2 class="title"><?php echo $title; ?></h2>
 					<?php get_template_part( 'parts/lists/contacts' ); ?>
 					<?php if ( isset( $permalink ) && ! empty( $permalink ) && isset( $label ) && ! empty( $label ) ) : ?>
-						<p>
-							<a href="<?php echo esc_attr( $permalink ); ?>"><?php echo $label; ?></a>
+						<p class="permalink-wrap">
+							<a class="btn btn-success permalink" href="<?php echo esc_attr( $permalink ); ?>"><?php echo $label; ?></a>
 						</p>
 					<?php endif; ?>
 				</div>
