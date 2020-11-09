@@ -3,17 +3,18 @@
 	"Видео"
 
 
-
-
-
 mixin videos_title( args )
 	li.videos__title.title: a( class=args.active, href="#" + args.slug ) #[span #{args.title}]
 
 
 mixin videos_item( args )
-	a( class="fancybox videos__item item " + args.active, id=args.id, href=args.href )
-		img.lazy( src="#", data-src=args.thumbnail, alt="Подпись к видео" )
-
+	div( id=args.id class='videos__item item ' + args.active ): .row.middle-xs.center-xs
+		.col-xs-12.col-sm-12.col-md-6.col-lg-6
+			.description
+				block
+		.col-xs-12.col-sm-12.col-md-6.col-lg-6.first-md
+			a.permalink.fancybox( href=args.href )
+				img.lazy( src="#", data-src=args.thumbnail, alt="Подпись к видео" )
 
 
 .section.videos#videos: .container 
@@ -24,5 +25,10 @@ mixin videos_item( args )
 		+videos_title( { title: 'Крок у нове життя', slug: 'v03', active: '' } )
 
 	+videos_item( { id: 'v01', href: 'https://youtu.be/HzrH6gbxR8M', thumbnail: src.img+'videos/translate.jpg', active: 'active' } )
+		p Ut at velit non justo varius imperdiet. Aliquam augue turpis, sodales a eros sit amet, sodales scelerisque nisi. Nam vestibulum sit amet augue sed iaculis. Morbi sodales vehicula enim. In pretium nulla eget venenatis facilisis. Duis porta at erat vehicula porta. Sed eleifend suscipit dapibus. Donec sit amet urna tellus. Morbi volutpat ipsum non purus pellentesque gravida. Vivamus ac dui mi. Proin quam arcu, porttitor et est quis, luctus sodales justo. Nunc vulputate metus sed enim accumsan congue. Donec arcu tellus, laoreet et nulla sit amet, faucibus dictum sapien. Nam at metus a libero accumsan vestibulum. Cras nibh mauris, rutrum non dui sit amet, volutpat placerat tortor. Aenean placerat augue ac tellus hendrerit semper. 
 	+videos_item( { id: 'v02', href: 'https://youtu.be/Z9eQAszhC2I', thumbnail: src.img+'videos/sgf.jpg', active: '' } )
+		p Etiam ut quam volutpat, gravida arcu sit amet, varius nibh. Nulla rutrum sem vitae risus congue lobortis. Aenean non lacus sapien. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse quis purus risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse potenti. Pellentesque scelerisque scelerisque nisl, non placerat justo malesuada eget. Suspendisse rhoncus vitae tellus a consectetur. Donec consequat augue eu nunc posuere, a mattis nisl rutrum. 
 	+videos_item( { id: 'v03', href: 'https://youtu.be/3BEmHgUUHEg', thumbnail: src.img+'videos/step.jpg', active: '' } )
+		p Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce nec lacus lorem. In hac habitasse platea dictumst. Morbi fringilla efficitur tristique. Donec at efficitur urna. Sed sed congue neque, non molestie quam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam faucibus molestie magna at ornare. Integer mattis ipsum et porttitor aliquam.
+
+	p.text-center: a.youtube-link( href="#" target="_blank" ) #[span.label Мы на YouTube]
