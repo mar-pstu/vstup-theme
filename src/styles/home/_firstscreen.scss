@@ -28,4 +28,50 @@
 		display: block;
 	}
 
+	.warning {
+		padding-left: 0;
+		margin-bottom: 0;
+		padding: .25em 1em;
+		background-color: rgba( 255, 255, 255, .15 );
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		text-align: center;
+		display: none;
+		visibility: hidden;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		list-style-type: none;
+		@include min-width( $screen-lg ) {
+			display: flex;
+			visibility: visible;
+		}
+	}
+
+	.warning a {
+		color: #fff;
+	}
+
+	.warning a:hover {
+		text-decoration: underline;
+	}
+
+	.warning li {
+		margin-right: .5em;
+	}
+
+	.warning li + li::before {
+		content: '|';
+		margin-right: .5em;
+		color: #fff;
+	}
+
+	.warning ~ .slider-controls {
+		@include min-width( $screen-lg ) {
+			margin-bottom: $line-height-base + .5em;
+		}
+	}
+
 }

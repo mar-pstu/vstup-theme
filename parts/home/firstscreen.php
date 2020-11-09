@@ -25,24 +25,6 @@ if ( ! empty( $items ) ) {
 		$excerpt = ( isset( $items[ $i ][ 'excerpt' ] ) ) ? $items[ $i ][ 'excerpt' ] : '';
 		$permalink = ( isset( $items[ $i ][ 'permalink' ] ) ) ? $items[ $i ][ 'permalink' ] : '';
 		$label = ( isset( $items[ $i ][ 'label' ] ) ) ? $items[ $i ][ 'label' ] : __( 'Подробней', VSTUP_TEXTDOMAIN );
-		$warning_menu = ( has_nav_menu( 'warning' ) ) ? wp_nav_menu( [
-			'theme_location'  => 'warning',
-			'menu'            => 'warning',
-			'container'       => false,
-			'container_class' => '',
-			'container_id'    => '',
-			'menu_class'      => 'warning list-inline small',
-			'menu_id'         => '',
-			'echo'            => false,
-			'fallback_cb'     => '',
-			'before'          => '',
-			'after'           => '',
-			'link_before'     => '',
-			'link_after'      => '',
-			'items_wrap'      => '<ul id = "%1$s" class = "%2$s">%3$s</ul>',
-			'depth'           => 1,
-			'walker'          => '',
-		] ) : '';
 		$page_menu = '';
 
 		include get_theme_file_path( 'views/jumbotron.php' );

@@ -2,7 +2,7 @@
 // перовый экран для шлавной страницы и конрневых страниц
 .jumbotron {
 
-	padding: 2em 0 3em 0;
+	padding: 2em 0 5em 0;
 	position: relative;
 	color: #fff;
 	min-height: 100vh;
@@ -36,14 +36,15 @@
 	.blogname {
 		display: none;
 		visibility: hidden;
-		font-size: 3em;
+		font-size: 2em;
 		font-weight: bold;
 		opacity: .25;
 		text-shadow: .5em .5em .5em rgba( 0, 0, 0, .5 );
 		position: absolute;
 		max-width: 20em;
 		right: 0;
-		bottom: 1em;
+		bottom: 0em;
+		margin-bottom: 1.5em;
 		padding: 0 1em;
 		text-align: right;
 		@include min-width( $screen-sm ) {
@@ -75,21 +76,6 @@
 	.excerpt {
 		margin: 2em 0;
 		max-width: 45em;
-	}
-
-	.warning {
-		margin-top: 2em;
-		padding-left: 0;
-	}
-
-	.warning li {
-		display: inline-block;
-		margin-right: .5em;
-	}
-
-	.warning li + li::before {
-		content: '|';
-		margin-right: .5em;
 	}
 
 }

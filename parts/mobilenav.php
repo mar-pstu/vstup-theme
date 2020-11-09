@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 				'container'       => false,
 				'container_class' => '',
 				'container_id'    => '',
-				'menu_class'      => 'warning list-inline small',
+				'menu_class'      => 'warning small',
 				'menu_id'         => '',
 				'echo'            => true,
 				'fallback_cb'     => '',

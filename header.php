@@ -66,4 +66,17 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 					</div>
 				</div>
 			</header>
-			<main class="wrapper__item wrapper__item--main main lazy" id="main" <?php ( is_front_page() ) ? 'data-src="/images/bg.svg"' : ''; ?> >
+			<?php
+
+				$main_bgi = false;
+
+				if ( is_front_page() ) {
+					$main_bgi = get_theme_file_uri( 'images/bg.svg' );
+				}
+
+			?>
+			<main
+				class="wrapper__item wrapper__item--main main lazy"
+				id="main"
+				<?php echo ( $main_bgi ) ? 'data-src="' . $main_bgi . '"' : ''; ?>
+			>

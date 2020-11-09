@@ -14,6 +14,28 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 	<div id="firstscreen-list">
 		<?php echo implode( "\r\n", $slides ); ?>
 	</div>
+	<?php
+		if ( ( has_nav_menu( 'warning' ) ) ) {
+			wp_nav_menu( [
+				'theme_location'  => 'warning',
+				'menu'            => 'warning',
+				'container'       => false,
+				'container_class' => '',
+				'container_id'    => '',
+				'menu_class'      => 'warning',
+				'menu_id'         => '',
+				'echo'            => true,
+				'fallback_cb'     => '',
+				'before'          => '',
+				'after'           => '',
+				'link_before'     => '',
+				'link_after'      => '',
+				'items_wrap'      => '<ul id = "%1$s" class = "%2$s">%3$s</ul>',
+				'depth'           => 1,
+				'walker'          => '',
+			] );
+		}
+	?>
 	<?php if ( count( $slides ) > 1 ) : ?>
 		<div class="slider-controls" id="firstscreen-controls">
 			<button class="slider-arrow prev" id="firstscreen-prev">

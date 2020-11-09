@@ -46,12 +46,6 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 			<?php if ( ! empty( $permalink ) ) : ?>
 				<a href="<?php echo esc_attr( $permalink ); ?>" class="btn btn-success"><?php echo $label; ?></a>
 			<?php endif; ?>
-			
-			<?php
-				if ( isset( $warning_menu ) ) {
-					echo $warning_menu;
-				}
-			?>
 
 			<div class="blogname"><?php echo get_theme_mod( 'firstscreen_bg_title', get_bloginfo( 'name', 'raw' ) ); ?></div>
 
