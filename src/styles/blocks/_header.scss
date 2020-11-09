@@ -50,10 +50,10 @@
 		list-style-type: none;
 	}
 
-	.contacts,
+	// .contacts,
 	.socials {
 		display: none;
-		@include min-width( $screen-md ) {
+		@include min-width( $screen-sm ) {
 			display: block;
 		}
 	}

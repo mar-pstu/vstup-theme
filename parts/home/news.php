@@ -40,8 +40,14 @@ if ( is_array( $news_entries ) && ! empty( $news_entries ) && count( $news_entri
 		$entry = array_merge( [
 			'title' => '',
 			'link'  => '',
-			'tumbnail' => '',
+			'thumbnail' => '',
 		], $entry );
+		if ( ! empty( $entry[ 'thumbnail' ] ) ) {
+			$thumbnail_id = attachment_url_to_postid( preg_replace( '~-[0-9]+x[0-9]+(?=\..{2,6})~', '', $entry[ 'thumbnail' ] ) );
+			if ( $thumbnail_id && ! is_wp_error( $thumbnail_id ) ) {
+				$entry[ 'thumbnail' ] = wp_get_attachment_image_url( $thumbnail_id, 'large', false );
+			}
+		}
 		include get_theme_file_path( 'views/home/news-list-entry.php' );
 		if ( 3 == $index + 1 ) {
 			include get_theme_file_path( 'views/home/news-list-after_slide.php' );

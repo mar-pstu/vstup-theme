@@ -16,6 +16,14 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 			<div class="row middle-xs">
 				
 				<?php if ( array_key_exists( 'permalink', $entry ) && array_key_exists( 'logo', $entry ) && array_key_exists( 'name', $entry ) ) : ?>
+					<?php
+						if ( ! empty( $entry[ 'logo' ] ) ) {
+							$thumbnail_id = attachment_url_to_postid( preg_replace( '~-[0-9]+x[0-9]+(?=\..{2,6})~', '', $entry[ 'logo' ] ) );
+							if ( $thumbnail_id && ! is_wp_error( $thumbnail_id ) ) {
+								$entry[ 'logo' ] = wp_get_attachment_image_url( $thumbnail_id, 'medium', false );
+							}
+						}
+					?>
 					<div class="col-xs-12 col-sm-4">
 						<a class="logo" href="<?php echo esc_attr( $entry[ 'permalink' ] ); ?>">
 							<img src="#" data-lazy="<?php echo esc_attr( $entry[ 'logo' ] ); ?>" alt="<?php echo esc_attr( $entry[ 'name' ] ); ?>" />

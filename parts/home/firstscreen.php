@@ -21,7 +21,16 @@ if ( ! empty( $items ) ) {
 
 		$title = ( isset( $items[ $i ][ 'title' ] ) ) ? $items[ $i ][ 'title' ] : '';
 		$bgi = '';
-		$thumbnail_url = ( isset( $items[ $i ][ 'bgi' ] ) ) ? $items[ $i ][ 'bgi' ] : '';
+		$thumbnail_url = '';
+
+		if ( isset( $items[ $i ][ 'bgi' ] ) && ! empty( $items[ $i ][ 'bgi' ] ) ) {
+			$thumbnail_id = attachment_url_to_postid( preg_replace( '~-[0-9]+x[0-9]+(?=\..{2,6})~', '', $items[ $i ][ 'bgi' ] ) );
+			if ( $thumbnail_id && ! is_wp_error( $thumbnail_id ) ) {
+				$thumbnail_url = wp_get_attachment_image_url( $thumbnail_id, 'large', false );
+			}
+		}
+
+
 		$excerpt = ( isset( $items[ $i ][ 'excerpt' ] ) ) ? $items[ $i ][ 'excerpt' ] : '';
 		$permalink = ( isset( $items[ $i ][ 'permalink' ] ) ) ? $items[ $i ][ 'permalink' ] : '';
 		$label = ( isset( $items[ $i ][ 'label' ] ) ) ? $items[ $i ][ 'label' ] : __( 'Подробней', VSTUP_TEXTDOMAIN );

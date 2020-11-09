@@ -1,13 +1,10 @@
 <?php
 
 
-
 namespace vstup;
 
 
-
 if ( ! defined( 'ABSPATH' ) ) { exit; };
-
 
 
 $videos = get_theme_mod( 'videos' );
@@ -15,6 +12,9 @@ $title = '';
 $content = '';
 $permalink = '';
 $name = 'videos';
+$youtube_url = '';
+
+$socials = get_theme_mod( 'socials' );
 
 
 if ( is_array( $videos ) && ! empty( $videos ) ) {
@@ -26,31 +26,32 @@ if ( is_array( $videos ) && ! empty( $videos ) ) {
 		if ( isset( $videos[ $i ] ) && is_array( $videos[ $i ] ) ) {
 			$videos[ $i ] = array_merge( [
 				'label'     => sprintf( __( 'Видео %d', VSTUP_TEXTDOMAIN ), ( $i + 1 ) ),
-				'url'       => '',
+				'description' => '',
+				'permalink' => '',
 				'thumbnail' => '',
 			], $videos[ $i ] );
-			if ( ! empty( trim( $videos[ $i ][ 'url' ] ) ) ) {
+			if ( ! empty( trim( $videos[ $i ][ 'permalink' ] ) ) ) {
 				$titles[] = sprintf(
 					'<li class="videos__title title"><a class="%1$s" href="#video-item-%2$s"><span>%3$s</span></a></li>',
 					( 0 == $i ) ? 'active' : 'inactive',
 					$i,
 					$videos[ $i ][ 'label' ]
 				);
-				$items[] = sprintf(
-					'<a class="fancybox videos__item item %1$s" id="video-item-%2$s" href="%3$s"><img class="lazy" src="#" data-src="%4$s" alt="%5$s"></a>',
-					( 0 == $i ) ? 'active' : 'inactive',
-					$i,
-					$videos[ $i ][ 'url' ],
-					( empty( $videos[ $i ][ 'thumbnail' ] ) ) ? VSTUP_URL . 'images/preview.jpg' : $videos[ $i ][ 'thumbnail' ],
-					esc_attr( $videos[ $i ][ 'label' ] )
-				);
+				if ( empty( $videos[ $i ][ 'thumbnail' ] ) ) {
+					$videos[ $i ][ 'thumbnail' ] = get_theme_file_uri( 'images/preview.jpg' );
+				}
+				extract( $videos[ $i ] );
+				ob_start();
+				include get_theme_file_path( 'views/home/videos-for-item.php' );
+				$items[] = ob_get_contents();
+				ob_end_clean();
 			}
 		}
 	}
 
 	if ( ! empty( $titles ) && ! empty( $items ) ) {
 		$content = '<ul class="list-unstyles list-inline text-center">' . implode( "\r\n", $titles ) . '</ul>' . implode( "\r\n", $items );
-		include get_theme_file_path( 'views/home/section.php' );
+		include get_theme_file_path( 'views/home/videos.php' );
 	}
 
 

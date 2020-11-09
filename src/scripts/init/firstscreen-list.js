@@ -2,6 +2,20 @@ jQuery( document ).ready( function () {
 	
 	var $list = jQuery( '#firstscreen-list' );
 	var $controls = jQuery( '#firstscreen-controls' );
+	var $menu = jQuery( '#warning-menu' );
+
+	function MenuToggle() {
+		if ( jQuery( window ).scrollTop() > screen.height * 0.5 ) {
+			$menu.removeClass( 'active' );
+		} else {
+			$menu.addClass( 'active' );
+		}
+	}
+
+	if ( $menu.length > 0 ) {
+		jQuery( window ).on( 'scroll', MenuToggle );
+		jQuery( document ).ready( MenuToggle );
+	}
 
 	$list.on( 'lazyLoaded', function ( event, slick, image, imageSource ) {
 		jQuery( image ).closest( '.jumbotron' ).find( '.bg' ).attr( 'style', 'background-image:url('+imageSource+');' );
@@ -23,10 +37,10 @@ jQuery( document ).ready( function () {
 		appendDots: $controls,
 		prevArrow: '#firstscreen-prev',
 		nextArrow: '#firstscreen-next',
-		fade: true,
+		fade: ! jQuery( 'body' ).hasClass( 'is-mobile' ),
 		autoplay: true,
-		autoplaySpeed: 4000,
-		speed: 2000,
+		autoplaySpeed: 3000,
+		speed: jQuery( 'body' ).hasClass( 'is-mobile' ) ? 500 : 1500,
 		lazyLoad: 'ondemand',
 	} );
 } );

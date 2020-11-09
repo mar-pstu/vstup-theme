@@ -52,19 +52,34 @@ function register_home_settings_videos( $wp_customize ) {
 			"videos[{$i}][label]",
 			[
 				'section'           => VSTUP_SLUG . '_videos',
-				'label'             => __( sprintf( 'зиголовок №%d', ( $i + 1 ) ), VSTUP_TEXTDOMAIN ),
+				'label'             => __( sprintf( 'заголовок №%d', ( $i + 1 ) ), VSTUP_TEXTDOMAIN ),
 				'type'              => 'text',
 			]
 		); /**/
 		$wp_customize->add_setting(
-			"videos[{$i}][url]",
+			"videos[{$i}][description]",
+			[
+				'transport'         => 'reset',
+				'sanitize_callback' => 'sanitize_textarea_field',
+			]
+		);
+		$wp_customize->add_control(
+			"videos[{$i}][description]",
+			[
+				'section'           => VSTUP_SLUG . '_videos',
+				'label'             => __( sprintf( 'описание №%d', ( $i + 1 ) ), VSTUP_TEXTDOMAIN ),
+				'type'              => 'textarea',
+			]
+		); /**/
+		$wp_customize->add_setting(
+			"videos[{$i}][permalink]",
 			[
 				'transport'         => 'reset',
 				'sanitize_callback' => 'esc_url_raw',
 			]
 		);
 		$wp_customize->add_control(
-			"videos[{$i}][url]",
+			"videos[{$i}][permalink]",
 			[
 				'section'           => VSTUP_SLUG . '_videos',
 				'label'             => __( sprintf( 'ссылка на YouTube видео №%d', ( $i + 1 ) ), VSTUP_TEXTDOMAIN ),

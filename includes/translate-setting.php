@@ -74,6 +74,7 @@ function add_settings_translations () {
 			],
 			'videos'       => [
 				'label'      => 'pll__',
+				'description' => 'pll__',
 			],
 			'graduates'    => [
 				'name'       => 'pll__',

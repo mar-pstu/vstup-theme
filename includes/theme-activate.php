@@ -178,17 +178,17 @@ function setup_default_mods( $old_name ) {
 		'videos'          => [
 			[
 				'label'         => 'Спеціальність Переклад',
-				'url'           => 'https://youtu.be/HzrH6gbxR8M',
+				'permalink'     => 'https://youtu.be/HzrH6gbxR8M',
 				'thumbnail'     => '',
 			],
 			[
 				'label'         => 'Соціально-гуманітарний факультет',
-				'url'           => 'https://youtu.be/Z9eQAszhC2I',
+				'permalink'     => 'https://youtu.be/Z9eQAszhC2I',
 				'thumbnail'     => '',
 			],
 			[
 				'label'         => 'Крок у нове життя',
-				'url'           => 'https://youtu.be/3BEmHgUUHEg',
+				'permalink'     => 'https://youtu.be/3BEmHgUUHEg',
 				'thumbnail'     => '',
 			]
 		],

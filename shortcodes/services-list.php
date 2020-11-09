@@ -25,6 +25,12 @@ function get_services_list() {
 					'permalink' => '#',
 					'thumbnail' => '',
 				], ( array ) $services[ $i ] );
+				if ( ! empty( $service[ 'thumbnail' ] ) ) {
+					$thumbnail_id = attachment_url_to_postid( preg_replace( '~-[0-9]+x[0-9]+(?=\..{2,6})~', '', $service[ 'thumbnail' ] ) );
+					if ( $thumbnail_id && ! is_wp_error( $thumbnail_id ) ) {
+						$service[ 'thumbnail' ] = wp_get_attachment_image_url( $thumbnail_id, 'medium', false );
+					}
+				}
 				if ( ! empty( trim( $service[ 'title' ] ) ) ) {
 					extract( $service );
 					include get_theme_file_path( 'views/flatitem.php' );

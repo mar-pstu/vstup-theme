@@ -24,12 +24,12 @@ function register_lists_settings_socials( $wp_customize ) {
 
 
 
-	foreach ( array(
+	foreach ( [
 		'facebook'  => __( 'Facebook', VSTUP_TEXTDOMAIN ),
 		'twitter'   => __( 'Twitter', VSTUP_TEXTDOMAIN ),
 		'instagram' => __( 'Instagram', VSTUP_TEXTDOMAIN ),
 		'youtube'   => __( 'YouTube', VSTUP_TEXTDOMAIN ),
-	) as $key => $label ) {
+	] as $key => $label ) {
 		$wp_customize->add_setting(
 			"socials[{$key}]",
 			array(
@@ -39,11 +39,11 @@ function register_lists_settings_socials( $wp_customize ) {
 		);
 		$wp_customize->add_control(
 			"socials[{$key}]",
-			array(
+			[
 				'section'           => VSTUP_SLUG . '_socials',
 				'label'             => $label,
 				'type'              => 'text',
-			)
+			]
 		); /**/
 	}
 
