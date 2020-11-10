@@ -1,21 +1,22 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2020-07-10 15:14+0300\n"
-"PO-Revision-Date: 2020-07-10 15:14+0300\n"
+"POT-Creation-Date: 2020-11-10 23:08+0200\n"
+"PO-Revision-Date: 2020-11-10 23:24+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.3.1\n"
+"X-Generator: Poedit 2.4.2\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
-"X-Poedit-KeywordsList: _e;__;esc_attr__;esc_attr_e\n"
+"X-Poedit-KeywordsList: __;_e;esc_attr__;esc_attr_e\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: node_modules\n"
+"X-Poedit-SearchPathExcluded-1: src\n"
 
 #: 404.php:9
 msgid "Ошибка 404"
@@ -29,176 +30,364 @@ msgstr "Сторінка не знайдена"
 msgid "На главную"
 msgstr "На головну"
 
-#: customizer/advantages.php:10
-msgid "Преимущества"
-msgstr "Переваги"
+#: header.php:65 parts/mobilenav.php:16
+msgid "Меню"
+msgstr "Меню"
 
-#: customizer/advantages.php:12
-msgid ""
-"Список преимуществ. Публикуется на главной странице в блоке информация. "
-"Можно вывести с помощью шорткода <code>[ADVANTAGES]</code>"
+#: includes/custom-asides-admin.php:16 includes/custom-asides-admin.php:36
+#: includes/custom-asides-admin.php:89
+msgid "Выбрать сайдбар"
+msgstr "Обрати сайдбар"
+
+#: includes/custom-asides-admin.php:20 includes/custom-asides-admin.php:38
+#: includes/custom-asides-admin.php:91
+msgid "Стандартный сайдбар"
+msgstr "Стандартний сайдбар"
+
+#: includes/custom-asides-admin.php:73 includes/custom-asides-admin.php:117
+#: includes/custom-asides-admin.php:118
+msgid "Пользовательские сайдбары"
+msgstr "Користувацький сайдбар"
+
+#: includes/custom-asides-admin.php:220
+msgid "Добавление"
+msgstr "Додавання"
+
+#: includes/custom-asides-admin.php:225 includes/custom-asides-admin.php:248
+#: includes/custom-asides-admin.php:267
+msgid "Название"
+msgstr "Назва"
+
+#: includes/custom-asides-admin.php:226 includes/custom-asides-admin.php:249
+#: includes/custom-asides-admin.php:268 settings/home/faculties.php:71
+msgid "Описание"
+msgstr "Опис"
+
+#: includes/custom-asides-admin.php:227 includes/custom-asides-admin.php:250
+#: includes/custom-asides-admin.php:269
+msgid "CSS-класс"
+msgstr "CSS-клас"
+
+#: includes/custom-asides-admin.php:228 includes/custom-asides-admin.php:261
+msgid "Добавить"
+msgstr "Додати"
+
+#: includes/custom-asides-admin.php:229 includes/custom-asides-admin.php:253
+msgid "Отмена"
+msgstr "Відміна"
+
+#: includes/custom-asides-admin.php:233
+msgid "Редактирование"
+msgstr "Редагування"
+
+#: includes/custom-asides-admin.php:254
+msgid "Сохранить"
+msgstr "Зберегти"
+
+#: includes/custom-asides-admin.php:266
+msgid "№"
+msgstr "№"
+
+#: includes/custom-asides-admin.php:270 includes/custom-asides-admin.php:304
+msgid "Страницы"
+msgstr "Сторінки"
+
+#: includes/custom-asides-admin.php:271
+msgid "Виджеты"
+msgstr "Віджети"
+
+#: includes/custom-asides-admin.php:311
+msgid "Колонка не используется на постоянных страницах."
+msgstr "Колонка не використовується на постійних сторінках."
+
+#: includes/custom-asides-admin.php:314
+msgid "Категории"
+msgstr "Категорії"
+
+#: includes/custom-asides-admin.php:321
+msgid "Колонка не используется на страницах категорий."
+msgstr "Колонка не використовується на сторінках категорій."
+
+#: includes/custom-asides-admin.php:328
+msgid "Вы уверены?"
+msgstr "Ви впевнені?"
+
+#: includes/custom-asides-admin.php:328
+msgid "Удалить"
+msgstr "Видалити"
+
+#: includes/custom-asides-admin.php:329
+msgid "Редактировать"
+msgstr "Редагувати"
+
+#: includes/customizer-panels.php:19
+msgid "Блоки главной страницы"
+msgstr "Блоки головної сторінки"
+
+#: includes/customizer-panels.php:31
+msgid "Списки темы"
+msgstr "Списки теми"
+
+#: includes/menus.php:15
+msgid "Главное меню"
+msgstr "Головне меню"
+
+#: includes/menus.php:16
+msgid "Быстрые ссылки (faq, schedule)"
+msgstr "Швидкі посилання (faq, schedule)"
+
+#: includes/menus.php:17
+msgid "Важное"
+msgstr "Важливе"
+
+#: includes/metabox-promo.php:23
+msgid "Первый экран страницы"
+msgstr "Перший екран сторінки"
+
+#: includes/sidebars.php:15
+msgid "Сайдбар подвала"
+msgstr "Сайдбар підвалу"
+
+#: includes/theme-hooks.php:55
+msgid "Поделиться в Facebook"
+msgstr "Поділитися в Facebook"
+
+#: includes/theme-hooks.php:56
+msgid "Поделиться в Twitter"
+msgstr "Поділитися в Twitter"
+
+#: includes/theme-hooks.php:57
+msgid "Поделиться в LinkedIn"
+msgstr "Поділитися в LinkedIn"
+
+#: includes/theme-hooks.php:58
+msgid "Отправить по email"
+msgstr "Надіслати по email"
+
+#: includes/theme-supports.php:20
+msgid "2x3 жесткое кадрирование"
+msgstr "2x3 жорстке кадрування"
+
+#: parts/archive.php:32 parts/search.php:29
+msgid "Posts navigation"
 msgstr ""
-"Список переваг. Публікується на головній сторінці в блоці інформація. Можна "
-"вивести за допомогою шорткода <code> [ADVANTAGES] </code>"
 
-#: customizer/advantages.php:31 customizer/graduate-list.php:31
-#: customizer/list-of-services.php:31
-msgid "Количество блоков"
-msgstr "Кількість блоків"
+#: parts/breadcrumbs.php:19
+msgid "Главная"
+msgstr "Головна"
 
-#: customizer/contacts.php:13
-msgid "Контакты"
-msgstr "Контакти"
+#: parts/breadcrumbs.php:32
+msgid "Домашняя страница"
+msgstr "Домашня сторінка"
 
-#: customizer/contacts.php:15
-msgid "Список контактов организации"
-msgstr "Список контактів організації"
+#: parts/home/firstscreen.php:36 views/entry-archive.php:40
+msgid "Подробнее"
+msgstr "Докладніше"
 
-#: customizer/contacts.php:23
-msgid "Телефон"
-msgstr "Телефон"
+#: parts/home/questions.php:11
+msgid "Остались вопросы? Звони или пиши нам!"
+msgstr "Залишилися питання? Дзвони або пиши нам!"
 
-#: customizer/contacts.php:24
-msgid "Email"
-msgstr "Email"
+#: parts/home/videos.php:28
+#, php-format
+msgid "Видео %d"
+msgstr "Відео %d"
 
-#: customizer/graduate-list.php:10
-msgid "Список выпускников"
-msgstr "Список випускників"
+#: parts/mobilenav.php:38
+msgid "Поделиться"
+msgstr "Поділитись"
 
-#: customizer/graduate-list.php:12
-msgid ""
-"Список выпускников. Публикуется на главной странице в блоке \"Люди\". Можно "
-"вывести с помощью шорткода <code>[GRADUATES]</code>"
-msgstr ""
-"Список випускників. Публікується на головній сторінці в блоці \"Люди\". "
-"Можна вивести за допомогою шорткода <code> [GRADUATES] </code>"
+#: parts/pageheader-search.php:10
+msgid "Поиск по сайту"
+msgstr "Пошук по сайту"
 
-#: customizer/home/about.php:16
+#: parts/pageheader-search.php:13
+msgid "Вы искали"
+msgstr "Ви шукати"
+
+#: parts/pager.php:19
+msgid "Смотреть предыдущий пост"
+msgstr "Дивитися попередній пост"
+
+#: parts/pager.php:23
+msgid "Смотреть следующий пост"
+msgstr "Наступний пост"
+
+#: parts/share.php:26
+#, php-format
+msgid "Результаты поиска %s"
+msgstr "Результати пошуку %s"
+
+#: searchform.php:9
+msgid "Найти"
+msgstr "Знайти"
+
+#: settings/home/about.php:18
 msgid "Информация"
 msgstr "Інформація"
 
-#: customizer/home/about.php:18
+#: settings/home/about.php:20
 msgid "Вторая секция главной страницы. Якорь #about"
-msgstr "Друга секція головної сторінки. якір #about"
+msgstr "Друга секція головної сторінки. Якір #about"
 
-#: customizer/home/about.php:37 customizer/home/action.php:37
-#: customizer/home/firstscreen.php:38 customizer/home/news.php:37
-#: customizer/home/people.php:37 customizer/home/questions.php:37
-#: customizer/home/services.php:37 customizer/home/specialties.php:37
-#: customizer/home/videos.php:37 customizer/partners.php:34
+#: settings/home/about.php:37 settings/home/action.php:37
+#: settings/home/faculties.php:37 settings/home/firstscreen.php:37
+#: settings/home/news.php:37 settings/home/people.php:38
+#: settings/home/questions.php:37 settings/home/services.php:37
+#: settings/home/videos.php:37 settings/lists/partners.php:38
 msgid "Использовать секцию"
 msgstr "Використовувати секцію"
 
-#: customizer/home/about.php:55 customizer/home/action.php:55
-#: customizer/home/people.php:55
+#: settings/home/about.php:54 settings/home/action.php:54
+#: settings/home/people.php:55
 msgid "Выбор страницы"
-msgstr "Вибів сторінки"
+msgstr "Вибір сторінки"
 
-#: customizer/home/about.php:74 customizer/home/action.php:74
-#: customizer/home/people.php:74 customizer/home/questions.php:58
-#: customizer/home/services.php:98 customizer/home/specialties.php:76
+#: settings/home/about.php:71 settings/home/action.php:71
+#: settings/home/faculties.php:54 settings/home/people.php:72
+#: settings/home/questions.php:54 settings/home/services.php:92
+#: views/home/news-list-entry.php:21
 msgid "Заголовок"
 msgstr "Заголовок"
 
-#: customizer/home/about.php:93 customizer/home/action.php:93
-#: customizer/home/people.php:93
+#: settings/home/about.php:88 settings/home/action.php:88
+#: settings/home/people.php:89
 msgid "Подзаголовок"
 msgstr "Підзаголовок"
 
-#: customizer/home/about.php:103 customizer/home/action.php:103
-#: customizer/home/firstscreen.php:137 customizer/home/people.php:103
-#: customizer/home/services.php:108 parts/archive.php:41
-#: parts/home/about.php:12 parts/home/action.php:15
-#: parts/home/firstscreen.php:30 parts/home/people.php:14
-#: parts/home/services.php:14 views/home/news.php:62
-msgid "Подробней"
-msgstr "Докладніше"
-
-#: customizer/home/about.php:112 customizer/home/action.php:112
-#: customizer/home/people.php:112 customizer/home/services.php:117
-#: customizer/home/specialties.php:114
+#: settings/home/about.php:105 settings/home/action.php:105
+#: settings/home/people.php:106 settings/home/services.php:109
 msgid "Текст кнопки"
 msgstr "Текст кнопки"
 
-#: customizer/home/about.php:132 customizer/home/action.php:132
-#: customizer/home/questions.php:97
+#: settings/home/about.php:123 settings/home/action.php:123
+#: settings/home/questions.php:123
 msgid "Фон"
 msgstr "Фон"
 
-#: customizer/home/action.php:16 customizer/home/action.php:65
-#: parts/home/action.php:13
+#: settings/home/action.php:18
 msgid "Начни с нами"
 msgstr "Почни з нами"
 
-#: customizer/home/action.php:18
+#: settings/home/action.php:20
 msgid "Третья секция главной страницы. Якорь #action"
-msgstr "Третя секція головної сторінки. якір #action"
+msgstr ""
 
-#: customizer/home/action.php:154
+#: settings/home/action.php:143
+msgid "Цвет фона"
+msgstr "Цвет фона"
+
+#: settings/home/action.php:163
 msgid "Превью"
-msgstr "Превью"
+msgstr "Прев'ю"
 
-#: customizer/home/action.php:174
+#: settings/home/action.php:182
 msgid "Ссылка на YouTube видео"
-msgstr "Посилання на YouTube выдео"
+msgstr "Посилання на YouTube відео"
 
-#: customizer/home/firstscreen.php:17
+#: settings/home/faculties.php:18
+msgid "Факультеты"
+msgstr "Факультети"
+
+#: settings/home/faculties.php:20
+msgid "Секция главной страницы. Якорь #faculties."
+msgstr "Секція головної сторінки. Якір #faculties."
+
+#: settings/home/faculties.php:88 settings/lists/partners.php:56
+msgid "Количество записей"
+msgstr "Кількість записів"
+
+#: settings/home/faculties.php:110
+#, php-format
+msgid "название %s"
+msgstr "назва %s"
+
+#: settings/home/faculties.php:125
+#, php-format
+msgid "описание %s"
+msgstr "опис %s"
+
+#: settings/home/faculties.php:140
+#, php-format
+msgid "ссылка %s"
+msgstr "посилання %s"
+
+#: settings/home/firstscreen.php:18
 msgid "Слайдер"
-msgstr "Млайдер"
+msgstr "Слайдер"
 
-#: customizer/home/firstscreen.php:19
+#: settings/home/firstscreen.php:20
 msgid "Первый слайдер главной страницы. Якорь #firstscreen"
 msgstr "Перший слайдер головної сторінки. якір #firstscreen"
 
-#: customizer/home/firstscreen.php:56
+#: settings/home/firstscreen.php:54
+msgid "Фоновый заголовок"
+msgstr "Фоновий заголовок"
+
+#: settings/home/firstscreen.php:71
 msgid "Количество слайдов"
 msgstr "Кількість слайдів"
 
-#: customizer/home/news.php:16 customizer/home/news.php:89 functions.php:126
-#: parts/home/news.php:15
+#: settings/home/news.php:18
 msgid "Новости"
 msgstr "Новини"
 
-#: customizer/home/news.php:18
+#: settings/home/news.php:20
 msgid ""
 "Секция главной страницы для вывода постов из категории. Публикуются 6 "
 "последних постов, в которые в первую очередь включаются 3 последних "
 "закреплённых поста. Якорь #news"
 msgstr ""
-"Секція головної сторінки для виведення постів з категорії. Публікуються 6 "
-"останніх постів, в які в першу чергу включаються 3 останніх закріплених "
-"поста. якір #news"
 
-#: customizer/home/news.php:55
-msgid "Выбор категории"
-msgstr "Вибір категорії"
-
-#: customizer/home/news.php:75
-msgid "Количество незакреплённых постов"
-msgstr "Кількість незакріплених постів"
-
-#: customizer/home/news.php:98
+#: settings/home/news.php:54
 msgid "Заголовок секции"
-msgstr "Тема секції"
+msgstr "Заголовок секції"
 
-#: customizer/home/people.php:16
+#: settings/home/news.php:71
+msgid "Количество категорий"
+msgstr "Кількість категорій"
+
+#: settings/home/news.php:93
+#, php-format
+msgid "Выбор категории %s"
+msgstr "Вибір категорії %s"
+
+#: settings/home/news.php:112
+msgid "Количество постов из категорий"
+msgstr "Кількість постів з категорій"
+
+#: settings/home/news.php:133
+msgid "Количество превью слайдера"
+msgstr "Кількість превью слайдера"
+
+#: settings/home/news.php:155
+#, php-format
+msgid "Заголовок %s"
+msgstr "Тема %s"
+
+#: settings/home/news.php:170
+#, php-format
+msgid "Ссылка %s"
+msgstr "Посилання %s"
+
+#: settings/home/news.php:186
+#, php-format
+msgid "Превью %s"
+msgstr "Прев'ю %s"
+
+#: settings/home/people.php:18
 msgid "Люди"
 msgstr "Люди"
 
-#: customizer/home/people.php:18
+#: settings/home/people.php:20
 msgid "Секция главной страницы. Якорь #people"
 msgstr "Секція головної сторінки. якір #people"
 
-#: customizer/home/people.php:65 parts/home/people.php:13
-msgid "Выпускники"
-msgstr "Випускники"
-
-#: customizer/home/questions.php:16
+#: settings/home/questions.php:18
 msgid "Обратная связь"
-msgstr "Зворотній зв'язок"
+msgstr "Обратная связь"
 
-#: customizer/home/questions.php:18
+#: settings/home/questions.php:20
 msgid ""
 "Секция главной страницы. Якорь #questions. Предполагается наличие формы "
 "обратной связи."
@@ -206,350 +395,183 @@ msgstr ""
 "Секція головної сторінки. Якір #questions. Передбачається наявність форми "
 "зворотного зв'язку."
 
-#: customizer/home/questions.php:49 parts/home/questions.php:11
-msgid "Остались вопросы? Звони или пиши нам!"
-msgstr "Залишилися питання? Дзвони або пиши нам!"
+#: settings/home/questions.php:71
+msgid "Ссылка на дополнительную информацию"
+msgstr "Посилання на додаткову інформацію"
 
-#: customizer/home/questions.php:77
+#: settings/home/questions.php:88
+msgid "Подпись кнопки с дополнительной информацией"
+msgstr "Підпис кнопки з додатковою інформацією"
+
+#: settings/home/questions.php:105
 msgid "Шорткод формы"
 msgstr "Шорткод форми"
 
-#: customizer/home/services.php:16 customizer/home/services.php:89
-#: parts/home/services.php:13
+#: settings/home/services.php:18
 msgid "Услуги"
 msgstr "Послуги"
 
-#: customizer/home/services.php:18
+#: settings/home/services.php:20
 msgid ""
 "Секция главной страницы. Якорь #services. Содержит список услуг "
 "университета. Услуги могут публиковаться с помощью шорткода <code>[SRVICES]</"
 "code> и доступны в редакторе Gutenberg."
 msgstr ""
-"Секція головної сторінки. Якір #services. Містить список послуг "
-"університету. Послуги можуть публікуватися за допомогою шорткода <code> "
-"[SRVICES]</code> і доступні в редакторі Gutenberg."
 
-#: customizer/home/services.php:56
+#: settings/home/services.php:54
 msgid "Тип контента"
 msgstr "Тип контенту"
 
-#: customizer/home/services.php:59
+#: settings/home/services.php:57
 msgid "список услуг"
-msgstr "список послуг"
+msgstr "Список послуг"
 
-#: customizer/home/services.php:60
+#: settings/home/services.php:58
 msgid "содержимое страницы"
 msgstr "вміст сторінки"
 
-#: customizer/home/services.php:79 customizer/home/specialties.php:57
+#: settings/home/services.php:75
 msgid "Выбор страницы с описанием"
 msgstr "Вибір сторінки з описом"
 
-#: customizer/home/specialties.php:16 customizer/home/specialties.php:67
-#: parts/home/specialties.php:13
-msgid "Специальности"
-msgstr "Спеціальності"
-
-#: customizer/home/specialties.php:18
-msgid ""
-"Секция главной страницы. Якорь #specialties. Содержит список услуг "
-"университета. Услуги могут публиковаться с помощью шорткода <code>[SRVICES]</"
-"code> и доступны в редакторе Gutenberg."
-msgstr ""
-"Секція головної сторінки. Якір #specialties. Містить список послуг "
-"університету. Послуги можуть публікуватися за допомогою шорткода "
-"<code>[SRVICES]</code> і доступні в редакторі Gutenberg."
-
-#: customizer/home/specialties.php:95 includes/custom-asides.php:226
-#: includes/custom-asides.php:249 includes/custom-asides.php:268
-msgid "Описание"
-msgstr "Опис"
-
-#: customizer/home/specialties.php:105 parts/home/specialties.php:16
-msgid "Все специальности"
-msgstr "Всі спеціальності"
-
-#: customizer/home/videos.php:16
+#: settings/home/videos.php:18
 msgid "Видео"
 msgstr "Відео"
 
-#: customizer/home/videos.php:18
+#: settings/home/videos.php:20
 msgid "Вторая секция главной страницы. Якорь #videos"
-msgstr "Друга секція головної сторінки. Якір #videos"
+msgstr "Друга секція головної сторінки. якір #videos"
 
-#: customizer/list-of-services.php:10
+#: settings/lists/advantages.php:18
+msgid "Преимущества"
+msgstr "Переваги"
+
+#: settings/lists/advantages.php:20
+msgid ""
+"Список преимуществ. Публикуется на главной странице в блоке информация. "
+"Можно вывести с помощью шорткода <code>[advantages]</code>"
+msgstr ""
+
+#: settings/lists/advantages.php:37 settings/lists/graduate-list.php:37
+#: settings/lists/list-of-services.php:37
+msgid "Количество блоков"
+msgstr "Кількість блоків"
+
+#: settings/lists/contacts.php:18
+msgid "Контакты"
+msgstr "Контакти"
+
+#: settings/lists/contacts.php:20
+msgid "Список контактов организации"
+msgstr "Список контактів організації"
+
+#: settings/lists/contacts.php:26
+msgid "Телефон"
+msgstr "Телефон"
+
+#: settings/lists/contacts.php:27
+msgid "Email"
+msgstr "Email"
+
+#: settings/lists/graduate-list.php:18
+msgid "Список выпускников"
+msgstr "Список випускників"
+
+#: settings/lists/graduate-list.php:20
+msgid ""
+"Список выпускников. Публикуется на главной странице в блоке \"Люди\". Можно "
+"вывести с помощью шорткода <code>[graduate_list]</code>"
+msgstr ""
+
+#: settings/lists/list-of-services.php:18
 msgid "Список Услуг"
-msgstr "Список Послуг"
+msgstr "Список послуг"
 
-#: customizer/list-of-services.php:12
+#: settings/lists/list-of-services.php:20
 msgid ""
 "Публикуется на главной странице в блоке \"Услуги\". Можно вывести с помощью "
 "шорткода <code>[SERVICES]</code>"
 msgstr ""
-"Публікується на головній сторінці в блоці \"Послуги\". Можна вивести за "
-"допомогою шорткода <code>[SERVICES]</code>"
 
-#: customizer/partners.php:13
+#: settings/lists/partners.php:18
 msgid "Партнёры"
 msgstr "Партнери"
 
-#: customizer/partners.php:15
+#: settings/lists/partners.php:20
 msgid "Вторая секция главной страницы. Якорь #partners"
-msgstr "Друга секція головної сторінки. якір #partners"
+msgstr ""
 
-#: customizer/partners.php:56
-msgid "Количество записей"
-msgstr "Кількість записів"
-
-#: customizer/partners.php:81
+#: settings/lists/partners.php:80
 #, php-format
 msgid "лого %d"
 msgstr "лого %d"
 
-#: customizer/socials.php:13
+#: settings/lists/socials.php:18
 msgid "Социальные сети"
 msgstr "Соціальні мережі"
 
-#: customizer/socials.php:15
+#: settings/lists/socials.php:20
 msgid "Список ссылок на страницы социальных сетей организации"
 msgstr "Список посилань на сторінки соціальних мереж організації"
 
-#: customizer/socials.php:23
+#: settings/lists/socials.php:28
 msgid "Facebook"
 msgstr "Facebook"
 
-#: customizer/socials.php:24
+#: settings/lists/socials.php:29
 msgid "Twitter"
 msgstr "Twitter"
 
-#: customizer/socials.php:25
+#: settings/lists/socials.php:30
 msgid "Instagram"
 msgstr "Instagram"
 
-#: customizer/socials.php:26
+#: settings/lists/socials.php:31
 msgid "YouTube"
 msgstr "YouTube"
 
-#: functions.php:52
-msgid "Секции главной страницы"
-msgstr "Секції головної сторінки"
+#: shortcodes/graduate-list.php:38
+msgid "Выпускник"
+msgstr "Випускник"
 
-#: functions.php:60
-msgid "Списки темы"
-msgstr "Списки теми"
-
-#: functions.php:96
-msgid "2x3 жесткое кадрирование"
-msgstr "2x3 жорстке кадрування"
-
-#: functions.php:120
-msgid "Главное меню"
-msgstr "Головне меню"
-
-#: functions.php:121
-msgid "Быстрые ссылки (faq, schedule)"
-msgstr "Швидкі посилання (faq, schedule)"
-
-#: functions.php:122
-msgid "Важное"
-msgstr "Важливе"
-
-#: functions.php:126
-#, php-format
-msgid "Секция \"%1$s\" главной страницы"
-msgstr "Секція \"%1$s\" головної сторінки"
-
-#: functions.php:141
-msgid "Сайдбар подвала"
-msgstr "Сайдбар підвалу"
-
-#: header.php:125 parts/mobilenav.php:15
-msgid "Меню"
-msgstr "Меню"
-
-#: includes/custom-asides.php:16 includes/custom-asides.php:36
-#: includes/custom-asides.php:89
-msgid "Выбрать сайдбар"
-msgstr "Вибрати сайдбар"
-
-#: includes/custom-asides.php:20 includes/custom-asides.php:38
-#: includes/custom-asides.php:91
-msgid "Стандартный сайдбар"
-msgstr "Стандартний сайдбар"
-
-#: includes/custom-asides.php:73 includes/custom-asides.php:117
-#: includes/custom-asides.php:118
-msgid "Пользовательские сайдбары"
-msgstr "Користувацькі сайдбари"
-
-#: includes/custom-asides.php:220
-msgid "Добавление"
-msgstr "Додавання"
-
-#: includes/custom-asides.php:225 includes/custom-asides.php:248
-#: includes/custom-asides.php:267
-msgid "Название"
-msgstr "Назва"
-
-#: includes/custom-asides.php:227 includes/custom-asides.php:250
-#: includes/custom-asides.php:269
-msgid "CSS-класс"
-msgstr "CSS-клас"
-
-#: includes/custom-asides.php:228 includes/custom-asides.php:261
-msgid "Добавить"
-msgstr "Додати"
-
-#: includes/custom-asides.php:229 includes/custom-asides.php:253
-msgid "Отмена"
-msgstr "Скасувати"
-
-#: includes/custom-asides.php:233
-msgid "Редактирование"
-msgstr "Редагування"
-
-#: includes/custom-asides.php:254
-msgid "Сохранить"
-msgstr "Зберегти"
-
-#: includes/custom-asides.php:266
-msgid "№"
-msgstr "№"
-
-#: includes/custom-asides.php:270 includes/custom-asides.php:304
-msgid "Страницы"
-msgstr "Сторінки"
-
-#: includes/custom-asides.php:271
-msgid "Виджеты"
-msgstr "Віджети"
-
-#: includes/custom-asides.php:311
-msgid "Колонка не используется на постоянных страницах."
-msgstr "Колонка не використовується на постійних сторінках."
-
-#: includes/custom-asides.php:314
-msgid "Категории"
-msgstr "Категорії"
-
-#: includes/custom-asides.php:321
-msgid "Колонка не используется на страницах категорий."
-msgstr "Колонка не використовується на сторінках категорій."
-
-#: includes/custom-asides.php:328
-msgid "Вы уверены?"
-msgstr "Ви впевнені?"
-
-#: includes/custom-asides.php:328
-msgid "Удалить"
-msgstr "Видалити"
-
-#: includes/custom-asides.php:329
-msgid "Редактировать"
-msgstr "Редагувати"
-
-#: includes/metabox-promo.php:27
-msgid "Первый экран страницы"
-msgstr "Перший екран сторінки"
-
-#: includes/template-functions.php:126
-msgid "Главная"
-msgstr "Головна"
-
-#: includes/template-functions.php:139
-msgid "Домашняя страница"
-msgstr "Домашня сторінка"
-
-#: includes/template-functions.php:188
-msgid "Смотреть предыдущий пост"
-msgstr "Дивитися попередній пост"
-
-#: includes/template-functions.php:192
-msgid "Смотреть следующий пост"
-msgstr "Наступне пост"
-
-#: includes/template-functions.php:310 views/home/firstscreen.php:23
+#: views/graduate-list-after.php:15 views/home/firstscreen.php:43
+#: views/partners-after.php:15
 msgid "Предыдущий слайд"
 msgstr "Попередній слайд"
 
-#: includes/template-functions.php:311 views/home/firstscreen.php:28
+#: views/graduate-list-after.php:16 views/home/firstscreen.php:48
+#: views/partners-after.php:16
 msgid "Следующий слайд"
 msgstr "Наступний слайд"
-
-#: includes/template-functions.php:480
-#, php-format
-msgid "Результаты поиска %s"
-msgstr "Результати пошуку %s"
-
-#: includes/template-functions.php:486
-msgid "Поделиться в Facebook"
-msgstr "Поділитися в Facebook"
-
-#: includes/template-functions.php:487
-msgid "Поделиться в Twitter"
-msgstr "Поділитися в Twitter"
-
-#: includes/template-functions.php:488
-msgid "Поделиться в LinkedIn"
-msgstr "Поділитися в LinkedIn"
-
-#: includes/template-functions.php:489
-msgid "Отправить по email"
-msgstr "Надіслати по email"
-
-#: includes/template-functions.php:538
-msgid "Результаты поиска"
-msgstr "Результати пошуку"
-
-#: parts/archive-educational-program.php:65
-msgid "Специальности не заполнены"
-msgstr "Спеціальності не заповнені"
-
-#: parts/archive-specialty.php:27
-msgid "Образовательные программы"
-msgstr "Освітні програми"
-
-#: parts/archive.php:60 parts/search.php:49
-msgid "Posts navigation"
-msgstr "Навігація"
-
-#: parts/home/videos.php:28
-#, php-format
-msgid "Видео %d"
-msgstr "Відео %d"
-
-#: parts/mobilenav.php:21
-msgid "Поделиться"
-msgstr "Поділитися"
-
-#: parts/search.php:53
-msgid "К сожалению ничего не найдено. Попробуйте изменить поисковый запрос."
-msgstr "На жаль нічого не знайдено. Спробуйте змінити пошуковий запит."
-
-#: parts/singular-educational-program.php:21
-msgid "Конкурсные предложения"
-msgstr "Конкурсні пропозиції"
-
-#: parts/singular-educational-program.php:25
-msgid "Дополнительная информация"
-msgstr "Додаткова інформація"
-
-#: searchform.php:9
-msgid "Найти"
-msgstr "Знайти"
 
 #: views/home/action.php:21
 msgid "Смотреть видео"
 msgstr "Дивитися відео"
 
-#: views/metaboxes/promo.php:8
-msgid "Показывать меню дочерних страниц"
-msgstr "Показувати меню дочірніх сторінок"
+#: views/home/faculties-entry.php:45
+msgid "Докладніше"
+msgstr "Докладніше"
 
-#: views/metaboxes/promo.php:13
+#: views/home/news-categories-names-before.php:15
+msgid "Все"
+msgstr "Всі"
+
+#: views/home/videos.php:13
+msgid "Мы на YouTube"
+msgstr "Ми на YouTube"
+
+#: views/metaboxes/promo.php:14
 msgid "Выбор дополнительного меню"
 msgstr "Вибір додаткового меню"
 
-#: views/metaboxes/promo.php:23
+#: views/metaboxes/promo.php:24
 msgid "Ни одного меню не зарегистрировано"
 msgstr "Жодного меню не зареєстровано"
+
+#: views/no-posts.php:14
+msgid "К сожалению ничего не найдено."
+msgstr "На жаль нічого не знайдено."
+
+#: views/search-no-posts.php:14
+msgid "К сожалению ничего не найдено. Попробуйте изменить поисковый запрос."
+msgstr "На жаль нічого не знайдено. Спробуйте змінити пошуковий запит."

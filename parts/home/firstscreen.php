@@ -33,7 +33,7 @@ if ( ! empty( $items ) ) {
 
 		$excerpt = ( isset( $items[ $i ][ 'excerpt' ] ) ) ? $items[ $i ][ 'excerpt' ] : '';
 		$permalink = ( isset( $items[ $i ][ 'permalink' ] ) ) ? $items[ $i ][ 'permalink' ] : '';
-		$label = ( isset( $items[ $i ][ 'label' ] ) ) ? $items[ $i ][ 'label' ] : __( 'Подробней', VSTUP_TEXTDOMAIN );
+		$label = ( isset( $items[ $i ][ 'label' ] ) ) ? $items[ $i ][ 'label' ] : __( 'Подробнее', VSTUP_TEXTDOMAIN );
 		$page_menu = '';
 
 		include get_theme_file_path( 'views/jumbotron.php' );

@@ -37,7 +37,7 @@ if ( empty( $thumbnail_url ) ) {
 			<div class="overlay">
 				<h3 class="title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 				<div class="excerpt"><?php the_excerpt(); ?></div>
-				<p><a class="btn btn-sm btn-success" href="<?php the_permalink(); ?>"><?php _e( 'Подробней', VSTUP_TEXTDOMAIN ); ?></a></p>
+				<p><a class="btn btn-sm btn-success" href="<?php the_permalink(); ?>"><?php _e( 'Подробнее', VSTUP_TEXTDOMAIN ); ?></a></p>
 			</div>
 		</div>
 	</div>
