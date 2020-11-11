@@ -43,7 +43,7 @@ if ( is_array( $news_entries ) && ! empty( $news_entries ) && count( $news_entri
 			'thumbnail' => '',
 		], $entry );
 		if ( ! empty( $entry[ 'thumbnail' ] ) ) {
-			$thumbnail_id = attachment_url_to_postid( preg_replace( '~-[0-9]+x[0-9]+(?=\..{2,6})~', '', $entry[ 'thumbnail' ] ) );
+			$thumbnail_id = attachment_url_to_postid( removing_image_size_from_url( $entry[ 'thumbnail' ] ) );
 			if ( $thumbnail_id && ! is_wp_error( $thumbnail_id ) ) {
 				$entry[ 'thumbnail' ] = wp_get_attachment_image_url( $thumbnail_id, 'large', false );
 			}

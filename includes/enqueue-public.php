@@ -54,6 +54,7 @@ add_action( 'wp_print_styles', 'vstup\print_styles' );
  */
 function styles() {
 	wp_enqueue_style( 'vstup-public', get_theme_file_uri( 'styles/public.css' ), [], filemtime( get_theme_file_path( 'styles/public.css' ) ), 'all' );
+	wp_enqueue_style( 'vstup-fonts', get_theme_file_uri( 'styles/fonts.css' ), [], filemtime( get_theme_file_path( 'styles/fonts.css' ) ), 'all' );
 	wp_enqueue_style( 'fancybox', get_theme_file_uri( 'styles/fancybox.css' ), [], '3.3.5', 'all' );
 	wp_enqueue_style( 'slick', get_theme_file_uri( 'styles/slick.css' ), [], '1.8.0', 'all' );
 	wp_enqueue_style( 'contact-form-7' );

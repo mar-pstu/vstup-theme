@@ -24,7 +24,7 @@ if ( ! empty( $items ) ) {
 		$thumbnail_url = '';
 
 		if ( isset( $items[ $i ][ 'bgi' ] ) && ! empty( $items[ $i ][ 'bgi' ] ) ) {
-			$thumbnail_id = attachment_url_to_postid( preg_replace( '~-[0-9]+x[0-9]+(?=\..{2,6})~', '', $items[ $i ][ 'bgi' ] ) );
+			$thumbnail_id = attachment_url_to_postid( removing_image_size_from_url( $items[ $i ][ 'bgi' ] ) );
 			if ( $thumbnail_id && ! is_wp_error( $thumbnail_id ) ) {
 				$thumbnail_url = wp_get_attachment_image_url( $thumbnail_id, 'large', false );
 			}

@@ -165,3 +165,13 @@ function css_array_to_css( $rules, $args = [] ) {
 	}
 	return ( $args[ 'container' ] ) ? "\n<style>\n" . $css . "\n</style>\n" : $css;
 }
+
+
+/**
+ * Удаление размера изображения из url вложения
+ * @param    string   $url   url изображения, который нужно очистить
+ * @return   string          очищенный url
+ * */
+function removing_image_size_from_url( $url = '' ) {
+	return preg_replace( '~-[0-9]+x[0-9]+(?=\..{2,6})~', '', $url );
+}

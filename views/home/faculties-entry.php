@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 				<?php if ( array_key_exists( 'permalink', $entry ) && array_key_exists( 'logo', $entry ) && array_key_exists( 'name', $entry ) ) : ?>
 					<?php
 						if ( ! empty( $entry[ 'logo' ] ) ) {
-							$thumbnail_id = attachment_url_to_postid( preg_replace( '~-[0-9]+x[0-9]+(?=\..{2,6})~', '', $entry[ 'logo' ] ) );
+							$thumbnail_id = attachment_url_to_postid( removing_image_size_from_url( $entry[ 'logo' ] ) );
 							if ( $thumbnail_id && ! is_wp_error( $thumbnail_id ) ) {
 								$entry[ 'logo' ] = wp_get_attachment_image_url( $thumbnail_id, 'medium', false );
 							}

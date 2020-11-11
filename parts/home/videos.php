@@ -37,6 +37,12 @@ if ( is_array( $videos ) && ! empty( $videos ) ) {
 					$i,
 					$videos[ $i ][ 'label' ]
 				);
+				if ( ! empty( $videos[ $i ][ 'thumbnail' ] ) ) {
+					$thumbnail_id = attachment_url_to_postid( removing_image_size_from_url( $videos[ $i ][ 'thumbnail' ] ) );
+					if ( $thumbnail_id && ! is_wp_error( $thumbnail_id ) ) {
+						$videos[ $i ][ 'thumbnail' ] = wp_get_attachment_image_url( $thumbnail_id, 'large', false );
+					}
+				}
 				if ( empty( $videos[ $i ][ 'thumbnail' ] ) ) {
 					$videos[ $i ][ 'thumbnail' ] = get_theme_file_uri( 'images/preview.jpg' );
 				}
