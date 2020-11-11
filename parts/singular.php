@@ -29,6 +29,3 @@ if ( have_posts() ) {
 	include get_theme_file_path( 'views/no-posts.php' );
 
 }
-
-
-include get_theme_file_path( 'views/container-after.php' );

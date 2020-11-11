@@ -2,19 +2,12 @@
 // главная странциа - задать вопрос
 .questions {
 
-	.bg {
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		z-index: -1;
-		background-repeat: no-repeat;
-		background-size: cover;
-		background-attachment: fixed;
+	.bgi {
+		@extend %bgi;
+		@extend %bgi-cover;
 	}
 
-	.bg:after {
+	.bgi:after {
 		content: '';
 		display: block;
 		position: absolute;

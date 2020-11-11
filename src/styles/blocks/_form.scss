@@ -1,17 +1,5 @@
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+// формы по аналоги с bootstrap
 form {
 
 	label {
@@ -38,7 +26,6 @@ form {
 		color: $text-color;
 	}
 
-
 	select {
 		@extend %icon-arrow-dark;
 		appearance: none;
@@ -47,17 +34,14 @@ form {
 		background-position: 98% 50%;
 	}
 
-
 	textarea {
 		resize: vertical;
 	}
-
 
 	[ type="submit" ]:not( .searchsubmit ) {
 		@extend %button;
 		@extend %button-primary;
 	}
-
 
 	&.searchform {
 		position: relative;
@@ -79,6 +63,5 @@ form {
 			margin: .5em;
 		}
 	}
-
 
 }

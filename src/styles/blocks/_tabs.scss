@@ -1,16 +1,8 @@
 
-
-
-
-
-
-
-
+// вкладки
 .tabs[data-heading] {
 	margin: 15px auto;
 }
-
-
 
 .tabs[data-heading] .tabs-heading {
 
@@ -55,8 +47,6 @@
 
 }
 
-
-
 .tabs[data-heading] .tab-section {
 
 	padding: 5px 10px;
@@ -72,14 +62,9 @@
 
 }
 
-
 .tabs[data-heading] .accordio-section .heading {
 	padding: 0.75em;
 }
-
-
-
-// цвета
 
 .tabs[data-heading] {
 	.tabs-heading { border-bottom: 2px solid $brand-default; }
@@ -98,4 +83,3 @@
 		.tab-section { border: 2px solid $color; border-top: none; }
 	}
 }
-

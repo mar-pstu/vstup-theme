@@ -1,8 +1,5 @@
-//
+
 //	"Хлебные крошки"
-//
-
-
 .breadcrumbs {
 
 	margin: 1em 0;
@@ -17,11 +14,9 @@
 		justify-content: flex-start;
 	}
 
-
 	li + li:before {
 		content: '/';
 		margin: 10px;
 	}
-
 
 }

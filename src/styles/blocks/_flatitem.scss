@@ -2,16 +2,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
 .flatitem {
 	display: flex;
 	flex-direction: column;
@@ -29,26 +19,18 @@
 	max-width: 25em;
 }
 
-
-
 .flatitem::before {
+	@extend %bgi;
 	content: '';
 	z-index: 0;
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
 	background-color: transparentize( $brand-primary, .50 );
 	transition: background-color .2s;
 }
 
 
-
 .flatitem:hover::before {
 	background-color: transparentize( $brand-primary, .25 );
 }
-
 
 
 .flatitem .title {

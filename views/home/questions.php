@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
 <section class="section questions" id="questions">
-	<div class="bg lazy" data-src="<?php echo esc_attr( $bgi ); ?>"></div>
+	<div class="bgi lazy" data-src="<?php echo esc_attr( $bgi ); ?>"></div>
 	<div class="container">
 		<div class="row middle-xs center-xs">
 			<?php if ( ! empty( $title ) ) : ?>
