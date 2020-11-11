@@ -31,8 +31,8 @@
 	.warning {
 		padding-left: 0;
 		margin-bottom: 0;
-		padding: .25em 1em;
-		background-color: transparentize( $brand-primary, .5 );
+		padding: .5em 1em;
+		background-color: transparentize( $brand-primary, .25 );
 		position: fixed;
 		left: 0;
 		right: 0;
@@ -58,7 +58,7 @@
 	}
 
 	.warning:hover {
-		background-color: transparentize( $brand-primary, .25 );
+		background-color: transparentize( $brand-primary, 0 );
 	}
 
 	.warning a {
@@ -70,18 +70,18 @@
 	}
 
 	.warning li {
-		margin-right: .5em;
+		margin-right: 1em;
 	}
 
 	.warning li + li::before {
 		content: '|';
-		margin-right: .5em;
+		margin-right: 1em;
 		color: #fff;
 	}
 
 	.warning ~ .slider-controls {
 		@include min-width( $screen-lg ) {
-			margin-bottom: $line-height-base + .5em;
+			margin-bottom: $line-height-base + 1em;
 		}
 	}
 
