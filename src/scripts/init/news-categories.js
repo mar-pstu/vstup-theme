@@ -13,7 +13,6 @@
 					maxHeight = height;
 				}
 			} );
-			console.log( maxHeight );
 			jQuery( '#news-categories-list' ).css( {
 				'min-height': maxHeight + 'px',
 			} );

@@ -26,13 +26,6 @@ $smallest: xs !default;
 $gutter-compensation: $flexboxgrid-gutter-width * .5 * -1;
 $half-gutter-width: $flexboxgrid-gutter-width * .5;
 
-.wrapper {
-  box-sizing: border-box;
-  max-width: $flexboxgrid-max-width;
-  margin: 0 auto;
-}
-
-
 .container {
   margin-right: auto;
   margin-left: auto;
@@ -53,7 +46,7 @@ $half-gutter-width: $flexboxgrid-gutter-width * .5;
   @include flex(0, 1, auto);
   @include flex-direction(row);
   @include flex-wrap(wrap);
-  max-width: 100%;
+  // max-width: 100vw;
   margin-right: $gutter-compensation;
   margin-left: $gutter-compensation;
 }

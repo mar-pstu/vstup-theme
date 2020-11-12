@@ -17,14 +17,15 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
  * @param bool $in_footer подключать в шапке или подвале
  */
 function scripts() {
-	wp_enqueue_script( 'vstup-public', get_theme_file_uri( 'scripts/public.js' ), [ 'jquery', 'fancybox' ], filemtime( get_theme_file_path( 'scripts/public.js' ) ), true );
+	$suffix = '.min';
+	wp_enqueue_script( 'vstup-public', get_theme_file_uri( "scripts/public{$suffix}.js" ), [ 'jquery', 'fancybox' ], filemtime( get_theme_file_path( "scripts/public{$suffix}.js" ) ), true );
 	wp_localize_script( 'vstup-public', 'VstupTheme', [ 'toTopBtn' => 'Наверх' ] );
-	wp_enqueue_script( 'lazyload', get_theme_file_uri( 'scripts/lazyload.js' ), [ 'jquery' ], '1.7.6', true );
-	wp_enqueue_script( 'fancybox', get_theme_file_uri( 'scripts/fancybox.js' ), [ 'jquery' ], '3.3.5', true );
-	wp_enqueue_script( 'slick', get_theme_file_uri( 'scripts/slick.js' ), [ 'jquery' ], '1.8.0', true );
+	wp_enqueue_script( 'lazyload', get_theme_file_uri( "scripts/lazyload{$suffix}.js" ), [ 'jquery' ], '1.7.6', true );
+	wp_enqueue_script( 'fancybox', get_theme_file_uri( "scripts/fancybox{$suffix}.js" ), [ 'jquery' ], '3.3.5', true );
+	wp_enqueue_script( 'slick', get_theme_file_uri( "scripts/slick{$suffix}.js" ), [ 'jquery' ], '1.8.0', true );
 	wp_add_inline_script( 'fancybox', "jQuery( '.fancybox' ).fancybox();", 'after' );
 	wp_add_inline_script( 'lazyload', "jQuery( '.lazy' ).lazy();", 'after' );
-	wp_enqueue_script( 'superembed', get_theme_file_uri( 'scripts/superembed.js' ), [ 'jquery' ], '3.1', true );
+	wp_enqueue_script( 'superembed', get_theme_file_uri( "scripts/superembed{$suffix}.js" ), [ 'jquery' ], '3.1', true );
 }
 add_action( 'wp_enqueue_scripts', 'vstup\scripts' );
 
@@ -53,10 +54,11 @@ add_action( 'wp_print_styles', 'vstup\print_styles' );
  * @param string $media для каких устройств подключать
  */
 function styles() {
-	wp_enqueue_style( 'vstup-public', get_theme_file_uri( 'styles/public.css' ), [], filemtime( get_theme_file_path( 'styles/public.css' ) ), 'all' );
-	wp_enqueue_style( 'vstup-fonts', get_theme_file_uri( 'styles/fonts.css' ), [], filemtime( get_theme_file_path( 'styles/fonts.css' ) ), 'all' );
-	wp_enqueue_style( 'fancybox', get_theme_file_uri( 'styles/fancybox.css' ), [], '3.3.5', 'all' );
-	wp_enqueue_style( 'slick', get_theme_file_uri( 'styles/slick.css' ), [], '1.8.0', 'all' );
+	$suffix = '.min';
+	wp_enqueue_style( 'vstup-public', get_theme_file_uri( "styles/public{$suffix}.css" ), [], filemtime( get_theme_file_path( "styles/public{$suffix}.css" ) ), 'all' );
+	wp_enqueue_style( 'vstup-fonts', get_theme_file_uri( "styles/fonts{$suffix}.css" ), [], filemtime( get_theme_file_path( "styles/fonts{$suffix}.css" ) ), 'all' );
+	wp_enqueue_style( 'fancybox', get_theme_file_uri( "styles/fancybox{$suffix}.css" ), [], '3.3.5', 'all' );
+	wp_enqueue_style( 'slick', get_theme_file_uri( "styles/slick{$suffix}.css" ), [], '1.8.0', 'all' );
 	wp_enqueue_style( 'contact-form-7' );
 	wp_enqueue_style( 'wp-block-library' );
 	wp_enqueue_style( 'wpdiscuz-font-awesome' );
@@ -70,8 +72,9 @@ add_action( 'get_footer', 'vstup\styles', 10, 0 );
  * Подключение стилей инлайн для более быстрой отрисовки страницы
  * */
 function ctitical_styles() {
-	if ( file_exists( get_theme_file_path( 'styles/critical.css' ) ) ) {
-		echo '<style type="text/css">' . file_get_contents( get_theme_file_path( 'styles/critical.css' ) ) . '</style>';
+	$critical_file_path = get_theme_file_path( "styles/critical{$suffix}.css" );
+	if ( file_exists( $critical_file_path ) ) {
+		echo '<style type="text/css">' . file_get_contents( $critical_file_path ) . '</style>';
 	}
 }
 add_action( 'wp_head', 'vstup\ctitical_styles', 10, 0 );

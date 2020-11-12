@@ -1,6 +1,7 @@
 ( function () {
 	jQuery( document ).ready( function () {
-		jQuery( '#graduate-list' ).slick( {
+		var $list = jQuery( '#graduate-list' );
+		$list.slick( {
 			dots: true,
 			arrows: true,
 			fade: ! jQuery( 'body' ).hasClass( 'is-mobile' ),

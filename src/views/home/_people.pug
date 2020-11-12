@@ -17,12 +17,12 @@ mixin grasuate( args )
 
 section.section.people#people
 	.bgi.lazy( data-src=src.img+'people/bgi.jpg' )
-	.container: .row.row-reverce.center-xs.middle-xs
-		.col-xs-12.col-sm-9.col-md-6.col-lg-7.col-md-offset-1: .wrap
+	.container: .row.row-reverce.middle-xs
+		.col-xs-11.col-sm-9.col-md-6.col-lg-7.col-md-offset-1: .wrap
 			h2 Мрій! Вчися! Взлітай!
 			.description Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis provident consequatur ratione harum corporis omnis beatae dolore voluptatum obcaecati voluptas optio facilis molestiae, odit ipsum reiciendis vero, quo eligendi. Dignissimos!
 			p: a.btn.btn-success( href="#" ) Кнопка
-		.col-xs-12.col-sm-9.col-md-5.col-lg-4.first-md: .slider
+		.col-xs-11.col-sm-9.col-md-5.col-lg-4.first-md: .slider
 			#graduate-list
 				+grasuate( { icon: src.img+'sectors/01.png', specialty: 'Середня освіта. Математика', thumbnail: src.img+'graduates/01.jpg', name: 'Анатолій Гущин', excerpt: 'Учасник і дипломант фестивалів художньої ковки. Організатор «Сталевого джерела» в Маріуполі.' } )
 				+grasuate( { icon: src.img+'sectors/14.png', specialty: 'Електроенергетика, електротехніка та електромеханіка', thumbnail: src.img+'graduates/02.jpg', name: 'Марина Гарманюк', excerpt: 'Диплом II ступеня Всеукраїнського конкурсу студентських наукових робіт 2018-2019 навчального року з галузі «Енергетика»' } )

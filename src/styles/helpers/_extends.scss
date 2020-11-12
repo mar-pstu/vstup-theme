@@ -24,6 +24,14 @@
   	margin-bottom: .2em;
 }
 
+%h1 {
+	@extend %title;
+	font-size: 1.75em;
+	@include min-width( $screen-sm ) {
+		font-size: 2em;
+	}
+}
+
 %bgi {
 	position: absolute;
 	top: 0;

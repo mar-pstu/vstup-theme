@@ -12,11 +12,11 @@
 	background-size: cover;
 	min-height: 8em;
 	padding: .5em 1em;
-	margin-bottom: $flexboxgrid-outer-margin * 2;
+	margin-bottom: $flexboxgrid-outer-margin;
 	font-size: 85%;
 	height: inherit;
 	box-sizing: border-box;
-	max-width: 25em;
+	max-width: 30em;
 }
 
 .flatitem::before {

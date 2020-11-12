@@ -152,11 +152,7 @@ dfn {
 //
 
 h1 {
-	@extend %title;
-	font-size: 1.75em;
-	@include min-width( $screen-sm ) {
-		font-size: 2em;
-	}
+	@extend %h1;
 }
 
 h2 {

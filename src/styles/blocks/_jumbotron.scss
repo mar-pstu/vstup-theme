@@ -64,7 +64,7 @@
 	}
 
 	.title {
-		@extend h1;
+		@extend %h1;
 		max-width: 45em;
 	}
 

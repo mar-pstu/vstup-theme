@@ -1,4 +1,16 @@
-//
-//
+
 //	Инлайн стили для оптимизации отображения страницы при загрузке
-//
+@import "helpers/variables";
+@import "helpers/functions";
+@import "helpers/flex";
+@import "helpers/mixins";
+@import "helpers/extends.button";
+@import "helpers/extends.icons";
+@import "helpers/extends";
+
+@import "navs/main";
+@import "navs/mobilenav";
+@import "blocks/breadcrumbs";
+@import "blocks/header";         // Шапка сайта
+@import "blocks/jumbotron";
+@import "home/firstscreen";

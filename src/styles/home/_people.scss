@@ -5,6 +5,7 @@
 	.bgi {
 		@extend %bgi;
 		@extend %bgi-cover;
+		opacity: .5;
 	}
 
 	h2 {
