@@ -6,7 +6,7 @@
 
 	function CheckNavItems() {
 		var $burger = jQuery( '.nav .nav__burger' );	
-		if ( NavItemsWidth > jQuery( '.nav .nav__list' ).eq( 0 ).outerWidth() ) {
+		if ( ( 1.1 * NavItemsWidth ) > jQuery( '.nav .nav__list' ).eq( 0 ).outerWidth() ) {
 			jQuery( '.nav .nav__list' ).addClass( 'hide' );
 			jQuery( '.nav .nav__burger' ).removeClass( 'hide' );
 		} else {
@@ -53,6 +53,10 @@
 		var $mobile_child_menus = $mobile_parent_items.find( '> .sub-menu' );
 		jQuery( '.nav .nav__list' ).eq( 0 ).find( ' > li ' ).each( function ( index, element ) {
 			NavItemsWidth += jQuery( element ).outerWidth();
+			console.log( index );
+			console.log( jQuery( element ) );
+			console.log( jQuery( element ).width() );
+			console.log( '-' );
 		} );
 		$mobile_list_container.appendTo( jQuery( '#mobilenav-list' ) );
 		$mobile_child_menus.hide( 0 );
