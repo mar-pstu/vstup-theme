@@ -199,6 +199,7 @@ function setup_default_mods( $old_name ) {
 		'people_title'    => 'Випускники',
 		'people_description' => '',
 		'people_label'    => 'Докладніше',
+		'people_permalink' => '',
 		
 
 

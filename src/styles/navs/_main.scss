@@ -2,18 +2,21 @@
 // главное меню
 .nav {
 
+
 	& {
 		position: relative;
 	}
+
 
 	.list {
 		list-style-type: none;
 		padding-left: 0;
 		margin: 0;
-		display: none;
-		@include min-width( $screen-lg ) {
-			display: block;
-		}
+		min-height: 1em + $line-height-base;
+		// display: none;
+		// @include min-width( $screen-lg ) {
+		// 	display: block;
+		// }
 	}
 
 
@@ -40,11 +43,6 @@
 	}
 
 
-
-
-
-
-
 	.item--columns {
 		&:hover > .sub-menu { display: block; }
 		& > .sub-menu {
@@ -68,10 +66,12 @@
 			width: 1em;
 			margin-right: 1em;
 		}
+		.has-sub-menu {
+			display: inline-block;
+			width: 100%;
+		}
 	}
 	
-
-
 
 	.item--simple {
 		& { position: relative; }
@@ -93,8 +93,6 @@
 	}
 
 
-
-
 	.burger {
 		@extend %xy-center;
 		margin-left: auto;
@@ -111,15 +109,13 @@
 		path {
 			fill: #fff;
 		}
-		@include min-width( $screen-lg ) {
-			display: none;
-		}
+		// @include min-width( $screen-lg ) {
+		// 	display: none;
+		// }
 		&.active {
 			transform: rotate( -90deg );
 		}
 	}
-
-
 
 
 }

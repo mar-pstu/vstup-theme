@@ -10,12 +10,14 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 $title = get_theme_mod( 'people_title' );
 $label = get_theme_mod( 'people_label' );
 $page_id = get_theme_mod( 'people_page_id' );
-$permalink = '';
+$permalink = get_theme_mod( 'people_permalink' );;
 $description = get_theme_mod( 'people_description' );
 
 
 if ( ! empty( $page_id ) ) {
-	$permalink = get_permalink( $page_id );
+	if ( empty( $permalink ) ) {
+		$permalink = get_permalink( $page_id );
+	}
 	if ( empty( $title ) ) {
 		$title = get_the_title( $page_id );
 	}

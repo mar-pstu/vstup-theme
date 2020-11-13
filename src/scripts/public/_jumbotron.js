@@ -5,7 +5,6 @@
 
 	function fixHeight() {
 		$jumbotrons.each( function ( index, element ) {
-			console.log( $header.outerHeight() );
 			jQuery( element ).css( {
 				'min-height': document.documentElement.clientHeight - $header.outerHeight(),
 			} );

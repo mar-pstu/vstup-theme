@@ -93,6 +93,23 @@ function register_home_settings_people( $wp_customize ) {
 
 
 	$wp_customize->add_setting(
+		'people_permalink',
+		[
+			'transport'         => 'reset',
+			'sanitize_callback' => 'esc_url_raw',
+		]
+	);
+	$wp_customize->add_control(
+		'people_permalink',
+		[
+			'section'           => VSTUP_SLUG . '_people',
+			'label'             => __( 'Сслылка на описание', VSTUP_TEXTDOMAIN ),
+			'type'              => 'text',
+		]
+	); /**/
+
+
+	$wp_customize->add_setting(
 		'people_label',
 		[
 			'transport'         => 'reset',

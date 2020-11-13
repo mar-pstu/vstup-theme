@@ -27,6 +27,7 @@ function add_settings_translations () {
 		'faculties_excerpt',
 		'people_title',
 		'people_label',
+		'people_permalink',
 		'services_title',
 		'services_label',
 		'questions_title',
