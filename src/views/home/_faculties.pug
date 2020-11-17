@@ -3,21 +3,31 @@
 	Блок Специальности / Факультеты
 
 
+//- mixin faculties_item( args )
+//- 	section.faculties__item.item: .container: .row.middle-xs
+//- 		.col-xs-12.col-sm-4
+//- 			a.logo( href="#" ): img( src="#", data-lazy=args.logo )
+//- 		.col-xs-12.col-sm-8
+//- 			h3.title #{args.title}
+//- 			.excerpt #{args.excerpt}
+//- 			a.permalink( href="#" ) Подробней
+
+
 mixin faculties_item( args )
-	section.faculties__item.item: .container: .row.middle-xs
-		.col-xs-12.col-sm-4
-			a.logo( href="#" ): img( src="#", data-lazy=args.logo )
-		.col-xs-12.col-sm-8
+	.col-xs-6.col-sm-4.col-md-3.col-lg-2: a.faculties__item.item( href="#" )
+		.side.side--front
+			img.logo.lazy( src="#", data-src=args.logo alt=args.title )
+		.side.side--back
 			h3.title #{args.title}
 			.excerpt #{args.excerpt}
-			a.permalink( href="#" ) Подробней
 
 
 section.section.faculties#faculties
 	.container.text-center
 		h2 Факультеты
 		p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa ullam dolorum nam consequuntur, repellendus, amet doloremque iusto vel, optio porro fugit soluta dolores laudantium, nesciunt tenetur. Quam odit cum est.
-	#faculties-list
+	//- #faculties-list
+	.container: .row
 		+faculties_item( { bg: src.img+'faculties/EkF.jpg', logo: src.img+'faculties/EkF.png', title: 'Економічний факультет', excerpt: 'Ми відкриваємо для тебе нові можливості! Які саме використати – обирати тобі! Економічний факультет є одним із провідних факультетів Приазовського державного технічного університету.' } )
 		+faculties_item( { bg: src.img+'faculties/EnF.jpg', logo: src.img+'faculties/EnF.png', title: 'Енергетичний факультет', excerpt: 'На факультеті здійсюється підготовка бакалаврів за освітніми програмами спеціальностей: 141 «Електроенергетика, електротехніка та електромеханіка», 144 «Теплоенергетика», 183 «Технології захисту навколишнього середовища» і магістрів за освітніми програмами: 141 «Системи управління виробництвом та розподілом електроенергії», «Електротехнічні системи споживання», 141 «Електромеханічні системи автоматизації та електроприводу», 144 «Теплоенергетика», 144 «Енергетичний менеджмент».' } )
 		+faculties_item( { bg: src.img+'faculties/MF.jpg', logo: src.img+'faculties/MF.png', title: 'Металургійний факультет', excerpt: 'За час свого існування факультет дав путівки в життя майже 12 тисячам інженерам-металургам. Найталановитіші з них продовжили навчання в аспірантурі і докторантурі, працювали керівниками крупних підприємств і галузей промисловості. Більшість керівників і інженерно-технічних працівників металургійних комбінатів м. Маріуполя є випускниками металургійного факультету. Підготовка фахівців ведеться за спеціальностями «Металургія» і « Матеріалознавство»' } )
@@ -27,6 +37,6 @@ section.section.faculties#faculties
 		+faculties_item( { bg: src.img+'faculties/FMZ.jpg', logo: src.img+'faculties/FMZ.png', title: 'Факультет машинобудування та зварювання', excerpt: 'Факультет машинобудування та зварювання Приазовського державного технічного університету включає сім випускаючих кафедр і є найбільшим в університеті за кількістю студентів і викладачів. На факультеті навчається понад 550 студентів і близько 70 викладачів, з яких 16 – доктори технічних наук, професори, 40 – кандидати технічних наук, доценти. Підготовка бакалаврів (термін навчання 4 роки) і магістрів (термін навчання 1,4 року).' } )
 		+faculties_item( { bg: src.img+'faculties/FTT.jpg', logo: src.img+'faculties/FTT.png', title: 'Факультет транспортних технологій', excerpt: 'Факультет був створений у травні 2000 року згідно наказу Міністерства освіти і науки України з метою об’єднання та поглиблення навчальних й наукових процесів, підвищення результативності роботи з підготовки інженерних та наукових кадрів.' } )
 		+faculties_item( { bg: src.img+'faculties/CZN.jpg', logo: src.img+'faculties/CZN.png', title: 'Центр заочного навчання', excerpt: 'Центр заочного навчання є структурним підрозділом ДВНЗ «Приазовський державний технічний університет», що за заочною формою навчання готує бакалаврів та магістрів.' } )
-	.container: .slider-controls#faculties-controls
-		button.slider-arrow.prev#faculties-arrow-prev #[span.sr-only Предыдущий слайд]
-		button.slider-arrow.next#faculties-arrow-next #[span.sr-only Следующий слайд]
+	//- .container: .slider-controls#faculties-controls
+	//- 	button.slider-arrow.prev#faculties-arrow-prev #[span.sr-only Предыдущий слайд]
+	//- 	button.slider-arrow.next#faculties-arrow-next #[span.sr-only Следующий слайд]

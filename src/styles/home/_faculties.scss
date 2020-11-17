@@ -4,43 +4,127 @@
 //
 
 
+
 .faculties {
 
-	&__item {
-		height: 100%;
+
+	.item {
+		position: relative;
+		display: block;
 		text-align: center;
-		@include min-width( $screen-md ) {
-			text-align: left;
+		perspective: 1000px;
+		margin-bottom: $flexboxgrid-outer-margin;
+	}
+
+
+	.item:hover {
+		.side--front {
+			transform: rotateY( 180deg );
+			opacity: 0;
+		}
+		.side--back {
+			transform: rotateY( 0deg ) scale( 1 );
+			opacity: 1;
 		}
 	}
 
-	.item {
+
+	&__item {
+
+		.title {
+			margin: 0;
+			font-size: $font-size-base;
+			line-height: $line-height-base;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			max-height: $line-height-base * 3em;
+			perspective: 1000px;
+			transform: translateZ( 175px ) scale( .86 );
+		}
+
+		.excerpt {
+			font-size: 85%;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			max-height: $line-height-base * 5em;
+			perspective: 1000px;
+			transform: translateZ( 175px ) scale( .86 );
+		}
 
 		.logo {
 			display: block;
-			width: 10em;
-			weight: 10em;
-			margin: 1em auto .5em;
-			@include min-width( $screen-md ) {
-				width: 15em;
-				weight: 15em;
-			}
 		}
 
-		.logo img {
-			display: block;
+		.side {
+			transition: all .5s;
+			backface-visibility: hidden;
 		}
 
-		.title {
-			margin-top: 0;
+		.side--front {
+			padding: 1em;
 		}
 
-		.permalink {
-			@extend %button;
-			@extend %button-success;
-			margin-top: 1.5em;
+		.side--back {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			padding: .5em;
+			transform-origin: center center;
+			transform: rotateY( 180deg ) scale( .75 );
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			text-align: center;
+			background-color: $brand-primary;
+			color: #fff;
 		}
 
 	}
 
+
 }
+
+
+
+// .faculties {
+
+// 	&__item {
+// 		height: 100%;
+// 		text-align: center;
+// 		@include min-width( $screen-md ) {
+// 			text-align: left;
+// 		}
+// 	}
+
+// 	.item {
+
+// 		.logo {
+// 			display: block;
+// 			width: 10em;
+// 			weight: 10em;
+// 			margin: 1em auto .5em;
+// 			@include min-width( $screen-md ) {
+// 				width: 15em;
+// 				weight: 15em;
+// 			}
+// 		}
+
+// 		.logo img {
+// 			display: block;
+// 		}
+
+// 		.title {
+// 			margin-top: 0;
+// 		}
+
+// 		.permalink {
+// 			@extend %button;
+// 			@extend %button-success;
+// 			margin-top: 1.5em;
+// 		}
+
+// 	}
+
+// }
