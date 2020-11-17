@@ -13,8 +13,13 @@
 	}
 
 	&.header--stick .custom-logo-link {
-		width: 3em;
-		height: 3em;
+		// width: 3em;
+		max-height: 3em;
+	}
+
+	&.header--stick .custom-logo {
+		// width: 3em;
+		max-height: 3em;
 	}
 
 
@@ -45,7 +50,6 @@
 		list-style-type: none;
 	}
 
-	// .contacts,
 	.socials {
 		display: none;
 		@include min-width( $screen-sm ) {
@@ -53,19 +57,24 @@
 		}
 	}
 
+	.open-search-modal-button {
+		@extend %background-icon;
+		@extend %icon-search;
+		width: 1em;
+		height: 1em;
+		margin-left: auto;
+		margin-right: 1em;
+		cursor: pointer;
+		background-color: transparent;
+		padding: 0;
+		flex-shrink: 0;
+		border: none;
+	}
 
 	.links  .label {
 		display: none;
 		@include min-width( $screen-lg ) {
 			display: inline;
-		}
-	}
-
-	.searchform {
-		font-size: 75%;
-		margin-right: 1em;
-		@include min-width( $screen-md ) {
-			margin-left: auto;
 		}
 	}
 
@@ -78,9 +87,9 @@
 	.custom-logo-link {
 		// display: block;
 		position: relative;
-		// display: flex;
-		// flex-direction: row;
-		// align-items: center;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
 		// width: 5em;
 		height: 5em;
 		flex-shrink: 1;
@@ -89,22 +98,19 @@
 	}
 
 	.custom-logo {
-		// position: absolute;
-		// top: 0;
-		// left: 0;
-		// width: 10em;
-		height: 8.5em;
+		align-self: flex-start;
+		max-height: 8.5em;
 		display: block;
 		flex-shrink: 0;
 		margin-right: 1em;
+		transition: max-height .2s;
 	}
 
-	.blog-name {
+	.custom-logo + .blog-name {
 		font-weight: bold;
-		font-size: 2em;
-		@include min-width( $screen-lg ) {
-			display: none;
-		}
+		max-width: 40em;
+		font-size: 65%;
+		// font-size: 2em;
 	}
 
 	.nav {

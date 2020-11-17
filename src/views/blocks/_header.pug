@@ -7,13 +7,18 @@
 		li: a.schedule( href="#" ) #[span.label Расписание]
 	include ../blocks/_contacts
 	include ../blocks/_socials
-	include ../forms/_search
+	button#open-search-modal-button.open-search-modal-button( style="visibility: hidden;" ) #[span.sr-only Открыть поиск]
+	#panel-search-modal( style="display: none; max-width: 640px;" )
+		include ../forms/_search
+		.row
+			.col-xs-12.col-sm-6: +widget( { title: 'заголовок виджета сайдбара поиска' } )
+			.col-xs-12.col-sm-6: +widget( { title: 'заголовок виджета сайдбара поиска' } )
 	ul.languages.list-inline
-		li.current RU
-		li: a( href="#" ) UK
+		li.current UK
 		li: a( href="#" ) EN
 .line.line--nav: .container.wrap
 	a.custom-logo-link( href="#", title=blog.description )
 		img.custom-logo( src=src.img+'gerb.png', alt=blog.name )
-		.blog-name #{blog.name}
+		.blog-name.hide Міністерство освіти і науки України Державний вищий навчальний заклад «Приазовський державний технічний університет» ДВНЗ «ПДТУ»
+
 	nav.nav: include ../navs/_main

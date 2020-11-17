@@ -9,9 +9,18 @@
 		if ( ( 1.1 * NavItemsWidth ) > jQuery( '.nav .nav__list' ).eq( 0 ).outerWidth() ) {
 			jQuery( '.nav .nav__list' ).addClass( 'hide' );
 			jQuery( '.nav .nav__burger' ).removeClass( 'hide' );
+			// jQuery( '.header .custom-logo-link .blog-name' ).removeClass( 'hide' );
+			jQuery( '.header .custom-logo-link .blog-name' ).each( function ( index, element ) {
+				if ( jQuery( element ).outerHeight() > jQuery( element ).siblings( '.custom-logo' ).outerHeight() ) {
+					jQuery( element ).addClass( 'hide' ); 
+				} else {
+					jQuery( element ).removeClass( 'hide' ); 
+				}
+			} );
 		} else {
 			jQuery( '.nav .nav__list' ).removeClass( 'hide' );
 			jQuery( '.nav .nav__burger' ).addClass( 'hide' );
+			jQuery( '.header .custom-logo-link .blog-name' ).addClass( 'hide' );
 		}
 	}
 
@@ -53,10 +62,6 @@
 		var $mobile_child_menus = $mobile_parent_items.find( '> .sub-menu' );
 		jQuery( '.nav .nav__list' ).eq( 0 ).find( ' > li ' ).each( function ( index, element ) {
 			NavItemsWidth += jQuery( element ).outerWidth();
-			console.log( index );
-			console.log( jQuery( element ) );
-			console.log( jQuery( element ).width() );
-			console.log( '-' );
 		} );
 		$mobile_list_container.appendTo( jQuery( '#mobilenav-list' ) );
 		$mobile_child_menus.hide( 0 );

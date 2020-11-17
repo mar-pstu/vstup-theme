@@ -34,13 +34,10 @@
 		right: 0;
 		bottom: 0;
 		height: 100vh;
-		min-width: 75%;
+		width: 320px;
 		padding: .5em 2em;
 		background-color: #fff;
 		overflow-y: auto;
-		@include min-width( $screen-sm ) {
-			min-width: 40%;
-		}
 	}
 
 	.close {
