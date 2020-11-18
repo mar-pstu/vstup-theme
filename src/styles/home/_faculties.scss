@@ -16,15 +16,19 @@
 		margin-bottom: $flexboxgrid-outer-margin;
 	}
 
-
-	.item:hover {
-		.side--front {
-			transform: rotateY( 180deg );
-			opacity: 0;
-		}
-		.side--back {
-			transform: rotateY( 0deg ) scale( 1 );
-			opacity: 1;
+	@include min-width( $screen-md ) {
+		.item:hover {
+			.side--front {
+				transform: rotateY( 180deg );
+				opacity: 0;
+			}
+			.side--back {
+				transform: rotateY( 0deg ) scale( 1 );
+				opacity: 1;
+			}
+			.side--back::before {
+				opacity: 1;
+			}
 		}
 	}
 
@@ -79,6 +83,19 @@
 			text-align: center;
 			background-color: $brand-primary;
 			color: #fff;
+		}
+
+		.side--back::before {
+			content: '';
+			display: block;
+			position: absolute;
+			top: .5em;
+			left: .5em;
+			right: .5em;
+			bottom: .5em;
+			border: 1px solid #fff;
+			opacity: 0;
+			transition: opacity .5s .2s;
 		}
 
 	}

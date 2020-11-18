@@ -17,12 +17,6 @@ $entries = get_theme_mod( 'faculties' );
 
 if ( is_array( $entries ) && ! empty( $entries ) ) {
 
-	if ( file_exists( $init_script_path = get_theme_file_path( 'scripts/init/faculties-list.js' ) ) ) {
-		wp_enqueue_style( 'slick' );
-		wp_enqueue_scripts( 'slick' );
-		wp_add_inline_script( 'slick', file_get_contents( $init_script_path ), 'after' );
-	}
-
 	include get_theme_file_path( 'views/home/faculties-before.php' );
 
 	foreach ( $entries as $entry ) {

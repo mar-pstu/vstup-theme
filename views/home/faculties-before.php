@@ -22,4 +22,5 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 			<?php endif; ?>
 
 	</div>
-	<div id="faculties-list">
+	<div class="container">
+		<div class="row">
