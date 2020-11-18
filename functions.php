@@ -48,8 +48,9 @@ if ( is_customize_preview() ) {
 	get_template_part( 'includes/customizer-panels' );
 	get_template_part( 'includes/sanitize-settings' );
 	foreach ( [
-		'home'  => apply_filters( 'get_home_parts', [] ),
-		'lists' => apply_filters( 'get_lists_parts', [] ),
+		'home'   => apply_filters( 'get_home_parts', [] ),
+		'lists'  => apply_filters( 'get_lists_parts', [] ),
+		'blocks' => apply_filters( 'get_blocks_parts', [] ),
 	] as $dir_name => $path_names ) {
 		foreach ( $path_names as $path_name ) {
 			if ( $path_name ) {

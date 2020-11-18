@@ -75,6 +75,40 @@ function register_home_settings_faculties( $wp_customize ) {
 
 
 	$wp_customize->add_setting(
+		'faculties_label',
+		[
+			'transport'         => 'reset',
+			'sanitize_callback' => 'sanitize_text_field',
+		]
+	);
+	$wp_customize->add_control(
+		'faculties_label',
+		[
+			'section'           => VSTUP_SLUG . '_faculties',
+			'label'             => __( 'Кнопка "далее"', VSTUP_TEXTDOMAIN ),
+			'type'              => 'text',
+		]
+	); /**/
+
+
+	$wp_customize->add_setting(
+		'faculties_permalink',
+		[
+			'transport'         => 'reset',
+			'sanitize_callback' => 'sanitize_text_field',
+		]
+	);
+	$wp_customize->add_control(
+		'faculties_permalink',
+		[
+			'section'           => VSTUP_SLUG . '_faculties',
+			'label'             => __( 'Ссылка "далее"', VSTUP_TEXTDOMAIN ),
+			'type'              => 'text',
+		]
+	); /**/
+
+
+	$wp_customize->add_setting(
 		'faculties_numberposts',
 		[
 			'transport'         => 'reset',

@@ -9,7 +9,6 @@
 		if ( ( 1.1 * NavItemsWidth ) > jQuery( '.nav .nav__list' ).eq( 0 ).outerWidth() ) {
 			jQuery( '.nav .nav__list' ).addClass( 'hide' );
 			jQuery( '.nav .nav__burger' ).removeClass( 'hide' );
-			// jQuery( '.header .custom-logo-link .blog-name' ).removeClass( 'hide' );
 			jQuery( '.header .custom-logo-link .blog-name' ).each( function ( index, element ) {
 				if ( jQuery( element ).outerHeight() > jQuery( element ).siblings( '.custom-logo' ).outerHeight() ) {
 					jQuery( element ).addClass( 'hide' ); 
@@ -52,7 +51,7 @@
 	};
 
 	function MobileNavTopPosition() {
-		jQuery( '#mobilenav' ).css( { 'top': jQuery( '.header--fixed' ).height() } );
+		jQuery( '#mobilenav' ).css( { 'top': jQuery( '.header--fixed' ).outerHeight() } );
 	}
 
 	function NavInit() {
@@ -72,9 +71,9 @@
 				$link.appendTo( jQuery( '<li>' ).prependTo( $element.find( '.sub-menu' ).eq( 0 ) ) );
 			}
 		} );
-		$mobile_parent_items.click( function ( event ) {
+		$mobile_parent_items.on( 'click', ' > a ', function ( event ) {
 			event.preventDefault();
-			jQuery( this ).find( '> .sub-menu' ).slideToggle( 200 );
+			jQuery( this ).siblings( '.sub-menu' ).slideToggle( 200 );
 		} );
 		$nav_list.find( ' > .has-sub-menu' ).each( function ( index, element ) {
 			var $sub_menus = jQuery( element ).find( '.sub-menu' );
@@ -99,6 +98,7 @@
 	jQuery( document ).ready( MobileNavTopPosition );
 	jQuery( window ).on( 'resize', CheckNavItems );
 	jQuery( window ).on( 'resize', MobileNavTopPosition );
+	jQuery( 'body' ).on( 'click', '.burger, #mobilenav .bg', MobileNavTopPosition );
 	jQuery( 'body' ).on( 'click', '.burger, #mobilenav .bg', NavToggle );
 
 } )();

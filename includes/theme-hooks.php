@@ -44,6 +44,18 @@ function get_lists_parts( $parts = [] ) {
 add_filter( 'get_lists_parts', 'vstup\get_lists_parts', 10, 1 );
 
 
+/**
+ * Возвращает на список идентификаторов "частей" темы
+ * */
+function get_blocks_parts( $parts = [] ) {
+	return array_merge( [
+		'header',
+	], $parts );
+}
+
+add_filter( 'get_blocks_parts', 'vstup\get_blocks_parts', 10, 1 );
+
+
 add_filter('show_admin_bar', '__return_false');
 
 

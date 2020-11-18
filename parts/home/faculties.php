@@ -12,6 +12,8 @@ if ( ! post_type_exists( 'educational_program' ) || ! taxonomy_exists( 'specialt
 
 $title = get_theme_mod( 'faculties_title' );
 $excerpt = get_theme_mod( 'faculties_excerpt' );
+$label = get_theme_mod( 'faculties_label' );
+$permalink = get_theme_mod( 'faculties_permalink' );
 $numberposts = get_theme_mod( 'faculties_numberposts' );
 $entries = get_theme_mod( 'faculties' );
 

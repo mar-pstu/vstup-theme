@@ -15,6 +15,10 @@ $news_entries = get_theme_mod( 'news_entries' );
 
 $news_title = get_theme_mod( 'news_title' );
 
+$news_label = get_theme_mod( 'news_label' );
+
+$news_permalink = get_theme_mod( 'news_permalink' );
+
 include get_theme_file_path( 'views/home/news-before.php' );
 
 // выводим список записей с превью

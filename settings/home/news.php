@@ -58,6 +58,40 @@ function register_home_settings_news( $wp_customize ) {
 
 
 	$wp_customize->add_setting(
+		'news_label',
+		[
+			'transport'         => 'reset',
+			'sanitize_callback' => 'sanitize_text_field',
+		]
+	);
+	$wp_customize->add_control(
+		'news_label',
+		[
+			'section'           => VSTUP_SLUG . '_news',
+			'label'             => __( 'Кнопка "далее"', VSTUP_TEXTDOMAIN ),
+			'type'              => 'text',
+		]
+	); /**/
+
+
+	$wp_customize->add_setting(
+		'news_permalink',
+		[
+			'transport'         => 'reset',
+			'sanitize_callback' => 'sanitize_text_field',
+		]
+	);
+	$wp_customize->add_control(
+		'news_permalink',
+		[
+			'section'           => VSTUP_SLUG . '_news',
+			'label'             => __( 'Ссылка "далее"', VSTUP_TEXTDOMAIN ),
+			'type'              => 'text',
+		]
+	); /**/
+
+
+	$wp_customize->add_setting(
 		'news_terms_number',
 		[
 			'transport'         => 'reset',

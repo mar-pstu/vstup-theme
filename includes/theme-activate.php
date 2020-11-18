@@ -16,9 +16,10 @@ function setup_default_mods( $old_name ) {
 	if ( ! is_array( $mods ) ) {
 		$mods = [];
 	}
-	// update_option( "theme_mods_$theme_slug", array_merge( [
-	
-	 update_option( "theme_mods_$theme_slug", [
+	update_option( "theme_mods_$theme_slug", array_merge( [
+
+	 	// блоки темы - шапка
+	 	'header_blog_name'  => 'Міністерство освіти і науки України Державний вищий навчальний заклад «Приазовський державний технічний університет» ДВНЗ «ПДТУ»',
 
 		// Главная страница - Первый экран
 		'firstscreen_flag'  => true,
@@ -89,6 +90,8 @@ function setup_default_mods( $old_name ) {
 		'news_terms_number' => 2,
 		'news_categories' => [ '2546', '2566' ],
 		'news_numberposts' => 5,
+		'news_label'      => 'Всі новини',
+		'news_permalink'  => 'https://pstu.edu/uk/category/pres-czentr/',
 		'news_title'      => 'Новини',
 		'news_numberentries' => 6,
 		'news_entries'    => [],
@@ -109,6 +112,8 @@ function setup_default_mods( $old_name ) {
 		'faculties_flag' => true,
 		'faculties_title' => 'Факультети',
 		'faculties_excerpt' => '',
+		'faculties_label' => 'Всі підрозділи',
+		'faculties_permalink' => 'https://pstu.edu/uk/university/structure/',
 		'faculties_numberposts' => 10,
 		'faculties'       => [
 			[
@@ -341,9 +346,7 @@ function setup_default_mods( $old_name ) {
 			'youtube'       => 'https://www.youtube.com/channel/UC_vS5rv2BJan5WF-hC55mUQ',
 		],
 
-	] );
-
-	// ], $mods ) );
+	], $mods ) );
 }
 
 add_action( 'after_switch_theme', 'vstup\setup_default_mods' );

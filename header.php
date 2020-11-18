@@ -30,6 +30,7 @@ if ( wp_is_mobile() ) {
 							get_template_part( 'parts/quick-links' );
 							get_template_part( 'parts/lists/socials' );
 							get_template_part( 'parts/lists/contacts' );
+							get_template_part( 'parts/search-modal' );
 							get_search_form( true );
 							get_template_part( 'parts/languages-list' );
 						?>
@@ -41,11 +42,19 @@ if ( wp_is_mobile() ) {
 							<?php if ( $custom_logo_id = get_theme_mod( 'custom_logo' ) ) : ?>
 								<img
 									class="custom-logo"
-									src="<?php echo wp_get_attachment_image_url( $custom_logo_id, 'thumbnail', false ); ?>"
+									src="<?php echo wp_get_attachment_image_url( $custom_logo_id, 'medium', false ); ?>"
 									alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"
 								>
 							<?php endif; ?>
-							<div class="blog-name"><?php bloginfo( 'name' ); ?></div>
+							<div class="blog-name hide">
+								<?php
+									$header_blog_name = get_theme_mod( 'header_blog_name' );
+									if ( empty( trim( $header_blog_name ) ) ) {
+										$header_blog_name = get_bloginfo( 'name' );
+									}
+									echo $header_blog_name;
+								?>
+							</div>
 						</a>
 						<nav class="nav">
 							<?php

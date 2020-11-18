@@ -10,10 +10,13 @@ function add_settings_translations () {
 	 * Переводы строк
 	 * */
 	foreach ( [
+		'header_blog_name',
 		'about_title',
 		'about_description',
 		'about_label',
 		'news_title',
+		'news_label',
+		'news_permalink',
 		'action_title',
 		'action_excerpt',
 		'action_label',
@@ -25,6 +28,8 @@ function add_settings_translations () {
 		'action_label',
 		'faculties_title',
 		'faculties_excerpt',
+		'faculties_label',
+		'faculties_permalink',
 		'people_title',
 		'people_label',
 		'people_permalink',
