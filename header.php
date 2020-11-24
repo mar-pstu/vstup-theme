@@ -46,14 +46,17 @@ if ( wp_is_mobile() ) {
 									alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"
 								>
 							<?php endif; ?>
-							<div class="blog-name hide">
+							<div class="blog-name blog-name--full hide">
 								<?php
-									$header_blog_name = get_theme_mod( 'header_blog_name' );
+									$header_blog_name = get_theme_mod( 'header_blog_name_full' );
 									if ( empty( trim( $header_blog_name ) ) ) {
 										$header_blog_name = get_bloginfo( 'name' );
 									}
 									echo $header_blog_name;
 								?>
+							</div>
+							<div class="blog-name blog-name--short">
+								<?php echo get_theme_mod( 'header_blog_name_shorts' ); ?>
 							</div>
 						</a>
 						<nav class="nav">

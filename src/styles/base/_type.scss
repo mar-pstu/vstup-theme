@@ -25,7 +25,7 @@
 }
 .normal { font-size: 1.00em; font-weight: normal;	font-style: normal; text-transform: none; }
 
-.hide { display: none !important; }
+.hide { visibility: hidden; opacity: 0; position: absolute; z-index: -1; }
 
 .text-center { text-align: center; }
 .text-left { text-align: left; }

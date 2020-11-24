@@ -24,14 +24,30 @@ function register_blocks_settings_header( $wp_customize ) {
 
 
 	$wp_customize->add_setting(
-		'header_blog_name',
+		'header_blog_name_full',
 		[
 			'transport'         => 'reset',
 			'sanitize_callback' => 'sanitize_text_field',
 		]
 	);
 	$wp_customize->add_control(
-		'header_blog_name',
+		'header_blog_name_full',
+		[
+			'section'           => VSTUP_SLUG . '_header',
+			'label'             => __( 'Имя сайта', VSTUP_TEXTDOMAIN ),
+			'type'              => 'text',
+		]
+	); /**/
+
+	$wp_customize->add_setting(
+		'header_blog_name_short',
+		[
+			'transport'         => 'reset',
+			'sanitize_callback' => 'sanitize_text_field',
+		]
+	);
+	$wp_customize->add_control(
+		'header_blog_name_short',
 		[
 			'section'           => VSTUP_SLUG . '_header',
 			'label'             => __( 'Имя сайта', VSTUP_TEXTDOMAIN ),
