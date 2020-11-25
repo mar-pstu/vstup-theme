@@ -31,7 +31,6 @@ if ( wp_is_mobile() ) {
 							get_template_part( 'parts/lists/socials' );
 							get_template_part( 'parts/lists/contacts' );
 							get_template_part( 'parts/search-modal' );
-							get_search_form( true );
 							get_template_part( 'parts/languages-list' );
 						?>
 					</div>

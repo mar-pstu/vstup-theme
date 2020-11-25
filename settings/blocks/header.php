@@ -34,7 +34,7 @@ function register_blocks_settings_header( $wp_customize ) {
 		'header_blog_name_full',
 		[
 			'section'           => VSTUP_SLUG . '_header',
-			'label'             => __( 'Имя сайта', VSTUP_TEXTDOMAIN ),
+			'label'             => __( 'Имя сайта (полное)', VSTUP_TEXTDOMAIN ),
 			'type'              => 'text',
 		]
 	); /**/
@@ -50,7 +50,7 @@ function register_blocks_settings_header( $wp_customize ) {
 		'header_blog_name_short',
 		[
 			'section'           => VSTUP_SLUG . '_header',
-			'label'             => __( 'Имя сайта', VSTUP_TEXTDOMAIN ),
+			'label'             => __( 'Имя сайта (короткое)', VSTUP_TEXTDOMAIN ),
 			'type'              => 'text',
 		]
 	); /**/
