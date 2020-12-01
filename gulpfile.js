@@ -95,6 +95,17 @@ gulp.task( 'other_scripts', function () {
 } );
 
 
+gulp.task( 'gutenberg_scripts', function () {
+	return gulp.src( [ './src/scripts/*.js' ] )
+		.pipe( plumber() )
+		.pipe( gulp.dest( './scripts/' ) )
+		.pipe( minscripts() )
+		.pipe( rename( { suffix: '.min' } ) )
+		.pipe( gulp.dest( './scripts/' ) )
+		.on( 'end', browserSync.reload );
+} );
+
+
 gulp.task( 'init_scripts', function () {
 	return gulp.src( [ './src/scripts/init/*.js' ] )
 		.pipe( plumber() )

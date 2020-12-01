@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 $thumbnail_url = '';
 
 if ( has_post_thumbnail() ) {
-	$thumbnail_url = get_the_post_thumbnail_url( null, 'thumbnail' );	
+	$thumbnail_url = get_the_post_thumbnail_url( null, 'medium' );	
 }
 
 if ( empty( $thumbnail_url ) ) {

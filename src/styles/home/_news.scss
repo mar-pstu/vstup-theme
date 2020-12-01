@@ -38,7 +38,7 @@
 		position: relative;
 		margin-bottom: $flexboxgrid-outer-margin;
 		overflow: hidden;
-		max-height: 20em;
+		max-height: 25em;
 		max-width: 320px;
 		@include min-width( $screen-sm ) {
 			max-width: inherit;
