@@ -9,13 +9,13 @@ $screen-md:					51em;
 $screen-lg:					75em;
 $screen-xl:					90em;
 $flexboxgrid-grid-columns: 12;
-$flexboxgrid-gutter-width: 1em;
-$flexboxgrid-outer-margin: 1em;
+$flexboxgrid-gutter-width: .5em;
+$flexboxgrid-outer-margin: .5em;
 $flexboxgrid-breakpoints:
 	xs $screen-sm 36em,
 	sm $screen-md 48em,
-	md $screen-lg 70em,
-	lg $screen-xl 87em;
+	md $screen-lg 72em,
+	lg $screen-xl 88em;
 $flexboxgrid-max-width: 1920px;
 $smallest: xs;
 

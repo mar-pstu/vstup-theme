@@ -10,4 +10,4 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 ?>
 
 
-<nav class="pager">
+<nav class="pager clearfix">

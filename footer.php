@@ -20,7 +20,7 @@
 						</div>
 						<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 							<p class="developer">
-								<a href="https://chomovva.ru" target="_blank">chomovva</a>
+								<a href="https://cct.pstu.edu/" target="_blank">ДВНЗ "ПДТУ" ЦКТ</a>
 							</p>
 						</div>
 					</div>

@@ -97,10 +97,9 @@
 
 	.custom-logo {
 		align-self: flex-start;
-		max-height: 10em;
+		max-height: 8em;
 		display: block;
 		flex-shrink: 0;
-		margin-right: 1em;
 		transition: max-height .2s;
 		position: relative;
 		z-index: 999;

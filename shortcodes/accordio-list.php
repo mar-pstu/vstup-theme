@@ -1,16 +1,20 @@
 <?php
 
+
+namespace vstup;
+
+
 /**
  *	Список в виде аккордеона
  */
 
 
-function get_accordio_list( $atts, $content ) {
+function get_accordio_list( $atts, $content, $shortcode_name ) {
 
 	$atts = shortcode_atts( array(
 		'headers'   => 'h2',
 		'style'     => 'primary'
-	), $atts, 'accordio_list' );
+	), $atts, $shortcode_name );
 	return force_balance_tags( sprintf(
 		'<div class="accordio is-style-accordio-%3$s" data-heading="%1$s" data-build="1">%2$s</div>',
 		esc_attr( $atts[ 'headers' ] ),
@@ -22,5 +26,5 @@ function get_accordio_list( $atts, $content ) {
 
 add_shortcode( 'accordio_list', 'vstup\get_accordio_list' );
 add_shortcode( strtoupper( 'accordio_list' ), 'vstup\get_accordio_list' );
-// remove_filter( 'the_content', 'wpautop' );
-// add_filter( 'the_content', 'wpautop', 12 );
+remove_filter( 'the_content', 'wpautop' );
+add_filter( 'the_content', 'wpautop', 12 );
