@@ -23,6 +23,9 @@ function scripts() {
 	wp_localize_script( 'vstup-public', 'VstupTheme', [ 'toTopBtn' => 'Наверх' ] );
 	wp_enqueue_script( 'lazyload', get_theme_file_uri( "scripts/lazyload{$suffix}.js" ), [ 'jquery' ], '1.7.6', true );
 	wp_enqueue_script( 'fancybox', get_theme_file_uri( "scripts/fancybox{$suffix}.js" ), [ 'jquery' ], '3.3.5', true );
+	if ( file_exists( $init_gallery_script_path = get_theme_file_path( 'scripts/init/fancybox-gallery.js' ) ) ) {
+		wp_add_inline_script( 'fancybox', file_get_contents( $init_gallery_script_path ), 'after' );
+	}
 	wp_enqueue_script( 'slick', get_theme_file_uri( "scripts/slick{$suffix}.js" ), [ 'jquery' ], '1.8.0', true );
 	wp_add_inline_script( 'fancybox', "jQuery( '.fancybox' ).fancybox();", 'after' );
 	wp_add_inline_script( 'lazyload', "jQuery( '.lazy' ).lazy();", 'after' );

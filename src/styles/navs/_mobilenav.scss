@@ -33,11 +33,10 @@
 		top: 0;
 		right: 0;
 		bottom: 0;
-		height: 100vh;
 		width: 320px;
-		padding: 3em 2em;
+		padding: 3em 2em 10em 2em;
 		background-color: #fff;
-		overflow-y: auto;
+		overflow-y: scroll;
 	}
 
 	.close {

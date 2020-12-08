@@ -1,0 +1,79 @@
+
+[data-type$='/clearfix'],
+.pstu-cleargix {
+  margin: 15px auto;
+  width: 100%;
+  text-align: center;
+  clear: both; }
+
+.pstu-clearfix-inner {
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  align-items: center; }
+
+.pstu-clearfix-inner:before,
+.pstu-clearfix-inner:after {
+  content: '';
+  height: 3px;
+  flex-grow: 1;
+  background-image: repeating-linear-gradient(to right, #999 0px, #999 20px, transparent 20px, transparent 25px); }
+
+.pstu-clearfix-inner .label {
+  flex-shrink: 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: monospace;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: #555; }
+
+
+.accordio {
+  border-top: 4px solid #262626;
+  border-bottom: 4px solid #262626;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  padding: 2em; }
+
+.is-style-accordio-primary {
+  border-top: 4px solid #0e5086;
+  border-bottom: 4px solid #0e5086; }
+
+.is-style-accordio-success {
+  border-top: 4px solid #28b7dd;
+  border-bottom: 4px solid #28b7dd; }
+
+.is-style-accordio-warning {
+  border-top: 4px solid #d87200;
+  border-bottom: 4px solid #d87200; }
+
+.is-style-accordio-danger {
+  border-top: 4px solid #971b2f;
+  border-bottom: 4px solid #971b2f; }
+
+.is-style-accordio-info {
+  border-top: 4px solid #0098a4;
+  border-bottom: 4px solid #0098a4; }
+
+.heading {
+  margin: 1em auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start; }
+  .heading .add-thumbnail-button,
+  .heading .thumbnail {
+    display: block;
+    width: 4em;
+    height: 4em;
+    padding: 0;
+    margin: 0; }
+  .heading .thumbnail {
+    flex-shrink: 0;
+    margin: 0.5em; }
+  .heading .title {
+    flex-grow: 1;
+    margin: 0.5em; }
+
+/*# sourceMappingURL=editor.css.map */
