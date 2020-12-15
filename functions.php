@@ -17,6 +17,7 @@ get_template_part( 'includes/theme-functions' );
 get_template_part( 'includes/gutenberg' );
 get_template_part( 'includes/menus' );
 get_template_part( 'includes/sidebars' );
+get_template_part( 'includes/image-sizes' );
 
 
 get_template_part( 'shortcodes/graduate-list' );

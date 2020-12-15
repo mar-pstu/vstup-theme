@@ -18,20 +18,6 @@
 %dl-horizontal { @include dl-horizontal; }
 
 
-%title {
-	font-weight: bold;
-  	margin-top: .2em;
-  	margin-bottom: .2em;
-}
-
-%h1 {
-	@extend %title;
-	font-size: 1.75em;
-	@include min-width( $screen-sm ) {
-		font-size: 2em;
-	}
-}
-
 %bgi {
 	position: absolute;
 	top: 0;

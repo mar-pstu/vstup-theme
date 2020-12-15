@@ -72,7 +72,7 @@ if ( wp_is_mobile() ) {
 									'depth'           => 3,
 								] );
 							?>
-							<button class="nav__burger burger navtoggle">
+							<button class="nav__burger burger navtoggle hide">
 								<span class="sr-only"><?php _e( 'Меню', VSTUP_TEXTDOMAIN ); ?></span>
 								<svg class="icon" enable-background="new 0 0 451.111 451.111" viewBox="0 0 451.111 451.111">
 									<path d="m0 0h451.111v64.444h-451.111z" transform="translate(1 1)"/>

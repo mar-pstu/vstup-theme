@@ -28,6 +28,43 @@
 		display: block;
 	}
 
+	.slide {
+		.title {
+			transform: translate( 15rem, 0 );
+			opacity: .5;
+			transition-property: transform, opacity;
+			transition-delay: .2s;
+			transition-duration: .7s;
+		}
+		.excerpt{
+			transform: translate( 15rem, 0 );
+			opacity: .5;
+			transition-property: transform, opacity;
+			transition-delay: .3s;
+			transition-duration: .7s;
+		}
+		.btn {
+			transform: translate( 15rem, 0 );
+			opacity: .5;
+			transition-property: transform, opacity;
+			transition-delay: .4s;
+			transition-duration: .7s;
+		}
+	}
+
+	.slide.slick-current {
+		display: block;
+	}
+
+	.slide.slick-active {
+		.title,
+		.excerpt,
+		.btn {
+			transform: translate( 0, 0 );
+			opacity: 1;
+		}
+	}
+
 	.warning {
 		padding-left: 0;
 		margin-bottom: 0;

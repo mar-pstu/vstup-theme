@@ -38,8 +38,10 @@ jQuery( document ).ready( function () {
 		prevArrow: '#firstscreen-prev',
 		nextArrow: '#firstscreen-next',
 		fade: ! jQuery( 'body' ).hasClass( 'is-mobile' ),
+		// fade: true,
 		autoplay: true,
-		autoplaySpeed: 3000,
+		// speed: 300,
+		autoplaySpeed: 5000,
 		speed: jQuery( 'body' ).hasClass( 'is-mobile' ) ? 500 : 1500,
 		lazyLoad: 'ondemand',
 	} );

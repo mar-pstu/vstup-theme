@@ -156,21 +156,15 @@ h1 {
 }
 
 h2 {
-	@extend %title;
-	font-size: 1.5em;
-	@include min-width( $screen-sm ) {
-		font-size: 1.75em;
-	}
+	@extend %h2;
 }
 
 h3 {
-	@extend %title;
-	font-size: 1.25em;
+	@extend %h3;
 }
 
 h4 {
-	@extend %title;
-	font-size: 1em;
+	@extend %h4;
 }
 
 //

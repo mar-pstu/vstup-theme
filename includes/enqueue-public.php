@@ -17,8 +17,8 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
  * @param bool $in_footer подключать в шапке или подвале
  */
 function scripts() {
-	// $suffix = '.min';
-	$suffix = '';
+	$suffix = '.min';
+	// $suffix = '';
 	wp_enqueue_script( 'vstup-public', get_theme_file_uri( "scripts/public{$suffix}.js" ), [ 'jquery', 'fancybox' ], filemtime( get_theme_file_path( "scripts/public{$suffix}.js" ) ), true );
 	wp_localize_script( 'vstup-public', 'VstupTheme', [ 'toTopBtn' => 'Наверх' ] );
 	wp_enqueue_script( 'lazyload', get_theme_file_uri( "scripts/lazyload{$suffix}.js" ), [ 'jquery' ], '1.7.6', true );
@@ -58,8 +58,8 @@ add_action( 'wp_print_styles', 'vstup\print_styles' );
  * @param string $media для каких устройств подключать
  */
 function styles() {
-	// $suffix = '.min';
-	$suffix = '';
+	$suffix = '.min';
+	// $suffix = '';
 	wp_enqueue_style( 'vstup-public', get_theme_file_uri( "styles/public{$suffix}.css" ), [], filemtime( get_theme_file_path( "styles/public{$suffix}.css" ) ), 'all' );
 	wp_enqueue_style( 'vstup-fonts', get_theme_file_uri( "styles/fonts{$suffix}.css" ), [], filemtime( get_theme_file_path( "styles/fonts{$suffix}.css" ) ), 'all' );
 	wp_enqueue_style( 'fancybox', get_theme_file_uri( "styles/fancybox{$suffix}.css" ), [], '3.3.5', 'all' );

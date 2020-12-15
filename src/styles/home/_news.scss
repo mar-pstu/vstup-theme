@@ -3,28 +3,28 @@
 .news {
 
 	.categories-names {
-		margin: 1em auto;
-		padding-left: 1em;
+		margin: 1rem auto;
+		padding-left: 1rem;
 	}
 
 	.categories-names .item {
 		cursor: pointer;
-		padding: .5em 1.5em;
+		padding: .2rem 1.5rem;
 		transform: scale( .8 );
 		transform-origin: center center;
 		transition: transform .2s;
-		border: 1px solid transparent;
+		border: .2rem solid transparent;
 		display: inline-block;
 	}
 
 	.categories-names .item.active {
 		transform: scale( 1 );
-		border-color: $brand-primary;
+		border-color: transparentize( $brand-primary, .5 );
 	}
 
 	.news-list {
 		position: relative;
-		margin-top: 1em;
+		margin-top: 1rem;
 	}
 	
 	.news-list .item {
@@ -38,7 +38,7 @@
 		position: relative;
 		margin-bottom: $flexboxgrid-outer-margin;
 		overflow: hidden;
-		max-height: 25em;
+		max-height: 25rem;
 		max-width: 320px;
 		@include min-width( $screen-sm ) {
 			max-width: inherit;
@@ -92,10 +92,10 @@
 			left: 0;
 			right: 0;
 			bottom: 0;
-			margin: .5em 1em;
+			margin: .5rem 1rem;
 			color: #fff;
 			z-index: 1;
-			font-size: 1em;
+			font-size: 1rem;
 		}
 	}
 
@@ -107,7 +107,7 @@
 
 
 	.entry + .entry {
-		border-top: 1px solid #e1e1e1;
+		border-top: .1rem solid #e1e1e1;
 		padding-top: $flexboxgrid-outer-margin;
 	}
 
