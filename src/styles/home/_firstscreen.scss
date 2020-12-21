@@ -20,15 +20,15 @@
 		background-color: #fff;
 	}
 
-	.slide {
+	.slick-slide {
 		display: none;
 	}
 
-	.slide:nth-of-type( 1 ) {
+	.slick-slide:nth-of-type( 1 ) {
 		display: block;
 	}
 
-	.slide {
+	.slick-slide {
 		.title {
 			transform: translate( 15rem, 0 );
 			opacity: .5;
@@ -52,11 +52,11 @@
 		}
 	}
 
-	.slide.slick-current {
+	.slick-slide.slick-current {
 		display: block;
 	}
 
-	.slide.slick-active {
+	.slick-slide.slick-active {
 		.title,
 		.excerpt,
 		.btn {

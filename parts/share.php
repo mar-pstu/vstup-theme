@@ -7,7 +7,6 @@ namespace vstup;
 if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
-$format = '';
 $result = [];
 $title = '';
 $link = '';
@@ -37,6 +36,7 @@ include get_theme_file_path( 'views/share-before.php' );
 
 
 foreach ( apply_filters( 'share_items', [] ) as $key => $label ) {
+	$link_format = '';
 	switch ( $key ) {
 		case 'facebook':
 			$link_format = apply_filters( 'share_item_link_format_facebook', 'https://www.facebook.com/sharer.php?u=%1$s&amp;t=%2$s' );
@@ -55,7 +55,7 @@ foreach ( apply_filters( 'share_items', [] ) as $key => $label ) {
 			break;
 	}
 
-	$link = sprintf( $link_format, $link, esc_attr( $title ), $thumbnail_url, esc_attr( $blog_name ) );
+	$share = sprintf( $link_format, $link, esc_attr( $title ), $thumbnail_url, esc_attr( $blog_name ) );
 
 	include get_theme_file_path( 'views/share-item.php' );
 
