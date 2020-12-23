@@ -6,7 +6,11 @@ jQuery( document ).ready( function () {
 			$slide.remove();
 		}
 	} );
+	$slider.on( 'lazyLoaded', function ( event, slick, image, imageSource ) {
+		jQuery( image ).closest( '.thumbnail' ).find( '.bg' ).attr( 'style', 'background-image:url('+imageSource+');' );
+	} );
 	$slider.slick( {
+		lazyLoad: 'ondemand',
 		dots: false,
 		arrows: false,
 		fade: true,

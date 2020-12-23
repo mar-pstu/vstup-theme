@@ -14,6 +14,8 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 	<a class="news__thumbnail thumbnail" href="<?php echo esc_attr( array_key_exists( 'link', $entry ) ? $entry[ 'link' ] : '#' ); ?>" role="listitem">
 		
+		<div class="bg"></div>
+
 		<img
 			class="wp-post-thumbnail"
 			src="#"
