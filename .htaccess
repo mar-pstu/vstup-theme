@@ -1,0 +1,36 @@
+
+
+# BEGIN rlrssslReallySimpleSSL rsssl_version[4.0.5]
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteCond %{HTTPS} !=on [NC]
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+</IfModule>
+# END rlrssslReallySimpleSSL
+
+
+# BEGIN WordPress
+# Директивы (строки) между `BEGIN WordPress` и `END WordPress`
+# созданы автоматически и подлежат изменению только через фильтры WordPress.
+# Сделанные вручную изменения между этими маркерами будут перезаписаны.
+
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+
+# END WordPress
+# BEGIN WP CERBER GROOVE
+# Protection of admin scripts is enabled (CVE-2018-6389)
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_URI} ^(.*)wp-admin/+load-scripts\.php$ [OR,NC]
+RewriteCond %{REQUEST_URI} ^(.*)wp-admin/+load-styles\.php$ [NC]
+RewriteCond %{HTTP_COOKIE} !cerber_groove_x_pMR04hr1EytvVAkn2Im85QgLbS=hZiaHwCVNtBcROgzMK4FXq09mDPlf
+RewriteRule (.*) - [R=403,L]
+</IfModule>
+# END WP CERBER GROOVE

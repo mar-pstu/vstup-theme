@@ -24,7 +24,11 @@ mixin archive_entry( args )
 		.col-xs-12.col-sm-6.col-md-8: .overlay
 			h3.title: a( href="#" ) #{args.title}
 			p.excerpt #{args.excerpt}
-			p: a.btn.btn-sm.btn-success( href="#" ) Подробней
+			.row
+				.col-xs-7
+					p #[a.btn.btn-sm.btn-success( href="#" ) Подробней]
+				.col-xs-5
+					p.info #[span.sr-only Опубликовано] #[time.small( datetime="2004-07-24T18:18:18+04:00" ) 2020.12.5]
 
 
 

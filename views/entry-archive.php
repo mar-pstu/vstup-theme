@@ -37,7 +37,16 @@ if ( empty( $thumbnail_url ) ) {
 			<div class="overlay">
 				<h3 class="title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 				<div class="excerpt"><?php the_excerpt(); ?></div>
-				<p><a class="btn btn-sm btn-success" href="<?php the_permalink(); ?>"><?php _e( 'Подробнее', VSTUP_TEXTDOMAIN ); ?></a></p>
+				<div class="row">
+					<div class="col-xs-7">
+						<p><a class="btn btn-sm btn-success" href="<?php the_permalink(); ?>"><?php _e( 'Подробнее', VSTUP_TEXTDOMAIN ); ?></a></p>
+					</div>
+					<div class="col-xs-5">
+						<p class="info">
+							<span class="sr-only"><?php _e( 'Опубликовано', VSTUP_TEXTDOMAIN ); ?></span> <time class="small" datetime="<?php the_time( 'c' ); ?>"><?php the_time( 'j F Y' ); ?></time>
+						</p>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

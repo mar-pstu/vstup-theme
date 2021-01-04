@@ -2,7 +2,6 @@
 
 <?php if ( ! defined( 'ABSPATH' ) ) { exit; }; ?>
 
-
 			</main>
 			<footer id="footer" class="wrapper__item wrapper__item--footer footer">
 				<?php
@@ -27,6 +26,16 @@
 				</div>
 			</footer>
 		</div>
+
+		<div class="christmas">
+			<div class="container">
+				<a class="button" href="https://pstu.edu/uk/novyny/novym-2021-rokom-ta-zymovymy-svyatamy/">
+					<div class="snowman"></div>
+					<div class="label">З Новим<br>роком!</div>
+				</a>
+			</div>
+		</div>
+		
 		<?php wp_footer(); ?>
 	</body>
 </html>

@@ -1,0 +1,56 @@
+
+// новогодняя ёлка
+
+
+.christmas {
+
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	text-align: left;
+	z-index: 1111;
+	margin-bottom: 3rem;
+
+	.button {
+		display: inline-flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width: 5rem;
+		height: 5rem;
+		border-radius: 50%;
+		background-color: $brand-primary;
+		box-shadow: 0 0 .5rem rgba( 0, 0, 0, .5 );
+		padding: .25rem;
+		@include min-width( $screen-md ) {
+			width: 7rem;
+			height: 7rem;
+		}
+	}
+
+	.snowman {
+		@extend %background-icon;
+		@extend %icon-tree;
+		display: block;
+		width: 1.5rem;
+		height: 1.5rem;
+		position: relative;
+		transform-origin: center center;
+		@include min-width( $screen-md ) {
+			width: 3rem;
+			height: 3rem;
+		}
+	}
+
+	.label {
+		text-align: center;
+		color: #fff;
+		margin-top: .5rem;
+		font-size: 50%;
+		@include min-width( $screen-md ) {
+			font-size: 75%;
+		}
+	}
+
+}
