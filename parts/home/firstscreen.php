@@ -26,7 +26,7 @@ if ( ! empty( $items ) ) {
 		if ( isset( $items[ $i ][ 'bgi' ] ) && ! empty( $items[ $i ][ 'bgi' ] ) ) {
 			$thumbnail_id = attachment_url_to_postid( removing_image_size_from_url( $items[ $i ][ 'bgi' ] ) );
 			if ( $thumbnail_id && ! is_wp_error( $thumbnail_id ) ) {
-				$thumbnail_url = wp_get_attachment_image_url( $thumbnail_id, ( wp_is_mobile() ) ? 'large' : 'full', false );
+				$thumbnail_url = wp_get_attachment_image_url( $thumbnail_id, ( wp_is_mobile() ) ? 'medium' : 'large', false );
 			}
 		}
 
