@@ -24,6 +24,9 @@ get_template_part( 'shortcodes/graduate-list' );
 get_template_part( 'shortcodes/advantages-list' );
 get_template_part( 'shortcodes/services-list' );
 get_template_part( 'shortcodes/accordio-list' );
+get_template_part( 'shortcodes/clearfix' );
+get_template_part( 'shortcodes/posts-of-category' );
+get_template_part( 'shortcodes/tabs' );
 
 
 if ( function_exists( 'pll_register_string' ) && function_exists( 'pll__' ) ) {
