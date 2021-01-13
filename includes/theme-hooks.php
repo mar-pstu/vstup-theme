@@ -8,13 +8,6 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
 /**
- * Сдвинули обёртку
- * */
-remove_filter( 'the_content', 'wpautop' );
-add_filter( 'the_content', 'wpautop', 12 );
-
-
-/**
  * Возвращает на список идентификаторов секций главной страницы
  * */
 function get_home_parts( $parts = [] ) {
