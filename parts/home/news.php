@@ -24,6 +24,12 @@ include get_theme_file_path( 'views/home/news-before.php' );
 // выводим список записей с превью
 if ( is_array( $news_entries ) && ! empty( $news_entries ) && count( $news_entries ) >= 3 ) {
 
+	$news_entries_number = get_theme_mod( 'news_numberentries' );
+	if ( count( $news_entries ) > $news_entries_number ) {
+		$news_entries = array_slice( $news_entries, 0, $news_entries_number );
+	}
+
+
 	if ( file_exists( $entries_init_script_path = get_theme_file_path( 'scripts/init/news-list-entries.js' ) ) ) {
 		wp_enqueue_style( 'slick' );
 		wp_enqueue_scripts( 'slick' );
