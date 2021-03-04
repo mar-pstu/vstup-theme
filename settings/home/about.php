@@ -41,23 +41,6 @@ function register_home_settings_about( $wp_customize ) {
 
 
 	$wp_customize->add_setting(
-		'about_page_id',
-		[
-			'transport'         => 'reset',
-			'sanitize_callback' => 'absint',
-		]
-	);
-	$wp_customize->add_control(
-		'about_page_id',
-		[
-			'section'           => VSTUP_SLUG . '_about',
-			'label'             => __( 'Выбор страницы', VSTUP_TEXTDOMAIN ),
-			'type'              => 'dropdown-pages',
-		]
-	); /**/
-
-
-	$wp_customize->add_setting(
 		'about_title',
 		[
 			'transport'         => 'reset',
@@ -103,6 +86,23 @@ function register_home_settings_about( $wp_customize ) {
 		[
 			'section'           => VSTUP_SLUG . '_about',
 			'label'             => __( 'Текст кнопки', VSTUP_TEXTDOMAIN ),
+			'type'              => 'text',
+		]
+	); /**/
+
+
+	$wp_customize->add_setting(
+		'about_permalink',
+		[
+			'transport'         => 'reset',
+			'sanitize_callback' => 'sanitize_url',
+		]
+	);
+	$wp_customize->add_control(
+		'about_permalink',
+		[
+			'section'           => VSTUP_SLUG . '_about',
+			'label'             => __( 'URL с описанием', VSTUP_TEXTDOMAIN ),
 			'type'              => 'text',
 		]
 	); /**/

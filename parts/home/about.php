@@ -21,8 +21,6 @@ if ( ! empty( $thumbnail_src ) ) {
 	}
 }
 
-$page_id = get_theme_mod( 'about_page_id' );
-$permalink = ( empty( $page_id ) ) ? '' : get_permalink( $page_id );
-
+$permalink = get_theme_mod( 'about_permalink' );
 
 include get_theme_file_path( 'views/home/about.php' );
