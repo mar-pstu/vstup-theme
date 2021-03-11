@@ -127,6 +127,22 @@ function register_home_settings_about( $wp_customize ) {
 		)
 	);
 
+	$wp_customize->add_setting(
+		'about_thumbnail_link',
+		[
+			'transport'         => 'reset',
+			'sanitize_callback' => 'sanitize_url',
+		]
+	);
+	$wp_customize->add_control(
+		'about_thumbnail_link',
+		[
+			'section'           => VSTUP_SLUG . '_about',
+			'label'             => __( 'URL изображения', VSTUP_TEXTDOMAIN ),
+			'type'              => 'text',
+		]
+	); /**/
+
 }
 
 add_action( 'customize_register', 'vstup\register_home_settings_about', 10, 1 );

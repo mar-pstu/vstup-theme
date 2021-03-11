@@ -12,6 +12,7 @@ $description = get_theme_mod( 'about_description' );
 $label = get_theme_mod( 'about_label' );
 $thumbnail_src = get_theme_mod( 'about_thumbnail' );
 $thumbnail_alt = get_bloginfo( 'name' );
+$thumbnail_link = get_theme_mod( 'about_thumbnail_link' );
 
 if ( ! empty( $thumbnail_src ) ) {
 	$thumbnail_id = attachment_url_to_postid( $thumbnail_src );

@@ -13,9 +13,15 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 <section class="section about" id="about">
 	<div class="container">
 		<div class="row middle-xs center-xs">
-			<?php if ( ! empty( $thumbnail_src ) ) : ?>
+			<?php if ( isset( $thumbnail_src ) && ! empty( $thumbnail_src ) ) : ?>
 				<div class="col-xs-12 col-sm-9 col-md-5">
-					<img class="lazy logo" src="#" data-src="<?php echo  esc_attr( $thumbnail_src ); ?>" alt="<?php echo esc_attr( $thumbnail_alt ); ?>">
+					<?php if ( isset( $thumbnail_link ) && is_url( $thumbnail_link ) ) : ?>
+						<a class="logo" href="<?php echo esc_attr( $thumbnail_link ); ?>">
+							<img class="lazy" src="#" data-src="<?php echo  esc_attr( $thumbnail_src ); ?>" alt="<?php echo esc_attr( $thumbnail_alt ); ?>">
+						</a>
+					<?php else : ?>
+						<img class="lazy logo" src="#" data-src="<?php echo  esc_attr( $thumbnail_src ); ?>" alt="<?php echo esc_attr( $thumbnail_alt ); ?>">
+					<?php endif; ?>
 				</div>
 			<?php endif; ?>
 			<div class="col-xs-12 col-sm-9 col-md">
