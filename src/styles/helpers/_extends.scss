@@ -11,6 +11,24 @@
 	@include color ( inherit, inherit, inherit, inherit );
 }
 
+%list-checked {
+	padding-left: 0;
+	li, .item {
+		list-style-type: none;
+	}
+	li::before, .item::before {
+		@extend %background-icon;
+		@extend %icon-checked;
+		@include size( $line-height-base * 1em, $line-height-base * 1em );
+		content: '';
+		display: inline-block;
+		vertical-align: middle;
+		margin-right: .5em;
+	}
+	&.red-bullet li::before, &.item::before { @extend %icon-checked-red; }
+	&.blue-bullet li::before, &.item::before { @extend %icon-checked-blue; }
+}
+
 %clearfix { @include clearfix; }
 
 %text-overflow { @include text-overflow; }
