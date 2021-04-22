@@ -20,7 +20,7 @@
   font-weight: 300;
   line-height: 1.4;
   @media ( min-width: $screen-sm ) {
-    font-size: ( $font-size-base * 1.5 );
+	font-size: ( $font-size-base * 1.5 );
   }
 }
 .normal { font-size: 1.00em; font-weight: normal;	font-style: normal; text-transform: none; }
@@ -63,6 +63,8 @@ img.alignright, a.alignright img { margin: 5px 0px 10px 10px; }
 .sr-only { display: none; }
 
 
+.display-inline-block { display: inline-block !important; }
+
 
 .bg-primary { background-color: lighten( $brand-primary, 60% ); }
 .bg-warning { background-color: lighten( $brand-warning, 50% ); }
@@ -88,3 +90,15 @@ img.alignright, a.alignright img { margin: 5px 0px 10px 10px; }
 .mr-2 { margin-right: 1em !important; }
 .mr-1 { margin-right: .5em !important; }
 .mr-0 { margin-right: 0 !important; }
+
+.border {  border: .1rem solid $border-color; }
+.border-bottom { border-bottom: .1rem solid $border-color; }
+.border-left { border-left: .1rem solid $border-color; }
+.border-right { border-right: .1rem solid $border-color; }
+.border-top { border-top: .1rem solid $border-color; }
+
+@each $color in $brand-colors {
+	.border-#{$color} {
+		border-color: $color;
+	}
+}

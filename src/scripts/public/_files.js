@@ -22,6 +22,7 @@ jQuery.each( [ 'pdf', 'doc', 'xls', 'zip', 'ppt', 'odt', 'psd' ], function( i, t
 		if (
 			$link.find( '.file, .file-' + type ).length < 1 &&
 			! $link.hasClass( 'no-file-icon' ) &&
+			! $link.parent().hasClass( 'no-file-icon' ) &&
 			! $link.hasClass( 'button' ) &&
 			! $link.hasClass( 'btn' ) &&
 			! $link.hasClass( 'wp-block-file__button' ) &&
