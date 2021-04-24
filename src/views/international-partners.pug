@@ -1,144 +1,86 @@
-extend layout/_index	
+extend layout/_index
 
 
 mixin international_partner( args )
-	.row.mb-3.pt-3.pb-3.border-bottom( role="row" )
-		.col-xs-3.col-sm-3.col-md-4.col-lg-4( role="cell" ): .row
-			each company in args.item.companies
-				.col-xs: figure.ml-0
-					a( href=company.link ): img.lazy( src="#" data-src=company.logo alt=company.name[ args.lang ] )
-					figcaption.small #[strong #[a( href=company.link ) #{company.name[ args.lang ]}]]
-		.col-xs-3.col-sm-3.col-md-2.col-lg-2( role="cell" )
-			figure.ml-0
-				img.lazy( src="#" data-src=args.item.country.logo alt=args.item.country.name[ args.lang ] )
-				figcaption.small #{args.item.country.name[ args.lang ]}
-		.col-xs-3.col-sm-3.col-md-2.col-lg-2( role="cell" )
-			p #[span( title="Дата укладання угоди/the date of the agreement" ) #{args.item.contract.start}] - #[span( title="Дата дії угоди/valid till" ) #{args.item.contract.start}]
-		.col-xs-3.col-sm-3.col-md-4.col-lg-4( role="cell" ): .row
-			each responsible in args.item.responsible
-				.col-xs: figure
-					a( href=responsible.link ): img.lazy( src="#" data-src=responsible.logo alt=responsible.name[ args.lang ] )
-					figcaption.small #[strong #[a( href=responsible.link ) #{responsible.name[ args.lang ]}]]
+	.row.mb-1.pt-3.pb-3.border-bottom( role="row" )
+			.col-xs-8.col-sm-8.col-md-6.col-lg-4( role="cell" )
+				p.font-weight-bold.mt-0.hide-lg
+					if ( args.item.companies.length > 1 )
+						if ( args.lang == 'uk' )
+							span Організації партнери:
+						if ( args.lang == 'en' )	
+							span Partner organizations:
+					else
+						if ( args.lang == 'uk' )
+							span Організація партнер:
+						if ( args.lang == 'en' )	
+							span Partner name
+				.row
+					each company in args.item.companies
+						.col-xs-6
+							if ( company.logo.length == 0 )
+								if ( company.link.length == 0 )
+									p.lead #{company.name[ args.lang ] }
+								else
+									p.lead: a( href=company.link ) #{company.name[ args.lang ]}
+							else
+								figure.ml-0.mt-0
+									if ( company.link.length == 0 )
+										img.lazy( src="#" data-src=company.logo alt=company.name[ args.lang ] )
+										figcaption.small #{company.name[ args.lang ]}
+									else
+										a( href=company.link ): img.lazy( src="#" data-src=company.logo alt=company.name[ args.lang ] )
+										figcaption.small #[a( href=company.link ) #{company.name[ args.lang ]}]
+			.col-xs-4.col-sm-3.col-sm-offset-1.col-md-offset-0.col-md-1.col-lg-1( role="cell" )
+				p.font-weight-bold.mt-0.hide-lg
+					if ( args.lang == 'uk' )
+						span Партнерська країна: 
+					if ( args.lang == 'en' )	
+						span Partner country: 
+				figure.ml-0.mt-0.mr-0
+					img.lazy( src="#" data-src=args.item.country.logo alt=args.item.country.name[ args.lang ] )
+					figcaption.small #{args.item.country.name[ args.lang ]}
+			.col-xs-12.col-sm-12.col-md-4.col-md-offset-1.col-lg-3.col-lg-offset-1( role="cell" )
+				ul.list-unstyled.mb-3
+					li
+						if ( args.lang == 'uk' )
+							b Дата укладання угоди: 
+						if ( args.lang == 'en' )	
+							b The date of the agreement: 
+						span #{args.item.contract.start}
+					li
+						if ( args.lang == 'uk' )
+							b Дата дії угоди: 
+						if ( args.lang == 'en' )
+							b Valid till: 
+						span #{args.item.contract.start}
+			.col-xs-12.col-sm-12.col-md-12.col-lg-3( role="cell" )
+				p.font-weight-bold.mt-0.visible-xs.visible-sm.visible-md.hide-lg
+					if ( args.item.companies.length > 1 )
+						if ( args.lang == 'uk' )
+							span Responsible facultiy: 
+						if ( args.lang == 'en' )	
+							span Responsible faculties: 
+					else
+						if ( args.lang == 'uk' )
+							span Відповідальний факультет: 
+						if ( args.lang == 'en' )	
+							span Faculty of PSTU
+				.row
+					each responsible in args.item.responsible
+						.col-xs-4.col-sm-2.col-md-2.col-lg-4: figure.ml-0.mt-0
+							a( href=responsible.link ): img.lazy( src="#" data-src=responsible.logo alt=responsible.name[ args.lang ] )
+							figcaption.small #[a( href=responsible.link ) #{responsible.name[ args.lang ]}]
 
 
 block variables
 	-
 		page.type = 'page singular single';
 		page.title = 'Міжнародні партнери ДВНЗ «ПДТУ»';
-		var countries = {
-			azerbaijan: { name: { uk: 'Азербайджан', en: 'Azerbaijan' }, logo: 'https://pstu.edu/wp-content/uploads/2021/04/azerbajdzhan-300x200.png' },
-			belgium: { name: { uk: 'Бельгія', en: 'Belgium' }, logo: 'https://pstu.edu/wp-content/uploads/2021/01/belgyya-300x200.png' },
-			belarus: { name: { uk: 'Білорусь', en: 'Belarus' }, logo: 'https://pstu.edu/wp-content/uploads/2021/01/belarus-300x200.png' },
-			bulgaria: { name: { uk: 'Болгарія', en: 'Bulgaria' }, logo: 'https://pstu.edu/wp-content/uploads/2021/01/bolgaryya-300x200.png' },
-			gb: { name: { uk: 'Великобританія', en: 'Great Britain' }, logo: 'https://pstu.edu/wp-content/uploads/2021/04/velykobrytanyya-300x200.png' },
-			greece: { name: { uk: 'Греція', en: 'Greece' }, logo: 'https://pstu.edu/wp-content/uploads/2021/01/greczyya-300x200.png' },
-			georgia: { name: { uk: 'Грузія', en: 'Georgia' }, logo: 'https://pstu.edu/wp-content/uploads/2021/01/gruzyya-300x200.png' },
-			egypt: { name: { uk: 'Єгипет', en: 'Egypt' }, logo: 'https://pstu.edu/wp-content/uploads/2021/01/egypet-300x200.png' },
-			israel: { name: { uk: 'Ізраїль', en: 'Israel' }, logo: 'https://pstu.edu/wp-content/uploads/2021/04/yzrayl-300x200.png' },
-			spain: { name: { uk: 'Іспанія', en: 'Spain' }, logo: 'https://pstu.edu/wp-content/uploads/2021/01/yspanyya-300x200.png' },
-			china: { name: { uk: 'Китай', en: 'China' }, logo: 'https://pstu.edu/wp-content/uploads/2021/01/kytaj-300x200.png' },
-			lithuania: { name: { uk: 'Литва', en: 'Lithuania' }, logo: 'https://pstu.edu/wp-content/uploads/2021/04/lytva-300x200.png' },
-			moldova: { name: { uk: 'Молдова', en: 'Moldova' }, logo: 'https://pstu.edu/wp-content/uploads/2021/01/moldova-300x200.png' },
-			germany: { name: { uk: 'Німеччина', en: 'Germany' }, logo: 'https://pstu.edu/wp-content/uploads/2021/01/germanyya-300x200.png' },
-			poland: { name: { uk: 'Польща', en: 'Poland' }, logo: 'https://pstu.edu/wp-content/uploads/2021/01/polsha-300x200.png' },
-			usa: { name: { uk: 'США', en: 'USA' }, logo: 'https://pstu.edu/wp-content/uploads/2021/04/ssha-300x200.png' },
-			tajikistan: { name: { uk: 'Таджикистан', en: 'Tajikistan' }, logo: 'https://pstu.edu/wp-content/uploads/2021/01/tadzhykystan-300x200.png' },
-			turkey: { name: { uk: 'Турція', en: 'Turkey' }, logo: 'https://pstu.edu/wp-content/uploads/2021/04/turczyya-300x200.png' },
-			hungary: { name: { uk: 'Угорщина', en: 'Hungary' }, logo: 'https://pstu.edu/wp-content/uploads/2021/01/vengryya-300x200.png' },
-			france: { name: { uk: 'Франція', en: 'France' }, logo: 'https://pstu.edu/wp-content/uploads/2021/04/franczyya-300x200.png' },
-			japan: { name: { uk: 'Японія', en: 'Japan' }, logo: 'https://pstu.edu/wp-content/uploads/2021/01/yaponyya-300x200.png' },
-			all: { name: { uk: 'Міжнародна компанія', en: 'International company' }, logo: 'https://pstu.edu/wp-content/uploads/2021/04/zemnoj-shar-150x150.png' },
-		};
-		var units = {
-			pstu: { name: { uk: 'ПДТУ', en: 'PSTU' }, logo: 'https://pstu.edu/wp-content/uploads/2019/06/ПГТУ-лого-150x150.png' },
-			ekf: { name: { uk: 'Економічний факультет', en: 'Faculty of Econimics' }, logo: 'https://pstu.edu/wp-content/uploads/2017/05/EkF-150x150.png' },
-			enf: { name: { uk: 'Енергетичний факультет', en: 'Faculty of Power Engineering' }, logo: 'https://pstu.edu/wp-content/uploads/2017/05/EnF-150x150.png' },
-			mf: { name: { uk: 'Металургійний факультет', en: '' }, logo: 'https://pstu.edu/wp-content/uploads/2017/05/MF-150x150.png' },
-			sgf: { name: { uk: 'Соціально-гуманітарний факультет', en: '' }, logo: 'https://pstu.edu/wp-content/uploads/2017/05/SGF-150x150.png' },
-			fit: { name: { uk: 'Факультет інформаційних технологій', en: '' }, logo: 'https://pstu.edu/wp-content/uploads/2017/05/FIT-150x150.png' },
-			fmz: { name: { uk: 'Факультет машинобудування та зварювання', en: '' }, logo: 'https://pstu.edu/wp-content/uploads/2017/05/FMZ-150x150.png' },
-			ftt: { name: { uk: 'Факультет транспортних технологій', en: '' }, logo: 'https://pstu.edu/wp-content/uploads/2017/05/FTT-150x150.png' },
-		};
-		var companies = {
-			nduaz: { name: { uk: 'Нахічеванський державний університет', en: 'Nakhchivan State University' }, logo: 'https://pstu.edu/wp-content/uploads/2021/04/nahichevanskyj-derzhavnyj-universytet-150x150.png', link: 'https://ndu.edu.az/' },
-			aztueduaz: { name: { uk: 'Азербайджанський технічний університет', en: 'Azerbaijan Technical University' }, logo: 'https://pstu.edu/wp-content/uploads/2021/04/azerbajdzhanskyj-tehnichnyj-universytet-150x150.png', link: 'http://aztu.edu.az/' },
-			mechelenlessius: { name: { uk: 'Lessius-Mechelen campus de Nayer', en: 'Lessius-Mechelen campus de Nayer' }, logo: '', link: 'http://mechelen.lessius.eu/' },
-			periskal: { name: { uk: 'Periskal cvba', en: 'Periskal cvba' }, logo: 'https://pstu.edu/wp-content/uploads/2021/04/periskal-cvba-300x74.png', link: 'http://www.periskal.com/' },
-			bseuby: { name: { uk: 'Білоруський державний економічний університет', en: 'Belarus State Economic University' }, logo: 'https://pstu.edu/wp-content/uploads/2021/04/biloruskyj-derzhavnyj-ekonomichnyj-universytet-150x150.png', link: 'http://bseu.by/' },
-			mspuby: { name: { uk: 'Мозирський державний педагогічний університет імені Шимякина', en: 'Mozyr State Pedagogical University named after I.P. Shamyakin' }, logo: '', link: 'http://mspu.by/index.php/en/' },
-			internobmenbg: { name: { uk: 'Компанія "Інтернобмен"', en: 'INTERNOBMEN Ltd' }, logo: '', link: 'https://internobmen.bg/' },
-			delcamcom: { name: { uk: 'Delcam plc', en: 'Delcam plc' }, logo: '', link: 'https://www.delcam.com' },
-			britishcouncil: { name: { uk: 'Британська Рада в Україні', en: 'British Council in Ukraine' }, logo: '', link: 'https://www.britishcouncil.org.ua/' },
-			uoigr: { name: { uk: 'Університет Яніна', en: 'University of Ioannina' }, logo: '', link: 'https://www.uoi.gr/en/' },
-			gueduge: { name: { uk: 'Горійський державний навчальний університет', en: 'Gori State Teaching University' }, logo: '', link: 'https://www.gu.edu.ge/en/' },
-			unikeduge: { name: { uk: 'Кутаїський Університет', en: 'Kutaisi University' }, logo: '', link: 'https://www.unik.edu.ge/' },
-			timsgoveg: { name: { uk: 'Табінський металургійний інститут', en: 'Tabbin Institute of Metallurgical Study' }, logo: '', link: 'http://tims.gov.eg/en/' },
-			iimtechnionacil: { name: { uk: 'Technion Reseach Development Foundation Israil Institute of Metal', en: 'Technion Reseach Development Foundation Israil Institute of Metal' }, logo: '', link: 'https://iim.technion.ac.il/' },
-			ucoes: { name: { uk: 'Університет Кордоба', en: 'University of Córdoba' }, logo: '', link: 'https://www.uco.es/' },
-			hubei: { name: { uk: 'Metal Valley Band (Hubei) High-Tech Industry development Co.Ltd', en: 'Metal Valley Band (Hubei) High-Tech Industry development Co.Ltd' }, logo: '', link: '' },
-			enwhueducn: { name: { uk: 'Уханський університет науки і техніки', en: '' }, logo: '', link: 'https://en.whu.edu.cn/' },
-			materialskievua: { name: { uk: 'Інститут проблем матеріалознавства ім. І.Н. Францевіча НАН України', en: 'Technology and Frantsevich IPMS of NAS of Ukraine' }, logo: '', link: 'http://www.materials.kiev.ua/' },
-			wfueducn: { name: { uk: 'Вейфанський університет', en: 'Weifang University' }, logo: '', link: 'https://www.wfu.edu.cn/' },
-			vdult: { name: { uk: 'Університет Вітаутаса Магнуса', en: 'Vytautas Magnus University' }, logo: '', link: 'https://www.vdu.lt/en/' },
-			mrunieu: { name: { uk: 'Університет Миколаса Ромеріса', en: 'Mykolas Romeris University' }, logo: '', link: 'https://www.mruni.eu/' },
-			asemd: { name: { uk: 'Молдавська економічна академія', en: 'The Academy of Economic Studies of Moldova' }, logo: '', link: 'https://ase.md/' },
-			aommzcom: { name: { uk: 'Молдавський металургійний завод', en: 'JSC Moldova Steel Works' }, logo: '', link: 'https://ase.md/' },
-			fhwsde: { name: { uk: 'Університет Вюрцбург-Швайнфуркт', en: 'University of Applied Sciences Würzburg-Schweinfurt' }, logo: '', link: 'https://www.fhws.de/en/' },
-			aghedupl: { name: { uk: 'Гірничо-Металургійна Академія у Кракові імені Станіслава Сташиця', en: 'AGH University of Science and Technology' }, logo: '', link: 'https://www.agh.edu.pl/' },
-			plodzpl: { name: { uk: 'Лодзька Політехніка', en: 'Lodz University of Technology' }, logo: '', link: 'https://p.lodz.pl/' },
-			panoramamorskapl: { name: { uk: 'Панорама Морська', en: 'Health Resort & Medical SPA Panorama Morska' }, logo: '', link: 'https://www.panorama-morska.pl/' },
-			pbedupl: { name: { uk: 'Білостоцька Політехніка', en: 'Bialystok University of Technology' }, logo: '', link: 'https://pb.edu.pl/' },
-			berkeleyedu: { name: { uk: 'Університет Каліфорнія - Берклі (кафедра Хімії)', en: 'Berkeley University of California' }, logo: '', link: 'www.berkeley.edu' },
-			americancouncils: { name: { uk: 'Американськи Ради з міжнародної освіти', en: 'American Councils of International Education: ACTR/ACCELS' }, logo: '', link: 'https://www.americancouncils.org/' },
-			ttutj: { name: { uk: 'Таджицький технічний університет імені М.С. Осімі', en: 'Tajik Technical University named after academic M.S.Osim' }, logo: '', link: 'http://ttu.tj/' },
-			tgfeutj: { name: { uk: 'Таджицький державний університет фінансів та економіки', en: 'The Tajik state university of finance and economics' }, logo: '', link: 'http://tgfeu.tj/en/' },
-			akuedutr: { name: { uk: 'Университет Афйон Коджатепе', en: 'Afyon Kocatepe University ' }, logo: '', link: 'https://aku.edu.tr/' },
-			unimiskolchu: { name: { uk: 'Мішкольцкий Університет', en: '' }, logo: '', link: 'https://www.uni-miskolc.hu/en' },
-			beteninternational: { name: { uk: 'АТ Спрощенного типу Бетне Еннержьері', en: '' }, logo: '', link: 'https://beteninternational.com/' },
-			muroranitacjp: { name: { uk: 'Муроранський університет технологій', en: 'Muroran Institute of Technology ' }, logo: '', link: 'https://muroran-it.ac.jp/en/' },
-			greenwichiic: { name: { uk: 'Міжнародний Інформаційний Центр "ГРІНВІЧ"', en: '' }, logo: '', link: 'http://greenwich-iic.com.ua/' },
-		};
-		var partners_info = [
-			{ companies: [ companies.nduaz ], country: countries.azerbaijan, contract: { start: '13.08.2018', end: '13.08.2023' }, responsible: [ units.pstu ] },
-			{ companies: [ companies.aztueduaz ], country: countries.azerbaijan, contract: { start: '06.09.2019', end: '06.09.2024' }, responsible: [ units.ekf, units.ftt ] },
-			{ companies: [ companies.mechelenlessius ], country: countries.belgium, contract: { start: '20.08.2012', end: 'безстрокова' }, responsible: [ units.pstu ] },
-			{ companies: [ companies.periskal ], country: countries.belgium, contract: { start: '15.04.2021', end: '15.04.2026' }, responsible: [ units.fit ] },
-			{ companies: [ companies.bseuby ], country: countries.belarus, contract: { start: '10.01.2011', end: 'безстроковий' }, responsible: [ units.ekf ] },
-			{ companies: [ companies.mspuby ], country: countries.belarus, contract: { start: '27.11.2020', end: '27.11.2025' }, responsible: [ units.sgf ] },
-			{ companies: [ companies.internobmenbg ], country: countries.bulgaria, contract: { start: '10.01.2017', end: 'безстрокова' }, responsible: [ units.pstu ] },
-			{ companies: [ companies.delcamcom ], country: countries.gb, contract: { start: '15.06.2012', end: 'безстрокова' }, responsible: [ units.fit ] },
-			{ companies: [ companies.britishcouncil ], country: countries.gb, contract: { start: '02.11.2018', end: 'щорічне оновлення' }, responsible: [ units.pstu ] },
-			{ companies: [ companies.uoigr ], country: countries.greece, contract: { start: '07.12.2015', end: 'безстрокова' }, responsible: [ units.fit ] },
-			{ companies: [ companies.gueduge ], country: countries.georgia, contract: { start: '08.01.2014', end: '08.01.2022' }, responsible: [ units.ekf ] },
-			{ companies: [ companies.unikeduge ], country: countries.georgia, contract: { start: '10.01.2010', end: 'безстроковий' }, responsible: [ units.sgf ] },
-			{ companies: [ companies.timsgoveg ], country: countries.egypt, contract: { start: '11.07.2012', end: 'безстроковий' }, responsible: [ units.pstu ] },
-			{ companies: [ companies.iimtechnionacil ], country: countries.israel, contract: { start: '10.12.2019', end: '10.12.2024' }, responsible: [ units.enf ] },
-			{ companies: [ companies.iimtechnionacil ], country: countries.spain, contract: { start: '22.04.2009', end: 'пролонгація' }, responsible: [ units.pstu ] },
-			{ companies: [ companies.hubei ], country: countries.china, contract: { start: '19.06.2019', end: 'безстрокова' }, responsible: [ units.fit ] },
-			{ companies: [ companies.enwhueducn ], country: countries.china, contract: { start: '20.01.2013', end: 'безстроковий' }, responsible: [ units.mf ] },
-			{ companies: [ companies.enwhueducn, companies.materialskievua ], country: countries.china, contract: { start: '20.06.2014', end: 'безстроковий' }, responsible: [ units.mf ] },
-			{ companies: [ companies.wfueducn ], country: countries.china, contract: { start: '29.09.2010', end: 'безстроковий' }, responsible: [ units.pstu ] },
-			{ companies: [ companies.vdult ], country: countries.lithuania, contract: { start: '10.11.2020', end: '10.11.2025' }, responsible: [ units.pstu ] },
-			{ companies: [ companies.mrunieu ], country: countries.lithuania, contract: { start: '14.12.2020', end: '14.12.2025' }, responsible: [ units.ekf ] },
-			{ companies: [ companies.asemd ], country: countries.moldova, contract: { start: '25.02.2010', end: 'безстроковий' }, responsible: [ units.ekf ] },
-			{ companies: [ companies.aommzcom ], country: countries.moldova, contract: { start: '25.02.2010', end: 'безстроковий' }, responsible: [ units.ekf ] },
-			{ companies: [ companies.fhwsde ], country: countries.germany, contract: { start: '25.09.2016', end: '25.09.2022' }, responsible: [ units.pstu ] },
-			{ companies: [ companies.aghedupl ], country: countries.poland, contract: { start: '20.09.2007', end: 'безстрокова' }, responsible: [ units.ekf ] },
-			{ companies: [ companies.aghedupl ], country: countries.poland, contract: { start: '10.12.2013', end: 'безстрокова' }, responsible: [ units.ekf ] },
-			{ companies: [ companies.aghedupl ], country: countries.poland, contract: { start: '30.01.2017', end: 'безстрокова' }, responsible: [ units.fmz ] },
-			{ companies: [ companies.plodzpl ], country: countries.poland, contract: { start: '12.06.2007', end: 'безстрокова' }, responsible: [ units.ekf ] },
-			{ companies: [ companies.panoramamorskapl ], country: countries.poland, contract: { start: '07.12.2016', end: 'не зазначено' }, responsible: [ units.sgf ] },
-			{ companies: [ companies.pbedupl ], country: countries.poland, contract: { start: '26.12.2019', end: '26.12.2024' }, responsible: [ units.mf ] },
-			{ companies: [ companies.berkeleyedu ], country: countries.usa, contract: { start: '01.01.2018', end: 'безстрокова' }, responsible: [ units.mf ] },
-			{ companies: [ companies.americancouncils ], country: countries.usa, contract: { start: '23.11.2020', end: '30.06.2022' }, responsible: [ units.pstu ] },
-			{ companies: [ companies.ttutj ], country: countries.tajikistan, contract: { start: '28.03.2017', end: 'безстроковий' }, responsible: [ units.pstu ] },
-			{ companies: [ companies.tgfeutj ], country: countries.tajikistan, contract: { start: '04.01.2021', end: '04.01.2026' }, responsible: [ units.ekf ] },
-			{ companies: [ companies.akuedutr ], country: countries.turkey, contract: { start: '10.01.2019', end: '10.01.2024' }, responsible: [ units.pstu ] },
-			{ companies: [ companies.unimiskolchu ], country: countries.hungary, contract: { start: '15.10.2010', end: 'безстрокова' }, responsible: [ units.fmz ] },
-			{ companies: [ companies.beteninternational ], country: countries.france, contract: { start: '30.10.2020', end: 'безстрокова' }, responsible: [ units.pstu ] },
-			{ companies: [ companies.muroranitacjp ], country: countries.japan, contract: { start: '01.11.2020', end: '01.11.2025' }, responsible: [ units.mf ] },
-			{ companies: [ companies.greenwichiic ], country: countries.all, contract: { start: '01.01.2018', end: 'безстроковий' }, responsible: [ units.sgf ] },
-		];
+	include helpers/_companies
+	include helpers/_countries
+	include helpers/_units
+	include helpers/_partners
 
 
 block main
@@ -150,15 +92,15 @@ block main
 		div( role="table" )
 
 			//- шапка
-			div( role="rowgroup" )
-				.row.middle-xs.hidden-xs.visible-xs.mb-3.pt-3.pb-3.border-bottom( role="row" )
-					.col-xs-3.col-sm-3.col-md-4.col-lg-4( role="columnheader" )
+			div.hide-xs.hide-sm.hide-md.visible-lg.lead( role="rowgroup" )
+				.row.middle-xs.mb-3.border-bottom.pt-3.pb-3( role="row" )
+					.col-lg-4( role="columnheader" )
 						strong Організація партнер
-					.col-xs-3.col-sm-3.col-md-2.col-lg-2( role="columnheader" )
+					.col-lg-2( role="columnheader" )
 						strong Партнерська країна
-					.col-xs-3.col-sm-3.col-md-2.col-lg-2( role="columnheader" )
-						strong Дата укладання угоди - Дата дії угоди
-					.col-xs-3.col-sm-3.col-md-4.col-lg-4( role="columnheader" )
+					.col-lg-2( role="columnheader" )
+						strong Термін дії
+					.col-lg-3.col-lg-offset-1( role="columnheader" )
 						strong Відповідальний факультет
 
 			//- тело
@@ -171,15 +113,15 @@ block main
 		div( role="table" )
 
 			//- шапка
-			div( role="rowgroup" )
-				.row.middle-xs.hidden-xs.visible-xs.mb-3.pt-3.pb-3.border-bottom( role="row" )
-					.col-xs-3.col-sm-3.col-md-3.col-lg-3( role="columnheader" )
+			div.hide-xs.hide-sm.hide-md.visible-lg.lead( role="rowgroup" )
+				.row.middle-xs.mb-3.border-bottom.pt-3.pb-3( role="row" )
+					.col-lg-4( role="columnheader" )
 						strong Partner name
-					.col-xs-3.col-sm-3.col-md-3.col-lg-3( role="columnheader" )
+					.col-lg-2( role="columnheader" )
 						strong Partner country
-					.col-xs-3.col-sm-3.col-md-3.col-lg-3( role="columnheader" )
-						strong The date of the agreement - Valid till
-					.col-xs-3.col-sm-3.col-md-3.col-lg-3( role="columnheader" )
+					.col-lg-2( role="columnheader" )
+						strong Time of the contract 
+					.col-lg-3.col-lg-offset-1( role="columnheader" )
 						strong Responsible Faculty of PSTU
 
 			//- тело

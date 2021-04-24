@@ -152,8 +152,12 @@ $name: $smallest;
 
 .hide-#{$name} {
 	visibility: hidden;
-	opacity: 0;
 	display: none;
+}
+
+.visible-#{$name} {
+	visibility: visible;
+	display: initial;
 }
 
 @each $breakpoint in $flexboxgrid-breakpoints {
@@ -161,17 +165,19 @@ $name: $smallest;
 	$size: nth($breakpoint, 2);
 	$container: nth($breakpoint, 3);
 	@media only screen and ( max-width: $size ) {
-		.hide-#{$name} {
-			visibility: hidden;
-			opacity: 0;
-			display: none;
+		.visible-#{$name} {
+			visibility: visible;
+			display: initial;
 		}
 	}
 	@media only screen and ( min-width: $size ) {
+		.hide-#{$name} {
+			visibility: hidden;
+			display: none;
+		}
 		.container {
 			width: $container;
 		}
-
 		.col-#{$name} {
 			@include flexboxgrid-sass-col-common;
 			@include flex-basis(auto);
