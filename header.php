@@ -21,6 +21,7 @@ if ( wp_is_mobile() ) {
 <html <?php language_attributes(); ?>>
 	<?php get_template_part( 'parts/head' ); ?>
 	<body <?php body_class( $body_classes ); ?> data-nav="inactive">
+		<?php echo get_theme_mod( 'additionalscriptsbody' ); ?>
 		<?php get_template_part( 'parts/mobilenav' ); ?>
 		<div class="wrapper" id="wrapper">
 			<header id="header" class="wrapper__item wrapper__item--header header">
