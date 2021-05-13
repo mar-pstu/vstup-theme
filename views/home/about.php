@@ -26,8 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 			<?php endif; ?>
 			<div class="col-xs-12 col-sm-9 col-md">
 				<?php if ( ! empty( $title ) ) : ?><h2><?php echo $title; ?></h2><?php endif; ?>
-				<?php if ( ! empty( $description ) ) : ?><p><?php echo strip_tags( $description, '<b><a><i>' ); ?></p><?php endif; ?>
-				<?php echo get_advantages_list(); ?>
+				<?php if ( ! empty( $description ) ) : echo $description; endif; ?>
 				<?php if ( ! empty( $permalink ) ) : ?>
 					<p>
 						<a class="btn btn-success" href="<?php echo esc_attr( $permalink ); ?>">

@@ -57,21 +57,35 @@ function register_home_settings_about( $wp_customize ) {
 	); /**/
 
 
+	// $wp_customize->add_setting(
+	// 	'about_description',
+	// 	[
+	// 		'transport'         => 'reset',
+	// 		'sanitize_callback' => 'sanitize_textarea_field',
+	// 	]
+	// );
+	// $wp_customize->add_control(
+	// 	'about_description',
+	// 	[
+	// 		'section'           => VSTUP_SLUG . '_about',
+	// 		'label'             => __( 'Подзаголовок', VSTUP_TEXTDOMAIN ),
+	// 		'type'              => 'textarea',
+	// 	]
+	// ); /**/
+
+
 	$wp_customize->add_setting(
-		'about_description',
-		[
-			'transport'         => 'reset',
-			'sanitize_callback' => 'sanitize_textarea_field',
-		]
+	'aboutdescription',
+	[
+		'transport'         => 'postMessage',
+		'sanitize_callback' => 'wp_kses_post',
+	]
 	);
-	$wp_customize->add_control(
-		'about_description',
-		[
-			'section'           => VSTUP_SLUG . '_about',
-			'label'             => __( 'Подзаголовок', VSTUP_TEXTDOMAIN ),
-			'type'              => 'textarea',
-		]
-	); /**/
+	$wp_customize->add_control( new WP_Customize_Control_Tinymce_Editor( $wp_customize, 'aboutdescription', [
+	    'label'                 => __( 'Описание', VSTUP_TEXTDOMAIN ),
+	    'section'               => VSTUP_SLUG . '_about',
+	    'settings'              => 'aboutdescription'
+	] ) ); /**/
 
 
 	$wp_customize->add_setting(

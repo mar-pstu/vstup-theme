@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
 $title = get_theme_mod( 'about_title' );
-$description = get_theme_mod( 'about_description' );
+$description = do_shortcode( get_theme_mod( 'aboutdescription' ), false );
 $label = get_theme_mod( 'about_label' );
 $thumbnail_src = get_theme_mod( 'about_thumbnail' );
 $thumbnail_alt = get_bloginfo( 'name' );
