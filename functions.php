@@ -50,19 +50,20 @@ if ( is_admin() && ! wp_doing_ajax() ) {
 
 
 if ( is_customize_preview() ) {
-	get_template_part( 'settings/controls/wp-customize-tinymce-editor' );
+	get_template_part( 'settings/wp-customize-control-list' );
 	get_template_part( 'includes/customizer-panels' );
 	get_template_part( 'includes/sanitize-settings' );
-	get_template_part( 'settings/additional-scripts' );
-	foreach ( [
-		'home'   => apply_filters( 'get_home_parts', [] ),
-		'lists'  => apply_filters( 'get_lists_parts', [] ),
-		'blocks' => apply_filters( 'get_blocks_parts', [] ),
-	] as $dir_name => $path_names ) {
-		foreach ( $path_names as $path_name ) {
-			if ( $path_name ) {
-				get_template_part( "settings/{$dir_name}/{$path_name}" );
-			}
-		}
-	}
+	get_template_part( 'settings/header' );
+	get_template_part( 'settings/partners' );
+	get_template_part( 'settings/contacts' );
+	get_template_part( 'settings/socials' );
+	get_template_part( 'settings/firstscreen' );
+	get_template_part( 'settings/about' );
+	get_template_part( 'settings/news' );
+	get_template_part( 'settings/action' );
+	get_template_part( 'settings/faculties' );
+	get_template_part( 'settings/videos' );
+	get_template_part( 'settings/people' );
+	get_template_part( 'settings/services' );
+	get_template_part( 'settings/questions' );
 }

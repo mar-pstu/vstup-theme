@@ -15,7 +15,7 @@ function register_home_settings_videos( $wp_customize ) {
 	$wp_customize->add_section(
 		VSTUP_SLUG . '_videos',
 		[
-			'title'            => __( 'Видео', VSTUP_TEXTDOMAIN ),
+			'title'            => __( 'Главная - Видео', VSTUP_TEXTDOMAIN ),
 			'priority'         => 10,
 			'description'      => __( 'Вторая секция главной страницы. Якорь #videos', VSTUP_TEXTDOMAIN ),
 			'panel'            => VSTUP_SLUG . '_home',

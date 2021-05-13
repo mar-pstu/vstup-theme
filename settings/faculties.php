@@ -15,7 +15,7 @@ function register_home_settings_faculties( $wp_customize ) {
 	$wp_customize->add_section(
 		VSTUP_SLUG . '_faculties',
 		[
-			'title'            => __( 'Факультеты', VSTUP_TEXTDOMAIN ),
+			'title'            => __( 'Главная - Факультеты', VSTUP_TEXTDOMAIN ),
 			'priority'         => 10,
 			'description'      => __( 'Секция главной страницы. Якорь #faculties.', VSTUP_TEXTDOMAIN ),
 			'panel'            => VSTUP_SLUG . '_home',

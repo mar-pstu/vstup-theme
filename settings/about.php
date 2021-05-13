@@ -15,7 +15,7 @@ function register_home_settings_about( $wp_customize ) {
 	$wp_customize->add_section(
 		VSTUP_SLUG . '_about',
 		[
-			'title'            => __( 'Информация', VSTUP_TEXTDOMAIN ),
+			'title'            => __( 'Главная - Информация', VSTUP_TEXTDOMAIN ),
 			'priority'         => 10,
 			'description'      => __( 'Вторая секция главной страницы. Якорь #about', VSTUP_TEXTDOMAIN ),
 			'panel'            => VSTUP_SLUG . '_home',
@@ -57,35 +57,21 @@ function register_home_settings_about( $wp_customize ) {
 	); /**/
 
 
-	// $wp_customize->add_setting(
-	// 	'about_description',
-	// 	[
-	// 		'transport'         => 'reset',
-	// 		'sanitize_callback' => 'sanitize_textarea_field',
-	// 	]
-	// );
-	// $wp_customize->add_control(
-	// 	'about_description',
-	// 	[
-	// 		'section'           => VSTUP_SLUG . '_about',
-	// 		'label'             => __( 'Подзаголовок', VSTUP_TEXTDOMAIN ),
-	// 		'type'              => 'textarea',
-	// 	]
-	// ); /**/
-
-
 	$wp_customize->add_setting(
-	'aboutdescription',
-	[
-		'transport'         => 'postMessage',
-		'sanitize_callback' => 'wp_kses_post',
-	]
+		'about_description',
+		[
+			'transport'         => 'reset',
+			'sanitize_callback' => 'sanitize_textarea_field',
+		]
 	);
-	$wp_customize->add_control( new WP_Customize_Control_Tinymce_Editor( $wp_customize, 'aboutdescription', [
-	    'label'                 => __( 'Описание', VSTUP_TEXTDOMAIN ),
-	    'section'               => VSTUP_SLUG . '_about',
-	    'settings'              => 'aboutdescription'
-	] ) ); /**/
+	$wp_customize->add_control(
+		'about_description',
+		[
+			'section'           => VSTUP_SLUG . '_about',
+			'label'             => __( 'Подзаголовок', VSTUP_TEXTDOMAIN ),
+			'type'              => 'textarea',
+		]
+	); /**/
 
 
 	$wp_customize->add_setting(
@@ -155,6 +141,48 @@ function register_home_settings_about( $wp_customize ) {
 			'label'             => __( 'URL изображения', VSTUP_TEXTDOMAIN ),
 			'type'              => 'text',
 		]
+	); /**/
+
+	$wp_customize->add_setting(
+		'advantages',
+		[
+			'transport'         => 'reset',
+			'sanitize_callback' => function ( $data ) {
+				$result = array_filter( array_map( function ( $value ) {
+					return parse_only_allowed_args(
+						[ 'usedby' => '', 'title' => '', 'value' => '', 'thumbnail' => [], 'permalink' => '' ],
+						$value,
+						[ 'vstup\sanitize_checkbox', 'sanitize_text_field', 'sanitize_text_field', 'vstup\sanitize_image_data', 'esc_url_raw' ]
+					);
+				}, json_decode( $data, true ) ) );
+				return ( is_array( $result ) ) ? wp_json_encode( $result, JSON_UNESCAPED_UNICODE ) : '[]';
+			},
+		]
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Control_list(
+			$wp_customize,
+			'advantages',
+			[
+				'label'      => __( 'Преимущества', VSTUP_TEXTDOMAIN ),
+				'section'    => VSTUP_SLUG . '_about',
+				'type'       => 'list',
+				'controls'   => [
+					'value'     => [
+						'type'     => 'url',
+						'label'    => __( 'Значение', VSTUP_TEXTDOMAIN ),
+					],
+					'thumbnail' => [
+						'type'     => 'image',
+						'label'    => __( 'Изображение', VSTUP_TEXTDOMAIN ),
+					],
+					'permalink' => [
+						'type'     => 'url',
+						'label'    => __( 'Ссылка на описание', VSTUP_TEXTDOMAIN ),
+					],
+				],
+			]
+		)
 	); /**/
 
 }

@@ -15,7 +15,7 @@ function register_home_settings_action( $wp_customize ) {
 	$wp_customize->add_section(
 		VSTUP_SLUG . '_action',
 		[
-			'title'            => __( 'Начни с нами', VSTUP_TEXTDOMAIN ),
+			'title'            => __( 'Главная - Начни с нами', VSTUP_TEXTDOMAIN ),
 			'priority'         => 10,
 			'description'      => __( 'Третья секция главной страницы. Якорь #action', VSTUP_TEXTDOMAIN ),
 			'panel'            => VSTUP_SLUG . '_home',

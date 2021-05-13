@@ -15,7 +15,7 @@ function register_home_settings_firstscreen( $wp_customize ) {
 	$wp_customize->add_section(
 		VSTUP_SLUG . '_firstscreen',
 		[
-			'title'            => __( 'Слайдер', VSTUP_TEXTDOMAIN ),
+			'title'            => __( 'Главная - Слайдер', VSTUP_TEXTDOMAIN ),
 			'priority'         => 10,
 			'description'      => __( 'Первый слайдер главной страницы. Якорь #firstscreen', VSTUP_TEXTDOMAIN ),
 			'panel'            => VSTUP_SLUG . '_home',

@@ -15,7 +15,7 @@ function register_home_settings_questions( $wp_customize ) {
 	$wp_customize->add_section(
 		VSTUP_SLUG . '_questions',
 		[
-			'title'            => __( 'Обратная связь', VSTUP_TEXTDOMAIN ),
+			'title'            => __( 'Главная - Обратная связь', VSTUP_TEXTDOMAIN ),
 			'priority'         => 10,
 			'description'      => __( 'Секция главной страницы. Якорь #questions. Предполагается наличие формы обратной связи.', VSTUP_TEXTDOMAIN ),
 			'panel'            => VSTUP_SLUG . '_home',

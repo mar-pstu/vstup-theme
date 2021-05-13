@@ -15,7 +15,7 @@ function register_home_settings_news( $wp_customize ) {
 	$wp_customize->add_section(
 		VSTUP_SLUG . '_news',
 		[
-			'title'            => __( 'Новости', VSTUP_TEXTDOMAIN ),
+			'title'            => __( 'Главная - Новости', VSTUP_TEXTDOMAIN ),
 			'priority'         => 30,
 			'description'      => __( 'Секция главной страницы для вывода постов из категории. Публикуются 6 последних постов, в которые в первую очередь включаются 3 последних закреплённых поста. Якорь #news', VSTUP_TEXTDOMAIN ),
 			'panel'            => VSTUP_SLUG . '_home',

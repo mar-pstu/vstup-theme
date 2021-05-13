@@ -99,7 +99,7 @@ function search_backlight( $text ) {
 
 /**
  * Функция для очистки массива параметров
- * @param  array $default           расзерённые парметры и стандартные значения
+ * @param  array $default           стандартные значения
  * @param  array $args              неочищенные параметры
  * @param  array $sanitize_callback одномерный массив с именами функция, с помощью поторых нужно очистить параметры
  * @param  array $required          обязательные параметры
@@ -129,6 +129,11 @@ function parse_only_allowed_args( $default, $args, $sanitize_callback = [], $req
 		next( $default );
 	}
 	return $result;
+}
+
+
+function sanitize_image_data( $data = [] ) {
+	return ( is_array( $data ) ) ? parse_only_allowed_args( [ 'id' => '', 'url' => '' ], $data, [ 'absint', 'esc_url_raw' ], [ 'id', 'url' ] ) : [];
 }
 
 
