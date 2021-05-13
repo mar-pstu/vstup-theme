@@ -21,6 +21,7 @@ if ( wp_is_mobile() ) {
 <html <?php language_attributes(); ?>>
 	<?php get_template_part( 'parts/head' ); ?>
 	<body <?php body_class( $body_classes ); ?> data-nav="inactive">
+		<?php echo get_theme_mod( 'additionalscriptsbody' ); ?>
 		<?php get_template_part( 'parts/mobilenav' ); ?>
 		<div class="wrapper" id="wrapper">
 			<header id="header" class="wrapper__item wrapper__item--header header">
@@ -31,7 +32,6 @@ if ( wp_is_mobile() ) {
 							get_template_part( 'parts/lists/socials' );
 							get_template_part( 'parts/lists/contacts' );
 							get_template_part( 'parts/search-modal' );
-							get_search_form( true );
 							get_template_part( 'parts/languages-list' );
 						?>
 					</div>
@@ -46,14 +46,17 @@ if ( wp_is_mobile() ) {
 									alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"
 								>
 							<?php endif; ?>
-							<div class="blog-name hide">
+							<div class="blog-name blog-name--full hide">
 								<?php
-									$header_blog_name = get_theme_mod( 'header_blog_name' );
+									$header_blog_name = get_theme_mod( 'header_blog_name_full' );
 									if ( empty( trim( $header_blog_name ) ) ) {
 										$header_blog_name = get_bloginfo( 'name' );
 									}
 									echo $header_blog_name;
 								?>
+							</div>
+							<div class="blog-name blog-name--short">
+								<?php echo get_theme_mod( 'header_blog_name_shorts' ); ?>
 							</div>
 						</a>
 						<nav class="nav">
@@ -70,7 +73,7 @@ if ( wp_is_mobile() ) {
 									'depth'           => 3,
 								] );
 							?>
-							<button class="nav__burger burger navtoggle">
+							<button class="nav__burger burger navtoggle hide">
 								<span class="sr-only"><?php _e( 'Меню', VSTUP_TEXTDOMAIN ); ?></span>
 								<svg class="icon" enable-background="new 0 0 451.111 451.111" viewBox="0 0 451.111 451.111">
 									<path d="m0 0h451.111v64.444h-451.111z" transform="translate(1 1)"/>

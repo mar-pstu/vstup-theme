@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
 $title = get_the_title( get_the_ID() );
-$bgi = ( has_post_thumbnail( get_the_ID() ) ) ? get_the_post_thumbnail_url( get_the_ID(), 'full' ) : '';
+$bgi = ( has_post_thumbnail( get_the_ID() ) ) ? get_the_post_thumbnail_url( get_the_ID(), ( wp_is_mobile() ) ? 'medium' : 'large' ) : '';
 $excerpt = ( has_excerpt( get_the_ID() ) ) ? get_the_excerpt( get_the_ID() ) : '';
 $permalink = '';
 $label = '';

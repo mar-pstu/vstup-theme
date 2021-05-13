@@ -8,10 +8,11 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
 $title = get_theme_mod( 'about_title' );
-$description = get_theme_mod( 'about_description' );
+$description = do_shortcode( get_theme_mod( 'aboutdescription' ), false );
 $label = get_theme_mod( 'about_label' );
 $thumbnail_src = get_theme_mod( 'about_thumbnail' );
 $thumbnail_alt = get_bloginfo( 'name' );
+$thumbnail_link = get_theme_mod( 'about_thumbnail_link' );
 
 if ( ! empty( $thumbnail_src ) ) {
 	$thumbnail_id = attachment_url_to_postid( $thumbnail_src );
@@ -21,8 +22,6 @@ if ( ! empty( $thumbnail_src ) ) {
 	}
 }
 
-$page_id = get_theme_mod( 'about_page_id' );
-$permalink = ( empty( $page_id ) ) ? '' : get_permalink( $page_id );
-
+$permalink = get_theme_mod( 'about_permalink' );
 
 include get_theme_file_path( 'views/home/about.php' );

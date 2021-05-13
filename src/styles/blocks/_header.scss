@@ -13,12 +13,10 @@
 	}
 
 	&.header--stick .custom-logo-link {
-		// width: 3em;
 		max-height: 3em;
 	}
 
 	&.header--stick .custom-logo {
-		// width: 3em;
 		max-height: 3em;
 	}
 
@@ -86,7 +84,7 @@
 
 	.custom-logo-link {
 		// display: block;
-		position: relative;
+		// position: relative;
 		display: flex;
 		flex-direction: row;
 		align-items: center;
@@ -99,18 +97,18 @@
 
 	.custom-logo {
 		align-self: flex-start;
-		max-height: 10em;
+		max-height: 8em;
 		display: block;
 		flex-shrink: 0;
-		margin-right: 1em;
 		transition: max-height .2s;
+		position: relative;
+		z-index: 999;
 	}
 
-	.custom-logo + .blog-name {
+	.custom-logo ~ .blog-name {
 		font-weight: bold;
 		max-width: 40em;
-		font-size: 65%;
-		// font-size: 2em;
+		font-size: 125%;
 	}
 
 	.nav {

@@ -17,11 +17,16 @@ get_template_part( 'includes/theme-functions' );
 get_template_part( 'includes/gutenberg' );
 get_template_part( 'includes/menus' );
 get_template_part( 'includes/sidebars' );
+get_template_part( 'includes/image-sizes' );
 
 
 get_template_part( 'shortcodes/graduate-list' );
 get_template_part( 'shortcodes/advantages-list' );
 get_template_part( 'shortcodes/services-list' );
+get_template_part( 'shortcodes/accordio-list' );
+get_template_part( 'shortcodes/clearfix' );
+get_template_part( 'shortcodes/posts-of-category' );
+get_template_part( 'shortcodes/tabs' );
 
 
 if ( function_exists( 'pll_register_string' ) && function_exists( 'pll__' ) ) {
@@ -45,8 +50,10 @@ if ( is_admin() && ! wp_doing_ajax() ) {
 
 
 if ( is_customize_preview() ) {
+	get_template_part( 'settings/controls/wp-customize-tinymce-editor' );
 	get_template_part( 'includes/customizer-panels' );
 	get_template_part( 'includes/sanitize-settings' );
+	get_template_part( 'settings/additional-scripts' );
 	foreach ( [
 		'home'   => apply_filters( 'get_home_parts', [] ),
 		'lists'  => apply_filters( 'get_lists_parts', [] ),

@@ -11,26 +11,30 @@
 	@include color ( inherit, inherit, inherit, inherit );
 }
 
+%list-checked {
+	padding-left: 0;
+	li, .item {
+		list-style-type: none;
+	}
+	li::before, .item::before {
+		@extend %background-icon;
+		@extend %icon-checked;
+		@include size( $line-height-base * 1em, $line-height-base * 1em );
+		content: '';
+		display: inline-block;
+		vertical-align: middle;
+		margin-right: .5em;
+	}
+	&.red-bullet li::before, &.item::before { @extend %icon-checked-red; }
+	&.blue-bullet li::before, &.item::before { @extend %icon-checked-blue; }
+}
+
 %clearfix { @include clearfix; }
 
 %text-overflow { @include text-overflow; }
 
 %dl-horizontal { @include dl-horizontal; }
 
-
-%title {
-	font-weight: bold;
-  	margin-top: .2em;
-  	margin-bottom: .2em;
-}
-
-%h1 {
-	@extend %title;
-	font-size: 1.75em;
-	@include min-width( $screen-sm ) {
-		font-size: 2em;
-	}
-}
 
 %bgi {
 	position: absolute;

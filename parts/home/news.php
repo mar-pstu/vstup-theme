@@ -24,6 +24,12 @@ include get_theme_file_path( 'views/home/news-before.php' );
 // выводим список записей с превью
 if ( is_array( $news_entries ) && ! empty( $news_entries ) && count( $news_entries ) >= 3 ) {
 
+	$news_entries_number = get_theme_mod( 'news_numberentries' );
+	if ( count( $news_entries ) > $news_entries_number ) {
+		$news_entries = array_slice( $news_entries, 0, $news_entries_number );
+	}
+
+
 	if ( file_exists( $entries_init_script_path = get_theme_file_path( 'scripts/init/news-list-entries.js' ) ) ) {
 		wp_enqueue_style( 'slick' );
 		wp_enqueue_scripts( 'slick' );
@@ -49,7 +55,7 @@ if ( is_array( $news_entries ) && ! empty( $news_entries ) && count( $news_entri
 		if ( ! empty( $entry[ 'thumbnail' ] ) ) {
 			$thumbnail_id = attachment_url_to_postid( removing_image_size_from_url( $entry[ 'thumbnail' ] ) );
 			if ( $thumbnail_id && ! is_wp_error( $thumbnail_id ) ) {
-				$entry[ 'thumbnail' ] = wp_get_attachment_image_url( $thumbnail_id, 'large', false );
+				$entry[ 'thumbnail' ] = wp_get_attachment_image_url( $thumbnail_id, 'thumbnail-medium', false );
 			}
 		}
 		include get_theme_file_path( 'views/home/news-list-entry.php' );

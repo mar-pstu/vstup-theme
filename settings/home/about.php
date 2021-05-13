@@ -41,23 +41,6 @@ function register_home_settings_about( $wp_customize ) {
 
 
 	$wp_customize->add_setting(
-		'about_page_id',
-		[
-			'transport'         => 'reset',
-			'sanitize_callback' => 'absint',
-		]
-	);
-	$wp_customize->add_control(
-		'about_page_id',
-		[
-			'section'           => VSTUP_SLUG . '_about',
-			'label'             => __( 'Выбор страницы', VSTUP_TEXTDOMAIN ),
-			'type'              => 'dropdown-pages',
-		]
-	); /**/
-
-
-	$wp_customize->add_setting(
 		'about_title',
 		[
 			'transport'         => 'reset',
@@ -74,21 +57,35 @@ function register_home_settings_about( $wp_customize ) {
 	); /**/
 
 
+	// $wp_customize->add_setting(
+	// 	'about_description',
+	// 	[
+	// 		'transport'         => 'reset',
+	// 		'sanitize_callback' => 'sanitize_textarea_field',
+	// 	]
+	// );
+	// $wp_customize->add_control(
+	// 	'about_description',
+	// 	[
+	// 		'section'           => VSTUP_SLUG . '_about',
+	// 		'label'             => __( 'Подзаголовок', VSTUP_TEXTDOMAIN ),
+	// 		'type'              => 'textarea',
+	// 	]
+	// ); /**/
+
+
 	$wp_customize->add_setting(
-		'about_description',
-		[
-			'transport'         => 'reset',
-			'sanitize_callback' => 'sanitize_textarea_field',
-		]
+	'aboutdescription',
+	[
+		'transport'         => 'postMessage',
+		'sanitize_callback' => 'wp_kses_post',
+	]
 	);
-	$wp_customize->add_control(
-		'about_description',
-		[
-			'section'           => VSTUP_SLUG . '_about',
-			'label'             => __( 'Подзаголовок', VSTUP_TEXTDOMAIN ),
-			'type'              => 'textarea',
-		]
-	); /**/
+	$wp_customize->add_control( new WP_Customize_Control_Tinymce_Editor( $wp_customize, 'aboutdescription', [
+	    'label'                 => __( 'Описание', VSTUP_TEXTDOMAIN ),
+	    'section'               => VSTUP_SLUG . '_about',
+	    'settings'              => 'aboutdescription'
+	] ) ); /**/
 
 
 	$wp_customize->add_setting(
@@ -103,6 +100,23 @@ function register_home_settings_about( $wp_customize ) {
 		[
 			'section'           => VSTUP_SLUG . '_about',
 			'label'             => __( 'Текст кнопки', VSTUP_TEXTDOMAIN ),
+			'type'              => 'text',
+		]
+	); /**/
+
+
+	$wp_customize->add_setting(
+		'about_permalink',
+		[
+			'transport'         => 'reset',
+			'sanitize_callback' => 'sanitize_url',
+		]
+	);
+	$wp_customize->add_control(
+		'about_permalink',
+		[
+			'section'           => VSTUP_SLUG . '_about',
+			'label'             => __( 'URL с описанием', VSTUP_TEXTDOMAIN ),
 			'type'              => 'text',
 		]
 	); /**/
@@ -126,6 +140,22 @@ function register_home_settings_about( $wp_customize ) {
 			]
 		)
 	);
+
+	$wp_customize->add_setting(
+		'about_thumbnail_link',
+		[
+			'transport'         => 'reset',
+			'sanitize_callback' => 'sanitize_url',
+		]
+	);
+	$wp_customize->add_control(
+		'about_thumbnail_link',
+		[
+			'section'           => VSTUP_SLUG . '_about',
+			'label'             => __( 'URL изображения', VSTUP_TEXTDOMAIN ),
+			'type'              => 'text',
+		]
+	); /**/
 
 }
 

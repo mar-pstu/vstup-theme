@@ -1,0 +1,134 @@
+extend layout/_index
+
+
+mixin international_partner( args )
+	.row.mb-1.pt-3.pb-3.border-bottom( role="row" )
+			.col-xs-8.col-sm-8.col-md-6.col-lg-4( role="cell" )
+				p.font-weight-bold.mt-0.hide-lg
+					if ( args.item.companies.length > 1 )
+						if ( args.lang == 'uk' )
+							span Організації партнери:
+						if ( args.lang == 'en' )	
+							span Partner organizations:
+					else
+						if ( args.lang == 'uk' )
+							span Організація партнер:
+						if ( args.lang == 'en' )	
+							span Partner name
+				.row
+					each company in args.item.companies
+						.col-xs-6
+							if ( company.logo.length == 0 )
+								if ( company.link.length == 0 )
+									p.lead #{company.name[ args.lang ] }
+								else
+									p.lead: a( href=company.link ) #{company.name[ args.lang ]}
+							else
+								figure.ml-0.mt-0
+									if ( company.link.length == 0 )
+										img.lazy( src="#" data-src=company.logo alt=company.name[ args.lang ] )
+										figcaption.small #{company.name[ args.lang ]}
+									else
+										a( href=company.link ): img.lazy( src="#" data-src=company.logo alt=company.name[ args.lang ] )
+										figcaption.small #[a( href=company.link ) #{company.name[ args.lang ]}]
+			.col-xs-4.col-sm-3.col-sm-offset-1.col-md-offset-0.col-md-1.col-lg-1( role="cell" )
+				p.font-weight-bold.mt-0.hide-lg
+					if ( args.lang == 'uk' )
+						span Партнерська країна: 
+					if ( args.lang == 'en' )	
+						span Partner country: 
+				figure.ml-0.mt-0.mr-0
+					img.lazy( src="#" data-src=args.item.country.logo alt=args.item.country.name[ args.lang ] )
+					figcaption.small #{args.item.country.name[ args.lang ]}
+			.col-xs-12.col-sm-12.col-md-4.col-md-offset-1.col-lg-3.col-lg-offset-1( role="cell" )
+				ul.list-unstyled.mb-3
+					li
+						if ( args.lang == 'uk' )
+							b Дата укладання угоди: 
+						if ( args.lang == 'en' )	
+							b The date of the agreement: 
+						span #{args.item.contract.start}
+					li
+						if ( args.lang == 'uk' )
+							b Дата дії угоди: 
+						if ( args.lang == 'en' )
+							b Valid till: 
+						span #{args.item.contract.end}
+			.col-xs-12.col-sm-12.col-md-12.col-lg-3( role="cell" )
+				p.font-weight-bold.mt-0.visible-xs.visible-sm.visible-md.hide-lg
+					if ( args.item.companies.length > 1 )
+						if ( args.lang == 'uk' )
+							span Responsible facultiy: 
+						if ( args.lang == 'en' )	
+							span Responsible faculties: 
+					else
+						if ( args.lang == 'uk' )
+							span Відповідальний факультет: 
+						if ( args.lang == 'en' )	
+							span Faculty of PSTU
+				.row
+					each responsible in args.item.responsible
+						.col-xs-4.col-sm-2.col-md-2.col-lg-4: figure.ml-0.mt-0
+							a( href=responsible.link ): img.lazy( src="#" data-src=responsible.logo alt=responsible.name[ args.lang ] )
+							figcaption.small #[a( href=responsible.link ) #{responsible.name[ args.lang ]}]
+
+
+block variables
+	-
+		page.type = 'page singular single';
+		page.title = 'Міжнародні партнери ДВНЗ «ПДТУ»';
+	include helpers/_companies
+	include helpers/_countries
+	include helpers/_units
+	include helpers/_partners
+
+
+block main
+	include blocks/_pageheader
+	.container
+
+		h2 Укр версия
+
+		div( role="table" )
+
+			//- шапка
+			div.hide-xs.hide-sm.hide-md.visible-lg.lead( role="rowgroup" )
+				.row.middle-xs.mb-3.border-bottom.pt-3.pb-3( role="row" )
+					.col-lg-4( role="columnheader" )
+						strong Організація партнер
+					.col-lg-2( role="columnheader" )
+						strong Партнерська країна
+					.col-lg-2( role="columnheader" )
+						strong Термін дії
+					.col-lg-3.col-lg-offset-1( role="columnheader" )
+						strong Відповідальний факультет
+
+			//- тело
+			div( role="rowgroup" )
+				each partner in partners_info
+					+international_partner( { item: partner, lang: 'uk' } )
+
+
+		h2 Англ версия
+		div( role="table" )
+
+			//- шапка
+			div.hide-xs.hide-sm.hide-md.visible-lg.lead( role="rowgroup" )
+				.row.middle-xs.mb-3.border-bottom.pt-3.pb-3( role="row" )
+					.col-lg-4( role="columnheader" )
+						strong Partner name
+					.col-lg-2( role="columnheader" )
+						strong Partner country
+					.col-lg-2( role="columnheader" )
+						strong Time of the contract 
+					.col-lg-3.col-lg-offset-1( role="columnheader" )
+						strong Responsible Faculty of PSTU
+
+			//- тело
+			div( role="rowgroup" )
+				each partner in partners_info
+					+international_partner( { item: partner, lang: 'en' } )
+
+
+		.text-right Опубликовано #[time.small( datetime="2004-07-24T18:18:18+04:00" ) 2020.12.5]
+		include blocks/_pager

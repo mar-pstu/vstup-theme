@@ -4,6 +4,7 @@
 @import "helpers/functions";
 @import "helpers/flex";
 @import "helpers/mixins";
+@import "helpers/extends.titles";
 @import "helpers/extends.button";
 @import "helpers/extends.icons";
 @import "helpers/extends";
@@ -14,3 +15,4 @@
 @import "blocks/header";         // Шапка сайта
 @import "blocks/jumbotron";
 @import "home/firstscreen";
+// @import "blocks/christmas";      // новогодняя ёлка

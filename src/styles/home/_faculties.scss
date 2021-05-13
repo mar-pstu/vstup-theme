@@ -83,6 +83,8 @@
 			text-align: center;
 			background-color: $brand-primary;
 			color: #fff;
+			backface-visibility: hidden;
+			opacity: 0;
 		}
 
 		.side--back::before {

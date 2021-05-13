@@ -20,12 +20,49 @@
 		background-color: #fff;
 	}
 
-	.slide {
+	.slick-slide {
 		display: none;
 	}
 
-	.slide:nth-of-type( 1 ) {
+	.slick-slide:nth-of-type( 1 ) {
 		display: block;
+	}
+
+	.slick-slide {
+		.title {
+			transform: translate( 15rem, 0 );
+			opacity: .5;
+			transition-property: transform, opacity;
+			transition-delay: .2s;
+			transition-duration: .7s;
+		}
+		.excerpt{
+			transform: translate( 15rem, 0 );
+			opacity: .5;
+			transition-property: transform, opacity;
+			transition-delay: .3s;
+			transition-duration: .7s;
+		}
+		.btn {
+			transform: translate( 15rem, 0 );
+			opacity: .5;
+			transition-property: transform, opacity;
+			transition-delay: .4s;
+			transition-duration: .7s;
+		}
+	}
+
+	.slick-slide.slick-current {
+		display: block;
+	}
+
+	.slick-slide.slick-active {
+		.title,
+		.excerpt,
+		.btn {
+			transform: translate( 0, 0 );
+			opacity: 1;
+		}
 	}
 
 	.warning {

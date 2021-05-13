@@ -20,4 +20,6 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 	<?php the_excerpt(); ?>
 
+	<time class="small" datetime="<?php the_time( 'c' ); ?>"><?php the_time( 'j F Y' ); ?></time>
+
 </a>

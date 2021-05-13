@@ -17,7 +17,7 @@ function register_lists_settings_partners( $wp_customize ) {
 		[
 			'title'            => __( 'Партнёры', VSTUP_TEXTDOMAIN ),
 			'priority'         => 10,
-			'description'      => __( 'Вторая секция главной страницы. Якорь #partners', VSTUP_TEXTDOMAIN ),
+			'description'      => __( 'Список партнёров, якорь #partners', VSTUP_TEXTDOMAIN ),
 			'panel'            => VSTUP_SLUG . '_lists',
 		]
 	); /**/
@@ -67,7 +67,6 @@ function register_lists_settings_partners( $wp_customize ) {
 		$wp_customize->add_setting(
 			"partners[{$i}]",
 			[
-				'default'           => '',
 				'transport'         => 'reset',
 				'sanitize_callback' => 'esc_url_raw',
 			]
