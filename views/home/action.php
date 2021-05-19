@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 <section class="section action lazy" id="action" data-src="<?php echo esc_attr( $bgi ); ?>">
 	<div class="container">
-		<div class="row middle-xs center-xs">
+		<div class="row middle-xs center-xs reverce">
 			<div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-1 text-center">
 				<?php if ( ! empty( $video ) ) : ?>
 					<a class="play fancybox" href="<?php echo esc_attr( $video ); ?>">

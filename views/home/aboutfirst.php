@@ -10,9 +10,9 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 ?>
 
 
-<section class="section about" id="about">
+<section class="section about aboutfirt" id="aboutfirt">
 	<div class="container">
-		<div class="row middle-xs center-xs reverse">
+		<div class="row middle-xs center-xs">
 			<?php if ( isset( $thumbnail_src ) && ! empty( $thumbnail_src ) ) : ?>
 				<div class="col-xs-12 col-sm-9 col-md-5">
 					<?php if ( isset( $thumbnail_link ) && is_url( $thumbnail_link ) ) : ?>

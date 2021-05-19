@@ -13,6 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; };
 function get_home_parts( $parts = [] ) {
 	return array_merge( [
 		'firstscreen',
+		'aboutfirst',
 		'about',
 		'news',
 		'action',
