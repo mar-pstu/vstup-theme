@@ -31,6 +31,14 @@ gulp.task( 'public_scripts', function() {
 );
 
 
+gulp.task( 'init_scripts', function () {
+	return gulp.src( [ './src/scripts/init/*.js' ] )
+		.pipe( plumber() )
+		.pipe( gulp.dest( './scripts/init/' ) )
+		.on( 'end', browserSync.reload );
+} );
+
+
 gulp.task( 'video', function () {
 	return gulp.src( './src/video/*.*' )
 		.pipe( gulp.dest( './video/' ) );
@@ -88,29 +96,12 @@ gulp.task( 'other_scripts', function () {
 	return gulp.src( [ './src/scripts/*.js' ] )
 		.pipe( plumber() )
 		.pipe( gulp.dest( './scripts/' ) )
-		.pipe( minscripts() )
+		// .pipe( minscripts() )
 		.pipe( rename( { suffix: '.min' } ) )
 		.pipe( gulp.dest( './scripts/' ) )
 		.on( 'end', browserSync.reload );
 } );
 
-
-
-gulp.task( 'gutenberg_scripts', function () {
-	return gulp.src( [ './src/scripts/gutenberg/*.js' ] )
-		.pipe( plumber() )
-		.pipe( gulp.dest( './scripts/gutenberg/' ) )
-		.on( 'end', browserSync.reload );
-} );
-
-
-
-gulp.task( 'init_scripts', function () {
-	return gulp.src( [ './src/scripts/init/*.js' ] )
-		.pipe( plumber() )
-		.pipe( gulp.dest( './scripts/init/' ) )
-		.on( 'end', browserSync.reload );
-} );
 
 
 gulp.task( 'minscripts', function () {
@@ -164,14 +155,14 @@ gulp.task( 'clearcache', function () {
 gulp.task( 'minify', gulp.series( 'minstyles', 'minscripts' ) );
 
 
-gulp.task( 'scripts', gulp.series( 'public_scripts', 'other_scripts', 'minscripts' ) );
+gulp.task( 'scripts', gulp.series( 'public_scripts', 'init_scripts', 'other_scripts', 'minscripts' ) );
 
 
 
 gulp.task( 'watch', function () {
 	gulp.watch( './src/styles/**/*.scss',                 gulp.series( 'styles') );
 	gulp.watch( './src/views/**/*.pug',                   gulp.series( 'html', 'index' ) );
-	gulp.watch( './src/scripts/**/*.js',                  gulp.series( 'public_scripts', 'other_scripts', 'init_scripts' ) );
+	gulp.watch( './src/scripts/**/*.js',                  gulp.series( 'scripts' ) );
 	gulp.watch( './src/images/**/*.{png,jpg,svg,gif}',    gulp.series( 'images' ) );
 	gulp.watch( './src/userfiles/**/*.{png,jpg,svg,gif}', gulp.series( 'userfiles' ) );
 	gulp.watch( './src/video/**/*.*',                     gulp.series( 'video' ) );
@@ -181,6 +172,6 @@ gulp.task( 'watch', function () {
 
 
 gulp.task( 'default', gulp.series(
-	gulp.parallel( 'html', 'index', 'styles', 'images', 'userfiles', 'video', 'fonts', 'public_scripts', 'other_scripts', 'init_scripts' ),
+	gulp.parallel( 'html', 'index', 'styles', 'scripts', 'images', 'userfiles', 'video', 'fonts', 'public_scripts', 'init_scripts' ),
 	gulp.parallel( 'watch', 'server' )
 ) );

@@ -11,8 +11,12 @@ jQuery( document ).ready( function () {
 	} );
 	$slider.slick( {
 		lazyLoad: 'ondemand',
-		dots: false,
-		arrows: false,
+		dots: true,
+		arrows: true,
+		dotsClass: 'slider-dots',
+		appendDots: '#news-controls',
+		prevArrow: '#news-arrow-prev',
+		nextArrow: '#news-arrow-next',
 		fade: true,
 		autoplay: true,
 		autoplaySpeed: 4000,

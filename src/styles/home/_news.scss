@@ -2,38 +2,6 @@
 //- главная странца - Новости
 .news {
 
-	.categories-names {
-		margin: 1rem auto;
-		padding-left: 1rem;
-	}
-
-	.categories-names .item {
-		cursor: pointer;
-		padding: .2rem 1.5rem;
-		transform: scale( .8 );
-		transform-origin: center center;
-		transition: transform .2s;
-		border: .2rem solid transparent;
-		display: inline-block;
-	}
-
-	.categories-names .item.active {
-		transform: scale( 1 );
-		border-color: transparentize( $brand-primary, .5 );
-	}
-
-	.news-list {
-		position: relative;
-		margin-top: 1rem;
-	}
-	
-	.news-list .item {
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-	}
-
 	.thumbnail {
 		position: relative;
 		margin-bottom: $flexboxgrid-outer-margin;

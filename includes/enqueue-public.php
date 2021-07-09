@@ -35,6 +35,28 @@ add_action( 'wp_enqueue_scripts', 'vstup\scripts' );
 
 
 /**
+ * Добавляет предварительную загрузку шрифтов
+ * */
+function add_preload_resource() {
+	foreach ( apply_filters( 'preload_resource_part', [
+		'fonts/MazzardM-Bold.woff2',
+		'fonts/MazzardM-BoldItalic.woff2',
+		'fonts/MazzardM-Regular.woff2',
+		'fonts/Lora-Bold.ttf',
+		'fonts/MazzardM-Italic.woff2',
+		'fonts/Lora-Regular.ttf',
+	] ) as $file_path ) {
+		$file_uri = get_theme_file_uri( $file_path );
+		if ( $file_uri ) {
+			echo '<link rel="preload" href="' . $file_uri . '" as="font" crossorigin="anonymous">';
+		}
+	}
+}
+
+add_action( 'head_start', 'vstup\add_preload_resource' );
+
+
+/**
  * Отключение стилей при выводе их в шапке, чтобы подкючить в подвале сайта
  */
 function dequeue_style() {

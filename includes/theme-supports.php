@@ -7,6 +7,9 @@ namespace vstup;
 if ( ! defined( 'ABSPATH' ) ) { exit; };
 
 
+/**
+ * 
+ * */
 function theme_supports() {
 	add_theme_support( 'menus' );
 	add_theme_support( 'custom-logo' );
@@ -24,3 +27,18 @@ function theme_supports() {
 }
 
 add_action( 'after_setup_theme', 'vstup\theme_supports' );
+
+
+/**
+ * Возвращает список социальных сетей для кнопок "поделиться"
+ * */
+function get_share_items( $items = [] ) {
+	return array_merge( [
+		'facebook' => __( 'Поделиться в Facebook', VSTUP_TEXTDOMAIN ),
+		'twitter'  => __( 'Поделиться в Twitter', VSTUP_TEXTDOMAIN ),
+		'linkedin' => __( 'Поделиться в LinkedIn', VSTUP_TEXTDOMAIN ),
+		'email'    => __( 'Отправить по email', VSTUP_TEXTDOMAIN ),
+	], $items );
+}
+
+add_filter( 'share_items', 'vstup\get_share_items', 10, 1 );

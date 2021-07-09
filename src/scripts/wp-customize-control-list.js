@@ -69,13 +69,17 @@
 			Получает данные элемента управления по идентификатору
 		*/
 		function GetData( id ) {
-			try {
-				return JSON.parse( StripSlashes( wp.customize.value( id ).get() ) );
-			} catch ( error ) {
-				return [];
+			var value = wp.customize.value( id ).get();
+			if ( Array.isArray( value ) ) {
+				return value;
+			} else {
+				try {
+					return JSON.parse( value );
+				} catch ( error ) {
+					return [];
+				}
 			}
 		}
-
 
 		/**
 			Записывает данные в элемент управления
@@ -118,6 +122,7 @@
 		function FormToggle( event ) {
 			event.preventDefault();
 			if ( event.data.$modal.hasClass( 'hide' ) ) {
+				
 				var $item = jQuery( event.target ).closest( '.item' );
 				var data = GetData( event.data.id );
 				var index = $item.closest( 'ol' ).find( 'li' ).not( '.ui-sortable-placeholder' ).index( $item );
@@ -215,10 +220,12 @@
 
 		function ImageInit( index, image ) {
 			var $image = jQuery( image );
+			var value = $image.find( '[name]' ).val();
 			var imageData;
 			try {
-				imageData = JSON.parse( StripSlashes( $image.find( '[name]' ).val() ) );
-			} catch ( e ) {
+				imageData = value.length ? JSON.parse( StripSlashes( value ) ) : {};
+			} catch ( error ) {
+				console.log( error );
 				imageData = false;
 			}
 			$image.find( 'img' ).attr( 'src', ( imageData && typeof ( imageData.url ) !== 'undefined' ) ? imageData.url : '' );
@@ -345,10 +352,15 @@
 			data[ index ] = {};
 			$form.serializeArray().map( function( item ) {
 				var value;
-				try {
-					value = JSON.parse( StripSlashes( item.value ) );
-				} catch ( e ) {
-					value = item.value.replace( /(["'\/])/g, "\\" + "$1" );
+				if ( item.value.length ) {
+					try {
+						value = JSON.parse( StripSlashes( item.value ) );
+					} catch ( error ) {
+						console.log( error );
+						value = item.value;
+					}
+				} else {
+					value = item.value;
 				}
 				if ( item.name.match( /\[\]$/ ) ) {
 					item.name = item.name.replace( /\[\]$/, '' );
@@ -414,7 +426,8 @@
 		function AddSelectedItemForSingleImage() {
 			try {
 				var attachment;
-				var imageData = JSON.parse( StripSlashes( MediaLibraryForSingleImage.targetListItemImageObject.find( '[name]' ).val() ) );
+				var value = MediaLibraryForSingleImage.targetListItemImageObject.find( '[name]' ).val();
+				var imageData = value.length > 0 ? JSON.parse( StripSlashes( value ) ) : {};
 				if ( typeof ( imageData.id ) != 'undefined' ) {
 					attachment = wp.media.attachment( imageData.id );
 					MediaLibraryForSingleImage.state().get( 'selection' ).add( attachment );
@@ -539,6 +552,7 @@
 			$modal.on( 'click', '.form .image button.choice', params, OpenMediaLibraryForSingleImage );
 			$modal.on( 'click', '.form .image img', params, OpenMediaLibraryForSingleImage );
 			$modal.on( 'click', '.form .image button.clear', params, ClearMediaForSingleImage );
+
 			$modal.on( 'change', '.form select[name]', params, SaveItem );
 			$modal.on( 'change', '.form [name][type=checkbox]', params, SaveItem );
 			$modal.on( 'change', '.form [name][type=radio]', params, SaveItem );
@@ -549,6 +563,7 @@
 			$modal.on( 'keyup', '.form [name][type=tel]', params, SaveItem );
 			$modal.on( 'keyup', '.form [name][type=password]', params, SaveItem );
 			$modal.on( 'keyup', '.form [name][type=email]', params, SaveItem );
+
 			$modal.on( 'keydown', '.form textarea', {}, AutoSizeTextareaHeight );
 			jQuery( document ).on( 'tinymce-editor-setup', WPEditorTriggerChange );
 			MediaLibraryForGallery.on( 'select', SelectImageForGallery );

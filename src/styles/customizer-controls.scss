@@ -1,0 +1,21 @@
+.accordion-section .accordion-section-title::before{
+	display: inline;
+	font: normal 20px/1 dashicons;
+	vertical-align: middle;
+}
+
+#accordion-panel-template_parts .accordion-section-title::before {
+	content: "\f489";
+}
+
+#accordion-panel-page_templates .accordion-section-title::before {
+	content: "\f105";
+}
+
+#accordion-section-lovemaldivesth_modals .accordion-section-title::before {
+	content: "\f134";
+}
+
+#accordion-section-lovemaldivesth_additional_scripts .accordion-section-title::before {
+	content: "\f14b";
+}

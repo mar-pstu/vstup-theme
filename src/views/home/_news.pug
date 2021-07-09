@@ -7,74 +7,41 @@ mixin entry_text( args )
 	a.news__entry.entry( href="#" )
 		h3 #{args.title}
 		block
+		time.small( datetime="2021-07-09T08:44:11+02:00" ) 9 Липня 2021
 
 
 mixin entry_thumbnail( args )
-	a.news__thumbnail.thumbnail( href="#", role="listitem" )
+	a.news__thumbnail.thumbnail( href="#" )
 		.bg
 		img.wp-post-thumbnail( src="#", data-lazy=args.thumbnail, alt=args.title )
 		h3 #{args.title}
 
 
 .news#news.section: .container
+	h2 Новости
 	.row
 		.col-xs-11.col-sm-12.col-md-6.col-lg-6
-			h2 Новости
-			#news-list-entries( role="list" )
-				div.slide: .row
-					+entry_thumbnail( { thumbnail: src.img+'news/03.jpg', title: 'Заголовок поста №1' } )
-					+entry_thumbnail( { thumbnail: src.img+'news/01.jpg', title: 'Заголовок поста №2' } )
-					+entry_thumbnail( { thumbnail: src.img+'news/02.jpg', title: 'Заголовок поста №3' } )
-				div.slide: .row
-					+entry_thumbnail( { thumbnail: src.img+'news/02.jpg', title: 'Заголовок поста №2' } )
-					+entry_thumbnail( { thumbnail: src.img+'news/01.jpg', title: 'Заголовок поста №1' } )
-					+entry_thumbnail( { thumbnail: src.img+'news/03.jpg', title: 'Заголовок поста №3' } )
+			.slider
+				#news-list-entries
+					div.slide: .row
+						+entry_thumbnail( { thumbnail: src.img+'news/03.jpg', title: 'Заголовок поста №1' } )
+						+entry_thumbnail( { thumbnail: src.img+'news/01.jpg', title: 'Заголовок поста №2' } )
+						+entry_thumbnail( { thumbnail: src.img+'news/02.jpg', title: 'Заголовок поста №3' } )
+					div.slide: .row
+						+entry_thumbnail( { thumbnail: src.img+'news/02.jpg', title: 'Заголовок поста №2' } )
+						+entry_thumbnail( { thumbnail: src.img+'news/01.jpg', title: 'Заголовок поста №1' } )
+						+entry_thumbnail( { thumbnail: src.img+'news/03.jpg', title: 'Заголовок поста №3' } )
+				.slider-controls#news-controls
+					button.slider-arrow.prev#news-arrow-prev #[span.sr-only Предыдущий слайд]
+					button.slider-arrow.next#news-arrow-next #[span.sr-only Следующий слайд]
 	
 		.col-xs-11.col-sm-12.col-md-6.col-lg-6
-			#news-categories-names.categories-names( role="list" )
-				a.item( role="listitem" href="#list1" ) Все
-				a.item( role="listitem" href="#list2" ) Новости
-				a.item( role="listitem" href="#list3" ) Анонсы
-				a.item( role="listitem" href="#list4" ) Приёмная кампания
-			div#news-categories-list.news-list( role="list" )
-				div#list1.item( role="listitem" )
-					+entry_text( { title: 'Все новости №1' } )
-						p Lorem ipsum dolor sit amet, consectetur, adipisicing elit. Eveniet ipsa velit, natus facere ipsum repellat deleniti, sint, nemo possimus omnis, ratione harum. Eos, perferendis eveniet corporis dicta, similique consequatur provident.
-					+entry_text( { title: 'Все новости №2' } )
-						p Lorem ipsum, dolor sit, amet consectetur adipisicing elit. Quas asperiores quod aperiam harum non enim ex, culpa illo sapiente magni a, laborum eaque alias sunt nobis inventore voluptatem similique porro.
-					+entry_text( { title: 'Все новости №3' } )
-						p Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad optio dignissimos praesentium natus minima aut omnis voluptates saepe non quod, quibusdam sit fugiat nam consequatur quisquam, sapiente sint sed. Necessitatibus?
-					+entry_text( { title: 'Все новости №4' } )
-						p Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem praesentium corporis doloremque deleniti repudiandae fuga cumque eum id facere, eaque nam blanditiis temporibus! Quod, distinctio delectus, labore tenetur quas nulla.
-					p.text-center.small: a( href="#" ) Все новости категории
-				div#list2.item( role="listitem" )
-					+entry_text( { title: 'Новости №1' } )
-						p Lorem ipsum dolor sit amet, consectetur, adipisicing elit. Eveniet ipsa velit, natus facere ipsum repellat deleniti, sint, nemo possimus omnis, ratione harum. Eos, perferendis eveniet corporis dicta, similique consequatur provident.
-					+entry_text( { title: 'Новости №2' } )
-						p Lorem ipsum, dolor sit, amet consectetur adipisicing elit. Quas asperiores quod aperiam harum non enim ex, culpa illo sapiente magni a, laborum eaque alias sunt nobis inventore voluptatem similique porro.
-					+entry_text( { title: 'Новости №3' } )
-						p Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad optio dignissimos praesentium natus minima aut omnis voluptates saepe non quod, quibusdam sit fugiat nam consequatur quisquam, sapiente sint sed. Necessitatibus?
-					+entry_text( { title: 'Новости №4' } )
-						p Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem praesentium corporis doloremque deleniti repudiandae fuga cumque eum id facere, eaque nam blanditiis temporibus! Quod, distinctio delectus, labore tenetur quas nulla.
-					p.text-center.small: a( href="#" ) Все новости категории
-				div#list3.item( role="listitem" )
-					+entry_text( { title: 'Анонсы новости №1' } )
-						p Lorem ipsum dolor sit amet, consectetur, adipisicing elit. Eveniet ipsa velit, natus facere ipsum repellat deleniti, sint, nemo possimus omnis, ratione harum. Eos, perferendis eveniet corporis dicta, similique consequatur provident.
-					+entry_text( { title: 'Анонсы новости №2' } )
-						p Lorem ipsum, dolor sit, amet consectetur adipisicing elit. Quas asperiores quod aperiam harum non enim ex, culpa illo sapiente magni a, laborum eaque alias sunt nobis inventore voluptatem similique porro.
-					+entry_text( { title: 'Анонсы новости №3' } )
-						p Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad optio dignissimos praesentium natus minima aut omnis voluptates saepe non quod, quibusdam sit fugiat nam consequatur quisquam, sapiente sint sed. Necessitatibus?
-					+entry_text( { title: 'Анонсы новости №4' } )
-						p Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem praesentium corporis doloremque deleniti repudiandae fuga cumque eum id facere, eaque nam blanditiis temporibus! Quod, distinctio delectus, labore tenetur quas nulla.
-					p.text-center.small: a( href="#" ) Все новости категории
-				div#list4.item( role="listitem" )
-					+entry_text( { title: 'Приёмная кампания №1' } )
-						p Lorem ipsum dolor sit amet, consectetur, adipisicing elit. Eveniet ipsa velit, natus facere ipsum repellat deleniti, sint, nemo possimus omnis, ratione harum. Eos, perferendis eveniet corporis dicta, similique consequatur provident.
-					+entry_text( { title: 'Приёмная кампания №2' } )
-						p Lorem ipsum, dolor sit, amet consectetur adipisicing elit. Quas asperiores quod aperiam harum non enim ex, culpa illo sapiente magni a, laborum eaque alias sunt nobis inventore voluptatem similique porro.
-					+entry_text( { title: 'Приёмная кампания №3' } )
-						p Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad optio dignissimos praesentium natus minima aut omnis voluptates saepe non quod, quibusdam sit fugiat nam consequatur quisquam, sapiente sint sed. Necessitatibus?
-					+entry_text( { title: 'Приёмная кампания №4' } )
-						p Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem praesentium corporis doloremque deleniti repudiandae fuga cumque eum id facere, eaque nam blanditiis temporibus! Quod, distinctio delectus, labore tenetur quas nulla.
-					p.text-center.small: a( href="#" ) Все новости категории
+			+entry_text( { title: 'Все новости №1' } )
+				p Lorem ipsum dolor sit amet, consectetur, adipisicing elit. Eveniet ipsa velit, natus facere ipsum repellat deleniti, sint, nemo possimus omnis, ratione harum. Eos, perferendis eveniet corporis dicta, similique consequatur provident.
+			+entry_text( { title: 'Все новости №2' } )
+				p Lorem ipsum, dolor sit, amet consectetur adipisicing elit. Quas asperiores quod aperiam harum non enim ex, culpa illo sapiente magni a, laborum eaque alias sunt nobis inventore voluptatem similique porro.
+			+entry_text( { title: 'Все новости №3' } )
+				p Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad optio dignissimos praesentium natus minima aut omnis voluptates saepe non quod, quibusdam sit fugiat nam consequatur quisquam, sapiente sint sed. Necessitatibus?
+			+entry_text( { title: 'Все новости №4' } )
+				p Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem praesentium corporis doloremque deleniti repudiandae fuga cumque eum id facere, eaque nam blanditiis temporibus! Quod, distinctio delectus, labore tenetur quas nulla.
 	p.text-center: a.btn.btn-primary( href="#" ) Все новости

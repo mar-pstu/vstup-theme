@@ -4,7 +4,7 @@
 
 mixin advantage( args )
 	.col-xs-12.col-sm-6
-		a.advantage.lazy( href="#", role="listitem" )
+		a.advantage.lazy( href="#" )
 			span.bgi.lazy( data-src=args.thumbnail )
 			span.value #{args.value}
 			span.label #{args.label}
@@ -13,7 +13,7 @@ mixin advantage( args )
 
 section.section.about#about: .container: .row.middle-xs.center-xs
 	.col-xs-12.col-sm-12.col-md-5
-		a.logo( href="#" ): img.lazy( src="#", data-src=src.img+'gerb.png' )
+		a.logo( href="#" ): img.lazy( src="#" data-src=src.img+'gerb.png' alt='' )
 	.col-xs-12.col-sm-12.col-md-7
 		h2.title #{blog.description}
 		p.excerpt Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur adipisci eligendi cupiditate ad vero earum ratione nesciunt amet. In repellat laborum qui mollitia perferendis quibusdam id expedita ut praesentium quidem.

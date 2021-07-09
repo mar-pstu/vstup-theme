@@ -7,7 +7,7 @@
 mixin firstscreen_entry( args )
 	.slide: .jumbotron
 		.bg
-		img( data-lazy=args.thumbnail, style="display: none;" )
+		img( src="#" data-lazy=args.thumbnail style="display: none;" alt=args.title )
 		.container
 			h3.title #{args.title}
 			.excerpt #{args.excerpt}

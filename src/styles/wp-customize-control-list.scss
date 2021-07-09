@@ -33,6 +33,7 @@
 	border-radius: .25rem;
 }
 
+.customize-control-list li.item.true::before,
 .customize-control-list li.item.on::before {
 	background-color: #0071a1;
 }
