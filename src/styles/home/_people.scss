@@ -6,6 +6,9 @@
 		@extend %bgi;
 		@extend %bgi-cover;
 		opacity: .5;
+		filter: blur( .15em );
+		transform-origin: center center;
+		transform: scale( 1.25 );
 	}
 
 	h2 {

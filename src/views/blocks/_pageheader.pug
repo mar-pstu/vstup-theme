@@ -1,12 +1,4 @@
-.pageheader: .container
-	h1.title #{page.title}
-	//- .row.middle-xs
-	//- 	.col-xs-3.col-sm-2.col-md-1.col-lg-1
-	//- 		img.thumbnail.lazy( src="#", data-src=src.img+'sectors/13.png' )
-	//- 	.col-xs-9.col-sm-10.col-md-11.col-lg-11
-	//- 		h1.title #{page.title}
-	.row.middle-xs
-		.col-xs-12.col-sm-8.col-md-9
-			include _breadcrumbs
-		.col-xs-12.col-sm-4.col-md-3
-			include _share
+.pageheader
+	.container
+		h1.title #{page.title}
+		include _breadcrumbs

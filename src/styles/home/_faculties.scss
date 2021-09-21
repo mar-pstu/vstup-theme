@@ -23,7 +23,7 @@
 				opacity: 0;
 			}
 			.side--back {
-				transform: rotateY( 0deg ) scale( 1 );
+				transform: rotateY( 0deg );
 				opacity: 1;
 			}
 			.side--back::before {
@@ -43,7 +43,6 @@
 			overflow: hidden;
 			max-height: $line-height-base * 3em;
 			perspective: 1000px;
-			transform: translateZ( 175px ) scale( .86 );
 		}
 
 		.excerpt {
@@ -52,7 +51,6 @@
 			overflow: hidden;
 			max-height: $line-height-base * 5em;
 			perspective: 1000px;
-			transform: translateZ( 175px ) scale( .86 );
 		}
 
 		.logo {
@@ -74,7 +72,7 @@
 			left: 0;
 			right: 0;
 			bottom: 0;
-			padding: .5em;
+			padding: 1em;
 			transform-origin: center center;
 			transform: rotateY( 180deg ) scale( .75 );
 			display: flex;
